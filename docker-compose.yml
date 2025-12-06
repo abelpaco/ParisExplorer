@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  paris-explorer:
+    build: .
+    container_name: paris-explorer-automation
+    restart: unless-stopped
+    volumes:
+      - ./content:/app/content
+      - ./logs:/app/logs
+      - ./uploaded:/app/uploaded
+      - ./config.yaml:/app/config.yaml
+      - ./client_secrets.json:/app/client_secrets.json
+      - ./token.json:/app/token.json
+    environment:
+      - TZ=Europe/Paris
+    command: python automation.py --mode scheduler

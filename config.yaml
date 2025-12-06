@@ -1,0 +1,80 @@
+# ParisExplorer YouTube Automation Configuration
+
+# Scheduling configuration
+schedule:
+  # Times for automated posts (24-hour format)
+  post_times:
+    - "09:00"  # Morning post
+    - "14:00"  # Afternoon post
+    - "19:00"  # Evening post
+  
+  # Timezone
+  timezone: "Europe/Paris"
+  
+  # Enable/disable scheduler
+  enabled: true
+
+# Content sources configuration
+content_sources:
+  # Local files
+  local:
+    enabled: true
+    path: "./content"
+    # Supported formats
+    video_formats: [".mp4", ".avi", ".mov", ".mkv"]
+    image_formats: [".jpg", ".jpeg", ".png", ".gif"]
+    text_formats: [".txt", ".md"]
+  
+  # External URLs
+  external_urls:
+    enabled: true
+    # List of URLs to fetch content from
+    urls: []
+  
+  # External API
+  external_api:
+    enabled: false
+    # API endpoint configuration
+    endpoint: ""
+    auth_type: "bearer"  # Options: bearer, api_key, basic
+    polling_interval: 3600  # seconds
+
+# YouTube upload settings
+youtube:
+  # Default video settings
+  default_privacy: "public"  # Options: public, private, unlisted
+  default_category: "19"  # Travel & Events
+  
+  # Default tags for Paris content
+  default_tags:
+    - "Paris"
+    - "France"
+    - "Travel"
+    - "Tourism"
+    - "ParisExplorer"
+  
+  # Add location to videos
+  location:
+    enabled: true
+    latitude: 48.8566
+    longitude: 2.3522
+    description: "Paris, France"
+
+# Content queue settings
+queue:
+  # Maximum queue size
+  max_size: 100
+  
+  # Retry failed uploads
+  retry_failed: true
+  max_retries: 3
+  
+  # Archive uploaded content
+  archive_uploaded: true
+  archive_path: "./uploaded"
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR
+  file: "./logs/automation.log"
+  console: true
