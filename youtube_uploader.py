@@ -86,7 +86,7 @@ class YouTubeUploader:
         title: str,
         description: str = "",
         tags: list = None,
-        category: str = "22",
+        category: str = "19",
         privacy_status: str = "public",
         location: Optional[Dict[str, float]] = None
     ) -> Optional[str]:
@@ -98,7 +98,7 @@ class YouTubeUploader:
             title: Video title
             description: Video description
             tags: List of tags
-            category: YouTube category ID (22 = People & Blogs)
+            category: YouTube category ID (19 = Travel & Events)
             privacy_status: public, private, or unlisted
             location: Dict with latitude and longitude
         

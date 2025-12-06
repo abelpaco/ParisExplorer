@@ -255,7 +255,12 @@ class ContentManager:
                 return None
             
             # Check content length
-            content_length = int(response.headers.get('content-length', 0))
+            try:
+                content_length = int(response.headers.get('content-length', 0))
+            except (ValueError, TypeError):
+                logger.warning(f"Invalid or missing content-length header from {url}")
+                content_length = 0
+            
             max_size = 128 * 1024 * 1024 * 1024  # 128 GB
             if content_length > max_size:
                 logger.error(f"Content too large: {content_length} bytes")
