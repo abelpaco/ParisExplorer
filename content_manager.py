@@ -223,11 +223,23 @@ class ContentManager:
             ContentItem if successful, None otherwise
         """
         try:
-            response = requests.get(url, timeout=30)
+            # Validate URL scheme (only allow http/https)
+            from urllib.parse import urlparse
+            parsed = urlparse(url)
+            if parsed.scheme not in ['http', 'https']:
+                logger.error(f"Invalid URL scheme: {parsed.scheme}. Only http/https allowed.")
+                return None
+            
+            # Add headers to identify as a bot
+            headers = {
+                'User-Agent': 'ParisExplorer-Bot/1.0'
+            }
+            
+            response = requests.get(url, timeout=30, headers=headers)
             response.raise_for_status()
             
-            # Save content locally
-            content_type = response.headers.get('content-type', '')
+            # Validate content type
+            content_type = response.headers.get('content-type', '').lower()
             
             if 'video' in content_type:
                 ext = '.mp4'
@@ -235,9 +247,19 @@ class ContentManager:
             elif 'image' in content_type:
                 ext = '.jpg'
                 ctype = 'image'
-            else:
+            elif 'text' in content_type:
                 ext = '.txt'
                 ctype = 'text'
+            else:
+                logger.warning(f"Unknown content type from URL {url}: {content_type}")
+                return None
+            
+            # Check content length
+            content_length = int(response.headers.get('content-length', 0))
+            max_size = 128 * 1024 * 1024 * 1024  # 128 GB
+            if content_length > max_size:
+                logger.error(f"Content too large: {content_length} bytes")
+                return None
             
             # Create temp directory
             temp_dir = Path('./temp')
@@ -359,10 +381,32 @@ class ContentManager:
         
         if item.upload_attempts >= max_retries:
             logger.error(f"Item failed after {max_retries} attempts: {item.title}")
-            # Move to failed queue
+            # Save to failed queue before removing
+            self._save_to_failed_queue(item)
             self.queue.remove(item)
         
         self._save_queue()
+    
+    def _save_to_failed_queue(self, item: ContentItem):
+        """Save failed item to a separate failed queue for later review"""
+        failed_queue_file = 'failed_uploads.json'
+        failed_items = []
+        
+        if os.path.exists(failed_queue_file):
+            try:
+                with open(failed_queue_file, 'r', encoding='utf-8') as f:
+                    failed_items = json.load(f)
+            except Exception as e:
+                logger.warning(f"Error loading failed queue: {e}")
+        
+        failed_items.append(item.to_dict())
+        
+        try:
+            with open(failed_queue_file, 'w', encoding='utf-8') as f:
+                json.dump(failed_items, f, indent=2, ensure_ascii=False)
+            logger.info(f"Saved failed item to {failed_queue_file}")
+        except Exception as e:
+            logger.error(f"Error saving to failed queue: {e}")
     
     def _archive_item(self, item: ContentItem):
         """Archive uploaded item"""

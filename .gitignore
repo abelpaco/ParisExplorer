@@ -45,3 +45,5 @@ client_secrets.json
 # Uploaded content tracking
 uploaded/
 *.db
+content_queue.json
+failed_uploads.json

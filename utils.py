@@ -44,7 +44,9 @@ def validate_video_file(filepath: str) -> bool:
     file_size = os.path.getsize(filepath)
     
     if file_size > max_size:
-        logging.warning(f"File too large: {file_size} bytes (max: {max_size})")
+        # Format size in human-readable format
+        size_gb = file_size / (1024 * 1024 * 1024)
+        logging.warning(f"File too large: {size_gb:.2f} GB (max: 128 GB)")
         return False
     
     if file_size == 0:
@@ -121,7 +123,7 @@ def create_metadata_template(
         'description': description or f"Video: {title}",
         'tags': tags or ['Paris', 'France', 'Travel'],
         'privacy': 'public',
-        'category': '19'  # Travel & Events
+        'category': '19'  # Travel & Events (consistent with config.yaml default)
     }
     
     return metadata

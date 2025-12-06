@@ -69,7 +69,8 @@ class YouTubeUploader:
                 flow = InstalledAppFlow.from_client_secrets_file(
                     self.credentials_file, SCOPES
                 )
-                creds = flow.run_local_server(port=0)
+                # Use fixed port 8080 for better security and consistency
+                creds = flow.run_local_server(port=8080)
                 logger.info("Completed OAuth2 authentication")
             
             # Save credentials for future use
