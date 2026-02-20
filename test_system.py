@@ -181,6 +181,122 @@ def test_schedule_config():
     return True
 
 
+def test_video_creator_import():
+    """Test that video_creator module imports correctly"""
+    print("\nTesting video_creator import...")
+    try:
+        from video_creator import ParisVideoCreator, PARIS_TOPICS  # noqa: F401
+        assert len(PARIS_TOPICS) > 0, "PARIS_TOPICS is empty"
+        print(
+            f"✓ video_creator imported successfully "
+            f"({len(PARIS_TOPICS)} topics available)"
+        )
+        return True
+    except ImportError as e:
+        print(f"✗ video_creator import failed: {e}")
+        return False
+
+
+def test_paris_topics_structure():
+    """Test that PARIS_TOPICS have required fields"""
+    print("\nTesting PARIS_TOPICS structure...")
+    try:
+        from video_creator import PARIS_TOPICS
+        required_keys = [
+            "name", "subtitle", "description", "facts", "tags", "colors", "location",
+        ]
+        for topic in PARIS_TOPICS:
+            for key in required_keys:
+                assert key in topic, (
+                    f"Topic '{topic.get('name', '?')}' missing key: {key}"
+                )
+            assert len(topic["facts"]) > 0, f"Topic '{topic['name']}' has no facts"
+            assert len(topic["tags"]) > 0, f"Topic '{topic['name']}' has no tags"
+            color_keys = ["bg", "accent", "text"]
+            for ck in color_keys:
+                assert ck in topic["colors"], (
+                    f"Topic '{topic['name']}' colors missing: {ck}"
+                )
+        print(f"✓ All {len(PARIS_TOPICS)} topics have valid structure")
+        return True
+    except Exception as e:
+        print(f"✗ PARIS_TOPICS structure invalid: {e}")
+        return False
+
+
+def test_video_creator_slides():
+    """Test that slide creation functions produce valid PIL Images"""
+    print("\nTesting slide creation...")
+    try:
+        from video_creator import (
+            PARIS_TOPICS,
+            _create_title_slide,
+            _create_description_slide,
+            _create_facts_slide,
+            _create_outro_slide,
+            VIDEO_WIDTH,
+            VIDEO_HEIGHT,
+        )
+        from PIL import Image
+
+        topic = PARIS_TOPICS[0]
+        for fn_name, fn in [
+            ("title", _create_title_slide),
+            ("description", _create_description_slide),
+            ("facts", _create_facts_slide),
+            ("outro", _create_outro_slide),
+        ]:
+            img = fn(topic)
+            assert isinstance(img, Image.Image), f"{fn_name} slide is not a PIL Image"
+            assert img.size == (VIDEO_WIDTH, VIDEO_HEIGHT), (
+                f"{fn_name} slide has wrong size: {img.size}"
+            )
+            print(f"  ✓ {fn_name} slide OK ({img.size})")
+        return True
+    except Exception as e:
+        print(f"✗ Slide creation failed: {e}")
+        return False
+
+
+def test_video_creator_description():
+    """Test that video description generation works"""
+    print("\nTesting video description generation...")
+    try:
+        from video_creator import PARIS_TOPICS, ParisVideoCreator
+        topic = PARIS_TOPICS[0]
+        desc = ParisVideoCreator._build_description(topic)
+        assert topic["name"] in desc or topic["location"] in desc, (
+            "Description missing topic info"
+        )
+        assert "#ParisExplorer" in desc, "Description missing brand hashtag"
+        print("✓ Video description generated correctly")
+        return True
+    except Exception as e:
+        print(f"✗ Description generation failed: {e}")
+        return False
+
+
+def test_video_creator_config():
+    """Test that config.yaml has video_creator section"""
+    print("\nTesting video_creator configuration...")
+    try:
+        with open('config.yaml', 'r') as f:
+            config = yaml.safe_load(f)
+        assert 'video_creator' in config, "Missing video_creator config section"
+        vc = config['video_creator']
+        assert 'output_dir' in vc, "Missing video_creator.output_dir"
+        assert 'fps' in vc, "Missing video_creator.fps"
+        assert 'auto_generate' in vc, "Missing video_creator.auto_generate"
+        print(
+            f"✓ video_creator config valid "
+            f"(output_dir={vc['output_dir']}, fps={vc['fps']})"
+        )
+        return True
+    except Exception as e:
+        print(f"✗ video_creator config test failed: {e}")
+        return False
+
+
 def main():
     """Run all tests"""
     print("=" * 50)
@@ -195,6 +311,11 @@ def main():
         test_content_structure,
         test_gitignore,
         test_imports,
+        test_video_creator_import,
+        test_paris_topics_structure,
+        test_video_creator_slides,
+        test_video_creator_description,
+        test_video_creator_config,
     ]
     
     results = []

@@ -73,6 +73,15 @@ queue:
   archive_uploaded: true
   archive_path: "./uploaded"
 
+# Video creator settings
+video_creator:
+  # Directory for generated videos
+  output_dir: "./content/videos"
+  # Frames per second for generated videos
+  fps: 24
+  # Automatically generate a new video when the queue is empty
+  auto_generate: true
+
 # Logging
 logging:
   level: "INFO"  # DEBUG, INFO, WARNING, ERROR
