@@ -47,3 +47,7 @@ uploaded/
 *.db
 content_queue.json
 failed_uploads.json
+
+# Generated video files
+content/videos/
+temp/

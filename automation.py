@@ -14,6 +14,7 @@ from dotenv import load_dotenv
 from youtube_uploader import YouTubeUploader
 from content_manager import ContentManager
 from scheduler import AutomationScheduler
+from video_creator import ParisVideoCreator
 
 # Load environment variables
 load_dotenv()
@@ -76,6 +77,7 @@ class ParisExplorerAutomation:
             self.uploader = YouTubeUploader()
             self.content_manager = ContentManager(self.config)
             self.scheduler = AutomationScheduler(self.config, self.post_content)
+            self.video_creator = ParisVideoCreator(self.config)
             
             self.logger.info("Automation system initialized successfully")
         except Exception as e:
@@ -96,7 +98,25 @@ class ParisExplorerAutomation:
                 
                 if not item:
                     self.logger.warning("Still no content available after refresh")
-                    return False
+                    # Try auto-generating a video if enabled
+                    vc_cfg = self.config.get('video_creator', {})
+                    if vc_cfg.get('auto_generate', False):
+                        self.logger.info("Auto-generating a new Paris video...")
+                        queued_topics = [
+                            q.metadata.get('topic')
+                            for q in self.content_manager.queue
+                            if q.metadata.get('topic')
+                        ]
+                        item = self.video_creator.create_next_video(
+                            exclude_names=queued_topics
+                        )
+                        if item:
+                            self.content_manager.add_to_queue(item)
+                        else:
+                            self.logger.error("Video generation failed")
+                            return False
+                    else:
+                        return False
             
             self.logger.info(f"Processing content: {item.title}")
             
@@ -230,6 +250,27 @@ class ParisExplorerAutomation:
         else:
             print("Could not retrieve channel information")
 
+    def generate_video(self, topic_name: str = None):
+        """Generate a Paris video and add it to the queue"""
+        if topic_name:
+            self.logger.info(f"Generating video for topic: {topic_name}")
+            item = self.video_creator.create_video_by_name(topic_name)
+        else:
+            self.logger.info("Generating video for next available topic")
+            queued_topics = [
+                q.metadata.get('topic')
+                for q in self.content_manager.queue
+                if q.metadata.get('topic')
+            ]
+            item = self.video_creator.create_next_video(exclude_names=queued_topics)
+
+        if item:
+            self.content_manager.add_to_queue(item)
+            print(f"\n✓ Video generated and added to queue: {item.title}")
+            print(f"  File: {item.file_path}")
+        else:
+            print("\n✗ Video generation failed. Check logs for details.")
+
 
 def main():
     """Main entry point"""
@@ -243,9 +284,17 @@ def main():
     )
     parser.add_argument(
         '--mode',
-        choices=['scheduler', 'post-now', 'refresh', 'queue', 'channel-info'],
+        choices=[
+            'scheduler', 'post-now', 'refresh',
+            'queue', 'channel-info', 'generate-video',
+        ],
         default='scheduler',
         help='Operation mode'
+    )
+    parser.add_argument(
+        '--topic',
+        default=None,
+        help='Paris topic name for generate-video mode (e.g. "Tour Eiffel")'
     )
     
     args = parser.parse_args()
@@ -263,6 +312,8 @@ def main():
             automation.show_queue()
         elif args.mode == 'channel-info':
             automation.show_channel_info()
+        elif args.mode == 'generate-video':
+            automation.generate_video(args.topic)
             
     except KeyboardInterrupt:
         print("\nShutdown requested...")
