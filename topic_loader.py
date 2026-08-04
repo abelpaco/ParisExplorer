@@ -47,6 +47,10 @@ class TopicText:
     subtitle: str
     narration: str
     tags: List[str] = field(default_factory=list)
+    # Accroches des cartes visuelles. Optionnel : sans ce bloc, les cartes sont
+    # decoupees dans la narration. L'ecrire donne des phrases pensees POUR
+    # l'image plutot que pour la voix off — ce n'est pas le meme exercice.
+    cards: List[str] = field(default_factory=list)
 
     @property
     def word_count(self) -> int:
@@ -82,11 +86,15 @@ def _parse_lang_block(topic_id: str, lang: str, raw: Any) -> TopicText:
     tags = raw.get("tags") or []
     if not isinstance(tags, list):
         raise TopicError(f"{topic_id}[{lang}]: 'tags' doit etre une liste")
+    cards = raw.get("cards") or []
+    if not isinstance(cards, list):
+        raise TopicError(f"{topic_id}[{lang}]: 'cards' doit etre une liste")
     return TopicText(
         title=str(raw["title"]).strip(),
         subtitle=str(raw.get("subtitle", "")).strip(),
         narration=str(raw["narration"]).strip(),
         tags=[str(t) for t in tags],
+        cards=[" ".join(str(c).split()) for c in cards if str(c).strip()],
     )
 
 

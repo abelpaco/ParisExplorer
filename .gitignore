@@ -66,3 +66,5 @@ content/images/*
 !content/images/.gitkeep
 content/audio/*
 !content/audio/.gitkeep
+content/cards/*
+!content/cards/.gitkeep

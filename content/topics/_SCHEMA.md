@@ -49,6 +49,25 @@ en:
   tags: ["Eiffel Tower", "Paris", "Landmark"]
 ```
 
+## Cartes visuelles (facultatif)
+
+Chaque bloc de langue accepte un bloc `cards` : les accroches des publications
+image. Sans lui, les cartes sont decoupees dans la narration — ca marche, mais
+une phrase ecrite pour la voix off n'est pas une phrase ecrite pour l'image.
+
+```yaml
+fr:
+  title: "..."
+  narration: |
+    ...
+  cards:
+    - "Elle devait disparaitre au bout de vingt ans."
+    - "Deux millions et demi de rivets, poses un par un."
+```
+
+Viser 45 a 165 caracteres : en dessous ca ne dit rien, au-dessus ca ne se lit
+plus sur un telephone. Une accroche par carte, dans l'ordre de lecture.
+
 ## Sujets pieges
 
 Le filtre de licence protege contre une image mal licenciee. Il ne protege PAS
