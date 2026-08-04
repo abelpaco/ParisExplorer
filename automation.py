@@ -15,6 +15,7 @@ from youtube_uploader import YouTubeUploader
 from content_manager import ContentManager
 from scheduler import AutomationScheduler
 from video_creator import ParisVideoCreator
+from utils import setup_directories
 
 # Load environment variables
 load_dotenv()
@@ -66,6 +67,10 @@ class ParisExplorerAutomation:
     
     def __init__(self, config_file='config.yaml'):
         """Initialize automation system"""
+        # Create the runtime directories (content/, logs/, temp/, ...) before
+        # anything tries to write into them
+        setup_directories()
+
         self.config = load_config(config_file)
         setup_logging(self.config)
         self.logger = logging.getLogger(__name__)
@@ -157,23 +162,36 @@ class ParisExplorerAutomation:
                 if video_id and item.thumbnail:
                     self.uploader.upload_thumbnail(video_id, item.thumbnail)
             
-            elif item.content_type == 'image':
-                # For images, we could create a simple video or community post
-                # Community posts require special eligibility
-                self.logger.info(f"Image content: {item.title}")
-                self.logger.info("Note: Image posting as community posts requires channel eligibility")
-                # For now, log the image - you could extend this to create a slideshow video
-                return True
-            
-            elif item.content_type == 'text':
-                # Text content could be used for community posts
-                self.logger.info(f"Text content: {item.title}")
-                self.logger.info("Note: Text posting as community posts requires channel eligibility")
-                return True
-            
+            elif item.content_type in ('image', 'text'):
+                # Les posts communaute ne sont pas implementes (create_community_post
+                # est un stub cote uploader) et exigent de toute facon une eligibilite
+                # de chaine. On NE PEUT donc rien publier ici.
+                #
+                # INTERBLOCAGE CORRIGE : ces deux branches faisaient `return True`
+                # SANS retirer l'element de la file. Or get_next_item() renvoie
+                # toujours le premier element en attente : une seule image deposee
+                # dans content/ gelait donc DEFINITIVEMENT toutes les publications,
+                # en silence. On sort desormais l'element de la file.
+                self.logger.warning(
+                    "Contenu '%s' de type '%s' non publiable (posts communaute non "
+                    "implementes) — retire de la file pour ne pas la bloquer.",
+                    item.title,
+                    item.content_type,
+                )
+                self.content_manager.discard_unsupported(
+                    item, reason=f"type '{item.content_type}' non publiable"
+                )
+                return False
+
             # Mark as uploaded if successful
             if video_id:
                 self.content_manager.mark_uploaded(item, video_id)
+                # Memoire longue : ce sujet ne devra JAMAIS etre regenere.
+                topic = item.metadata.get('topic') if item.metadata else None
+                if topic:
+                    self.video_creator.registry.mark_published(
+                        topic, video_id=video_id, title=item.title
+                    )
                 self.logger.info(f"Successfully posted content. Video ID: {video_id}")
                 return True
             else:

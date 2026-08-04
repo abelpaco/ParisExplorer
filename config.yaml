@@ -42,7 +42,16 @@ content_sources:
 # YouTube upload settings
 youtube:
   # Default video settings
-  default_privacy: "public"  # Options: public, private, unlisted
+  #
+  # VOLONTAIREMENT "private" : la chaine est reelle et a deja publie. Une
+  # generation automatique qui part en "public" sans relecture engage l'image de
+  # la chaine. On passe a "public" seulement apres avoir valide a la main un
+  # premier lot de videos produites par le pipeline.
+  #
+  # A savoir : tant que le projet Google Cloud n'a pas passe l'audit YouTube API,
+  # tout upload par l'API est de toute facon verrouille en "private", quelle que
+  # soit la valeur envoyee ici.
+  default_privacy: "private"  # Options: public, private, unlisted
   default_category: "19"  # Travel & Events
   
   # Default tags for Paris content

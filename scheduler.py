@@ -6,11 +6,16 @@ Handles automated posting at scheduled times
 import logging
 import time
 import schedule
-from datetime import datetime
+from datetime import datetime, timedelta
 from typing import Callable, Dict, Any
 import pytz
 
 logger = logging.getLogger(__name__)
+
+# Local time at which the schedules are rebuilt. `schedule` only understands
+# system local time, so the configured times are converted once a day: this
+# keeps the conversion correct across DST transitions on either side.
+REPLAN_TIME = "00:01"
 
 
 class AutomationScheduler:
@@ -36,24 +41,65 @@ class AutomationScheduler:
         # Setup scheduled jobs
         self._setup_schedules()
     
+    def _to_local_time(self, post_time: str) -> str:
+        """
+        Convert a wall-clock time from the configured timezone to local time
+
+        `schedule` always plans against the system clock, so on a UTC host
+        `schedule.every().day.at("09:00")` fires at 11:00 Paris time in summer.
+        The conversion is anchored on the *next* occurrence of `post_time` so
+        that the UTC offset actually in effect that day (DST included) is used.
+
+        Args:
+            post_time: Wall-clock time "HH:MM" or "HH:MM:SS" in self.timezone
+
+        Returns:
+            Equivalent wall-clock time "HH:MM:SS" in the system's local time
+        """
+        parts = [int(part) for part in post_time.split(':')]
+        hour, minute = parts[0], parts[1]
+        second = parts[2] if len(parts) > 2 else 0
+
+        now = datetime.now(self.timezone)
+        target = now.replace(
+            hour=hour, minute=minute, second=second, microsecond=0
+        )
+        if target <= now:
+            target += timedelta(days=1)
+
+        # Re-localize: replace() keeps the *current* UTC offset, which may
+        # differ from the one in effect on the target day (DST switch)
+        target = self.timezone.localize(target.replace(tzinfo=None))
+
+        # astimezone() without argument converts to the system's local time
+        return target.astimezone().strftime('%H:%M:%S')
+
     def _setup_schedules(self):
         """Setup scheduled posting times"""
         schedule.clear()
-        
+
         if not self.enabled:
             logger.info("Scheduler is disabled in configuration")
             return
-        
+
         post_times = self.schedule_config.get('post_times', [])
-        
+
         if not post_times:
             logger.warning("No post times configured")
             return
-        
+
         for post_time in post_times:
-            schedule.every().day.at(post_time).do(self._scheduled_post)
-            logger.info(f"Scheduled post at {post_time}")
-        
+            local_time = self._to_local_time(post_time)
+            schedule.every().day.at(local_time).do(self._scheduled_post)
+            logger.info(
+                f"Scheduled post at {post_time} {self.timezone} "
+                f"(local time {local_time})"
+            )
+
+        # Rebuild the schedules every day: the offset between the configured
+        # timezone and the system clock changes on each DST transition
+        schedule.every().day.at(REPLAN_TIME).do(self._setup_schedules)
+
         logger.info(f"Setup complete. {len(post_times)} scheduled posts configured")
     
     def _scheduled_post(self):
