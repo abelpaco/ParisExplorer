@@ -34,8 +34,9 @@ ENV/
 *.swp
 *.swo
 
-# Logs
-logs/
+# Logs (keep the directory itself in the repository)
+logs/*
+!logs/.gitkeep
 *.log
 
 # Authentication tokens
@@ -48,6 +49,8 @@ uploaded/
 content_queue.json
 failed_uploads.json
 
-# Generated video files
-content/videos/
-temp/
+# Generated video files (keep the directories themselves in the repository)
+content/videos/*
+!content/videos/.gitkeep
+temp/*
+!temp/.gitkeep

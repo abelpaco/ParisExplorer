@@ -13,6 +13,7 @@ from PIL import Image, ImageDraw, ImageFont
 from moviepy import ImageClip, concatenate_videoclips
 
 from content_manager import ContentItem
+from topic_registry import TopicRegistry
 
 logger = logging.getLogger(__name__)
 
@@ -427,18 +428,23 @@ class ParisVideoCreator:
     ready to be uploaded via the ParisExplorer automation pipeline.
     """
 
-    def __init__(self, config: Dict[str, Any]):
+    def __init__(
+        self, config: Dict[str, Any], registry: Optional[TopicRegistry] = None
+    ):
         """
         Initialize the video creator.
 
         Args:
             config: Application configuration dictionary (from config.yaml).
+            registry: Mémoire des sujets déjà publiés. Injectable pour les tests ;
+                par défaut, le registre persistant partagé du projet.
         """
         self.config = config
         vc_cfg = config.get("video_creator", {})
         self.output_dir = Path(vc_cfg.get("output_dir", "./content/videos"))
         self.fps = int(vc_cfg.get("fps", 24))
         self.output_dir.mkdir(parents=True, exist_ok=True)
+        self.registry = registry or TopicRegistry()
 
     # ------------------------------------------------------------------
     # Public API
@@ -517,20 +523,35 @@ class ParisVideoCreator:
         self, exclude_names: Optional[List[str]] = None
     ) -> Optional[ContentItem]:
         """
-        Create a video for the next topic not already in the exclusion list.
+        Create a video for the next topic that is neither queued nor already
+        published on the channel.
+
+        Deux filtres, et pas un seul : ``exclude_names`` ne couvre que la file
+        d'attente COURANTE, donc un sujet publié puis retiré de la file
+        redeviendrait éligible. Le registre persistant apporte la mémoire longue.
 
         Args:
-            exclude_names: List of topic names to skip.
+            exclude_names: Topic names currently queued (short-term exclusion).
 
         Returns:
-            ContentItem or None.
+            ContentItem, or None when every topic has been used.
         """
         skip = {n.lower() for n in (exclude_names or [])}
-        for topic in PARIS_TOPICS:
+        for topic in self.registry.remaining(PARIS_TOPICS):
             if topic["name"].lower() not in skip:
                 return self.create_video_for_topic(topic)
-        logger.warning("All topics have been excluded; cycling back to first topic.")
-        return self.create_video_for_topic(PARIS_TOPICS[0])
+
+        # Volontairement AUCUN repli sur PARIS_TOPICS[0] : republier ferait courir
+        # un risque de sanction à une chaîne réelle. On préfère ne rien produire
+        # et le dire fort — c'est le signal qu'il faut alimenter le stock de sujets.
+        logger.error(
+            "Aucun sujet disponible : %d publiés, %d en file. "
+            "Ajoute de nouveaux sujets — AUCUNE vidéo ne sera générée "
+            "(republier exposerait la chaîne).",
+            len(self.registry),
+            len(skip),
+        )
+        return None
 
     # ------------------------------------------------------------------
     # Internal helpers

@@ -15,6 +15,53 @@ from PIL import Image
 logger = logging.getLogger(__name__)
 
 
+# Signatures d'un texte UTF-8 relu par erreur en cp1252/latin-1. C'est le defaut
+# de Windows quand `open()` ne precise pas d'encodage : "à" devient "Ã\xa0",
+# "é" devient "Ã©".
+_MOJIBAKE_MARKERS = ('Ã', 'Â', 'â€', 'Ãƒ')
+
+
+def _repair_text(value: str) -> str:
+    """Repare un texte mojibake ; renvoie l'original si rien a reparer.
+
+    POURQUOI CE GARDE-FOU EXISTE : trois videos sont en ligne sur la chaine avec
+    des titres du type "Bons plans Ã  Paris : Ã‰conomisez en style". Les accents
+    francais casses sont visibles publiquement et donnent une impression
+    d'amateurisme. Le code Python lit pourtant deja en UTF-8 : la corruption
+    vient des fichiers JSON SOURCES. On ne peut donc pas la corriger en amont,
+    seulement refuser de la propager.
+    """
+    if not isinstance(value, str) or not any(m in value for m in _MOJIBAKE_MARKERS):
+        return value
+    for encoding in ('cp1252', 'latin-1'):
+        try:
+            repaired = value.encode(encoding, errors='strict').decode(
+                'utf-8', errors='strict'
+            )
+        except (UnicodeEncodeError, UnicodeDecodeError):
+            continue
+        if repaired != value:
+            logger.warning(
+                "Texte mojibake repare (%s) : %r -> %r", encoding, value, repaired
+            )
+            return repaired
+    # Detecte mais non reparable : on alerte sans bloquer, plutot que de publier
+    # silencieusement du texte casse.
+    logger.error("Texte probablement mojibake et NON reparable : %r", value)
+    return value
+
+
+def _repair_mojibake(data: Any) -> Any:
+    """Applique la reparation a toutes les chaines d'une structure JSON."""
+    if isinstance(data, str):
+        return _repair_text(data)
+    if isinstance(data, list):
+        return [_repair_mojibake(v) for v in data]
+    if isinstance(data, dict):
+        return {k: _repair_mojibake(v) for k, v in data.items()}
+    return data
+
+
 class ContentItem:
     """Represents a content item to be posted"""
     
@@ -189,7 +236,7 @@ class ContentManager:
         if metadata_file.exists():
             try:
                 with open(metadata_file, 'r', encoding='utf-8') as f:
-                    return json.load(f)
+                    return _repair_mojibake(json.load(f))
             except Exception as e:
                 logger.warning(f"Error loading metadata for {content_file}: {e}")
         return {}
@@ -379,6 +426,25 @@ class ContentManager:
         
         logger.info(f"Marked item as uploaded: {item.title}")
     
+    def discard_unsupported(self, item: ContentItem, reason: str):
+        """Retire definitivement un element que le pipeline ne SAIT PAS publier.
+
+        A distinguer de `mark_failed`, qui gere un echec TRANSITOIRE et garde
+        l'element pour le reessayer (3 tentatives). Ici l'echec est structurel :
+        reessayer ne changerait rien.
+
+        Pourquoi c'est important : `get_next_item()` renvoie toujours le premier
+        element non televerse. Laisser en file un element impubliable bloque donc
+        TOUTES les publications suivantes. Une seule image deposee dans content/
+        suffisait a geler la chaine, en silence.
+        """
+        item.metadata = {**(item.metadata or {}), 'discard_reason': reason}
+        self._save_to_failed_queue(item)
+        if item in self.queue:
+            self.queue.remove(item)
+        self._save_queue()
+        logger.warning("Element ecarte de la file (%s) : %s", reason, item.title)
+
     def mark_failed(self, item: ContentItem):
         """Mark upload attempt as failed"""
         item.upload_attempts += 1
