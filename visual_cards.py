@@ -103,6 +103,28 @@ class CardError(RuntimeError):
 
 
 @dataclass
+class RenderedCard:
+    """Ce qu'a produit un rendu, et ce qu'il vaut.
+
+    ``text_luminance`` n'est pas de la decoration : c'est la luminosite REELLE
+    mesuree sous le texte apres application du voile. L'exposer permet a
+    l'appelant — et surtout aux tests — de verifier le RESULTAT plutot que de
+    faire confiance au fait que la boucle de voile a tourne. Une version
+    precedente mesurait correctement mais ne pouvait rien assombrir : elle
+    produisait des cartes illisibles sans que rien ne le signale au dehors.
+    """
+
+    path: Path
+    text_luminance: float
+    scrim_strength: float
+    font_size: int
+
+    @property
+    def is_legible(self) -> bool:
+        return self.text_luminance <= MAX_TEXT_AREA_LUMINANCE
+
+
+@dataclass
 class Card:
     """Une carte produite."""
 
@@ -345,7 +367,7 @@ def render_card(
     eyebrow: str = "",
     index: Optional[int] = None,
     total: Optional[int] = None,
-) -> Path:
+) -> RenderedCard:
     """Fabrique une carte : photo de fond, voile, texte, marque.
 
     Args:
@@ -456,7 +478,12 @@ def render_card(
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     card.save(out_path, "PNG", optimize=True)
-    return out_path
+    return RenderedCard(
+        path=out_path,
+        text_luminance=luminance,
+        scrim_strength=strength,
+        font_size=font.size,
+    )
 
 
 # ---------------------------------------------------------------------------
@@ -534,12 +561,20 @@ def build_series(
     for position, text in enumerate(texts, start=1):
         background = Path(backgrounds[(position - 1) % len(backgrounds)])
         target = out_dir / f"{topic.id}-{lang}-{fmt}-{position:02d}.png"
-        render_card(
+        rendered = render_card(
             background, text, target,
             fmt=fmt, style=style,
             eyebrow=category_label(topic.category, lang),
             index=position, total=total,
         )
+        if not rendered.is_legible:
+            # On produit quand meme — le lisere garde le texte lisible — mais
+            # on le DIT : c'est le signal qu'il faut une autre photo.
+            logger.warning(
+                "Carte %d/%d de « %s » : fond trop clair (luminosite %.0f). "
+                "Envisage une autre image pour ce sujet.",
+                position, total, topic.id, rendered.text_luminance,
+            )
         series.cards.append(
             Card(path=target, text=text, index=position, total=total, background=background)
         )

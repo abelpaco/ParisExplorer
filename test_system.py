@@ -309,6 +309,78 @@ def test_video_creator_config():
         return False
 
 
+def test_card_legibility():
+    """Une carte sur fond BLANC doit rester lisible.
+
+    C'est le test qui manquait. Le voile suivait la position absolue dans
+    l'image avec une courbe creusee : a mi-hauteur il n'etait opaque qu'a 22 %
+    meme pousse au maximum. Sur une carte carree, dont le texte commence vers
+    la moitie, la boucle de renforcement mesurait bien mais ne pouvait rien
+    assombrir. Le rendu restait techniquement valide et visuellement illisible.
+
+    On verifie donc le RESULTAT : la zone de texte doit finir sombre.
+    """
+    print("\nTesting card legibility on a white background...")
+    try:
+        import tempfile
+        from pathlib import Path as _Path
+
+        from PIL import Image
+
+        import visual_cards
+
+        with tempfile.TemporaryDirectory() as tmp:
+            work = _Path(tmp)
+            white = work / "blanc.png"
+            Image.new("RGB", (1600, 1600), (255, 255, 255)).save(white)
+
+            for fmt in visual_cards.CARD_FORMATS:
+                # On lit la mesure que le rendu a faite SOUS LE TEXTE. Mesurer
+                # nous-memes une bande arbitraire raterait le defaut : le bug
+                # d'origine touchait le haut du bloc de texte, pas le bas de la
+                # carte, et une bande trop basse le declarait sain.
+                rendered = visual_cards.render_card(
+                    white,
+                    "Une phrase posee sur un fond entierement blanc, le pire cas.",
+                    work / f"{fmt}.png",
+                    fmt=fmt,
+                    eyebrow="Monument",
+                )
+                assert rendered.path.exists(), f"{fmt}: aucun fichier produit"
+                assert rendered.is_legible, (
+                    f"{fmt}: luminosite {rendered.text_luminance:.0f} sous le texte "
+                    f"(max {visual_cards.MAX_TEXT_AREA_LUMINANCE}) — texte blanc "
+                    f"illisible malgre un voile a {rendered.scrim_strength:.2f}"
+                )
+                print(
+                    f"  ✓ {fmt}: luminosite {rendered.text_luminance:.0f} "
+                    f"(voile {rendered.scrim_strength:.2f}, police {rendered.font_size})"
+                )
+        return True
+    except Exception as e:
+        print(f"✗ lisibilite des cartes: {e}")
+        return False
+
+
+def test_card_labels():
+    """Les categories s'affichent avec leurs accents et dans la langue."""
+    print("\nTesting card category labels...")
+    try:
+        from visual_cards import category_label
+
+        assert category_label("decouverte", "fr") == "Découverte"
+        assert category_label("decouverte", "en") == "Discover"
+        assert category_label("economie", "fr") == "Économie"
+        # Une categorie inconnue passe telle quelle : mieux vaut une etiquette
+        # imparfaite qu'une carte sans reperage.
+        assert category_label("gastronomie", "fr") == "gastronomie"
+        print("✓ libellés de catégorie corrects")
+        return True
+    except Exception as e:
+        print(f"✗ libellés de catégorie: {e}")
+        return False
+
+
 def main():
     """Run all tests"""
     print("=" * 50)
@@ -327,6 +399,8 @@ def main():
         test_topics_are_loadable,
         test_topic_catalogue_is_bilingual,
         test_no_republication,
+        test_card_legibility,
+        test_card_labels,
         test_video_creator_config,
     ]
     
