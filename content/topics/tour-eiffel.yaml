@@ -1,0 +1,119 @@
+id: tour-eiffel
+category: monument
+status: ready
+
+image_queries:
+  - "Eiffel Tower Paris"
+  - "Eiffel Tower construction 1888"
+  - "Tour Eiffel Exposition universelle 1889"
+  # Pas de vue NOCTURNE : l'eclairage de la tour est une oeuvre protegee
+  # (voir _SCHEMA.md, section « Sujets pieges »).
+  - "Eiffel Tower Trocadero"
+  - "Eiffel Tower Champ de Mars"
+  - "Gustave Eiffel"
+
+fr:
+  title: "La Tour Eiffel devait être démontée : pourquoi elle est toujours là"
+  subtitle: "Histoire d'un monument construit pour vingt ans"
+  narration: |
+    Elle devait disparaître au bout de vingt ans.
+
+    En 1889, la France prépare une Exposition universelle. Le pays veut fêter le
+    centenaire de la Révolution et montrer ce que ses usines savent faire. Il lui
+    faut un geste. Deux ingénieurs du bureau d'études de Gustave Eiffel, Maurice
+    Koechlin et Émile Nouguier, dessinent un pylône de fer de trois cents mètres.
+    Eiffel est tiède, au début. Puis il achète l'idée et la défend. L'architecte
+    Stephen Sauvestre ajoute les grandes arches décoratives, et le projet devient
+    une silhouette.
+
+    Le chantier commence au Champ-de-Mars en janvier 1887. Il durera un peu plus
+    de deux ans. Tout est réglé sur le papier avant d'être réglé sur le terrain :
+    environ dix-huit mille pièces de fer, dessinées une à une, tenues par deux
+    millions et demi de rivets. Les pièces arrivent des ateliers d'Eiffel, à
+    Levallois-Perret, déjà percées. Sur place, il n'y a presque rien à corriger.
+
+    Paris, lui, n'est pas conquis. En février 1887, une pétition paraît dans la
+    presse. Des écrivains, des peintres, des musiciens dénoncent une odieuse
+    colonne de tôle boulonnée. Maupassant signe. Charles Garnier, l'architecte de
+    l'Opéra, signe aussi. On parle de lampadaire géant, de cheminée d'usine, de
+    squelette.
+
+    Le 31 mars 1889, Eiffel monte au sommet et y plante un drapeau tricolore. La
+    tour est alors la construction la plus haute du monde. Elle gardera ce record
+    pendant plus de quarante ans.
+
+    Reste un détail administratif. La concession court sur vingt ans. Passé 1909,
+    la Ville peut la démonter et vendre le fer. Ce qui la sauve, ce n'est pas
+    l'affection des Parisiens. C'est une antenne. Eiffel installe au sommet des
+    expériences de télégraphie sans fil, et l'armée y voit tout de suite son
+    intérêt. La tour devient un outil : un émetteur pour les signaux, puis pour
+    la radio, puis pour la télévision. On ne démonte pas un instrument qui sert.
+
+    Aujourd'hui, elle culmine à environ trois cent trente mètres, antennes
+    comprises. On la repeint à la main, régulièrement, par dizaines de tonnes de
+    peinture. Et le fer travaille : par forte chaleur, le sommet se déplace de
+    quelques centimètres. Chaque année, plusieurs millions de visiteurs grimpent
+    dans un décor d'exposition temporaire pour regarder Paris.
+
+    Le monument le plus reconnaissable de France n'était pas fait pour durer.
+    Personne n'a jamais osé y toucher.
+  tags:
+    - "Tour Eiffel"
+    - "Paris"
+    - "Gustave Eiffel"
+    - "Monument"
+    - "Histoire de Paris"
+    - "Exposition universelle 1889"
+
+en:
+  title: "The Eiffel Tower Was Built to Be Taken Down. Here's Why It Survived"
+  subtitle: "The story of a monument designed to last twenty years"
+  narration: |
+    It was supposed to come down after twenty years.
+
+    In 1889 France was throwing a World's Fair. The country wanted to mark a
+    century since the Revolution and show off what its factories could do. It
+    needed something loud. Two engineers in Gustave Eiffel's design office,
+    Maurice Koechlin and Émile Nouguier, sketched a three-hundred-metre iron
+    pylon. Eiffel was lukewarm at first. Then he bought the idea outright and put
+    his name behind it. The architect Stephen Sauvestre added the great
+    decorative arches, and a shape was born.
+
+    Work started at the Champ-de-Mars in January 1887 and took a little over two
+    years. Everything was settled on paper before it was settled on the ground:
+    some eighteen thousand iron pieces, each one drawn individually, held
+    together by two and a half million rivets. The parts arrived from Eiffel's
+    workshops in Levallois-Perret already drilled. On site, almost nothing had to
+    be adjusted.
+
+    Paris was not charmed. In February 1887 a protest letter ran in the press.
+    Writers, painters and composers attacked the coming tower in furious terms.
+    Maupassant signed it. So did Charles Garnier, the architect of the Paris
+    Opera. Critics called it a street lamp, a factory chimney, a skeleton.
+
+    On the thirty-first of March 1889, Eiffel climbed to the top and raised a
+    French flag. The tower was now the tallest structure ever built. It kept that
+    record for more than forty years.
+
+    But the paperwork was ruthless. The concession ran for twenty years. After
+    1909 the city could take the tower apart and sell the iron. What saved it was
+    not affection. It was an aerial. Eiffel had wireless telegraph experiments
+    installed at the summit, and the army saw the point immediately. The tower
+    turned into equipment: a transmitter for signals, then for radio, then for
+    television. Nobody scraps a working instrument.
+
+    Today it stands at roughly three hundred and thirty metres, antennas
+    included. It is repainted by hand on a regular cycle, tonnes of paint at a
+    time. And the iron is alive: in real heat, the summit drifts a few
+    centimetres sideways. Every year, several million people climb a piece of
+    temporary fairground architecture to look at Paris.
+
+    The most recognisable building in France was never meant to last. No one has
+    ever dared to take it down.
+  tags:
+    - "Eiffel Tower"
+    - "Paris"
+    - "Gustave Eiffel"
+    - "Landmark"
+    - "History of Paris"
+    - "1889 World's Fair"

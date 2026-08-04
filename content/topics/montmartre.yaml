@@ -1,0 +1,119 @@
+id: montmartre
+category: decouverte
+status: ready
+
+image_queries:
+  - "Montmartre Paris street"
+  - "Sacre-Coeur Basilica Paris"
+  - "Moulin de la Galette Montmartre"
+  - "Montmartre old photograph 1900"
+  - "Place du Tertre painters Montmartre"
+  - "Clos Montmartre vineyard autumn"
+
+fr:
+  title: "Montmartre : la colline qui n'a jamais vraiment rejoint Paris"
+  subtitle: "Plâtre, moulins, peintres et une vigne en pleine ville"
+  narration: |
+    À Paris, il existe une colline où l'on fait encore les vendanges.
+
+    Montmartre culmine à un peu plus de cent trente mètres. C'est le point
+    naturel le plus élevé de la ville. Ailleurs, ce serait une bosse. Dans une
+    capitale posée sur une plaine, c'est un événement.
+
+    D'où vient le nom ? Deux pistes, et les historiens n'ont jamais tranché. Mons
+    Martis, le mont de Mars, en souvenir d'un temple romain. Ou mons Martyrum, le
+    mont des martyrs, en mémoire de Denis, premier évêque de Paris, décapité sur
+    ces pentes selon la tradition. La légende ajoute qu'il aurait ramassé sa tête
+    et continué à marcher. Cela n'aide pas à choisir, mais cela se retient.
+
+    Longtemps, la butte est d'abord un lieu de travail. Son sous-sol est plein de
+    gypse. On l'extrait, on le cuit, on en fait du plâtre : ce fameux plâtre de
+    Paris. Sur la crête, des moulins broient la pierre et le grain. Il en reste
+    deux debout aujourd'hui.
+
+    Jusqu'en 1860, Montmartre n'est pas Paris. C'est une commune indépendante,
+    située hors du mur des Fermiers généraux, donc hors de la taxe sur le vin. On
+    y boit moins cher qu'en bas. Les guinguettes se remplissent. Quand Napoléon
+    III annexe le village, la ville hérite d'un quartier de loyers bas et
+    d'ateliers mal chauffés.
+
+    Alors les peintres montent. Renoir plante son chevalet au Moulin de la
+    Galette en 1876. Van Gogh loge rue Lepic, chez son frère Theo. Et dans une
+    bâtisse de bois surnommée le Bateau-Lavoir, un Espagnol de vingt-cinq ans
+    peint en 1907 une toile qui fera basculer la peinture européenne : Picasso,
+    et ses Demoiselles d'Avignon.
+
+    Entre-temps, la colline a saigné. Le 18 mars 1871, l'armée vient récupérer
+    les canons entreposés sur la butte. La foule s'interpose. La Commune de Paris
+    commence là, ce matin-là.
+
+    Le Sacré-Cœur naît en partie de cette blessure. Commencée en 1875, la
+    basilique n'est achevée qu'en 1914. Sa pierre a une particularité : elle
+    blanchit sous la pluie. Le monument se relave tout seul.
+
+    Et la vigne ? Elle a été plantée en 1933, sur un terrain que des promoteurs
+    convoitaient. Sa récolte est minuscule, et fêtée chaque automne.
+
+    Un village qui a refusé de descendre. C'est peut-être la meilleure définition
+    de Montmartre.
+  tags:
+    - "Montmartre"
+    - "Paris"
+    - "Sacré-Cœur"
+    - "Histoire de Paris"
+    - "Bateau-Lavoir"
+    - "Balade parisienne"
+
+en:
+  title: "Montmartre: The Hill That Never Quite Joined Paris"
+  subtitle: "Plaster, windmills, painters and a vineyard in the middle of the city"
+  narration: |
+    There is a hill in Paris where people still bring in a grape harvest.
+
+    Montmartre rises to a little over a hundred and thirty metres. That makes it
+    the highest natural point in the city. Anywhere else it would be a bump. In a
+    capital built on a plain, it is an event.
+
+    Where does the name come from? There are two candidates, and historians have
+    never settled it. Mons Martis, the mount of Mars, after a Roman temple. Or
+    mons Martyrum, the mount of martyrs, for Denis, the first bishop of Paris,
+    beheaded on these slopes according to tradition. Legend adds that he picked
+    up his own head and kept walking. It does not help decide, but it sticks.
+
+    For centuries the hill was a working place. The ground underneath is full of
+    gypsum. You dig it, you fire it, you get plaster: the original plaster of
+    Paris. Windmills along the ridge ground stone and grain. Two of them are
+    still standing.
+
+    Until 1860, Montmartre was not Paris. It was an independent village, outside
+    the customs wall and therefore outside the tax on wine. Drinking was simply
+    cheaper up here. The open-air taverns filled up. When Napoleon III annexed
+    the village, the city inherited a district of low rents and badly heated
+    studios.
+
+    So the painters climbed the hill. Renoir set up his easel at the Moulin de la
+    Galette in 1876. Van Gogh lodged on the rue Lepic with his brother Theo. And
+    in a rickety wooden building nicknamed the Bateau-Lavoir, a Spaniard of
+    twenty-five painted a canvas in 1907 that would break European painting
+    wide open: Picasso, and his Demoiselles d'Avignon.
+
+    In between, the hill bled. On the eighteenth of March 1871, the army came to
+    seize the cannons parked on the summit. A crowd blocked them. The Paris
+    Commune began there, that morning.
+
+    The Sacré-Cœur grew partly out of that wound. Begun in 1875, the basilica was
+    not finished until 1914. Its stone has one unusual property: rain makes it
+    whiter. The building washes itself.
+
+    And the vineyard? It was planted in 1933 on a plot that developers wanted.
+    The harvest is tiny, and it is celebrated every autumn.
+
+    A village that refused to come down the hill. That may be the best definition
+    of Montmartre.
+  tags:
+    - "Montmartre"
+    - "Paris"
+    - "Sacre-Coeur"
+    - "History of Paris"
+    - "Bateau-Lavoir"
+    - "Paris walk"

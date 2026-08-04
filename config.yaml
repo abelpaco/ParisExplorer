@@ -86,8 +86,11 @@ queue:
 video_creator:
   # Directory for generated videos
   output_dir: "./content/videos"
-  # Frames per second for generated videos
-  fps: 24
+  # Langues publiees. Un sujet donne fait UNE video par langue, et le registre
+  # anti-republication les compte separement.
+  languages: ["fr", "en"]
+  # Produire aussi la declinaison verticale en Shorts. Double le temps de rendu.
+  shorts: true
   # Automatically generate a new video when the queue is empty
   auto_generate: true
 

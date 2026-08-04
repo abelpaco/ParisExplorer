@@ -1,0 +1,121 @@
+id: paris-haussmann
+category: histoire
+status: ready
+
+image_queries:
+  - "Haussmann renovation of Paris"
+  - "Boulevard Haussmann Paris 19th century"
+  - "Paris demolition Avenue de l'Opera Marville"
+  - "Haussmann building facade Paris balcony"
+  - "Paris sewers Belgrand egouts"
+  - "Parc des Buttes-Chaumont Paris"
+
+fr:
+  title: "Comment Paris a été redessiné en dix-sept ans"
+  subtitle: "Haussmann, Napoléon III et la ville que nous habitons encore"
+  narration: |
+    En 1853, Napoléon III reçoit son nouveau préfet de la Seine et lui montre une
+    carte de Paris. Dessus, des traits de couleur. Des rues qui n'existent pas
+    encore.
+
+    L'homme s'appelle Georges-Eugène Haussmann. Il n'est ni architecte ni
+    ingénieur. C'est un administrateur, avec un vrai talent pour trouver de
+    l'argent et pour passer en force. Il restera près de dix-sept ans.
+
+    Le Paris qu'il trouve est encore largement médiéval. Des rues étroites,
+    sombres, où l'on circule mal. Pas de réseau d'égouts digne de ce nom. L'eau
+    de boisson vient de la Seine, c'est-à-dire de l'endroit exact où l'on jette
+    les déchets. Le choléra a frappé en 1832, puis de nouveau en 1849. Des
+    milliers de morts. La question n'est donc pas esthétique. Elle est vitale.
+
+    Alors on perce. Le boulevard de Sébastopol, le boulevard Saint-Michel : une
+    grande croisée nord-sud et est-ouest, taillée à travers le tissu existant.
+    L'avenue de l'Opéra. Douze avenues rayonnant autour de l'Arc de Triomphe.
+    Pour ouvrir ces axes, il faut démolir. Des dizaines de milliers de logements
+    disparaissent, et l'île de la Cité perd presque tout son bâti ancien.
+
+    Sous terre, le chantier est aussi spectaculaire. L'ingénieur Eugène Belgrand
+    fait passer le réseau d'égouts d'une centaine de kilomètres à près de six
+    cents. Il va chercher de l'eau de source loin de la ville et la ramène par
+    aqueduc. Jean-Charles Alphand, lui, dessine les parcs : les Buttes-Chaumont
+    sur une ancienne carrière, Montsouris, et les deux grands bois qui encadrent
+    Paris.
+
+    C'est aussi là que la ville prend son visage. La règle est simple : la
+    hauteur des façades dépend de la largeur de la rue. Même pierre calcaire
+    claire, mêmes alignements, balcons filants au deuxième et au cinquième étage,
+    toit en pente. L'immeuble haussmannien n'est pas le style d'un architecte.
+    C'est un règlement devenu paysage.
+
+    Tout le monde n'applaudit pas. Les travaux coûtent une fortune, financée par
+    des montages de plus en plus opaques. En 1868, un jeune opposant nommé Jules
+    Ferry publie un pamphlet au titre moqueur : Les Comptes fantastiques
+    d'Haussmann. Les loyers montent. Les ouvriers sont repoussés vers l'est et
+    vers la périphérie. Le préfet est démis de ses fonctions en janvier 1870.
+
+    Baudelaire, lui, avait déjà tout résumé : « la forme d'une ville change plus
+    vite, hélas, que le cœur d'un mortel ».
+
+    Nous marchons encore dans ses lignes droites.
+  tags:
+    - "Haussmann"
+    - "Paris"
+    - "Napoléon III"
+    - "Histoire de Paris"
+    - "Urbanisme"
+    - "XIXe siècle"
+
+en:
+  title: "How Paris Was Redrawn in Seventeen Years"
+  subtitle: "Haussmann, Napoleon III and the city we still live in"
+  narration: |
+    In 1853, Napoleon III received his new prefect of the Seine and showed him a
+    map of Paris. It was covered in coloured lines. Streets that did not exist
+    yet.
+
+    The man was Georges-Eugène Haussmann. He was not an architect and not an
+    engineer. He was an administrator with a real gift for raising money and for
+    steamrolling opposition. He would hold the job for nearly seventeen years.
+
+    The Paris he inherited was still largely medieval. Narrow streets, very
+    little light, traffic that barely moved. No sewer network worth the name.
+    Drinking water came from the Seine, which is to say from the exact place
+    where the waste went. Cholera struck in 1832, then again in 1849. Thousands
+    died. So this was never really a question of beauty. It was a question of
+    survival.
+
+    And so they cut. The Boulevard de Sébastopol, the Boulevard Saint-Michel: one
+    great cross, north to south and east to west, driven straight through the old
+    fabric. The Avenue de l'Opéra. Twelve avenues radiating from the Arc de
+    Triomphe. Opening those lines meant demolition. Tens of thousands of homes
+    came down, and the Île de la Cité lost almost all of its old buildings.
+
+    Underground, the work was just as dramatic. The engineer Eugène Belgrand
+    grew the sewer network from around a hundred kilometres to close to six
+    hundred. He went looking for spring water far outside the city and piped it
+    in by aqueduct. Jean-Charles Alphand laid out the parks: the Buttes-Chaumont
+    on an old quarry, Montsouris, and the two great woods that bookend Paris.
+
+    This is also when the city got its face. The rule was simple: facade height
+    depends on street width. The same pale limestone, the same unbroken
+    alignments, running balconies on the second and fifth floors, a sloping roof
+    on top. The Haussmann building is not one architect's style. It is a
+    regulation that turned into a landscape.
+
+    Not everyone applauded. The works cost a fortune, funded by increasingly
+    opaque arrangements. In 1868 a young opponent named Jules Ferry published a
+    pamphlet with a mocking title, roughly: Haussmann's Fantastical Accounts.
+    Rents rose. Working families were pushed east and out towards the edges. The
+    prefect was dismissed in January 1870.
+
+    Baudelaire had already put it best: the shape of a city, he wrote, changes
+    faster than a human heart.
+
+    We are still walking inside Haussmann's straight lines.
+  tags:
+    - "Haussmann"
+    - "Paris"
+    - "Napoleon III"
+    - "History of Paris"
+    - "Urban planning"
+    - "19th century"

@@ -8,11 +8,17 @@ import yaml
 import json
 from pathlib import Path
 
+# Les rapports de test sont ponctues de « ✓ » et « ✗ ». Sur une console Windows
+# (cp1252 par defaut), les afficher leve UnicodeEncodeError DANS le rapport lui-
+# meme : la suite s'arretait au premier test, avant d'en executer un seul.
+if hasattr(sys.stdout, "reconfigure"):
+    sys.stdout.reconfigure(encoding="utf-8", errors="replace")
+
 def test_config_loading():
     """Test configuration file loading"""
     print("Testing config loading...")
     try:
-        with open('config.yaml', 'r') as f:
+        with open('config.yaml', 'r', encoding='utf-8') as f:
             config = yaml.safe_load(f)
         
         assert config is not None, "Config is None"
@@ -117,7 +123,7 @@ def test_content_structure():
         print("✓ Example metadata exists")
         
         try:
-            with open(example_json, 'r') as f:
+            with open(example_json, 'r', encoding='utf-8') as f:
                 data = json.load(f)
             assert 'title' in data, "Missing title in example"
             assert 'description' in data, "Missing description in example"
@@ -136,7 +142,7 @@ def test_gitignore():
     """Test .gitignore contains sensitive files"""
     print("\nTesting .gitignore...")
     
-    with open('.gitignore', 'r') as f:
+    with open('.gitignore', 'r', encoding='utf-8') as f:
         gitignore_content = f.read()
     
     sensitive_files = [
@@ -161,7 +167,7 @@ def test_schedule_config():
     """Test schedule configuration is valid"""
     print("\nTesting schedule configuration...")
     
-    with open('config.yaml', 'r') as f:
+    with open('config.yaml', 'r', encoding='utf-8') as f:
         config = yaml.safe_load(f)
     
     schedule_config = config.get('schedule', {})
@@ -182,114 +188,120 @@ def test_schedule_config():
 
 
 def test_video_creator_import():
-    """Test that video_creator module imports correctly"""
+    """Le module se charge et expose le catalogue des sujets."""
     print("\nTesting video_creator import...")
     try:
-        from video_creator import ParisVideoCreator, PARIS_TOPICS  # noqa: F401
-        assert len(PARIS_TOPICS) > 0, "PARIS_TOPICS is empty"
-        print(
-            f"✓ video_creator imported successfully "
-            f"({len(PARIS_TOPICS)} topics available)"
-        )
+        from video_creator import ParisVideoCreator, registry_key  # noqa: F401
+        assert registry_key("tour-eiffel", "fr") == "tour-eiffel:fr"
+        print("✓ video_creator imported successfully")
         return True
-    except ImportError as e:
+    except Exception as e:
         print(f"✗ video_creator import failed: {e}")
         return False
 
 
-def test_paris_topics_structure():
-    """Test that PARIS_TOPICS have required fields"""
-    print("\nTesting PARIS_TOPICS structure...")
+def test_topics_are_loadable():
+    """Les sujets YAML se chargent et sont complets."""
+    print("\nTesting content/topics...")
     try:
-        from video_creator import PARIS_TOPICS
-        required_keys = [
-            "name", "subtitle", "description", "facts", "tags", "colors", "location",
-        ]
-        for topic in PARIS_TOPICS:
-            for key in required_keys:
-                assert key in topic, (
-                    f"Topic '{topic.get('name', '?')}' missing key: {key}"
+        import topic_loader
+        topics = topic_loader.load_topics()
+        assert topics, "aucun sujet en status: ready dans content/topics"
+        for topic in topics:
+            assert "fr" in topic.langs, f"{topic.id}: bloc 'fr' manquant"
+            assert topic.image_queries, f"{topic.id}: aucune requete d'image"
+            for lang, text in topic.langs.items():
+                assert text.title, f"{topic.id}[{lang}]: titre vide"
+                assert text.word_count >= topic_loader.MIN_NARRATION_WORDS, (
+                    f"{topic.id}[{lang}]: narration trop courte "
+                    f"({text.word_count} mots)"
                 )
-            assert len(topic["facts"]) > 0, f"Topic '{topic['name']}' has no facts"
-            assert len(topic["tags"]) > 0, f"Topic '{topic['name']}' has no tags"
-            color_keys = ["bg", "accent", "text"]
-            for ck in color_keys:
-                assert ck in topic["colors"], (
-                    f"Topic '{topic['name']}' colors missing: {ck}"
-                )
-        print(f"✓ All {len(PARIS_TOPICS)} topics have valid structure")
+        print(f"✓ {len(topics)} sujet(s) valide(s)")
         return True
     except Exception as e:
-        print(f"✗ PARIS_TOPICS structure invalid: {e}")
+        print(f"✗ topics invalides: {e}")
         return False
 
 
-def test_video_creator_slides():
-    """Test that slide creation functions produce valid PIL Images"""
-    print("\nTesting slide creation...")
-    try:
-        from video_creator import (
-            PARIS_TOPICS,
-            _create_title_slide,
-            _create_description_slide,
-            _create_facts_slide,
-            _create_outro_slide,
-            VIDEO_WIDTH,
-            VIDEO_HEIGHT,
-        )
-        from PIL import Image
+def test_topic_catalogue_is_bilingual():
+    """Le catalogue expose UN couple sujet/langue par langue configuree.
 
-        topic = PARIS_TOPICS[0]
-        for fn_name, fn in [
-            ("title", _create_title_slide),
-            ("description", _create_description_slide),
-            ("facts", _create_facts_slide),
-            ("outro", _create_outro_slide),
-        ]:
-            img = fn(topic)
-            assert isinstance(img, Image.Image), f"{fn_name} slide is not a PIL Image"
-            assert img.size == (VIDEO_WIDTH, VIDEO_HEIGHT), (
-                f"{fn_name} slide has wrong size: {img.size}"
+    C'est le point qui empeche la version anglaise de disparaitre : si la cle
+    du registre oubliait la langue, publier le francais marquerait le sujet
+    comme fait.
+    """
+    print("\nTesting bilingual catalogue...")
+    try:
+        from video_creator import ParisVideoCreator
+        creator = ParisVideoCreator({"video_creator": {"languages": ["fr", "en"]}})
+        catalogue = creator.get_available_topics()
+        assert catalogue, "catalogue vide"
+
+        names = [c["name"] for c in catalogue]
+        assert len(names) == len(set(names)), "cles de registre en double"
+        for candidate in catalogue:
+            assert candidate["name"].endswith(f":{candidate['lang']}"), (
+                f"la cle {candidate['name']} ne porte pas la langue"
             )
-            print(f"  ✓ {fn_name} slide OK ({img.size})")
+        langs = {c["lang"] for c in catalogue}
+        assert langs == {"fr", "en"}, f"langues manquantes: {langs}"
+        print(f"✓ {len(catalogue)} couple(s) sujet/langue, langues {sorted(langs)}")
         return True
     except Exception as e:
-        print(f"✗ Slide creation failed: {e}")
+        print(f"✗ catalogue invalide: {e}")
         return False
 
 
-def test_video_creator_description():
-    """Test that video description generation works"""
-    print("\nTesting video description generation...")
+def test_no_republication():
+    """Un couple sujet/langue publie ne doit jamais etre repropose."""
+    print("\nTesting anti-republication guard...")
     try:
-        from video_creator import PARIS_TOPICS, ParisVideoCreator
-        topic = PARIS_TOPICS[0]
-        desc = ParisVideoCreator._build_description(topic)
-        assert topic["name"] in desc or topic["location"] in desc, (
-            "Description missing topic info"
-        )
-        assert "#ParisExplorer" in desc, "Description missing brand hashtag"
-        print("✓ Video description generated correctly")
+        import tempfile
+        from pathlib import Path as _Path
+        from topic_registry import TopicRegistry
+        from video_creator import ParisVideoCreator
+
+        with tempfile.TemporaryDirectory() as tmp:
+            registry = TopicRegistry(_Path(tmp) / "published.json")
+            creator = ParisVideoCreator({}, registry=registry)
+            catalogue = creator.get_available_topics()
+            assert catalogue, "catalogue vide"
+
+            first = catalogue[0]["name"]
+            registry.mark_published(first, video_id="test123")
+            remaining = [c["name"] for c in registry.remaining(catalogue)]
+            assert first not in remaining, (
+                f"{first} est deja publie mais reste eligible"
+            )
+
+            # Publier TOUT doit donner une liste vide, jamais un repli sur le
+            # premier sujet : c'est le bug historique que ce garde-fou corrige.
+            for candidate in catalogue:
+                registry.mark_published(candidate["name"])
+            assert registry.remaining(catalogue) == [], (
+                "des sujets restent eligibles alors que tout est publie"
+            )
+        print("✓ garde anti-republication OK")
         return True
     except Exception as e:
-        print(f"✗ Description generation failed: {e}")
+        print(f"✗ anti-republication: {e}")
         return False
 
 
 def test_video_creator_config():
-    """Test that config.yaml has video_creator section"""
+    """config.yaml expose bien la section video_creator attendue."""
     print("\nTesting video_creator configuration...")
     try:
-        with open('config.yaml', 'r') as f:
+        with open('config.yaml', 'r', encoding='utf-8') as f:
             config = yaml.safe_load(f)
         assert 'video_creator' in config, "Missing video_creator config section"
         vc = config['video_creator']
-        assert 'output_dir' in vc, "Missing video_creator.output_dir"
-        assert 'fps' in vc, "Missing video_creator.fps"
-        assert 'auto_generate' in vc, "Missing video_creator.auto_generate"
+        for key in ('output_dir', 'languages', 'shorts', 'auto_generate'):
+            assert key in vc, f"Missing video_creator.{key}"
+        assert vc['languages'], "video_creator.languages est vide"
         print(
             f"✓ video_creator config valid "
-            f"(output_dir={vc['output_dir']}, fps={vc['fps']})"
+            f"(output_dir={vc['output_dir']}, languages={vc['languages']})"
         )
         return True
     except Exception as e:
@@ -312,9 +324,9 @@ def main():
         test_gitignore,
         test_imports,
         test_video_creator_import,
-        test_paris_topics_structure,
-        test_video_creator_slides,
-        test_video_creator_description,
+        test_topics_are_loadable,
+        test_topic_catalogue_is_bilingual,
+        test_no_republication,
         test_video_creator_config,
     ]
     

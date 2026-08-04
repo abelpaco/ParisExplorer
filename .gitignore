@@ -54,3 +54,15 @@ content/videos/*
 !content/videos/.gitkeep
 temp/*
 !temp/.gitkeep
+
+# Photos rapatriees de Wikimedia et voix off de synthese. Ce sont des artefacts
+# REPRODUCTIBLES : les images se retelechargent depuis Commons, la voix se
+# resynthetise a partir du texte du sujet. Les versionner ajouterait des dizaines
+# de megaoctets par sujet sans rien apporter.
+# En revanche content/topics/ (les sujets) et content/metadata/ (le registre des
+# publications) restent versionnes : perdre le registre ferait republier ce qui
+# est deja en ligne.
+content/images/*
+!content/images/.gitkeep
+content/audio/*
+!content/audio/.gitkeep
