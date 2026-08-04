@@ -362,6 +362,63 @@ def test_card_legibility():
         return False
 
 
+def test_card_still_and_motion_agree():
+    """Carte fixe et carte animée doivent poser le texte au MÊME endroit.
+
+    L'animation dessine le texte sur un calque transparent, séparé du fond qui
+    défile. Si la mise en page divergeait, une série mêlant fixes et animées se
+    lirait comme deux gabarits différents — un défaut qui ne se voit qu'en
+    regardant les deux côte à côte, donc jamais.
+
+    Ce test ne rend aucune vidéo : il compare les mises en page et vérifie que
+    le calque de texte est bien transparent là où il n'y a rien.
+    """
+    print("\nTesting still/motion layout agreement...")
+    try:
+        from PIL import Image
+
+        import visual_cards
+
+        import tempfile
+        from pathlib import Path as _Path
+
+        text = "Une phrase de longueur ordinaire pour caler la mise en page."
+        with tempfile.TemporaryDirectory() as tmp:
+            photo = _Path(tmp) / "fond.png"
+            Image.new("RGB", (2200, 1400), (70, 90, 120)).save(photo)
+
+            for fmt, size in visual_cards.CARD_FORMATS.items():
+                still = visual_cards._layout(size, text, "Monument")
+                canvas, overlay, motion, _, _ = visual_cards._motion_layers(
+                    photo, text, fmt=fmt, eyebrow="Monument"
+                )
+
+                # Le piège : calculer la mise en page sur la toile élargie.
+                assert motion.text_top == still.text_top, (
+                    f"{fmt}: texte à y={motion.text_top} en animé contre "
+                    f"{still.text_top} en fixe — mise en page calculée sur la "
+                    f"toile au lieu du cadre ?"
+                )
+                assert motion.lines == still.lines, f"{fmt}: découpage des lignes différent"
+                assert motion.font.size == still.font.size, f"{fmt}: police différente"
+                assert overlay.size == size, f"{fmt}: calque de texte hors format"
+                assert canvas.width > size[0], (
+                    f"{fmt}: le fond ne déborde pas du cadre — aucun mouvement possible"
+                )
+
+                alpha = overlay.getchannel("A").getextrema()
+                assert alpha[0] == 0, f"{fmt}: le calque de texte n'est pas transparent"
+                assert alpha[1] == 255, f"{fmt}: le calque de texte est vide"
+                print(
+                    f"  ✓ {fmt}: texte à y={still.text_top}, "
+                    f"course de {canvas.width - size[0]} px"
+                )
+        return True
+    except Exception as e:
+        print(f"✗ accord fixe/animé: {e}")
+        return False
+
+
 def test_card_labels():
     """Les categories s'affichent avec leurs accents et dans la langue."""
     print("\nTesting card category labels...")
@@ -400,6 +457,7 @@ def main():
         test_topic_catalogue_is_bilingual,
         test_no_republication,
         test_card_legibility,
+        test_card_still_and_motion_agree,
         test_card_labels,
         test_video_creator_config,
     ]

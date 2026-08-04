@@ -23,12 +23,17 @@ from __future__ import annotations
 
 import logging
 import re
+import shutil
+import subprocess
 import sys
+import tempfile
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional, Sequence, Tuple
 
 from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
+
+import video_assembly
 
 logger = logging.getLogger(__name__)
 
@@ -72,6 +77,18 @@ FONT_CANDIDATES = (
 # rien ; trop long, ca ne se lit pas sur un telephone.
 CARD_TEXT_MIN = 45
 CARD_TEXT_MAX = 165
+
+# Cartes animees : duree, debordement horizontal du fond, cadence.
+# Six secondes suffisent a lire une phrase et a laisser le mouvement s'installer.
+ANIM_SECONDS = 6.0
+ANIM_PAN_SCALE = 1.14
+ANIM_FPS = 30
+
+# Le texte apparait apres le debut : on laisse d'abord VOIR la photo, puis la
+# phrase se pose. Tout afficher d'emblee gache la seule seconde ou l'image seule
+# peut arreter le pouce.
+TEXT_FADE_START = 0.45
+TEXT_FADE_SECONDS = 0.65
 
 # Libelles des categories. Les identifiants des sujets sont volontairement sans
 # accent — ce sont des cles, pas du texte. Les afficher tels quels mettrait
@@ -125,6 +142,20 @@ class RenderedCard:
 
 
 @dataclass
+class AnimatedCard:
+    """Une carte animee produite."""
+
+    path: Path
+    seconds: float
+    text_luminance: float
+    scrim_strength: float
+
+    @property
+    def is_legible(self) -> bool:
+        return self.text_luminance <= MAX_TEXT_AREA_LUMINANCE
+
+
+@dataclass
 class Card:
     """Une carte produite."""
 
@@ -134,6 +165,7 @@ class Card:
     total: int
     background: Optional[Path] = None
     credit: str = ""
+    motion: Optional[Path] = None
 
 
 @dataclass
@@ -357,6 +389,196 @@ def _text_bounds(
 # ---------------------------------------------------------------------------
 
 
+@dataclass
+class Layout:
+    """Ou tombe chaque element d'une carte, pour un format et un texte donnes.
+
+    Calcule une fois, reutilise par le rendu fixe ET par l'animation : les deux
+    doivent poser le texte exactement au meme endroit, sinon une serie melangeant
+    cartes fixes et animees se lit comme deux gabarits differents.
+    """
+
+    size: Tuple[int, int]
+    margin: int
+    font: ImageFont.FreeTypeFont
+    lines: List[str]
+    line_height: int
+    text_top: int
+    block_height: int
+    has_eyebrow: bool
+
+    @property
+    def text_zone(self) -> Tuple[int, int, int, int]:
+        """Zone a mesurer pour decider du voile : le bloc de texte, exactement.
+
+        Mesurer plus large — par exemple jusqu'au bas de la carte — fait une
+        moyenne trompeuse : un bas d'image sombre compense une facade blanche,
+        le seuil est respecte, et le voile ne se declenche pas alors que le
+        texte tombe en plein sur le blanc.
+        """
+        width, height = self.size
+        return (
+            self.margin,
+            max(0, self.text_top),
+            width - self.margin,
+            min(height, self.text_top + self.block_height),
+        )
+
+
+def _layout(size: Tuple[int, int], text: str, eyebrow: str) -> Layout:
+    """Place le texte d'une carte dans son format."""
+    width, height = size
+    margin = int(width * MARGIN_RATIO)
+
+    probe = ImageDraw.Draw(Image.new("RGB", size))
+    font, lines, line_height = _fit_text(
+        probe, text, (width - 2 * margin, int(height * 0.42)),
+        start=int(width * 0.082), floor=int(width * 0.036),
+    )
+    block_height = len(lines) * line_height
+    text_top = height - margin - block_height
+    if eyebrow:
+        text_top -= int(width * 0.055)
+
+    return Layout(
+        size=size, margin=margin, font=font, lines=lines,
+        line_height=line_height, text_top=text_top,
+        block_height=block_height, has_eyebrow=bool(eyebrow),
+    )
+
+
+def _apply_scrim(
+    base: Image.Image, layout: Layout, *, panning: bool = False
+) -> Tuple[Image.Image, float, float]:
+    """Assombrit ``base`` jusqu'a ce que la zone de texte soit lisible.
+
+    Args:
+        base: image de fond, deja au format (ou plus large pour une animation).
+        layout: placement du texte.
+        panning: le fond est plus large que le cadre et va defiler. On mesure
+            alors plusieurs fenetres du mouvement et on retient la PLUS
+            CLAIRE : le voile doit tenir sur toute la course, pas seulement
+            sur la premiere image.
+
+    Returns:
+        ``(image voilee, force, luminosite mesuree)``.
+    """
+    strength = 0.55
+    veiled = base
+    luminance = 0.0
+
+    for attempt in range(SCRIM_MAX_PASSES):
+        mask = _scrim(base.size, strength, layout.text_top)
+        veiled = Image.composite(Image.new("RGB", base.size, INK), base, mask)
+
+        if not panning:
+            luminance = _area_luminance(veiled, layout.text_zone)
+        else:
+            width, height = layout.size
+            spans = max(0, veiled.width - width)
+            offsets = [0, spans // 2, spans] if spans else [0]
+            windows = [
+                veiled.crop((x, 0, x + width, height)) for x in offsets
+            ]
+            luminance = max(_area_luminance(w, layout.text_zone) for w in windows)
+
+        if luminance <= MAX_TEXT_AREA_LUMINANCE:
+            break
+        strength = min(1.0, strength + SCRIM_STEP)
+        if attempt == SCRIM_MAX_PASSES - 1:
+            logger.warning(
+                "Fond tres clair : luminosite %.0f apres voile maximal. Le texte "
+                "reste lisible grace au lisere, mais le fond est presque efface.",
+                luminance,
+            )
+    return veiled, strength, luminance
+
+
+def _draw_furniture(
+    target: Image.Image,
+    sample: Image.Image,
+    layout: Layout,
+    *,
+    eyebrow: str = "",
+    index: Optional[int] = None,
+    total: Optional[int] = None,
+) -> None:
+    """Ecrit marque, numero, etiquette et texte sur ``target``.
+
+    ``sample`` est l'image sur laquelle les COULEURS sont choisies. Elle est
+    dissociee de la cible parce que l'animation dessine sur un calque
+    transparent : il faut alors mesurer le fond qui passera dessous, pas le
+    calque vide.
+    """
+    width, height = layout.size
+    margin = layout.margin
+    draw = ImageDraw.Draw(target)
+    small = _font(int(width * 0.026))
+    hairline = max(1, int(width * 0.0016))
+
+    def label(position: Tuple[int, int], content: str, font, preferred) -> None:
+        """Ecrit un petit texte avec la couleur qui se lit la ou il tombe."""
+        bounds = _text_bounds(draw, position, content, font, layout.size)
+        fill, outline = _readable_on(sample, bounds, preferred)
+        draw.text(
+            position, content, font=font, fill=fill,
+            stroke_width=hairline, stroke_fill=outline,
+        )
+
+    # Marque, en haut a gauche.
+    label((margin, margin), BRAND, small, PAPER)
+    rule_y = margin + int(width * 0.045)
+    rule_end = margin + int(width * 0.09)
+    rule_color, _ = _readable_on(sample, (margin, rule_y - 2, rule_end, rule_y + 3), ACCENT)
+    draw.line(
+        [(margin, rule_y), (rule_end, rule_y)],
+        fill=rule_color, width=max(2, int(width * 0.005)),
+    )
+
+    # Numero dans la serie, en haut a droite.
+    if index and total and total > 1:
+        counter = f"{index}/{total}"
+        label(
+            (width - margin - int(draw.textlength(counter, font=small)), margin),
+            counter, small, ACCENT,
+        )
+
+    # Etiquette de categorie, juste au-dessus du texte.
+    y = layout.text_top
+    if eyebrow:
+        label((margin, y - int(width * 0.055)), eyebrow.upper(), _font(int(width * 0.028)), ACCENT)
+
+    # Le texte, avec un lisere sombre : meme voile mesure, un detail clair de la
+    # photo peut affleurer juste derriere une lettre.
+    for line in layout.lines:
+        draw.text(
+            (margin, y), line, font=layout.font, fill=PAPER,
+            stroke_width=max(1, int(width * 0.0022)), stroke_fill=(0, 0, 0),
+        )
+        y += layout.line_height
+
+
+def _prepare_background(background: Path, size: Tuple[int, int], style: str) -> Image.Image:
+    """Charge la photo, la recadre au format demande et applique le style."""
+    try:
+        with Image.open(background) as raw:
+            base = _cover(raw.convert("RGB"), size)
+    except OSError as exc:
+        raise CardError(f"Fond illisible ({background}) : {exc}") from exc
+
+    if style == "poster":
+        return _poster(base)
+    if style != "photo":
+        raise CardError(f"Style inconnu : {style}. Connus : photo, poster")
+    return base
+
+
+def _checked_format(fmt: str) -> Tuple[int, int]:
+    if fmt not in CARD_FORMATS:
+        raise CardError(f"Format inconnu : {fmt}. Connus : {', '.join(CARD_FORMATS)}")
+    return CARD_FORMATS[fmt]
+
+
 def render_card(
     background: Path,
     text: str,
@@ -368,7 +590,7 @@ def render_card(
     index: Optional[int] = None,
     total: Optional[int] = None,
 ) -> RenderedCard:
-    """Fabrique une carte : photo de fond, voile, texte, marque.
+    """Fabrique une carte fixe : photo de fond, voile, texte, marque.
 
     Args:
         background: photo de fond.
@@ -382,98 +604,12 @@ def render_card(
     Raises:
         CardError: format inconnu, fond illisible, ou police introuvable.
     """
-    if fmt not in CARD_FORMATS:
-        raise CardError(f"Format inconnu : {fmt}. Connus : {', '.join(CARD_FORMATS)}")
-    size = CARD_FORMATS[fmt]
-    width, height = size
+    size = _checked_format(fmt)
+    base = _prepare_background(background, size, style)
+    layout = _layout(size, text, eyebrow)
+    card, strength, luminance = _apply_scrim(base, layout)
 
-    try:
-        with Image.open(background) as raw:
-            base = _cover(raw.convert("RGB"), size)
-    except OSError as exc:
-        raise CardError(f"Fond illisible ({background}) : {exc}") from exc
-
-    if style == "poster":
-        base = _poster(base)
-    elif style != "photo":
-        raise CardError(f"Style inconnu : {style}. Connus : photo, poster")
-
-    margin = int(width * MARGIN_RATIO)
-    text_box = (width - 2 * margin, int(height * 0.42))
-
-    # Le texte se dimensionne AVANT le voile : c'est sa hauteur reelle qui dit
-    # quelle zone doit etre assombrie.
-    probe = ImageDraw.Draw(base)
-    font, lines, line_height = _fit_text(
-        probe, text, text_box, start=int(width * 0.082), floor=int(width * 0.036)
-    )
-    block_height = len(lines) * line_height
-    text_top = height - margin - block_height
-    if eyebrow:
-        text_top -= int(width * 0.055)
-
-    # Voile progressif : on renforce tant que la zone de texte reste trop claire
-    # pour du blanc. C'est mesure sur l'image reelle, pas suppose.
-    #
-    # La zone mesuree est EXACTEMENT le bloc de texte. Mesurer plus large — par
-    # exemple jusqu'au bas de la carte — fait une moyenne trompeuse : un bas
-    # d'image sombre compense une facade blanche, le seuil est respecte, et le
-    # voile ne se declenche pas alors que le texte tombe en plein sur le blanc.
-    zone = (margin, max(0, text_top), width - margin, min(height, text_top + block_height))
-    strength = 0.55
-    card = base
-    for attempt in range(SCRIM_MAX_PASSES):
-        card = Image.composite(Image.new("RGB", size, INK), base, _scrim(size, strength, text_top))
-        luminance = _area_luminance(card, zone)
-        if luminance <= MAX_TEXT_AREA_LUMINANCE:
-            break
-        strength = min(1.0, strength + SCRIM_STEP)
-        if attempt == SCRIM_MAX_PASSES - 1:
-            logger.warning(
-                "Fond tres clair (%s) : luminosite %.0f apres voile maximal. "
-                "La carte reste lisible mais le fond est presque efface.",
-                Path(background).name, luminance,
-            )
-
-    draw = ImageDraw.Draw(card)
-
-    small = _font(int(width * 0.026))
-    hairline = max(1, int(width * 0.0016))
-
-    def label(position: Tuple[int, int], content: str, font, preferred) -> None:
-        """Ecrit un petit texte avec la couleur qui se lit la ou il tombe."""
-        bounds = _text_bounds(draw, position, content, font, size)
-        fill, outline = _readable_on(card, bounds, preferred)
-        draw.text(
-            position, content, font=font, fill=fill,
-            stroke_width=hairline, stroke_fill=outline,
-        )
-
-    # Marque, en haut a gauche.
-    label((margin, margin), BRAND, small, PAPER)
-    rule_y = margin + int(width * 0.045)
-    rule_end = margin + int(width * 0.09)
-    rule_color, _ = _readable_on(card, (margin, rule_y - 2, rule_end, rule_y + 3), ACCENT)
-    draw.line([(margin, rule_y), (rule_end, rule_y)], fill=rule_color, width=max(2, int(width * 0.005)))
-
-    # Numero dans la serie, en haut a droite.
-    if index and total and total > 1:
-        counter = f"{index}/{total}"
-        label((width - margin - int(draw.textlength(counter, font=small)), margin), counter, small, ACCENT)
-
-    # Etiquette de categorie, juste au-dessus du texte.
-    y = text_top
-    if eyebrow:
-        label((margin, y - int(width * 0.055)), eyebrow.upper(), _font(int(width * 0.028)), ACCENT)
-
-    # Le texte, avec un liseré sombre : meme voile mesure, un detail clair de la
-    # photo peut affleurer juste derriere une lettre.
-    for line in lines:
-        draw.text(
-            (margin, y), line, font=font, fill=PAPER,
-            stroke_width=max(1, int(width * 0.0022)), stroke_fill=(0, 0, 0),
-        )
-        y += line_height
+    _draw_furniture(card, card, layout, eyebrow=eyebrow, index=index, total=total)
 
     out_path = Path(out_path)
     out_path.parent.mkdir(parents=True, exist_ok=True)
@@ -482,7 +618,149 @@ def render_card(
         path=out_path,
         text_luminance=luminance,
         scrim_strength=strength,
-        font_size=font.size,
+        font_size=layout.font.size,
+    )
+
+
+# ---------------------------------------------------------------------------
+# Cartes animees
+# ---------------------------------------------------------------------------
+
+
+def _motion_layers(
+    background: Path,
+    text: str,
+    *,
+    fmt: str = DEFAULT_FORMAT,
+    style: str = "photo",
+    eyebrow: str = "",
+    index: Optional[int] = None,
+    total: Optional[int] = None,
+) -> Tuple[Image.Image, Image.Image, Layout, float, float]:
+    """Prepare les deux calques d'une carte animee, sans lancer ffmpeg.
+
+    Separe du rendu video pour une raison precise : c'est ICI que se joue la
+    seule erreur vraiment couteuse — calculer la mise en page sur la toile
+    ELARGIE au lieu du cadre. Le texte se retrouverait alors place pour une
+    largeur qui n'est jamais affichee, et decale sur toute la serie. Isole, ce
+    calcul se verifie en une milliseconde ; noye dans un rendu video, il ne se
+    verifie qu'a l'oeil.
+
+    Returns:
+        ``(fond large voile, calque de texte transparent, mise en page, force
+        du voile, luminosite mesuree)``.
+    """
+    size = _checked_format(fmt)
+    width, height = size
+
+    # Fond plus large que le cadre : c'est cette marge que le plan parcourt.
+    wide = (int(round(width * ANIM_PAN_SCALE)), height)
+    base = _prepare_background(background, wide, style)
+
+    # Mise en page sur le CADRE, jamais sur la toile.
+    layout = _layout(size, text, eyebrow)
+    veiled, strength, luminance = _apply_scrim(base, layout, panning=True)
+
+    # Les couleurs des petits textes se choisissent sur le fond qu'ils auront
+    # REELLEMENT dessous, pris au milieu de la course.
+    middle = (veiled.width - width) // 2
+    sample = veiled.crop((middle, 0, middle + width, height))
+
+    overlay = Image.new("RGBA", size, (0, 0, 0, 0))
+    _draw_furniture(overlay, sample, layout, eyebrow=eyebrow, index=index, total=total)
+    return veiled, overlay, layout, strength, luminance
+
+
+def animate_card(
+    background: Path,
+    text: str,
+    out_path: Path,
+    *,
+    fmt: str = DEFAULT_FORMAT,
+    style: str = "photo",
+    eyebrow: str = "",
+    index: Optional[int] = None,
+    total: Optional[int] = None,
+    seconds: float = ANIM_SECONDS,
+) -> AnimatedCard:
+    """Fabrique la version animee d'une carte : la photo glisse, le texte reste.
+
+    DEUX CHOIX QUI COMPTENT
+    -----------------------
+    1. **Le texte ne bouge pas.** Faire glisser la carte entiere, texte compris,
+       est plus simple et se voit tout de suite : ca donne un diaporama, pas une
+       animation. Le fond est donc rendu a part et le texte pose en calque.
+
+    2. **Le mouvement est HORIZONTAL.** Le voile est une fonction de la hauteur ;
+       un panoramique vertical le decalerait par rapport au texte, qui, lui, ne
+       bouge pas. En horizontal, il reste aligne sur toute la course.
+
+    Le voile est mesure sur PLUSIEURS positions du mouvement et retient la plus
+    claire : il doit tenir du debut a la fin, pas seulement sur la premiere
+    image.
+
+    Args:
+        seconds: duree de l'animation.
+
+    Raises:
+        CardError: format ou style inconnu, fond illisible, ou echec ffmpeg.
+    """
+    width, height = _checked_format(fmt)
+    veiled, overlay, _layout_used, strength, luminance = _motion_layers(
+        background, text, fmt=fmt, style=style,
+        eyebrow=eyebrow, index=index, total=total,
+    )
+
+    out_path = Path(out_path)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    workdir = Path(tempfile.mkdtemp(prefix="pe-carte-"))
+    try:
+        canvas_file = workdir / "fond.png"
+        overlay_file = workdir / "texte.png"
+        veiled.save(canvas_file, "PNG")
+        overlay.save(overlay_file, "PNG")
+
+        graph = workdir / "graphe.txt"
+        graph.write_text(
+            f"[0:v]crop={width}:{height}:x='(iw-ow)*min(1,t/{seconds:.3f})':y=0,"
+            # Meme piege que dans le montage video : `setpts` doit passer AVANT
+            # `fps`, sinon la cadence devient indeterminee.
+            f"setpts=PTS-STARTPTS,fps={ANIM_FPS},format=rgba[bg];\n"
+            f"[1:v]setpts=PTS-STARTPTS,fps={ANIM_FPS},format=rgba,"
+            f"fade=t=in:st={TEXT_FADE_START:.2f}:d={TEXT_FADE_SECONDS:.2f}:alpha=1[txt];\n"
+            f"[bg][txt]overlay=0:0:format=auto,"
+            f"fade=t=in:st=0:d=0.4,fade=t=out:st={max(0.0, seconds - 0.5):.3f}:d=0.5,"
+            f"format=yuv420p[v]",
+            encoding="utf-8",
+        )
+
+        command = [
+            video_assembly.ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y",
+            "-loop", "1", "-framerate", str(ANIM_FPS), "-t", f"{seconds:.3f}", "-i", str(canvas_file),
+            "-loop", "1", "-framerate", str(ANIM_FPS), "-t", f"{seconds:.3f}", "-i", str(overlay_file),
+            "-filter_complex_script", str(graph),
+            "-map", "[v]",
+            "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
+            "-pix_fmt", "yuv420p", "-threads", str(video_assembly.FFMPEG_THREADS),
+            "-t", f"{seconds:.3f}", "-movflags", "+faststart",
+            str(out_path),
+        ]
+        proc = subprocess.run(command, capture_output=True, text=True)
+        if proc.returncode != 0:
+            raise CardError(
+                f"ffmpeg a echoue (code {proc.returncode}) :\n{proc.stderr.strip()[-1500:]}"
+            )
+    finally:
+        shutil.rmtree(workdir, ignore_errors=True)
+
+    if not out_path.exists() or out_path.stat().st_size == 0:
+        raise CardError(f"ffmpeg n'a produit aucun fichier exploitable : {out_path}")
+
+    return AnimatedCard(
+        path=out_path,
+        seconds=seconds,
+        text_luminance=luminance,
+        scrim_strength=strength,
     )
 
 
@@ -538,6 +816,7 @@ def build_series(
     fmt: str = DEFAULT_FORMAT,
     style: str = "photo",
     credits: str = "",
+    animate: bool = False,
 ) -> CardSeries:
     """Produit la serie de cartes d'un sujet.
 
@@ -575,8 +854,20 @@ def build_series(
                 "Envisage une autre image pour ce sujet.",
                 position, total, topic.id, rendered.text_luminance,
             )
+        motion = None
+        if animate:
+            motion = animate_card(
+                background, text, out_dir / f"{target.stem}.mp4",
+                fmt=fmt, style=style,
+                eyebrow=category_label(topic.category, lang),
+                index=position, total=total,
+            ).path
+
         series.cards.append(
-            Card(path=target, text=text, index=position, total=total, background=background)
+            Card(
+                path=target, text=text, index=position, total=total,
+                background=background, motion=motion,
+            )
         )
 
     logger.info(
@@ -603,6 +894,10 @@ def main(argv: Optional[List[str]] = None) -> int:
     parser.add_argument("--format", default=DEFAULT_FORMAT, choices=list(CARD_FORMATS))
     parser.add_argument("--style", default="photo", choices=["photo", "poster"])
     parser.add_argument("--count", type=int, default=5)
+    parser.add_argument(
+        "--animate", action="store_true",
+        help="produire aussi la version animee de chaque carte (mp4)",
+    )
     args = parser.parse_args(argv)
 
     logging.basicConfig(
@@ -631,6 +926,7 @@ def main(argv: Optional[List[str]] = None) -> int:
         Path("content/cards") / topic.id,
         count=args.count, fmt=args.format, style=args.style,
         credits=image_sourcing.format_credits(images),
+        animate=args.animate,
     )
     if not series.cards:
         logger.error("Aucune carte produite.")
@@ -639,6 +935,8 @@ def main(argv: Optional[List[str]] = None) -> int:
     print()
     for card in series.cards:
         print(f"{card.index}/{card.total}  {card.path}")
+        if card.motion:
+            print(f"        {card.motion}")
         print(f"        {card.text[:88]}")
     return 0
 
