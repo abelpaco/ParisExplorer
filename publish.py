@@ -49,8 +49,17 @@ def publish(
 ) -> int:
     import yaml
 
+    from authorize import check_only
     from topic_registry import TopicRegistry
     from youtube_uploader import YouTubeUploader
+
+    # Verification prealable de l'autorisation. Sans elle, un jeton perime fait
+    # ouvrir une fenetre de consentement par le constructeur de l'uploader : sur
+    # un poste c'est seulement surprenant, sur le VPS c'est un envoi qui attend
+    # pour toujours un navigateur qui n'existe pas.
+    if check_only() != 0:
+        logger.error("Autorisation invalide — rien n'a ete envoye.")
+        return 1
 
     if not video.exists():
         logger.error("Video introuvable : %s", video)

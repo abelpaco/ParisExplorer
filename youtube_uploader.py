@@ -16,9 +16,22 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaFileUpload
 from googleapiclient.errors import HttpError
 
-# YouTube API scopes
+# Droits demandes a Google, reduits au strict necessaire.
+#
+# Ce qu'on fait reellement : envoyer une video (videos().insert), poser une
+# miniature (thumbnails().set) — les deux couverts par `youtube.upload` — et
+# lire les infos de la chaine (channels().list), couvert par `youtube.readonly`.
+#
+# On demandait auparavant le droit `youtube` COMPLET, qui autorise aussi a
+# modifier et supprimer des videos, gerer les playlists, changer les parametres
+# de la chaine. Rien de tout cela n'est utilise. Demander moins que ce qu'on
+# pourrait limite les degats d'un jeton vole, et c'est un argument de plus au
+# moment de l'audit de l'API YouTube.
+#
+# Elargir cette liste invalide le jeton existant : il faut alors relancer
+# `python authorize.py`.
 SCOPES = ['https://www.googleapis.com/auth/youtube.upload',
-          'https://www.googleapis.com/auth/youtube']
+          'https://www.googleapis.com/auth/youtube.readonly']
 
 logger = logging.getLogger(__name__)
 

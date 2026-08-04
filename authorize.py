@@ -26,6 +26,7 @@ Usage :
 from __future__ import annotations
 
 import argparse
+import json
 import os
 import sys
 from pathlib import Path
@@ -43,10 +44,17 @@ sys.path.insert(0, str(PROJECT_DIR))
 CREDENTIALS_FILE = Path("client_secrets.json")
 TOKEN_FILE = Path("token.json")
 
-SCOPES = [
-    "https://www.googleapis.com/auth/youtube.upload",
-    "https://www.googleapis.com/auth/youtube",
-]
+def scopes() -> list:
+    """Droits demandes, lus dans ``youtube_uploader``, qui en est la source.
+
+    Les redeclarer ici les ferait diverger en silence : le jeton serait demande
+    avec une liste et relu avec une autre. L'import est PARESSEUX pour que
+    ``--check`` puisse encore expliquer proprement qu'il manque les
+    bibliotheques Google, au lieu de mourir sur une pile d'appels.
+    """
+    from youtube_uploader import SCOPES
+
+    return list(SCOPES)
 
 
 def _fail(message: str) -> int:
@@ -70,23 +78,53 @@ def check_only() -> int:
     from google.oauth2.credentials import Credentials
 
     try:
-        creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), SCOPES)
+        creds = Credentials.from_authorized_user_file(str(TOKEN_FILE), scopes())
     except Exception as exc:
         return _fail(f"{TOKEN_FILE} illisible : {exc}")
+
+    # Les droits se lisent dans le FICHIER, pas sur l'objet : la construction
+    # ecrase ceux du jeton par ceux qu'on lui passe, et comparer l'objet a la
+    # demande reviendrait a comparer une valeur avec elle-meme.
+    granted = set(json.loads(TOKEN_FILE.read_text(encoding="utf-8")).get("scopes") or [])
+    asked = set(scopes())
+    if granted and granted != asked:
+        missing = ", ".join(sorted(s.rsplit("/", 1)[-1] for s in asked - granted))
+        extra = ", ".join(sorted(s.rsplit("/", 1)[-1] for s in granted - asked))
+        return _fail(
+            "Les droits demandes ont change depuis la derniere autorisation.\n"
+            f"    manquants dans le jeton : {missing or '(aucun)'}\n"
+            f"    en trop dans le jeton   : {extra or '(aucun)'}\n"
+            "Google refuse de rafraichir un jeton dont les droits ne "
+            "correspondent plus (invalid_scope). Relance `python authorize.py`."
+        )
 
     if creds.valid:
         print("[ok] Jeton valide.")
         return 0
+
     if creds.expired and creds.refresh_token:
-        # En mode Test, Google revoque le jeton de rafraichissement au bout de
-        # sept jours. C'est LA raison pour laquelle une chaine automatisee
-        # s'arrete toute seule sans que rien n'ait change dans le code.
-        print("[info] Jeton expire mais renouvelable — il se rafraichira tout seul.")
+        # On TENTE le rafraichissement au lieu de le supposer possible. Annoncer
+        # « renouvelable » sans essayer, c'est promettre un resultat sur la
+        # simple presence d'un champ : un jeton dont les droits ont change, ou
+        # revoque cote Google, presente exactement les memes apparences.
+        from google.auth.transport.requests import Request
+
+        try:
+            creds.refresh(Request())
+        except Exception as exc:
+            return _fail(
+                f"Jeton non renouvelable : {exc}\n"
+                "Relance `python authorize.py`. Si cela se reproduit tous les "
+                "sept jours, c'est que l'application OAuth est restee en mode "
+                "Test — passe-la en Production."
+            )
+        TOKEN_FILE.write_text(creds.to_json(), encoding="utf-8")
+        print("[ok] Jeton rafraichi et reenregistre.")
         return 0
+
     return _fail(
-        "Jeton expire et non renouvelable. Supprime token.json et relance "
-        "`python authorize.py`. Si ca recommence tous les sept jours, c'est que "
-        "l'application OAuth est encore en mode Test."
+        "Jeton expire et sans moyen de renouvellement. Supprime token.json et "
+        "relance `python authorize.py`."
     )
 
 
