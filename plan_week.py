@@ -35,6 +35,7 @@ import os
 import sys
 from dataclasses import dataclass, field
 from datetime import date, datetime, time, timedelta
+from zoneinfo import ZoneInfo
 from pathlib import Path
 from typing import Dict, List, Optional
 
@@ -49,6 +50,12 @@ PLAN_FILE = Path("content/metadata/publication_plan.json")
 
 # Creneaux par defaut : deux le matin, deux l'apres-midi, un le soir.
 DEFAULT_SLOTS = ["08:00", "10:30", "13:00", "16:30", "19:30"]
+
+# Fuseau des creneaux. Il est EXPLICITE, et c'est essentiel : le VPS tourne en
+# UTC alors que la chaine s'adresse a un public parisien. Une heure naive
+# ecrite ici et relue la-bas decalerait toutes les publications de deux heures
+# en ete, d'une en hiver — sans jamais lever la moindre erreur.
+DEFAULT_TIMEZONE = "Europe/Paris"
 
 # Un quota d'API standard (10 000 unites par jour) et un envoi a ~1600 unites
 # donnent six envois quotidiens au maximum. On refuse d'en planifier plus :
@@ -158,6 +165,7 @@ def build_plan(
     start: date,
     days: int,
     slots: List[str],
+    zone: ZoneInfo,
 ) -> List[Slot]:
     """Repartit les publications sur ``days`` jours."""
     if len(slots) > MAX_UPLOADS_PER_DAY:
@@ -192,7 +200,9 @@ def build_plan(
             per_unit[chosen.unit] = per_unit.get(chosen.unit, 0) + 1
             day_topics.add(chosen.topic_id)
             previous = chosen
-            plan.append(Slot(datetime.combine(day, time(hour, minute)), chosen))
+            plan.append(
+                Slot(datetime.combine(day, time(hour, minute), tzinfo=zone), chosen)
+            )
 
     return plan
 
@@ -214,7 +224,14 @@ def main(argv=None) -> int:
     )
 
     config = yaml.safe_load(Path("config.yaml").read_text(encoding="utf-8")) or {}
-    slots = args.slots or config.get("schedule", {}).get("post_times") or DEFAULT_SLOTS
+    schedule_cfg = config.get("schedule", {})
+    slots = args.slots or schedule_cfg.get("post_times") or DEFAULT_SLOTS
+    zone_name = schedule_cfg.get("timezone") or DEFAULT_TIMEZONE
+    try:
+        zone = ZoneInfo(zone_name)
+    except Exception as exc:
+        logger.error("Fuseau horaire inconnu (%s) : %s", zone_name, exc)
+        return 1
     start = date.fromisoformat(args.start) if args.start else date.today() + timedelta(days=1)
 
     topics = {t.id: t.category for t in topic_loader.load_topics(only_ready=False)}
@@ -223,12 +240,13 @@ def main(argv=None) -> int:
     published = {name.lower() for name in registry.published_names()}
 
     logger.info(
-        "%d publication(s) disponible(s) sur le disque, %d deja publiee(s).",
-        len(items), len(published),
+        "%d publication(s) disponible(s) sur le disque, %d deja publiee(s). "
+        "Creneaux en %s.",
+        len(items), len(published), zone_name,
     )
 
     try:
-        plan = build_plan(items, published, start, args.days, list(slots))
+        plan = build_plan(items, published, start, args.days, list(slots), zone)
     except ValueError as exc:
         logger.error("%s", exc)
         return 1
