@@ -241,20 +241,35 @@ def _poster(image: Image.Image) -> Image.Image:
     return Image.blend(duotone, grain, 0.07)
 
 
-def _scrim(size: Tuple[int, int], strength: float) -> Image.Image:
-    """Voile sombre en degrade, opaque en bas, transparent vers le haut.
+def _scrim(size: Tuple[int, int], strength: float, text_top: int) -> Image.Image:
+    """Voile sombre : plein sous le texte, fondu au-dessus, nul plus haut.
 
-    Le texte vit en bas de carte : c'est la que le voile doit etre franc. Plus
-    haut, la photo doit rester visible — c'est elle qui donne envie de cliquer.
+    Le voile se cale sur LE TEXTE, pas sur le bas de l'image. Une version
+    precedente suivait la position absolue avec une courbe creusee : a
+    mi-hauteur elle n'etait opaque qu'a 22 % meme poussee au maximum. Sur une
+    carte carree, dont le texte commence vers la moitie, la boucle de
+    renforcement mesurait correctement mais ne pouvait rien assombrir — elle
+    tournait a vide jusqu'a sa derniere passe.
+
+    Au-dessus du fondu, la photo reste intacte : c'est elle qui donne envie de
+    s'arreter sur la carte.
     """
     width, height = size
+    fade = max(1, int(height * 0.22))
+    start = max(0, text_top - fade)
+
     veil = Image.new("L", (1, height))
     for y in range(height):
-        position = y / max(1, height - 1)
-        # Courbe douce puis franche : le voile monte lentement, puis s'affirme
-        # sur le dernier tiers.
-        value = strength * (position ** 2.2)
-        veil.putpixel((0, y), int(max(0, min(1.0, value)) * 255))
+        if y <= start:
+            value = 0.0
+        elif y >= text_top:
+            value = strength
+        else:
+            # Fondu doux (courbe en S) pour qu'aucune ligne de demarcation ne
+            # se voie sur un ciel uni.
+            progress = (y - start) / fade
+            value = strength * (progress * progress * (3 - 2 * progress))
+        veil.putpixel((0, y), int(max(0.0, min(1.0, value)) * 255))
     return veil.resize((width, height))
 
 
@@ -386,7 +401,7 @@ def render_card(
     strength = 0.55
     card = base
     for attempt in range(SCRIM_MAX_PASSES):
-        card = Image.composite(Image.new("RGB", size, INK), base, _scrim(size, strength))
+        card = Image.composite(Image.new("RGB", size, INK), base, _scrim(size, strength, text_top))
         luminance = _area_luminance(card, zone)
         if luminance <= MAX_TEXT_AREA_LUMINANCE:
             break
