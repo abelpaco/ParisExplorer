@@ -1,0 +1,120 @@
+id: metro-parisien
+category: histoire
+status: ready
+
+image_queries:
+  - "Paris Metro entrance Guimard"
+  - "Paris metro station art nouveau entrance"
+  - "Paris metro construction 1900"
+  - "Metro Paris station platform"
+  - "Hector Guimard edicule metropolitain"
+  - "Paris metro map early"
+
+fr:
+  title: "Paris a refusé le métro pendant trente ans"
+  subtitle: "1900, la ville se creuse enfin"
+  narration: |
+    Londres a son métro depuis 1863. New York, Berlin, Budapest s'y mettent.
+    Paris attend 1900. Ce retard n'est pas technique : il est politique.
+
+    Depuis des décennies, la Ville et l'État se disputent. L'État veut un réseau
+    relié aux grandes lignes, capable de traverser Paris et de continuer en
+    province. La Ville veut exactement l'inverse : un réseau à elle, à petit
+    gabarit, incompatible avec les trains nationaux, pour que personne ne puisse
+    le lui prendre.
+
+    C'est la Ville qui gagne. Et c'est pour cela que les rames du métro parisien
+    sont si étroites : ce n'est pas une contrainte de sous-sol, c'est une décision
+    de souveraineté. Le gabarit a été choisi pour empêcher les trains d'y entrer.
+
+    L'Exposition universelle de 1900 fixe la date. L'ingénieur Fulgence Bienvenüe
+    dirige le chantier. Il n'a plus qu'un bras — il a perdu le gauche dans un
+    accident de chemin de fer — et il va creuser Paris pendant plus de trente ans.
+
+    La méthode surprend. On ne perce pas en profondeur : on ouvre la rue, on
+    construit le tunnel dedans, et on referme. C'est pourquoi presque toutes les
+    lignes anciennes suivent le tracé des rues au lieu de couper au plus court.
+    Le métro épouse la ville de surface, y compris ses virages.
+
+    La première ligne ouvre le 19 juillet 1900, de Porte Maillot à Porte de
+    Vincennes. Le succès est immédiat.
+
+    Le choix de la Ville a laissé une autre trace, celle-là dans la vie
+    quotidienne. Comme le réseau était pensé pour desservir Paris et Paris seul,
+    les stations ont été rapprochées à l'extrême : souvent moins de cinq cents
+    mètres entre deux. Dans le Paris intra-muros, on n'est presque jamais à plus
+    de dix minutes à pied d'une bouche de métro. C'est l'un des réseaux les plus
+    denses du monde, et c'est un effet secondaire d'une querelle administrative.
+
+    Restaient les entrées. La Ville confie les édicules à un jeune architecte,
+    Hector Guimard. Il dessine des structures en fonte moulée, courbes, végétales,
+    avec des lampes en forme de fleurs. C'est de l'Art nouveau assumé, et cela ne
+    plaît pas à tout le monde : on parle de style « nouille ». Beaucoup seront
+    démolis au fil du siècle.
+
+    Il en reste aujourd'hui quatre-vingt-six. Elles sont classées, et elles sont
+    devenues l'un des emblèmes les plus reconnaissables de Paris dans le monde.
+
+    Une ville qui n'en voulait pas, un tunnel creusé depuis la rue, et des bouches
+    de fonte qu'on a failli faire disparaître.
+  cards:
+    - "Londres a son métro depuis 1863. Paris attend 1900. Le retard est politique."
+    - "Les rames sont étroites exprès : pour que les trains nationaux ne puissent y entrer."
+    - "L'ingénieur qui a creusé Paris pendant trente ans n'avait qu'un bras."
+    - "On n'a pas percé en profondeur : on a ouvert la rue, puis refermé."
+    - "Des entrées d'Hector Guimard, jugées trop bizarres, il en reste 86."
+  tags: ["Métro", "Paris", "Histoire", "Guimard", "Art nouveau"]
+
+en:
+  title: "Paris Refused to Build a Metro for Thirty Years"
+  subtitle: "1900, the city finally digs"
+  narration: |
+    London had an underground from 1863. New York, Berlin and Budapest followed.
+    Paris waited until 1900. The delay was not technical. It was political.
+
+    For decades the city and the state had been at odds. The state wanted a
+    network tied into the main railways, able to cross Paris and carry on into
+    the provinces. The city wanted precisely the opposite: a system of its own,
+    built small, incompatible with national trains, so that nobody could take it
+    away from it.
+
+    The city won. And that is why Paris metro carriages are so narrow. It is not
+    a constraint of the ground. It is a decision about sovereignty. The gauge was
+    chosen to stop trains getting in.
+
+    The 1900 World's Fair set the deadline. The engineer Fulgence Bienvenüe ran
+    the works. He had only one arm — he lost the left in a railway accident — and
+    he would go on digging under Paris for more than thirty years.
+
+    The method is the surprising part. They did not bore deep. They opened up the
+    street, built the tunnel inside the trench, and closed it again. That is why
+    almost every early line follows the layout of the streets instead of taking
+    the short way. The metro traces the city above it, bends included.
+
+    The first line opened on the nineteenth of July, 1900, running across the
+    city from west to east. It was an immediate success.
+
+    The city's choice left another mark, this one on daily life. Because the
+    network was designed to serve Paris and nothing else, the stations were set
+    extremely close together: often under five hundred metres apart. Inside the
+    city proper you are almost never more than ten minutes' walk from a metro
+    entrance. It is one of the densest networks in the world, and it is a side
+    effect of an administrative quarrel.
+
+    That left the entrances. The city handed them to a young architect, Hector
+    Guimard. He drew structures in cast iron, curved and plantlike, with lamps
+    shaped like flowers. It was unashamed Art Nouveau, and not everyone approved:
+    critics called it the noodle style. Many were pulled down over the century.
+
+    Eighty-six survive. They are listed monuments now, and they have become one
+    of the most instantly recognisable emblems of Paris anywhere in the world.
+
+    A city that did not want one, a tunnel dug from the street down, and iron
+    entrances that were very nearly erased.
+  cards:
+    - "London had an underground from 1863. Paris waited until 1900, for political reasons."
+    - "The carriages are narrow on purpose: so national trains could never enter."
+    - "The engineer who dug under Paris for thirty years had only one arm."
+    - "They did not bore deep. They opened the street, built the tunnel, closed it."
+    - "Of Hector Guimard's entrances, once mocked as the noodle style, 86 survive."
+  tags: ["Metro", "Paris", "History", "Guimard", "Art Nouveau"]

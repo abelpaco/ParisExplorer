@@ -1,0 +1,117 @@
+id: pere-lachaise
+category: decouverte
+status: ready
+
+image_queries:
+  - "Pere Lachaise Cemetery"
+  - "Cimetiere du Pere-Lachaise allee"
+  - "Pere Lachaise tomb monument"
+  - "Pere Lachaise autumn trees"
+  - "Pere Lachaise chapel entrance"
+  - "Paris cemetery 19th century engraving"
+
+fr:
+  title: "Le cimetière que personne ne voulait, et son coup de pub"
+  subtitle: "Le Père-Lachaise, 1804"
+  narration: |
+    Quand le Père-Lachaise ouvre en 1804, c'est un échec. La première année, on y
+    enterre treize personnes.
+
+    Le problème est simple : il est trop loin. À l'époque, ce n'est pas Paris,
+    c'est la campagne, à l'est, sur une colline. On enterrait ses morts dans son
+    quartier, près de son église. Personne n'a envie d'aller au bout du monde.
+
+    Il y a aussi une méfiance. Le lieu n'est pas béni comme un cimetière
+    d'église : c'est un cimetière municipal, laïque, ouvert à toutes les
+    religions. Pour beaucoup, à ce moment-là, cela ne va pas de soi.
+
+    Le nom, lui, vient d'un homme qui n'y est pas enterré. La colline appartenait
+    aux jésuites, et le père François d'Aix de La Chaise, confesseur de Louis XIV,
+    y avait sa maison de repos. On disait « chez le père La Chaise ». Le nom est
+    resté quand le terrain est devenu cimetière, un siècle plus tard.
+
+    La ville avait pourtant une bonne raison de le créer. Napoléon venait
+    d'interdire les inhumations à l'intérieur de Paris — question d'hygiène,
+    après des décennies de cimetières débordants en plein centre. Il fallait de
+    la place, et loin.
+
+    Alors l'administration a une idée. En 1817, on organise deux transferts très
+    médiatisés : les restes attribués à Molière et à La Fontaine, puis ceux
+    d'Abélard et Héloïse, les amants du XIIᵉ siècle. On leur construit des
+    tombeaux visibles.
+
+    C'est une opération de communication, et elle fonctionne. Se faire enterrer
+    au Père-Lachaise devient chic. En quelques décennies, le cimetière est plein,
+    et il faudra l'agrandir cinq fois.
+
+    Il ne ressemble à aucun cimetière français d'avant lui. Il a été dessiné
+    comme un jardin à l'anglaise : des allées qui serpentent, des arbres, du
+    relief. On n'y aligne pas des tombes, on s'y promène. Ce modèle sera copié
+    dans le monde entier.
+
+    L'histoire y a laissé une autre trace. En mai 1871, les derniers combattants
+    de la Commune de Paris sont acculés entre les tombes. Cent quarante-sept
+    d'entre eux sont fusillés contre un mur d'enceinte, qui porte encore leur nom.
+
+    Aujourd'hui, c'est l'un des lieux les plus visités de Paris. Un cimetière que
+    personne ne voulait, devenu un jardin où l'on vient marcher.
+  cards:
+    - "La première année, on n'y enterre que treize personnes. C'est un échec."
+    - "Le problème : c'est trop loin. En 1804, ce n'est pas Paris, c'est la campagne."
+    - "En 1817, la ville y transfère Molière et La Fontaine. Coup de pub assumé."
+    - "Ça marche : s'y faire enterrer devient chic, et il faudra l'agrandir cinq fois."
+    - "Il est dessiné comme un jardin anglais. On n'y aligne pas des tombes, on s'y promène."
+  tags: ["Père-Lachaise", "Paris", "Histoire", "Patrimoine", "Découverte"]
+
+en:
+  title: "The Cemetery Nobody Wanted, and Its Publicity Stunt"
+  subtitle: "Père-Lachaise, 1804"
+  narration: |
+    When Père-Lachaise opened in 1804, it failed. Thirteen people were buried
+    there in the first year.
+
+    The problem was simple: it was too far away. Back then this was not Paris. It
+    was countryside, out east, on a hill. People buried their dead in their own
+    quarter, beside their own church. Nobody wanted to travel to the end of the
+    world.
+
+    There was suspicion too. The ground was not consecrated the way a churchyard
+    was. It was a municipal cemetery, secular, open to every religion. For many
+    people at that moment, that was not obviously acceptable.
+
+    The name comes from a man who is not buried there. The hill belonged to the
+    Jesuits, and Father François de La Chaise, confessor to Louis the Fourteenth,
+    kept his country house on it. People said they were going to Father La
+    Chaise's place. The name stuck when the land became a cemetery, a century
+    later.
+
+    The city had good reason to build it all the same. Napoleon had just banned
+    burials inside Paris — a matter of public health, after decades of overflowing
+    graveyards in the middle of town. Space was needed, and it had to be far off.
+
+    So the administration had an idea. In 1817 it staged two heavily publicised
+    transfers: the remains attributed to the playwright Molière and the fabulist
+    La Fontaine, then those of Abelard and Heloise, the twelfth-century lovers.
+    Prominent tombs were built for them.
+
+    It was a public relations operation, and it worked. Being buried at
+    Père-Lachaise became fashionable. Within decades the cemetery was full, and it
+    had to be enlarged five times over.
+
+    It resembles no French cemetery before it. It was laid out like an English
+    landscape garden: winding paths, trees, changes of level. You do not file past
+    ranks of graves here, you wander. The model would be copied worldwide.
+
+    History left another mark. In May 1871, the last fighters of the Paris Commune
+    were cornered among the tombs. A hundred and forty-seven of them were shot
+    against a boundary wall, which still carries their name.
+
+    Today it is one of the most visited places in Paris. A cemetery nobody wanted,
+    turned into a garden people come to walk in.
+  cards:
+    - "In its first year, thirteen people were buried there. It was a failure."
+    - "The problem: too far. In 1804 this was countryside, not Paris."
+    - "In 1817 the city moved Molière and La Fontaine in. A deliberate publicity stunt."
+    - "It worked. Burial there became fashionable, and it was enlarged five times."
+    - "It is laid out like an English garden. You do not file past graves, you wander."
+  tags: ["Pere Lachaise", "Paris", "History", "Heritage", "Discover"]

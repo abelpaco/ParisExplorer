@@ -1,0 +1,118 @@
+id: opera-garnier
+category: monument
+status: ready
+
+image_queries:
+  - "Palais Garnier"
+  - "Opera Garnier grand escalier"
+  - "Palais Garnier auditorium"
+  - "Palais Garnier facade Paris"
+  - "Opera Garnier plafond"
+  - "Charles Garnier architecte"
+
+fr:
+  title: "Il y a vraiment un lac sous l'Opéra de Paris"
+  subtitle: "Le Palais Garnier, quinze ans de chantier"
+  narration: |
+    Sous la scène de l'Opéra de Paris, il y a de l'eau. Une nappe, retenue dans
+    une cuve de béton. Ce n'est pas une légende de roman : c'est une pièce de
+    construction, et elle a une raison d'être.
+
+    Reprenons au début. En 1858, Napoléon III échappe de justesse à un attentat
+    en se rendant à l'opéra. La rue est étroite, la sortie mal protégée. Il faut
+    une salle neuve, avec des accès dégagés et une entrée réservée au souverain.
+
+    Un concours est lancé. Cent soixante-onze projets. Le gagnant est un inconnu
+    de trente-cinq ans, Charles Garnier. La légende veut que l'impératrice lui
+    ait demandé de quel style il s'agissait — ni grec, ni Louis XV. « C'est du
+    Napoléon III, Madame », aurait-il répondu.
+
+    Le chantier commence en 1861. On creuse, et on tombe sur une nappe d'eau.
+    Impossible de la pomper : elle revient toujours. Garnier renonce à
+    l'assécher. Il fait construire un immense caisson étanche, qui contient l'eau
+    et stabilise en même temps les fondations. Le lac n'est pas un décor : c'est
+    la solution d'un problème.
+
+    Les pompiers de Paris s'y entraînent encore à nager dans le noir.
+
+    La guerre de 1870, puis la Commune, arrêtent tout. Le bâtiment sert un temps
+    d'entrepôt. Il n'ouvre qu'en 1875, quinze ans après le premier coup de pioche,
+    et l'empereur qui l'avait commandé est mort en exil sans jamais le voir.
+
+    À l'intérieur, la surprise est dans les proportions. La salle n'occupe qu'une
+    petite part du volume. Le reste, c'est la scène — immense, plus haute que la
+    salle — et surtout le grand escalier, les foyers, les galeries. Au XIXᵉ siècle,
+    on ne va pas seulement écouter : on va se montrer. Garnier a construit un
+    bâtiment où le public est le second spectacle.
+
+    Le soir de l'inauguration, Garnier n'est pas convié comme il aurait dû
+    l'être. L'Empire qui l'avait choisi est tombé, la République se méfie de ce
+    qu'il représente. Pour assister à l'ouverture de son propre bâtiment,
+    l'architecte doit payer sa place.
+
+    Le plafond qu'on voit aujourd'hui n'est pas celui d'origine. Il a été peint
+    par Marc Chagall en 1964, et posé par-dessus l'ancien, sans le détruire.
+
+    Une salle née d'un attentat, posée sur un lac qu'on n'a pas su vider.
+  cards:
+    - "Sous la scène de l'Opéra de Paris, il y a vraiment de l'eau."
+    - "L'Opéra est né d'un attentat manqué contre Napoléon III, en 1858."
+    - "Le chantier tombe sur une nappe d'eau. Impossible à pomper : elle revient."
+    - "Le lac n'est pas un décor. C'est la solution d'un problème de fondations."
+    - "Les pompiers de Paris s'y entraînent encore à nager dans le noir."
+  tags: ["Opéra Garnier", "Paris", "Monument", "Architecture", "Histoire"]
+
+en:
+  title: "There Really Is a Lake Under the Paris Opera"
+  subtitle: "The Palais Garnier, fifteen years in the building"
+  narration: |
+    There is water under the stage of the Paris Opera. A body of it, held in a
+    concrete tank. This is not a novelist's invention: it is a piece of
+    engineering, and it exists for a reason.
+
+    Start at the beginning. In 1858, Napoleon the Third narrowly survived an
+    assassination attempt on his way to the opera. The street was narrow, the
+    exit badly protected. A new house was needed, with clear approaches and an
+    entrance reserved for the sovereign.
+
+    A competition was held. A hundred and seventy-one entries. The winner was an
+    unknown thirty-five-year-old, Charles Garnier. The story goes that the
+    empress asked him what style this was meant to be — not Greek, not Louis the
+    Fifteenth. It is Napoleon the Third style, Madame, he is said to have
+    answered.
+
+    Digging began in 1861, and they hit groundwater. Pumping was useless: it kept
+    coming back. Garnier gave up on draining it. He had an enormous watertight
+    tank built, which holds the water and steadies the foundations at the same
+    time. The lake is not scenery. It is the answer to a problem.
+
+    Paris firefighters still train down there, swimming in the dark.
+
+    The war of 1870 and the Commune stopped everything. For a while the building
+    served as a warehouse. It opened only in 1875, fifteen years after the first
+    spadeful, and the emperor who ordered it had died in exile without ever
+    seeing it.
+
+    Inside, the surprise is in the proportions. The auditorium takes up only a
+    small share of the volume. The rest is stage — vast, taller than the hall
+    itself — and above all the grand staircase, the foyers, the galleries. In the
+    nineteenth century you did not simply come to listen. You came to be seen.
+    Garnier built a house where the audience is the second performance.
+
+    On opening night, Garnier was not honoured the way he should have been. The
+    empire that had chosen him was gone, and the young Republic was wary of what
+    he stood for. To attend the opening of his own building, the architect had to
+    pay for his seat.
+
+    The ceiling you see today is not the original. Marc Chagall painted it in
+    1964, and it was mounted over the old one without destroying it.
+
+    An opera house born of an assassination attempt, sitting on a lake nobody
+    managed to drain.
+  cards:
+    - "There really is water under the stage of the Paris Opera."
+    - "The opera house was born from a failed assassination attempt in 1858."
+    - "Builders hit groundwater. Pumping was useless: it kept coming back."
+    - "The lake is not scenery. It is the answer to a foundation problem."
+    - "Paris firefighters still train down there, swimming in the dark."
+  tags: ["Palais Garnier", "Paris", "Landmark", "Architecture", "History"]

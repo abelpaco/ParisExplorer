@@ -1,0 +1,115 @@
+id: gustave-eiffel
+category: histoire
+status: ready
+
+# Angle : l'HOMME, pas la tour. Voir _SCHEMA.md, « Un sujet est un ANGLE ».
+# La tour n'apparait ici qu'en passant : le recit est celui d'une carriere
+# brisee a cinquante-huit ans et reconstruite ailleurs.
+image_queries:
+  - "Gustave Eiffel portrait"
+  - "Viaduc de Garabit"
+  - "Statue of Liberty construction Paris 1883"
+  - "Ponte Maria Pia Porto"
+  - "Eiffel soufflerie Auteuil"
+  - "Gustave Eiffel laboratoire"
+
+fr:
+  title: "Il a construit la Tour Eiffel, puis il a tout perdu"
+  subtitle: "Gustave Eiffel, la chute et la seconde vie"
+  narration: |
+    À cinquante-huit ans, Gustave Eiffel est l'ingénieur le plus célèbre de
+    France. Quatre ans plus tard, il est condamné à deux ans de prison.
+
+    Il naît à Dijon en 1832. Il n'est pas architecte : il sort d'une école
+    d'ingénieurs, et ce qu'il sait faire, c'est calculer le fer. Très tôt, il se
+    spécialise dans ce que personne ne sait faire — franchir de grandes portées
+    avec le moins de matière possible.
+
+    Ses ponts en témoignent. À Porto, il jette une arche de plus de cent
+    cinquante mètres au-dessus du Douro. En Auvergne, le viaduc de Garabit passe
+    à plus de cent mètres au-dessus de la vallée. À chaque fois, la même idée :
+    une structure ajourée résiste mieux au vent qu'une structure pleine.
+
+    En 1881, on lui confie un autre problème. Une statue colossale doit traverser
+    l'Atlantique et tenir debout dans le port de New York, exposée aux tempêtes.
+    Son concepteur, Viollet-le-Duc, vient de mourir. Eiffel dessine le squelette :
+    un pylône de fer intérieur, sur lequel le cuivre est simplement suspendu. La
+    Statue de la Liberté tient grâce à une charpente qu'on ne voit jamais.
+
+    Puis vient la tour, et la gloire.
+
+    Et puis Panama. Eiffel est engagé pour concevoir les écluses du canal. La
+    compagnie s'effondre dans un scandale financier qui ruine des dizaines de
+    milliers d'épargnants. En 1893, il est condamné. La Cour de cassation
+    annulera l'arrêt sur un vice de procédure, mais le mal est fait : il
+    démissionne de son entreprise et disparaît de la vie publique.
+
+    Ce qu'il fait ensuite est le plus intéressant. Il se tourne vers la science,
+    et vers un domaine tout neuf : la résistance de l'air. Il lâche des objets
+    depuis sa tour pour mesurer leur chute. Puis il fait construire une
+    soufflerie, à Auteuil, où seront testés les premiers profils d'ailes
+    d'avions.
+
+    La tour, elle, devient son laboratoire. Mesures météo, télégraphie sans fil,
+    antennes militaires : les expériences qu'il y installe sont précisément ce
+    qui la rendra indispensable, au moment où elle devait être démontée.
+
+    Il meurt en 1923, à quatre-vingt-onze ans. On retient de lui un monument. Sa
+    carrière avait déjà été brisée, et refaite ailleurs.
+  cards:
+    - "À 58 ans, il est l'ingénieur le plus célèbre de France. À 62, il est condamné."
+    - "La Statue de la Liberté tient grâce à une charpente de fer qu'on ne voit jamais."
+    - "Le scandale de Panama ruine des dizaines de milliers d'épargnants. Il tombe avec."
+    - "Il se relève ailleurs : la résistance de l'air, et la première soufflerie."
+    - "Ses expériences sur la tour sont ce qui l'a sauvée de la démolition."
+  tags: ["Gustave Eiffel", "Paris", "Histoire", "Ingénierie", "Statue de la Liberté"]
+
+en:
+  title: "He Built the Eiffel Tower, Then Lost Everything"
+  subtitle: "Gustave Eiffel, the fall and the second life"
+  narration: |
+    At fifty-eight, Gustave Eiffel was the most celebrated engineer in France.
+    Four years later, he was sentenced to two years in prison.
+
+    He was born in Dijon in 1832. He was not an architect. He came out of an
+    engineering school, and what he knew how to do was calculate iron. Early on
+    he specialised in the thing nobody could do — crossing great spans with as
+    little material as possible.
+
+    His bridges show it. At Porto he threw an arch of more than a hundred and
+    fifty metres across the Douro. In central France, the Garabit viaduct runs
+    over a hundred metres above the valley floor. Every time, the same idea: an
+    open lattice resists wind better than a solid wall.
+
+    In 1881 he was handed a different problem. A colossal statue had to cross the
+    Atlantic and then stand in New York harbour, exposed to storms. Its designer,
+    Viollet-le-Duc, had just died. Eiffel drew the skeleton: an inner iron pylon,
+    with the copper skin simply hung from it. The Statue of Liberty stands up
+    thanks to a frame nobody ever sees.
+
+    Then came the tower, and the fame.
+
+    Then came Panama. Eiffel was hired to design the canal's locks. The company
+    collapsed in a financial scandal that ruined tens of thousands of small
+    investors. In 1893 he was convicted. The supreme court later quashed the
+    ruling on a procedural fault, but the damage was done: he resigned from his
+    own firm and vanished from public life.
+
+    What he did next is the interesting part. He turned to science, and to a
+    brand-new field: air resistance. He dropped objects from his tower to measure
+    how they fell. Then he had a wind tunnel built in western Paris, where some
+    of the first aircraft wing profiles were tested.
+
+    The tower became his laboratory. Weather readings, wireless telegraphy,
+    military aerials — the experiments he installed there are exactly what made
+    it indispensable, at the moment it was due to be taken down.
+
+    He died in 1923, aged ninety-one. He is remembered for a monument. His career
+    had already been broken once, and rebuilt somewhere else entirely.
+  cards:
+    - "At 58 he was France's most famous engineer. At 62 he was a convicted man."
+    - "The Statue of Liberty stands on an iron frame nobody ever sees."
+    - "The Panama scandal ruined tens of thousands of investors. He fell with it."
+    - "He rebuilt elsewhere: air resistance, and one of the first wind tunnels."
+    - "His experiments on the tower are what saved it from demolition."
+  tags: ["Gustave Eiffel", "Paris", "History", "Engineering", "Statue of Liberty"]

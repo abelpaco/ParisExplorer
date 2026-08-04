@@ -49,6 +49,35 @@ en:
   tags: ["Eiffel Tower", "Paris", "Landmark"]
 ```
 
+## Un sujet est un ANGLE, pas un monument
+
+C'est la regle la plus importante du catalogue.
+
+Un monument ne donne pas un sujet : il en donne plusieurs, selon l'angle qu'on
+prend. La Tour Eiffel, c'est le chantier et ses contraintes. C'est aussi ses
+chiffres. C'est aussi la vie de l'ingenieur qui l'a signee, sa disgrace et sa
+seconde carriere. Trois sujets, trois recits, aucun doublon.
+
+En pratique, l'identifiant porte l'angle :
+
+```
+tour-eiffel            l'histoire du monument
+gustave-eiffel         l'homme, sa chute et sa revanche
+tour-eiffel-chantier   les deux ans de construction, vus du sol
+```
+
+Interet direct : dix monuments a trois angles font trente sujets, pas dix. Un
+catalogue se creuse plutot qu'il ne s'etale, et c'est ce qui donne a une chaine
+une voix reconnaissable — on ne raconte pas ce qu'un guide raconte deja.
+
+Deux garde-fous :
+
+- **Chaque angle doit tenir seul.** Si le spectateur a besoin d'avoir vu l'autre
+  video pour comprendre celle-ci, ce n'est pas un angle, c'est une deuxieme
+  partie.
+- **Pas de fait recycle en tete.** Deux angles peuvent partager un fait au
+  passage, jamais leur accroche : c'est elle qui fait l'impression de deja-vu.
+
 ## Cartes visuelles (facultatif)
 
 Chaque bloc de langue accepte un bloc `cards` : les accroches des publications

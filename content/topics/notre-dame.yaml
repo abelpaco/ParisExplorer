@@ -1,0 +1,116 @@
+id: notre-dame
+category: monument
+status: ready
+
+image_queries:
+  - "Notre-Dame de Paris"
+  - "Notre Dame Paris facade west"
+  - "Notre-Dame de Paris rose window"
+  - "Notre Dame Paris flying buttress"
+  - "Viollet-le-Duc Notre-Dame restauration"
+  - "Notre Dame Paris gargoyle chimera"
+
+fr:
+  title: "Notre-Dame a été sauvée par un roman"
+  subtitle: "Huit siècles, une ruine, une restauration contestée"
+  narration: |
+    Au début du XIXᵉ siècle, on envisage sérieusement de démolir Notre-Dame. Ce
+    qui la sauve n'est ni un roi, ni un architecte. C'est un livre.
+
+    Le chantier avait commencé en 1163. Il durera près de deux cents ans. La
+    cathédrale invente, ou perfectionne, ce qui fera le gothique : des voûtes plus
+    hautes, des murs percés de verrières immenses, et surtout des arcs-boutants
+    qui reprennent la poussée à l'extérieur. C'est ce qui permet d'ouvrir les murs
+    sans que tout s'écroule. La lumière entre parce que la structure a été
+    déplacée dehors.
+
+    Sur le parvis, une dalle de bronze marque le point zéro des routes de France.
+    Toutes les distances routières du pays se comptent depuis là. Notre-Dame
+    n'est pas seulement au centre de Paris : elle est l'origine de la carte.
+
+    Il manque d'ailleurs quelque chose à la façade, et presque personne ne le
+    remarque. Les deux tours devaient recevoir des flèches. Elles n'ont jamais
+    été construites. La silhouette carrée qu'on connaît est un chantier
+    inachevé.
+
+    Puis les siècles passent, et l'entretien ne suit pas. La Révolution s'en
+    prend aux statues : les vingt-huit rois de la façade sont décapités, pris pour
+    des rois de France alors qu'ils représentaient des rois de Juda. Le bâtiment
+    sert un temps d'entrepôt. Vers 1830, il est dans un état lamentable.
+
+    En 1831, Victor Hugo publie Notre-Dame de Paris. Le roman est un succès
+    immense, et il fait quelque chose d'inattendu : il rend la cathédrale
+    populaire. L'opinion se retourne. Une souscription est lancée.
+
+    La restauration est confiée à Viollet-le-Duc. Elle durera vingt ans, et elle
+    reste discutée aujourd'hui. Car il ne s'est pas contenté de réparer : il a
+    complété, corrigé, imaginé. La flèche n'était pas médiévale, c'est la sienne.
+    Les chimères qui regardent Paris depuis les tours non plus : elles datent du
+    XIXᵉ siècle. Sa doctrine était assumée — restaurer, disait-il, c'est rétablir
+    un édifice dans un état complet qui peut n'avoir jamais existé.
+
+    Le 15 avril 2019, l'incendie emporte la charpente et la flèche. La structure
+    de pierre, elle, tient. Les arcs-boutants ont fait leur travail une dernière
+    fois.
+
+    Ce qui a brûlé cette nuit-là, ce n'était donc pas le Moyen Âge. C'était le
+    XIXᵉ siècle — l'œuvre d'un homme qui avait déjà sauvé le bâtiment une fois.
+  cards:
+    - "Au XIXᵉ siècle, on envisage sérieusement de démolir Notre-Dame."
+    - "Ce qui la sauve n'est ni un roi ni un architecte : c'est un roman de Victor Hugo."
+    - "La lumière entre parce que la structure a été déplacée dehors, en arcs-boutants."
+    - "La flèche n'était pas médiévale. Elle datait du XIXᵉ siècle."
+    - "En 2019, ce qui a brûlé n'était pas le Moyen Âge, mais une restauration."
+  tags: ["Notre-Dame", "Paris", "Monument", "Gothique", "Viollet-le-Duc", "Victor Hugo"]
+
+en:
+  title: "Notre-Dame Was Saved by a Novel"
+  subtitle: "Eight centuries, a ruin, a contested restoration"
+  narration: |
+    In the early nineteenth century, demolishing Notre-Dame was seriously
+    discussed. What saved it was not a king, and not an architect. It was a book.
+
+    Building had begun in 1163. It would take almost two hundred years. The
+    cathedral invented, or perfected, what would define Gothic: higher vaults,
+    walls opened up by vast windows, and above all flying buttresses that take the
+    thrust outside the building. That is what lets you cut holes in a wall without
+    the whole thing collapsing. The light gets in because the structure was moved
+    outdoors.
+
+    On the square in front, a bronze marker sets the zero point of French roads.
+    Every road distance in the country is measured from that slab. Notre-Dame is
+    not merely at the centre of Paris. It is the origin of the map.
+
+    Something is missing from the front, too, and almost nobody notices. The two
+    towers were meant to carry spires. They were never built. That famous square
+    silhouette is an unfinished building site.
+
+    Then centuries passed, and maintenance did not keep up. The Revolution went
+    after the statues: the twenty-eight kings across the front were beheaded,
+    taken for kings of France when they in fact represented the kings of Judah.
+    For a time the building served as a warehouse. By around 1830 it was in a
+    miserable state.
+
+    In 1831, Victor Hugo published his novel about the cathedral. It was an
+    enormous success, and it did something unexpected: it made the building
+    popular. Opinion turned. A public subscription was raised.
+
+    The restoration went to Viollet-le-Duc. It took twenty years, and it is still
+    argued over. Because he did not merely repair. He completed, corrected,
+    invented. The spire was not medieval; it was his. Nor were the chimeras
+    staring out over Paris from the towers — they are nineteenth century. His
+    doctrine was openly stated: to restore a building, he wrote, is to reinstate
+    it in a complete state which may never have existed at any given moment.
+
+    On the fifteenth of April, 2019, fire took the roof timbers and the spire. The
+    stone structure held. The flying buttresses did their job one last time.
+
+    So what burned that night was not the Middle Ages. It was the nineteenth
+    century — the work of a man who had already saved the building once.
+  cards:
+    - "In the nineteenth century, demolishing Notre-Dame was seriously discussed."
+    - "What saved it was not a king or an architect. It was a Victor Hugo novel."
+    - "Light gets in because the structure was moved outdoors, into flying buttresses."
+    - "The spire was not medieval. It dated from the nineteenth century."
+    - "In 2019, what burned was not the Middle Ages. It was a restoration."
+  tags: ["Notre-Dame", "Paris", "Landmark", "Gothic", "Viollet-le-Duc", "Victor Hugo"]
