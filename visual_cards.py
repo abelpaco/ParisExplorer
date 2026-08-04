@@ -73,6 +73,30 @@ FONT_CANDIDATES = (
 CARD_TEXT_MIN = 45
 CARD_TEXT_MAX = 165
 
+# Libelles des categories. Les identifiants des sujets sont volontairement sans
+# accent — ce sont des cles, pas du texte. Les afficher tels quels mettrait
+# « DECOUVERTE » sur une carte publique.
+CATEGORY_LABELS = {
+    "monument": {"fr": "Monument", "en": "Landmark"},
+    "histoire": {"fr": "Histoire", "en": "History"},
+    "decouverte": {"fr": "Découverte", "en": "Discover"},
+    "economie": {"fr": "Économie", "en": "Economy"},
+    "sport": {"fr": "Sport", "en": "Sport"},
+    "actualite": {"fr": "Actualité", "en": "News"},
+}
+
+
+def category_label(category: str, lang: str) -> str:
+    """Libelle affichable d'une categorie, dans la langue de la carte.
+
+    Une categorie inconnue est renvoyee telle quelle plutot qu'ecartee : mieux
+    vaut une etiquette imparfaite qu'une carte sans reperage.
+    """
+    entry = CATEGORY_LABELS.get((category or "").strip().lower())
+    if not entry:
+        return category or ""
+    return entry.get(lang) or entry.get("fr", category)
+
 
 class CardError(RuntimeError):
     """La carte n'a pas pu etre fabriquee."""
@@ -353,7 +377,12 @@ def render_card(
 
     # Voile progressif : on renforce tant que la zone de texte reste trop claire
     # pour du blanc. C'est mesure sur l'image reelle, pas suppose.
-    zone = (0, max(0, text_top - margin // 2), width, height)
+    #
+    # La zone mesuree est EXACTEMENT le bloc de texte. Mesurer plus large — par
+    # exemple jusqu'au bas de la carte — fait une moyenne trompeuse : un bas
+    # d'image sombre compense une facade blanche, le seuil est respecte, et le
+    # voile ne se declenche pas alors que le texte tombe en plein sur le blanc.
+    zone = (margin, max(0, text_top), width - margin, min(height, text_top + block_height))
     strength = 0.55
     card = base
     for attempt in range(SCRIM_MAX_PASSES):
@@ -493,7 +522,8 @@ def build_series(
         render_card(
             background, text, target,
             fmt=fmt, style=style,
-            eyebrow=topic.category, index=position, total=total,
+            eyebrow=category_label(topic.category, lang),
+            index=position, total=total,
         )
         series.cards.append(
             Card(path=target, text=text, index=position, total=total, background=background)
