@@ -1,0 +1,125 @@
+id: catacombes
+category: decouverte
+status: ready
+
+image_queries:
+  - "Catacombs of Paris"
+  - "Catacombes de Paris ossuaire"
+  - "Paris catacombs tunnel gallery"
+  - "Paris underground quarry limestone"
+  - "Catacombes de Paris entree inscription"
+  - "Cimetiere des Innocents Paris gravure"
+
+fr:
+  title: "Paris a été construite avec la pierre qu'elle a sous les pieds"
+  subtitle: "Les Catacombes, l'envers de la ville"
+  narration: |
+    Une grande partie des immeubles de Paris est faite d'une pierre extraite sous
+    Paris. La ville s'est construite avec son propre sous-sol, et il y a laissé
+    un vide.
+
+    Ce vide, ce sont des carrières. Des centaines de kilomètres de galeries,
+    creusées siècle après siècle sous les quartiers du sud. Longtemps, personne
+    n'a tenu de plan. En 1774, une rue s'effondre. Le sol se dérobe sur plusieurs
+    dizaines de mètres. Louis XVI crée alors l'Inspection générale des carrières,
+    chargée de cartographier et de consolider ce que la ville avait creusé sous
+    elle sans compter.
+
+    À la même époque, un autre problème devient intenable. Le cimetière des
+    Saints-Innocents, en plein centre, reçoit les morts de Paris depuis presque
+    mille ans. Il déborde. Les corps s'y entassent bien au-dessus du niveau de la
+    rue. En 1780, un mur cède sous la pression et déverse des restes dans la cave
+    d'une maison voisine.
+
+    On ferme le cimetière. Et on décide de descendre les morts dans les carrières.
+
+    Le transfert commence en 1786. Il se fait de nuit, en convois, prêtres en
+    tête. Il durera des années, et concernera aussi d'autres cimetières. On estime
+    que les restes d'environ six millions de personnes reposent là.
+
+    Au début, les os sont simplement déversés. C'est un inspecteur des carrières,
+    Héricart de Thury, qui leur donne au début du XIXᵉ siècle la forme qu'on leur
+    connaît : des murs de fémurs et de crânes, alignés, ordonnés, presque
+    décoratifs. Il fait aussi graver des inscriptions le long du parcours.
+
+    Au-dessus de la porte, on lit toujours la même phrase : « Arrête, c'est ici
+    l'empire de la Mort. »
+
+    Le réseau a resservi. Pendant la Seconde Guerre mondiale, des résistants
+    s'installent dans certaines galeries. Les Allemands en occupent d'autres, et
+    aménagent un abri sous un lycée du quartier. Les deux camps ont eu leur poste
+    souterrain, à quelques centaines de mètres l'un de l'autre, sans jamais se
+    rencontrer.
+
+    Il y fait quatorze degrés toute l'année, été comme hiver. La température ne
+    bouge pas d'un souffle, à cinq mètres sous la rue.
+
+    Ce qui se visite aujourd'hui fait un peu plus d'un kilomètre et demi. C'est
+    une fraction minuscule du réseau. Le reste est interdit, et parcouru malgré
+    tout par ceux qu'on appelle les cataphiles.
+
+    Sous vos pieds, il y a une autre ville. Elle a exactement l'âge de celle du
+    dessus.
+  cards:
+    - "Paris est bâtie avec la pierre extraite sous Paris. Le vide est resté."
+    - "En 1774, une rue s'effondre. Le roi crée un service pour cartographier le sous-sol."
+    - "En 1780, un mur de cimetière cède et déverse des restes dans une cave voisine."
+    - "Les morts sont descendus dans les carrières, de nuit, en convois, dès 1786."
+    - "Les restes d'environ six millions de personnes reposent sous la ville."
+  tags: ["Catacombes", "Paris", "Histoire", "Souterrain", "Patrimoine"]
+
+en:
+  title: "Paris Was Built From the Stone Beneath It"
+  subtitle: "The Catacombs, the city turned inside out"
+  narration: |
+    A great many Paris buildings are made of stone quarried from under Paris. The
+    city was built out of its own ground, and it left a hole down there.
+
+    That hole is a quarry system. Hundreds of kilometres of galleries, cut
+    century after century beneath the southern districts. For a long time, nobody
+    kept a map. Then in 1774 a street collapsed. The ground gave way over tens of
+    metres. Louis the Sixteenth responded by creating a general inspectorate of
+    quarries, charged with mapping and shoring up everything the city had dug
+    beneath itself without counting.
+
+    Around the same years, another problem was becoming impossible. The cemetery
+    of the Holy Innocents, right in the centre, had been taking the dead of Paris
+    for nearly a thousand years. It was full. Bodies were piled well above street
+    level. In 1780, a wall gave way under the pressure and spilled remains into a
+    neighbouring cellar.
+
+    The cemetery was closed. And a decision was taken to carry the dead down into
+    the quarries.
+
+    The transfer began in 1786. It moved at night, in convoys, priests walking at
+    the front. It went on for years, and took in other cemeteries too. The
+    remains of an estimated six million people lie there.
+
+    At first the bones were simply tipped in. It was a quarry inspector, Héricart
+    de Thury, who in the early nineteenth century gave them the form we know:
+    walls of femurs and skulls, aligned, ordered, very nearly decorative. He had
+    inscriptions carved along the route as well.
+
+    Above the door, one sentence still waits for every visitor: stop, this is the
+    empire of Death.
+
+    The network found new uses. During the Second World War, Resistance fighters
+    set up in some galleries. The Germans occupied others, and fitted out a
+    shelter beneath a school in the same district. Both sides held an underground
+    post a few hundred metres apart, and never met.
+
+    It is fourteen degrees down there all year round, summer and winter alike.
+    The temperature does not shift by a breath, five metres below the street.
+
+    What you can visit today runs a little over a kilometre and a half. It is a
+    tiny fraction of the network. The rest is off limits, and walked anyway by
+    the people known as cataphiles.
+
+    There is another city under your feet. It is exactly as old as the one on top.
+  cards:
+    - "Paris is built from stone quarried under Paris. The hole stayed."
+    - "In 1774 a street collapsed. The king created a service to map the underground."
+    - "In 1780 a cemetery wall gave way and spilled remains into a cellar."
+    - "From 1786 the dead were carried down into the quarries at night, in convoys."
+    - "The remains of an estimated six million people lie beneath the city."
+  tags: ["Catacombs", "Paris", "History", "Underground", "Heritage"]

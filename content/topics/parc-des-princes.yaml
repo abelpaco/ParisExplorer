@@ -1,0 +1,124 @@
+id: parc-des-princes
+category: sport
+status: ready
+
+image_queries:
+  - "Parc des Princes"
+  - "Parc des Princes stadium Paris"
+  - "Velodrome Parc des Princes 1900"
+  - "Tour de France Parc des Princes arrivee"
+  - "Roger Taillibert Parc des Princes beton"
+  - "Paris Saint-Germain Parc des Princes tribune"
+
+fr:
+  title: "Le Tour de France s'est terminé ici pendant 65 ans"
+  subtitle: "Le Parc des Princes, du vélodrome au stade"
+  narration: |
+    Pendant soixante-cinq ans, le Tour de France ne s'est pas terminé sur les
+    Champs-Élysées. Il se terminait ici, porte de Saint-Cloud, sur un anneau de
+    béton.
+
+    En 1897, on inaugure à cet endroit un vélodrome. Le cyclisme est alors le
+    sport roi, et la piste attire des foules considérables. Dès la première
+    édition du Tour, en 1903, c'est là que les coureurs bouclent leur boucle.
+    Ils y reviendront chaque année jusqu'en 1967.
+
+    Le nom du lieu est plus ancien que le sport qu'on y pratique. Avant la
+    Révolution, le Parc des Princes était un domaine de chasse royal.
+
+    Le stade a été reconstruit trois fois. Celui qu'on voit aujourd'hui date de
+    1972. Son architecte, Roger Taillibert, refuse une contrainte que tous les
+    stades acceptaient alors : les poteaux. Dans une enceinte classique, la
+    charpente du toit repose sur des piliers, et derrière chaque pilier il y a
+    des spectateurs qui ne voient pas le terrain.
+
+    Taillibert supprime les piliers. Il dessine une cinquantaine de grandes
+    nervures de béton précontraint, qui portent à la fois les gradins et la
+    toiture. Le résultat tient en une phrase : de n'importe quel siège, on voit
+    tout le terrain. Pour l'époque, c'est une prouesse d'ingénieur autant que
+    d'architecte.
+
+    Quatre ans plus tard, le même architecte signera le stade olympique de
+    Montréal, avec la même grammaire de béton courbe. Le Parc en était le
+    brouillon grandeur nature.
+
+    Il y a une autre bizarrerie, celle-là invisible depuis les tribunes. Le
+    boulevard périphérique passe sous le stade. Des milliers de voitures roulent
+    chaque jour sous les pieds des spectateurs. Le stade a d'ailleurs été conçu
+    en même temps que la voie rapide : l'un s'est plié à l'autre.
+
+    Le Paris Saint-Germain naît en 1970. Il s'installe au Parc en 1974, et n'en
+    est jamais reparti. Deux tribunes ont fini par donner leur nom aux deux âmes
+    du public : Boulogne et Auteuil.
+
+    Le stade a vu passer autre chose que du football de club. En 1984, l'équipe
+    de France y remporte le Championnat d'Europe en battant l'Espagne. Il a
+    accueilli des matchs de la Coupe du monde 1998, puis ceux de l'Euro 2016.
+
+    Sa capacité tourne autour de quarante-huit mille places. C'est peu pour un
+    club de cette dimension, et c'est tout le sujet des débats sur son avenir.
+
+    Le béton de Taillibert, lui, n'a pas bougé. Cinquante côtes blanches, posées
+    sur un ancien terrain de chasse, au-dessus d'une autoroute.
+  cards:
+    - "Pendant 65 ans, le Tour de France ne s'est pas terminé sur les Champs-Élysées."
+    - "Il se terminait ici, sur un anneau de béton, porte de Saint-Cloud."
+    - "Avant la Révolution, le Parc des Princes était un domaine de chasse royal."
+    - "L'architecte a supprimé tous les poteaux : d'où qu'on soit, on voit le terrain."
+    - "Le boulevard périphérique passe sous les pieds des spectateurs."
+  tags: ["Parc des Princes", "PSG", "Paris", "Sport", "Architecture", "Tour de France"]
+
+en:
+  title: "The Tour de France Finished Here for 65 Years"
+  subtitle: "Parc des Princes, from velodrome to stadium"
+  narration: |
+    For sixty-five years, the Tour de France did not finish on the
+    Champs-Élysées. It finished here, in western Paris, on a ring of concrete.
+
+    A velodrome opened on this ground in 1897. Cycling was the sport of the age,
+    and the track pulled enormous crowds. When the first Tour set off in 1903,
+    this is where the riders closed their loop. They would come back every year
+    until 1967.
+
+    The name is older than any of the sport played here. Before the Revolution,
+    the Parc des Princes was a royal hunting ground.
+
+    The stadium has been rebuilt three times. The one standing today dates from
+    1972. Its architect, Roger Taillibert, refused a compromise every stadium
+    made back then: pillars. In a conventional ground, the roof frame rests on
+    columns, and behind every column sit spectators who cannot see the pitch.
+
+    Taillibert got rid of them. He drew some fifty great ribs of prestressed
+    concrete, carrying the stands and the roof at once. The result fits in one
+    sentence: from any seat in the house, you see the whole field. For its time,
+    that was engineering as much as architecture.
+
+    Four years later the same architect would sign the Olympic Stadium in
+    Montreal, in the same language of curved concrete. The Parc was the
+    full-scale rough draft.
+
+    There is a second oddity, invisible from the stands. The city's ring road
+    runs underneath the stadium. Thousands of cars pass beneath the crowd's feet
+    every single day. The two were in fact designed together: the stadium bent
+    itself around the motorway, not the other way round.
+
+    Paris Saint-Germain was founded in 1970. The club moved in during 1974 and
+    never left. Two stands ended up naming the two souls of the support:
+    Boulogne and Auteuil.
+
+    The ground has seen more than club football. In 1984, France won the
+    European Championship here, beating Spain. It staged matches at the 1998
+    World Cup, and again at Euro 2016.
+
+    Capacity sits around forty-eight thousand. That is small for a club of this
+    size, and it is the whole substance of the argument about its future.
+
+    Taillibert's concrete has not moved an inch. Fifty white ribs, set on an old
+    hunting ground, above a motorway.
+  cards:
+    - "For 65 years, the Tour de France did not finish on the Champs-Élysées."
+    - "It finished here, on a ring of concrete in western Paris."
+    - "Before the Revolution, this was a royal hunting ground."
+    - "The architect removed every pillar: from any seat, you see the whole pitch."
+    - "The city ring road runs directly beneath the spectators' feet."
+  tags: ["Parc des Princes", "PSG", "Paris", "Football", "Architecture", "Tour de France"]

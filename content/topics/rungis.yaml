@@ -1,0 +1,115 @@
+id: rungis
+category: economie
+status: ready
+
+image_queries:
+  - "Rungis market"
+  - "Marche international de Rungis pavillon"
+  - "Les Halles Paris Baltard"
+  - "Les Halles Paris 1900 marche"
+  - "Rungis produce market hall"
+  - "Paris food market wholesale"
+
+fr:
+  title: "La ville qui nourrit Paris pendant que Paris dort"
+  subtitle: "Rungis, le plus grand marché frais du monde"
+  narration: |
+    Quand Paris se couche, une autre ville se lève, à sept kilomètres au sud. On
+    y travaille de deux heures du matin à midi, et presque personne ne l'a jamais
+    vue.
+
+    Pendant huit siècles, le ventre de Paris a battu en plein centre. Les Halles.
+    Un marché installé là depuis le XIIᵉ siècle, couvert au XIXᵉ par les pavillons
+    de verre et de fonte de Victor Baltard. Émile Zola en a fait un roman entier.
+
+    Le problème n'était pas la beauté du lieu, mais la circulation. Chaque nuit,
+    des milliers de camions devaient traverser Paris pour livrer en son centre,
+    puis repartir. Vers 1960, la ville étouffe.
+
+    La décision est prise de tout déplacer à Rungis, près d'Orly. Le déménagement
+    a lieu dans la nuit du 27 février au 1ᵉʳ mars 1969. On l'a appelé le
+    déménagement du siècle : en quelques heures, un marché vieux de huit cents ans
+    change d'adresse.
+
+    Les pavillons Baltard sont démolis peu après, et cette démolition reste l'une
+    des grandes plaies du patrimoine parisien. Un seul a été sauvé : démonté pièce
+    par pièce, il a été remonté à Nogent-sur-Marne, où il sert aujourd'hui de
+    salle de spectacle. C'est tout ce qui reste debout du ventre de Paris.
+
+    Ce qui est né à Rungis dépasse le marché. C'est une commune privée. Plus de
+    deux cents hectares, ses propres rues, sa poste, ses banques, ses pompiers,
+    sa gare. Une douzaine de milliers de personnes y travaillent chaque nuit.
+
+    On y vend du poisson, de la viande, des fruits, des légumes, des fromages,
+    des fleurs. Le chiffre d'affaires annuel se compte en milliards d'euros, et
+    la marchandise qui passe par là se compte en millions de tonnes. C'est le plus
+    grand marché de produits frais du monde.
+
+    L'organisation est réglée à l'heure près. La marée arrive en premier, vers
+    une heure du matin, parce que le poisson n'attend pas. Les fruits et légumes
+    suivent. À midi, tout est fini, et les allées sont lavées à grande eau.
+
+    Presque tout ce que vous mangerez demain dans un restaurant parisien est passé
+    par là cette nuit. Sans que vous le sachiez, et sans que rien ne le rappelle
+    sur la carte.
+
+    Paris a vendu son ventre. Il l'a simplement mis en dehors de lui-même.
+  cards:
+    - "Quand Paris se couche, une autre ville se lève à sept kilomètres au sud."
+    - "Pendant huit siècles, le ventre de Paris a battu en plein centre : les Halles."
+    - "En une seule nuit de 1969, un marché vieux de 800 ans a changé d'adresse."
+    - "Deux cents hectares, sa propre poste, ses pompiers, sa gare : une ville privée."
+    - "Ce que vous mangerez demain au restaurant y est passé cette nuit."
+  tags: ["Rungis", "Les Halles", "Paris", "Économie", "Alimentation", "Histoire"]
+
+en:
+  title: "The City That Feeds Paris While Paris Sleeps"
+  subtitle: "Rungis, the largest fresh food market on earth"
+  narration: |
+    When Paris goes to bed, another city wakes up seven kilometres to the south.
+    It works from two in the morning until noon, and almost nobody has ever
+    seen it.
+
+    For eight centuries the belly of Paris beat in the very centre of town. Les
+    Halles. A market planted there since the twelfth century, roofed in the
+    nineteenth by Victor Baltard's pavilions of glass and cast iron. Émile Zola
+    built an entire novel around it.
+
+    The problem was never the beauty of the place. It was traffic. Every night,
+    thousands of lorries had to cross Paris to deliver into its middle, then
+    drive back out. By the nineteen-sixties, the city was choking on it.
+
+    The decision was taken to move everything to Rungis, out by Orly airport. The
+    move happened across a single night, from the twenty-seventh of February to
+    the first of March, 1969. They called it the removal of the century: in a few
+    hours, an eight-hundred-year-old market changed address.
+
+    The Baltard pavilions came down soon after, and that demolition is still
+    counted among the great wounds of Parisian heritage. One was saved: taken
+    apart piece by piece and rebuilt at Nogent-sur-Marne, east of the city, where
+    it serves today as a concert hall. It is all that still stands of the belly
+    of Paris.
+
+    What grew at Rungis is more than a market. It is a private town. Over two
+    hundred hectares, with its own streets, post office, banks, fire brigade and
+    railway station. Some twelve thousand people work there through the night.
+
+    They trade fish, meat, fruit, vegetables, cheese and flowers. Annual turnover
+    runs into billions of euros, and the goods passing through are counted in
+    millions of tonnes. It is the largest fresh produce market in the world.
+
+    The timetable is set to the hour. Seafood arrives first, around one in the
+    morning, because fish does not wait. Fruit and vegetables follow. By midday
+    it is over, and the aisles are being hosed down.
+
+    Almost everything you eat tomorrow in a Paris restaurant came through there
+    last night. Without you knowing, and without a word of it on the menu.
+
+    Paris sold its belly. It simply moved it outside itself.
+  cards:
+    - "When Paris goes to bed, another city wakes up seven kilometres south."
+    - "For eight centuries, the belly of Paris beat in the middle of town."
+    - "In one night in 1969, an 800-year-old market changed address."
+    - "Two hundred hectares with its own post office, fire brigade and station."
+    - "What you eat tomorrow in a Paris restaurant passed through there last night."
+  tags: ["Rungis", "Les Halles", "Paris", "Economy", "Food", "History"]
