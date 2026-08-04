@@ -33,6 +33,7 @@ from __future__ import annotations
 
 import logging
 import math
+import os
 import re
 import shutil
 import subprocess
@@ -80,6 +81,11 @@ SHORT_MIN_SECONDS = 20.0
 # Detection de silence (ffmpeg silencedetect).
 SILENCE_NOISE_DB = -35
 SILENCE_MIN_DURATION = 0.35
+
+# Coeurs laisses a ffmpeg. Le rendu partage la machine avec d'autres services :
+# sans plafond, l'encodage prend tout le processeur et fait tousser le reste.
+# On garde au moins un coeur libre, et jamais plus de la moitie de la machine.
+FFMPEG_THREADS = max(1, min(2, (os.cpu_count() or 2) // 2))
 
 
 class AssemblyError(RuntimeError):
@@ -372,6 +378,7 @@ def assemble(
             "-map", "[vout]",
             "-map", f"{count}:a",
             "-c:v", "libx264", "-preset", "veryfast", "-crf", "21",
+            "-threads", str(FFMPEG_THREADS),
             "-pix_fmt", "yuv420p",
             "-c:a", "aac", "-b:a", "128k",
             # La duree de reference reste l'audio : la piste video est calculee
@@ -527,6 +534,7 @@ def cut_shorts(
             ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y",
             "-ss", f"{start:.3f}", "-to", f"{end:.3f}", "-i", str(video_path),
             "-c:v", "libx264", "-preset", "medium", "-crf", "20",
+            "-threads", str(FFMPEG_THREADS),
             "-c:a", "aac", "-b:a", "128k",
             str(target),
         ]
