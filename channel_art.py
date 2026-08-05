@@ -384,6 +384,19 @@ def eiffel_glyph(
 # Renaissance dessine d'apres Jenson : c'est le registre « litteraire » recherche.
 # DejaVu Serif ferme la liste parce que c'est la SEULE presente sur le VPS — un
 # logo se fabrique une fois, mais autant qu'il reste reproductible la-bas.
+ITALIC_CANDIDATES = (
+    # Garamond italique d'abord : Claude Garamond etait un graveur francais de
+    # la Renaissance, et son italique est ce que la typographie a de plus
+    # litteraire. Pour une chaine parisienne, c'est le choix juste.
+    "C:/Windows/Fonts/GARAIT.TTF",
+    "C:/Windows/Fonts/MTCORSVA.TTF",
+    "C:/Windows/Fonts/palai.ttf",
+    "C:/Windows/Fonts/cambriai.ttf",
+    "C:/Windows/Fonts/georgiai.ttf",
+    "C:/Windows/Fonts/timesi.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSerif-Italic.ttf",
+)
+
 SERIF_CANDIDATES = (
     "C:/Windows/Fonts/CENTAUR.TTF",
     "C:/Windows/Fonts/cambriai.ttf",
@@ -393,11 +406,11 @@ SERIF_CANDIDATES = (
 )
 
 
-def serif_font(size: int):
+def serif_font(size: int, italic: bool = False):
     """Police a serif la plus deliee disponible sur cette machine."""
     from PIL import ImageFont
 
-    for candidate in SERIF_CANDIDATES:
+    for candidate in (ITALIC_CANDIDATES if italic else SERIF_CANDIDATES):
         if Path(candidate).exists():
             return ImageFont.truetype(candidate, size)
     raise AvatarError(
@@ -481,4 +494,46 @@ def wordmark(
 
     _tracked(draw, (centre - size * gap, y), left, font, colour, space, align="right")
     _tracked(draw, (centre + size * gap, y), right, font, colour, space, align="left")
+    return art
+
+
+def wordmark_split(
+    art: Image.Image,
+    left: str = "Paris",
+    right: str = "Explorer",
+    *,
+    colour=None,
+    left_height: float = 0.33,
+    right_height: float = 0.52,
+    scale: float = 0.075,
+    tracking: float = 0.06,
+    overlap: float = 0.045,
+    italic: bool = True,
+) -> Image.Image:
+    """Signature en deux temps : un mot haut, l'autre plus bas, chevauchant la tour.
+
+    Les deux mots MORDENT sur la tour au lieu d'etre repousses vers les bords.
+    C'est ce qui les garde loin du decoupage circulaire : plus on s'ecarte du
+    centre, plus la corde du cercle se resserre, et un mot pousse vers le bord
+    est un mot coupe.
+
+    Les hauteurs sont differentes pour que le chevauchement soit possible sans
+    que les mots ne se percutent, et parce qu'une signature decalee se lit comme
+    une composition alors qu'une signature centree se lit comme une etiquette.
+
+    Args:
+        overlap: de combien chaque mot mord sur l'axe de la tour, en fraction
+            du cote. Positif = les mots se rapprochent du centre.
+    """
+    size = art.size[0]
+    draw = ImageDraw.Draw(art)
+    font = serif_font(max(8, int(size * scale)), italic=italic)
+    space = tracking * size * scale
+    centre = size / 2
+    ink = colour if colour is not None else ROUGE
+
+    _tracked(draw, (centre + size * overlap, size * left_height),
+             left, font, ink, space, align="right")
+    _tracked(draw, (centre - size * overlap, size * right_height),
+             right, font, ink, space, align="left")
     return art
