@@ -653,7 +653,12 @@ IDENTITY = dict(
     right_height=0.57,
     scale=0.088,
     tracking=0.06,
-    left_overlap=0.038,
+    # Zero, et ce n'est pas un reglage par defaut oublie : c'est la valeur
+    # calculee. A cette hauteur la tour va de x=377 a x=423 ; le mot finissant
+    # sur l'axe, le « i » s'arrete a 376 — dehors d'un pixel — et le « s »
+    # occupe 380 a 400, entierement sur le fut. Une seule lettre dans la tour,
+    # ce qui etait la demande.
+    left_overlap=0.0,
     right_overlap=-0.080,
 )
 
