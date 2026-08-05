@@ -56,6 +56,12 @@ INK = (16, 20, 32)
 PAPER = (245, 243, 238)
 ACCENT = (214, 168, 78)
 
+# Bleu et rouge du drapeau francais. Legerement assombris par rapport aux
+# valeurs officielles : en vignette, un rouge trop vif « vibre » sur du blanc et
+# fatigue l'oeil avant d'etre lu.
+BLEU = (0, 44, 138)
+ROUGE = (206, 43, 55)
+
 
 class AvatarError(RuntimeError):
     """L'avatar n'a pas pu etre fabrique."""
@@ -300,10 +306,25 @@ def eiffel_glyph(
     background=INK,
     foreground=ACCENT,
     ring: bool = True,
+    ring_color=None,
+    bands=None,
 ) -> Image.Image:
-    """Dessine une Tour Eiffel simplifiee, lisible a n'importe quelle taille."""
+    """Dessine une Tour Eiffel simplifiee, lisible a n'importe quelle taille.
+
+    Args:
+        ring_color: couleur de l'anneau. Par defaut celle de la tour ; la
+            dissocier permet une lecture a trois couleurs.
+        bands: trois couleurs de bandes verticales en fond, au lieu d'un aplat.
+    """
     art = Image.new("RGB", (size, size), background)
     draw = ImageDraw.Draw(art)
+
+    if bands:
+        # Bandes verticales : la reference au drapeau se lit meme quand la forme
+        # est trop petite pour etre identifiee.
+        width = size / len(bands)
+        for index, colour in enumerate(bands):
+            draw.rectangle((index * width, 0, (index + 1) * width, size), fill=colour)
 
     # La tour occupe la hauteur utile du cercle, centree.
     top = size * 0.20
@@ -351,5 +372,5 @@ def eiffel_glyph(
     )
 
     if ring:
-        _ring(art, foreground)
+        _ring(art, ring_color or foreground)
     return art
