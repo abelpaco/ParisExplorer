@@ -374,3 +374,111 @@ def eiffel_glyph(
     if ring:
         _ring(art, ring_color or foreground)
     return art
+
+
+# ---------------------------------------------------------------------------
+# Signature typographique
+# ---------------------------------------------------------------------------
+
+# Polices a serif, de la plus deliee a la plus commune. Centaur est un serif
+# Renaissance dessine d'apres Jenson : c'est le registre « litteraire » recherche.
+# DejaVu Serif ferme la liste parce que c'est la SEULE presente sur le VPS — un
+# logo se fabrique une fois, mais autant qu'il reste reproductible la-bas.
+SERIF_CANDIDATES = (
+    "C:/Windows/Fonts/CENTAUR.TTF",
+    "C:/Windows/Fonts/cambriai.ttf",
+    "C:/Windows/Fonts/georgiai.ttf",
+    "C:/Windows/Fonts/times.ttf",
+    "/usr/share/fonts/truetype/dejavu/DejaVuSerif.ttf",
+)
+
+
+def serif_font(size: int):
+    """Police a serif la plus deliee disponible sur cette machine."""
+    from PIL import ImageFont
+
+    for candidate in SERIF_CANDIDATES:
+        if Path(candidate).exists():
+            return ImageFont.truetype(candidate, size)
+    raise AvatarError(
+        "Aucune police a serif trouvee. Complete SERIF_CANDIDATES, ou installe "
+        "fonts-dejavu-core."
+    )
+
+
+def _tracked(draw, position, text, font, fill, tracking: float, align: str = "left"):
+    """Ecrit un texte avec un interlettrage impose, lettre par lettre.
+
+    Pillow ne sait pas espacer les lettres. Or c'est precisement l'interlettrage
+    large qui donne son air de page de titre a une petite capitale — sans lui,
+    la signature ressemble a une legende.
+    """
+    widths = [draw.textlength(char, font=font) for char in text]
+    total = sum(widths) + tracking * max(0, len(text) - 1)
+    x, y = position
+    if align == "right":
+        x -= total
+    elif align == "center":
+        x -= total / 2
+    for char, width in zip(text, widths):
+        draw.text((x, y), char, font=font, fill=fill)
+        x += width + tracking
+    return total
+
+
+def wordmark(
+    art: Image.Image,
+    left: str = "PARIS",
+    right: str = "EXPLORER",
+    *,
+    colour=ROUGE,
+    height: float = 0.46,
+    scale: float = 0.062,
+    tracking: float = 0.28,
+    gap: float = 0.085,
+) -> Image.Image:
+    """Pose la signature de part et d'autre de la tour.
+
+    Le texte est place la ou la tour est ETROITE, vers le haut du fut : plus bas
+    elle s'evase et il n'y aurait plus de place sans deborder du cercle.
+
+    Args:
+        height: hauteur du texte, en fraction du cote (0 = haut).
+        scale: corps de la police, en fraction du cote.
+        tracking: interlettrage, en fraction du corps.
+        gap: espace entre l'axe de la tour et le texte, en fraction du cote.
+    """
+    size = art.size[0]
+    draw = ImageDraw.Draw(art)
+    centre = size / 2
+    y = size * height
+
+    # Largeur disponible : la corde du cercle a cette hauteur, moins l'ecart
+    # laisse autour de la tour. Sans ce calcul, le mot le plus long depasse du
+    # cadre — et le decoupage circulaire de YouTube en mangerait encore plus.
+    radius = size * SAFE_CIRCLE / 2
+    offset = abs(y + size * scale * 0.5 - centre)
+    half_chord = (max(0.0, radius**2 - offset**2)) ** 0.5
+    room = half_chord - size * gap - size * 0.02
+
+    # On reduit le corps jusqu'a ce que les DEUX mots tiennent. Le plus long
+    # commande : une signature dont un mot deborde ne se rattrape pas.
+    for attempt in range(24):
+        font = serif_font(max(8, int(size * scale)))
+        space = tracking * size * scale
+        widest = max(
+            sum(draw.textlength(c, font=font) for c in word) + space * (len(word) - 1)
+            for word in (left, right)
+        )
+        if widest <= room:
+            break
+        scale *= 0.94
+    else:
+        logger.warning(
+            "Signature reduite au maximum sans tenir dans le cercle : "
+            "raccourcis le texte ou remonte-le vers le centre."
+        )
+
+    _tracked(draw, (centre - size * gap, y), left, font, colour, space, align="right")
+    _tracked(draw, (centre + size * gap, y), right, font, colour, space, align="left")
+    return art
