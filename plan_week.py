@@ -68,6 +68,12 @@ MAX_UPLOADS_PER_DAY = 6
 # on sert le meme contenu.
 MAX_PER_UNIT = 2
 
+# Videos longues visees par jour, le reste en Shorts. Sans cette cible, le
+# planificateur ecoule d'abord TOUS les longs puis tous les Shorts : la premiere
+# moitie de semaine devient lourde, la seconde n'offre plus que du format court
+# a qui decouvre la chaine ce jour-la. Chaque journee doit se tenir seule.
+LONGS_PER_DAY = 2
+
 
 @dataclass
 class Item:
@@ -144,19 +150,23 @@ def discover(topics: Dict[str, str]) -> List[Item]:
     return items
 
 
-def _score(item: Item, previous: Optional[Item], day_topics: set) -> tuple:
+def _score(
+    item: Item, previous: Optional[Item], day_topics: set, day_longs: int
+) -> tuple:
     """Cle de tri : plus c'est petit, plus le candidat convient a ce creneau.
 
     L'ordre des composantes EST la priorite des regles. Le sujet deja vu dans la
-    journee pese plus lourd que la langue, qui pese plus lourd que la categorie.
+    journee pese plus lourd que la langue, qui pese plus lourd que la categorie,
+    qui pese plus lourd que le format.
     """
     same_topic_today = item.topic_id in day_topics
     same_lang = previous is not None and item.lang == previous.lang
     same_category = previous is not None and item.category == previous.category
-    # Les videos longues passent avant les Shorts a egalite : ce sont elles qui
-    # font le catalogue, les Shorts amenent le trafic vers elles.
-    is_short = item.kind == "short"
-    return (same_topic_today, same_lang, same_category, is_short, item.key)
+    # Le format voulu depend de ce que la journee contient DEJA : on prend des
+    # longs tant que la cible du jour n'est pas atteinte, des Shorts ensuite.
+    wants_long = day_longs < LONGS_PER_DAY
+    wrong_format = (item.kind == "long") != wants_long
+    return (same_topic_today, same_lang, same_category, wrong_format, item.key)
 
 
 def build_plan(
@@ -183,6 +193,7 @@ def build_plan(
     for offset in range(days):
         day = start + timedelta(days=offset)
         day_topics: set = set()
+        day_longs = 0
         for slot_text in slots:
             hour, minute = (int(p) for p in slot_text.split(":"))
             candidates = [
@@ -195,10 +206,13 @@ def build_plan(
                 )
                 return plan
 
-            chosen = min(candidates, key=lambda i: _score(i, previous, day_topics))
+            chosen = min(
+                candidates, key=lambda i: _score(i, previous, day_topics, day_longs)
+            )
             available.remove(chosen)
             per_unit[chosen.unit] = per_unit.get(chosen.unit, 0) + 1
             day_topics.add(chosen.topic_id)
+            day_longs += 1 if chosen.kind == "long" else 0
             previous = chosen
             plan.append(
                 Slot(datetime.combine(day, time(hour, minute), tzinfo=zone), chosen)
