@@ -508,6 +508,8 @@ def wordmark_split(
     scale: float = 0.075,
     tracking: float = 0.06,
     overlap: float = 0.045,
+    left_overlap: Optional[float] = None,
+    right_overlap: Optional[float] = None,
     italic: bool = True,
 ) -> Image.Image:
     """Signature en deux temps : un mot haut, l'autre plus bas, chevauchant la tour.
@@ -524,6 +526,10 @@ def wordmark_split(
     Args:
         overlap: de combien chaque mot mord sur l'axe de la tour, en fraction
             du cote. Positif = les mots se rapprochent du centre.
+        left_overlap, right_overlap: valeur propre a un mot, si l'equilibre
+            demande que l'un morde moins que l'autre. La tour est etroite en
+            haut et large en bas : a chevauchement egal, le mot du haut se
+            retrouve bien plus engage que celui du bas.
     """
     size = art.size[0]
     draw = ImageDraw.Draw(art)
@@ -532,9 +538,12 @@ def wordmark_split(
     centre = size / 2
     ink = colour if colour is not None else ROUGE
 
-    _tracked(draw, (centre + size * overlap, size * left_height),
+    over_left = overlap if left_overlap is None else left_overlap
+    over_right = overlap if right_overlap is None else right_overlap
+
+    _tracked(draw, (centre + size * over_left, size * left_height),
              left, font, ink, space, align="right")
-    _tracked(draw, (centre - size * overlap, size * right_height),
+    _tracked(draw, (centre - size * over_right, size * right_height),
              right, font, ink, space, align="left")
     return art
 
