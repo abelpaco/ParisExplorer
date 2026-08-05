@@ -641,7 +641,11 @@ def _interleave(groups: Sequence[List[ImageResult]]) -> Iterable[ImageResult]:
 
 
 def fetch_for_topic(
-    image_queries: List[str], count: int, dest_dir: Path
+    image_queries: List[str],
+    count: int,
+    dest_dir: Path,
+    *,
+    attribution_free_only: bool = False,
 ) -> List[ImageResult]:
     """Rassemble ``count`` images pretes a l'emploi pour un sujet.
 
@@ -654,6 +658,11 @@ def fetch_for_topic(
         image_queries: requetes du sujet (champ ``image_queries`` du YAML).
         count: nombre d'images souhaitees.
         dest_dir: dossier de destination, cree au besoin. Sert aussi de cache.
+        attribution_free_only: ne garder que le domaine public et le CC0.
+            Necessaire des que l'image sera posee la ou AUCUN credit ne peut
+            figurer — un avatar de chaine, une miniature, une icone. Une
+            photo CC BY parfaitement licenciee y devient contrefaisante,
+            faute d'endroit ou nommer son auteur.
 
     Returns:
         Les images effectivement disponibles sur le disque, creditables. Peut
@@ -675,6 +684,11 @@ def fetch_for_topic(
     # resultats, et un quota atteint de justesse ne laisse aucune marge.
     per_query = max(5, min(count * 2, 25))
     groups = [search_images(query, per_query) for query in image_queries if query]
+    if attribution_free_only:
+        groups = [
+            [i for i in group if not _attribution_required(i.license_name)]
+            for group in groups
+        ]
 
     collected: List[ImageResult] = []
     seen_pages: set[int] = set()
