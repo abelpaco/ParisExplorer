@@ -537,3 +537,87 @@ def wordmark_split(
     _tracked(draw, (centre - size * overlap, size * right_height),
              right, font, ink, space, align="left")
     return art
+
+
+# ---------------------------------------------------------------------------
+# Banniere de chaine
+# ---------------------------------------------------------------------------
+
+# Format a fournir a YouTube. C'est le TELEVISEUR qui voit tout ; les autres
+# ecrans rognent.
+BANNER_SIZE = (2048, 1152)
+
+# Zone visible sur TOUS les appareils, centree. Hors de ce rectangle, le
+# contenu disparait sur telephone — c'est la faute classique de la banniere :
+# un titre magnifique compose sur l'image entiere, et invisible pour la moitie
+# du public.
+BANNER_SAFE = (1235, 338)
+
+# Ce que voit un ordinateur : plus large que le telephone, moins haut que la TV.
+BANNER_DESKTOP = (2560, 423)
+
+
+def _safe_box(size, safe) -> Tuple[int, int, int, int]:
+    """Rectangle sur de la banniere, en coordonnees absolues."""
+    return (
+        (size[0] - safe[0]) // 2, (size[1] - safe[1]) // 2,
+        (size[0] + safe[0]) // 2, (size[1] + safe[1]) // 2,
+    )
+
+
+def banner(
+    out_path: Path,
+    *,
+    title: str = "Paris Explorer",
+    tagline: str = "L'histoire, les monuments et l'actualité de Paris",
+    background=BLEU,
+    tower=(255, 255, 255),
+    accent=(235, 105, 110),
+    guides: bool = False,
+) -> Path:
+    """Compose la banniere de la chaine, tout tenant dans la zone sure.
+
+    Args:
+        guides: tracer les limites des zones. Sert a VERIFIER la composition,
+            jamais a publier.
+    """
+    width, height = BANNER_SIZE
+    art = Image.new("RGB", BANNER_SIZE, background)
+    left, top, right, bottom = _safe_box(BANNER_SIZE, BANNER_SAFE)
+    safe_height = bottom - top
+
+    # La tour, calee sur la hauteur de la zone sure, a gauche du texte.
+    glyph_size = int(safe_height * 1.02)
+    glyph = eiffel_glyph(glyph_size, background=background, foreground=tower, ring=False)
+    glyph_x = left + int(safe_height * 0.05)
+    art.paste(glyph, (glyph_x, top + (safe_height - glyph_size) // 2))
+
+    draw = ImageDraw.Draw(art)
+    text_x = glyph_x + glyph_size + int(safe_height * 0.10)
+
+    title_font = serif_font(int(safe_height * 0.34), italic=True)
+    draw.text((text_x, top + safe_height * 0.16), title, font=title_font, fill=tower)
+
+    rule_y = top + safe_height * 0.60
+    draw.line(
+        [(text_x, rule_y), (text_x + safe_height * 1.15, rule_y)],
+        fill=accent, width=max(2, int(safe_height * 0.012)),
+    )
+
+    tag_font = serif_font(int(safe_height * 0.115), italic=False)
+    draw.text((text_x, rule_y + safe_height * 0.10), tagline, font=tag_font, fill=accent)
+
+    if guides:
+        # Reperes de controle : zone sure (telephone) et zone ordinateur.
+        draw.rectangle((left, top, right, bottom), outline=(0, 255, 0), width=4)
+        dx = (width - BANNER_DESKTOP[0]) // 2
+        dy = (height - BANNER_DESKTOP[1]) // 2
+        draw.rectangle(
+            (max(0, dx), dy, min(width, width - dx), height - dy),
+            outline=(255, 200, 0), width=4,
+        )
+
+    out_path = Path(out_path)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    art.save(out_path, "PNG", optimize=True)
+    return out_path
