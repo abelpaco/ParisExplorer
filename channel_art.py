@@ -630,3 +630,80 @@ def banner(
     out_path.parent.mkdir(parents=True, exist_ok=True)
     art.save(out_path, "PNG", optimize=True)
     return out_path
+
+
+# ---------------------------------------------------------------------------
+# Identite retenue
+# ---------------------------------------------------------------------------
+
+# Reglages VALIDES de l'identite de la chaine. Ils vivent ici et non dans une
+# commande de passage : un logo qu'on ne sait pas regenerer a l'identique n'est
+# pas une identite, c'est un fichier.
+#
+# Les deux chevauchements sont dissocies parce que la tour est etroite en haut
+# et large en bas. « Explorer » fait 291 px de large la ou la tour n'en fait que
+# 96 : a corps egal il ne peut que la traverser. Il est donc reduit ET sorti de
+# l'axe, tandis que « Paris » vient poser son seul « s » sur le fut.
+IDENTITY = dict(
+    background=BLEU,
+    tower=(255, 255, 255),
+    ring=ROUGE,
+    text=(235, 105, 110),
+    left_height=0.27,
+    right_height=0.57,
+    scale=0.088,
+    tracking=0.06,
+    left_overlap=0.038,
+    right_overlap=-0.080,
+)
+
+
+def channel_logo(out_path: Path, size: int = AVATAR_SIZE) -> Path:
+    """Logo officiel de la chaine, aux reglages valides."""
+    art = eiffel_glyph(
+        size,
+        background=IDENTITY["background"],
+        foreground=IDENTITY["tower"],
+        ring_color=IDENTITY["ring"],
+    )
+    wordmark_split(
+        art,
+        colour=IDENTITY["text"],
+        left_height=IDENTITY["left_height"],
+        right_height=IDENTITY["right_height"],
+        scale=IDENTITY["scale"],
+        tracking=IDENTITY["tracking"],
+        left_overlap=IDENTITY["left_overlap"],
+        right_overlap=IDENTITY["right_overlap"],
+    )
+    out_path = Path(out_path)
+    out_path.parent.mkdir(parents=True, exist_ok=True)
+    art.save(out_path, "PNG", optimize=True)
+    return out_path
+
+
+def main(argv=None) -> int:
+    """Regenere le logo, son apercu en taille reelle, et la banniere."""
+    import argparse
+
+    parser = argparse.ArgumentParser(description="Produit l'identite de la chaine.")
+    parser.add_argument("--out", type=Path, default=Path("content/brand"))
+    args = parser.parse_args(argv)
+
+    logging.basicConfig(level=logging.INFO, format="%(levelname)s %(message)s", stream=sys.stdout)
+
+    logo = channel_logo(args.out / "logo-800.png")
+    # L'apercu n'est pas decoratif : c'est la taille reelle de l'avatar sur la
+    # page de chaine, la seule ou l'on juge vraiment.
+    with Image.open(logo) as art:
+        art.resize((98, 98), Image.LANCZOS).save(args.out / "logo-apercu-98.png")
+        print(f"contraste a {SMALL_PREVIEW} px : {small_contrast(art):.1f}")
+    banner(args.out / "banniere-2048x1152.png")
+
+    for produced in sorted(args.out.glob("*.png")):
+        print(f"  {produced}")
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
