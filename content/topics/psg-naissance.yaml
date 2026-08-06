@@ -1,0 +1,129 @@
+id: psg-naissance
+category: sport
+status: ready
+# 12 aout 1970 : creation officielle du Paris Saint-Germain.
+anchor_date: "08-12"
+
+# PIEGES D'IMAGES, verifies avant redaction :
+# - Le logo du PSG est une marque deposee : jamais en sujet principal d'une
+#   requete. Un maillot dans une photo de match est incident, ca passe.
+# - Le Parc des Princes actuel (Taillibert, 1972, architecte mort en 2019) est
+#   une architecture PROTEGEE en France : pas de vue d'ensemble moderne en
+#   exterieur. L'ancien Parc-velodrome (avant 1950) est sur.
+image_queries:
+  - "Parc des Princes velodrome 1932"
+  - "Paris Saint-Germain supporters tribune"
+  - "Paris Saint-Germain match football action"
+  - "Camp des Loges Saint-Germain-en-Laye"
+  - "football France 1970s stadium crowd"
+
+fr:
+  title: "Le PSG est né d'une collecte : vingt mille Parisiens ont payé"
+  subtitle: "1970 : une souscription, une fusion, une trahison — et un club"
+  narration: |
+    En 1970, Paris est une anomalie. Londres a Arsenal, Chelsea et Tottenham.
+    Madrid a le Real et l'Atlético. Milan en a deux. Paris, capitale de six
+    millions d'habitants, n'a plus un seul club en première division.
+
+    Le Racing a abandonné le professionnalisme. Le Red Star s'est enfoncé.
+    Dans les tribunes, une question circule : comment la Ville Lumière
+    peut-elle être éteinte le samedi soir ?
+
+    La réponse ne viendra ni d'un mécène ni d'une mairie. Elle viendra d'une
+    souscription. Des dirigeants du football français lancent un appel public :
+    donnez, et Paris aura son grand club. Vingt mille personnes signent. Des
+    commerçants, des employés, des gamins qui envoient leurs économies. C'est,
+    à l'époque, unique en Europe : un grand club fondé par ses futurs
+    supporters, avant même d'exister.
+
+    Reste à exister sportivement. Plutôt que de partir de zéro, le club né de
+    la souscription fusionne avec le Stade Saint-Germain, un club de banlieue
+    fondé en 1904, qui joue alors en deuxième division. Le douze août 1970, le
+    Paris Saint-Germain est officiellement créé. Paris apporte le nom et
+    l'argent. Saint-Germain apporte l'équipe, et un terrain d'entraînement :
+    le camp des Loges, que le club n'a jamais quitté.
+
+    La première saison est un conte de fées : le PSG monte en première
+    division dès 1971. Puis tout se déchire. La mairie de Paris veut financer
+    un club qui porte le nom de Paris, et rien d'autre. En 1972, le club est
+    coupé en deux. Le Paris FC garde la place en première division, les
+    joueurs professionnels et les subventions. Le PSG garde son nom, son
+    histoire — et repart en troisième division, chez les amateurs.
+
+    Ce sera la meilleure chose qui lui soit arrivée. Reconstruit depuis la
+    base, porté ensuite par Daniel Hechter puis Francis Borelli, le club
+    remonte en deux saisons et s'installe au Parc des Princes en 1974 —
+    l'année, précisément, où le Paris FC descend. Les deux trajectoires se
+    croisent cette saison-là, et mettront un demi-siècle à se recroiser.
+
+    Cinquante ans plus tard, le club fondé par vingt mille anonymes a rempli
+    le Parc, gagné des titres par dizaines, et soulevé la Ligue des champions.
+    Tout a commencé par une liste de souscripteurs. Les grandes histoires de
+    football commencent rarement dans un bureau : celle-ci commence par des
+    mandats postaux.
+  tags:
+    - "PSG"
+    - "Paris Saint-Germain"
+    - "Histoire du PSG"
+    - "Parc des Princes"
+    - "Football"
+    - "Paris"
+  cards:
+    - "En 1970, Paris était la seule grande capitale d'Europe sans club en première division."
+    - "Le PSG est né d'une souscription : vingt mille Parisiens ont payé pour créer leur club."
+    - "En 1972, le club a été coupé en deux — celui qui est reparti de troisième division a tout gagné."
+
+en:
+  title: "PSG Was Born From a Public Collection: Twenty Thousand Parisians Paid"
+  subtitle: "1970: a subscription, a merger, a betrayal — and a club"
+  narration: |
+    In 1970, Paris was an anomaly. London had Arsenal, Chelsea and Tottenham.
+    Madrid had Real and Atlético. Milan had two giants. Paris, a capital of
+    six million people, no longer had a single club in the first division.
+
+    Racing had given up professional football. Red Star had sunk down the
+    tables. Around the city, one question kept coming back: how could the City
+    of Light go dark on Saturday nights?
+
+    The answer came neither from a tycoon nor from the city hall. It came from
+    a subscription. A group of French football executives launched a public
+    appeal: give, and Paris will have its club. Twenty thousand people signed
+    up. Shopkeepers, office workers, kids sending in their savings. At the
+    time it was unique in Europe: a major club founded by its future
+    supporters, before it even existed.
+
+    The club still needed a team. Rather than starting from zero, the
+    subscription club merged with Stade Saint-Germain, a suburban side founded
+    in 1904, then playing in the second division. On the twelfth of August
+    1970, Paris Saint-Germain was officially born. Paris brought the name and
+    the money. Saint-Germain brought the players, and a training ground: the
+    Camp des Loges, which the club has never left.
+
+    The first season was a fairy tale: PSG reached the first division in 1971.
+    Then everything tore apart. Paris city hall would only fund a club named
+    after Paris, and nothing else. In 1972 the club was split in two. Paris FC
+    kept the first-division spot, the professional players and the subsidies.
+    PSG kept its name, its short history — and was sent down to the third
+    division, among amateurs.
+
+    It turned out to be the best thing that ever happened to the club. Rebuilt
+    from the ground up, then carried by Daniel Hechter and Francis Borelli,
+    PSG climbed back in two seasons and moved into the Parc des Princes in
+    1974 — the very year Paris FC went down. The two paths crossed that
+    season, and took half a century to cross again.
+
+    Fifty years on, the club founded by twenty thousand unknown names fills
+    the Parc, has won trophies by the dozen, and has lifted the Champions
+    League. It all started with a list of subscribers. Great football stories
+    rarely begin in a boardroom: this one began with postal orders.
+  tags:
+    - "PSG"
+    - "Paris Saint-Germain"
+    - "PSG history"
+    - "Parc des Princes"
+    - "Football"
+    - "Paris"
+  cards:
+    - "In 1970, Paris was the only major European capital without a first-division football club."
+    - "PSG was born from a subscription: twenty thousand Parisians paid to create their club."
+    - "In 1972 the club was split in two — the half sent down to the third division went on to win everything."

@@ -19,6 +19,7 @@ sort pas et personne qui comprend pourquoi.
 from __future__ import annotations
 
 import logging
+import re
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Dict, List, Optional
@@ -33,6 +34,11 @@ SUPPORTED_LANGS = ("fr", "en")
 # En dessous de ~300 mots la voix off ne tient pas 2 minutes : le format cible
 # n'est pas atteint. On previent au chargement plutot qu'a la publication.
 MIN_NARRATION_WORDS = 300
+
+# Date anniversaire : MM-JJ, sans annee — l'evenement revient chaque annee.
+# La validation est stricte : un « 8-12 » silencieusement tolere ne matcherait
+# jamais le « 08-12 » produit par strftime, et le sujet ne sortirait jamais.
+ANCHOR_DATE_RE = re.compile(r"^(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01])$")
 
 
 class TopicError(ValueError):
@@ -67,6 +73,10 @@ class Topic:
     image_queries: List[str]
     langs: Dict[str, TopicText]
     source_path: Optional[Path] = None
+    # Date anniversaire (MM-JJ). Un sujet ancre n'est planifie QUE ce jour-la,
+    # chaque annee : « ce jour-la a Paris ». Sans ancre, le sujet est planifiable
+    # n'importe quand, comme avant.
+    anchor_date: Optional[str] = None
 
     @property
     def is_ready(self) -> bool:
@@ -111,6 +121,15 @@ def parse_topic(raw: Any, source_path: Optional[Path] = None) -> Topic:
     if not isinstance(queries, list) or not queries:
         raise TopicError(f"{topic_id}: 'image_queries' doit etre une liste non vide")
 
+    anchor_date = raw.get("anchor_date")
+    if anchor_date is not None:
+        anchor_date = str(anchor_date).strip()
+        if not ANCHOR_DATE_RE.match(anchor_date):
+            raise TopicError(
+                f"{topic_id}: 'anchor_date' doit etre au format MM-JJ "
+                f"(ex. 08-25), recu : {anchor_date!r}"
+            )
+
     langs: Dict[str, TopicText] = {}
     for lang in SUPPORTED_LANGS:
         if lang in raw:
@@ -140,6 +159,7 @@ def parse_topic(raw: Any, source_path: Optional[Path] = None) -> Topic:
         image_queries=[str(q) for q in queries],
         langs=langs,
         source_path=source_path,
+        anchor_date=anchor_date,
     )
 
 

@@ -181,13 +181,15 @@ def discover(topics: Dict[str, str]) -> List[Item]:
 
 
 def _score(
-    item: Item, previous: Optional[Item], day_topics: set, day_longs: int
+    item: Item, previous: Optional[Item], day_topics: set, day_longs: int,
+    anchored_today: bool = False,
 ) -> tuple:
     """Cle de tri : plus c'est petit, plus le candidat convient a ce creneau.
 
-    L'ordre des composantes EST la priorite des regles. Le sujet deja vu dans la
-    journee pese plus lourd que la langue, qui pese plus lourd que la categorie,
-    qui pese plus lourd que le format.
+    L'ordre des composantes EST la priorite des regles. Un sujet dont c'est le
+    jour anniversaire passe devant tout : c'est sa seule fenetre de l'annee.
+    Ensuite, le sujet deja vu dans la journee pese plus lourd que la langue,
+    qui pese plus lourd que la categorie, qui pese plus lourd que le format.
     """
     same_topic_today = item.topic_id in day_topics
     same_lang = previous is not None and item.lang == previous.lang
@@ -202,7 +204,8 @@ def _score(
     # stock de cartes est petit et deja plafonne par MAX_PER_UNIT : le coup de
     # pouce ne peut pas transformer le fil en diaporama.
     not_card = item.kind != "card"
-    return (same_topic_today, same_lang, same_category, wrong_format, not_card, item.key)
+    return (not anchored_today, same_topic_today, same_lang, same_category,
+            wrong_format, not_card, item.key)
 
 
 def build_plan(
@@ -212,8 +215,15 @@ def build_plan(
     days: int,
     slots: List[str],
     zone: ZoneInfo,
+    anchors: Optional[Dict[str, str]] = None,
 ) -> List[Slot]:
-    """Repartit les publications sur ``days`` jours."""
+    """Repartit les publications sur ``days`` jours.
+
+    ``anchors`` associe un sujet a sa date anniversaire (MM-JJ). Un sujet ancre
+    n'est candidat QUE le jour anniversaire — « ce jour-la a Paris » publie un
+    autre jour perdrait tout son sens — et ce jour-la, il passe en tete.
+    """
+    anchors = anchors or {}
     if len(slots) > MAX_UPLOADS_PER_DAY:
         raise ValueError(
             f"{len(slots)} creneaux par jour, mais le quota d'API n'en autorise "
@@ -228,12 +238,15 @@ def build_plan(
 
     for offset in range(days):
         day = start + timedelta(days=offset)
+        day_key = day.strftime("%m-%d")
         day_topics: set = set()
         day_longs = 0
         for slot_text in slots:
             hour, minute = (int(p) for p in slot_text.split(":"))
             candidates = [
-                i for i in available if per_unit.get(i.unit, 0) < MAX_PER_UNIT
+                i for i in available
+                if per_unit.get(i.unit, 0) < MAX_PER_UNIT
+                and anchors.get(i.topic_id) in (None, day_key)
             ]
             if not candidates:
                 logger.warning(
@@ -243,7 +256,11 @@ def build_plan(
                 return plan
 
             chosen = min(
-                candidates, key=lambda i: _score(i, previous, day_topics, day_longs)
+                candidates,
+                key=lambda i: _score(
+                    i, previous, day_topics, day_longs,
+                    anchored_today=anchors.get(i.topic_id) == day_key,
+                ),
             )
             available.remove(chosen)
             per_unit[chosen.unit] = per_unit.get(chosen.unit, 0) + 1
@@ -284,7 +301,9 @@ def main(argv=None) -> int:
         return 1
     start = date.fromisoformat(args.start) if args.start else date.today() + timedelta(days=1)
 
-    topics = {t.id: t.category for t in topic_loader.load_topics(only_ready=False)}
+    all_topics = topic_loader.load_topics(only_ready=False)
+    topics = {t.id: t.category for t in all_topics}
+    anchors = {t.id: t.anchor_date for t in all_topics if t.anchor_date}
     items = discover(topics)
     registry = TopicRegistry()
     published = {name.lower() for name in registry.published_names()}
@@ -296,7 +315,8 @@ def main(argv=None) -> int:
     )
 
     try:
-        plan = build_plan(items, published, start, args.days, list(slots), zone)
+        plan = build_plan(items, published, start, args.days, list(slots), zone,
+                          anchors=anchors)
     except ValueError as exc:
         logger.error("%s", exc)
         return 1

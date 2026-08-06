@@ -49,6 +49,26 @@ en:
   tags: ["Eiffel Tower", "Paris", "Landmark"]
 ```
 
+## Sujets a date anniversaire (facultatif)
+
+Un champ `anchor_date: "MM-JJ"` fait du sujet un « ce jour-la a Paris » : le
+planificateur ne le place QUE ce jour-la, chaque annee, et il y passe en tete
+des creneaux. Publie un autre jour, un anniversaire perd tout son sens — c'est
+pourquoi la contrainte est stricte.
+
+```yaml
+id: liberation-paris
+anchor_date: "08-25"      # 25 aout : reddition allemande, Paris libere
+```
+
+Deux consequences a connaitre :
+
+- **Produire AVANT la date.** Un sujet ancre dont la video n'existe pas le
+  jour J attend l'annee suivante. Verifier le calendrier de production une
+  semaine avant chaque ancre.
+- **La categorie `actualite` existe** pour ces sujets : l'angle reste
+  l'Histoire, mais l'accroche est le jour anniversaire.
+
 ## Un sujet est un ANGLE, pas un monument
 
 C'est la regle la plus importante du catalogue.

@@ -1,0 +1,130 @@
+id: liberation-paris
+category: actualite
+status: ready
+# 25 aout 1944 : reddition de von Choltitz, Paris libere.
+anchor_date: "08-25"
+
+# Photos de 1944 : tres largement domaine public ou CC sur Commons. Aucun des
+# pieges habituels (architecture recente, eclairages) ne s'applique.
+image_queries:
+  - "Liberation of Paris 1944"
+  - "Paris barricades August 1944"
+  - "2e DB Leclerc division Paris 1944"
+  - "De Gaulle Champs-Elysees 26 August 1944"
+  - "Paris crowd celebration liberation 1944"
+
+fr:
+  title: "Août 1944 : la semaine où Paris s'est libérée elle-même"
+  subtitle: "Barricades, la Nueve, et l'ordre de destruction jamais exécuté"
+  narration: |
+    Le vingt-cinq août 1944, Paris se réveille libre. Mais cette liberté n'est
+    pas arrivée de l'extérieur : depuis une semaine, la ville se libérait
+    elle-même.
+
+    Tout commence le quinze août, par une grève de la police parisienne. Le
+    dix-neuf, les policiers grévistes occupent la préfecture. L'insurrection
+    gagne les mairies, les ministères, les journaux. Les pavés ressortent des
+    rues : plus de six cents barricades coupent la ville. Les insurgés ont
+    très peu d'armes ; ils prennent celles de l'ennemi.
+
+    Le plan allié, pourtant, prévoyait de contourner Paris. Une bataille de
+    rue coûterait trop cher en hommes, et ravitailler deux millions et demi
+    d'habitants ralentirait tout. C'est un Français, le général Leclerc,
+    appuyé par de Gaulle, qui force la décision : sa deuxième division
+    blindée reçoit l'ordre de foncer sur la capitale.
+
+    Le vingt-quatre août au soir, une avant-garde se faufile par la porte
+    d'Italie. Les premiers blindés qui atteignent l'Hôtel de Ville portent
+    des noms étranges pour une division française : Guadalajara, Teruel,
+    Madrid. Ce sont les hommes de la Nueve, une compagnie composée de
+    républicains espagnols, qui se battent contre le fascisme depuis 1936.
+    Cette nuit-là, les cloches de Notre-Dame sonnent pour la première fois
+    depuis quatre ans.
+
+    Le lendemain, la division entre dans Paris avec les troupes américaines.
+    Les combats durent toute la journée. En fin d'après-midi, von Choltitz,
+    le gouverneur militaire allemand, signe la reddition à la gare
+    Montparnasse. Hitler lui avait ordonné de ne laisser à l'ennemi qu'un
+    champ de ruines : les ponts minés, les monuments préparés à la
+    destruction. L'ordre n'a jamais été exécuté. Lucidité d'un militaire qui
+    savait la guerre perdue, ou légende qu'il a lui-même entretenue après
+    coup ? Les historiens en débattent encore. Les ponts, eux, sont toujours
+    debout.
+
+    Le soir même, à l'Hôtel de Ville, de Gaulle prononce les mots restés les
+    plus célèbres de sa vie : « Paris outragé, Paris brisé, Paris martyrisé,
+    mais Paris libéré. » Le lendemain, il descend les Champs-Élysées à pied,
+    au milieu d'une foule immense.
+
+    La semaine a coûté des centaines de vies : insurgés, soldats de Leclerc,
+    civils pris dans les combats. Quant aux Espagnols de la Nueve, entrés les
+    premiers, il a fallu attendre 2015 pour qu'un jardin de l'Hôtel de Ville
+    porte enfin leur nom.
+  tags:
+    - "Libération de Paris"
+    - "25 août 1944"
+    - "Histoire de Paris"
+    - "Seconde Guerre mondiale"
+    - "Leclerc"
+    - "La Nueve"
+  cards:
+    - "En août 1944, Paris a commencé à se libérer seule : les barricades sont sorties six jours avant les chars."
+    - "Les premiers blindés entrés dans Paris portaient des noms espagnols : Guadalajara, Teruel, Madrid."
+    - "Hitler avait ordonné de laisser Paris en ruines. L'ordre n'a jamais été exécuté."
+
+en:
+  title: "August 1944: The Week Paris Freed Itself"
+  subtitle: "Barricades, La Nueve, and the destruction order that was never carried out"
+  narration: |
+    On the twenty-fifth of August 1944, Paris woke up free. But that freedom
+    had not come from outside: for a week, the city had been freeing itself.
+
+    It began on the fifteenth of August with a strike by the Paris police. On
+    the nineteenth, the striking policemen seized the police headquarters.
+    The uprising spread to town halls, ministries and newspapers. The paving
+    stones came out of the streets: more than six hundred barricades cut the
+    city into pieces. The insurgents had very few weapons, so they took the
+    enemy's.
+
+    The Allied plan, however, was to bypass Paris. A street battle would cost
+    too many lives, and feeding two and a half million people would slow the
+    advance. It was a Frenchman, General Leclerc, backed by de Gaulle, who
+    forced the decision: his 2nd Armored Division was ordered to race for
+    the capital.
+
+    On the evening of August the twenty-fourth, a vanguard slipped in through
+    the Porte d'Italie. The first armored vehicles to reach the City Hall
+    bore strange names for a French division: Guadalajara, Teruel, Madrid.
+    They were the men of La Nueve, a company of Spanish republicans who had
+    been fighting fascism since 1936. That night, the bells of Notre-Dame
+    rang for the first time in four years.
+
+    The next day the division entered Paris alongside American troops. The
+    fighting lasted all day. Late in the afternoon, von Choltitz, the German
+    military governor, signed the surrender at Montparnasse station. Hitler
+    had ordered him to leave the enemy nothing but a field of ruins: bridges
+    mined, monuments rigged for destruction. The order was never carried
+    out. The clear head of a soldier who knew the war was lost, or a legend
+    he polished himself after the fact? Historians still argue. The bridges,
+    for their part, are still standing.
+
+    That same evening, at the City Hall, de Gaulle spoke the most famous
+    words of his life: "Paris outraged, Paris broken, Paris martyred, but
+    Paris liberated." The next day he walked down the Champs-Élysées on
+    foot, through an immense crowd.
+
+    The week cost hundreds of lives: insurgents, Leclerc's soldiers,
+    civilians caught in the fighting. As for the Spaniards of La Nueve, first
+    into the city, it took until 2015 for a garden at the City Hall to
+    finally bear their name.
+  tags:
+    - "Liberation of Paris"
+    - "August 25 1944"
+    - "History of Paris"
+    - "World War II"
+    - "Leclerc"
+    - "La Nueve"
+  cards:
+    - "In August 1944, Paris began freeing itself: the barricades went up six days before the tanks arrived."
+    - "The first armored vehicles into Paris bore Spanish names: Guadalajara, Teruel, Madrid."
+    - "Hitler ordered Paris left in ruins. The order was never carried out."
