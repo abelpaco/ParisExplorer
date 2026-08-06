@@ -63,6 +63,12 @@ fr:
     - "Histoire de Paris"
     - "Bateau-Lavoir"
     - "Balade parisienne"
+  # Phrases des cartes visuelles : chacune doit se suffire hors contexte —
+  # une phrase echantillonnee dans la narration peut etre orpheline.
+  cards:
+    - "À Paris, il existe une colline où l'on fait encore les vendanges."
+    - "La pierre du Sacré-Cœur blanchit sous la pluie : le monument se relave tout seul."
+    - "Jusqu'en 1860, Montmartre n'était pas Paris : hors du mur des taxes, on y buvait moins cher qu'en bas."
 
 en:
   title: "Montmartre: The Hill That Never Quite Joined Paris"
@@ -117,3 +123,7 @@ en:
     - "History of Paris"
     - "Bateau-Lavoir"
     - "Paris walk"
+  cards:
+    - "There is a hill in Paris where people still bring in a grape harvest."
+    - "Rain makes the Sacré-Cœur's stone whiter — the basilica washes itself."
+    - "Until 1860, Montmartre was not Paris: outside the customs wall, wine was simply cheaper up here."
