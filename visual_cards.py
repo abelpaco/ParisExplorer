@@ -938,6 +938,14 @@ def main(argv: Optional[List[str]] = None) -> int:
         if card.motion:
             print(f"        {card.motion}")
         print(f"        {card.text[:88]}")
+
+    # Metadonnees de Short et pack de posts, pour que la serie soit publiable
+    # des sa production. Import tardif : card_pack importe ce module.
+    import card_pack
+    try:
+        card_pack.build(topic, args.lang)
+    except card_pack.PackError as exc:
+        logger.warning("Cartes rendues mais pack non construit : %s", exc)
     return 0
 
 

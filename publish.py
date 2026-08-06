@@ -38,14 +38,30 @@ sys.path.insert(0, str(PROJECT_DIR))
 logger = logging.getLogger("publish")
 
 
-def registry_key(topic_id: str, lang: str, short: Optional[int] = None) -> str:
-    """Cle d'une publication. Un Short ne doit jamais consommer la cle du long."""
+def registry_key(
+    topic_id: str, lang: str, short: Optional[int] = None, card: Optional[int] = None
+) -> str:
+    """Cle d'une publication. Un Short ne doit jamais consommer la cle du long.
+
+    Les cartes animees ont leur propre suffixe, pour la meme raison que les
+    Shorts : publier la carte 1 ne doit marquer ni la video longue ni le
+    Short 1 comme faits.
+    """
     base = f"{topic_id}:{lang}"
-    return f"{base}:short-{short}" if short else base
+    if short:
+        return f"{base}:short-{short}"
+    if card:
+        return f"{base}:card-{card}"
+    return base
 
 
 def publish(
-    video: Path, meta: Path, *, short: Optional[int] = None, privacy: Optional[str] = None
+    video: Path,
+    meta: Path,
+    *,
+    short: Optional[int] = None,
+    card: Optional[int] = None,
+    privacy: Optional[str] = None,
 ) -> int:
     import yaml
 
@@ -74,7 +90,7 @@ def publish(
 
     topic_id = data["topic_id"]
     lang = data["lang"]
-    key = registry_key(topic_id, lang, short)
+    key = registry_key(topic_id, lang, short, card)
 
     registry = TopicRegistry()
     if registry.is_published(key):
@@ -84,9 +100,10 @@ def publish(
         return 1
 
     title = data["title"]
-    if short:
+    if short or card:
         # Le suffixe #Shorts n'est pas cosmetique : c'est ce qui range la video
         # dans le fil vertical de YouTube plutot que dans le catalogue normal.
+        # Les cartes animees sont verticales et courtes : meme fil, meme regle.
         title = f"{title} #Shorts"
     title = title[:100]
 
@@ -122,13 +139,14 @@ def main(argv=None) -> int:
     parser.add_argument("video", type=Path)
     parser.add_argument("meta", type=Path, help="le .json ecrit a cote de la video")
     parser.add_argument("--short", type=int, help="numero du Short, s'il s'agit d'un Short")
+    parser.add_argument("--card", type=int, help="numero de la carte, s'il s'agit d'une carte animee")
     parser.add_argument("--privacy", choices=["private", "unlisted", "public"])
     args = parser.parse_args(argv)
 
     logging.basicConfig(
         level=logging.INFO, format="%(levelname)s %(name)s: %(message)s", stream=sys.stdout
     )
-    return publish(args.video, args.meta, short=args.short, privacy=args.privacy)
+    return publish(args.video, args.meta, short=args.short, card=args.card, privacy=args.privacy)
 
 
 if __name__ == "__main__":

@@ -46,6 +46,7 @@ sys.path.insert(0, str(PROJECT_DIR))
 logger = logging.getLogger("plan")
 
 VIDEOS_ROOT = Path("content/videos")
+CARDS_ROOT = Path("content/cards")
 PLAN_FILE = Path("content/metadata/publication_plan.json")
 
 # Creneaux par defaut : deux le matin, deux l'apres-midi, un le soir.
@@ -81,21 +82,30 @@ class Item:
 
     topic_id: str
     lang: str
-    kind: str  # "long" ou "short"
+    kind: str  # "long", "short" ou "card"
     short_index: Optional[int]
     video: Path
     meta: Path
     category: str
     title: str
+    card_index: Optional[int] = None
 
     @property
     def key(self) -> str:
         base = f"{self.topic_id}:{self.lang}"
-        return f"{base}:short-{self.short_index}" if self.short_index else base
+        if self.short_index:
+            return f"{base}:short-{self.short_index}"
+        if self.card_index:
+            return f"{base}:card-{self.card_index}"
+        return base
 
     @property
     def unit(self) -> str:
-        return f"{self.topic_id}:{self.lang}"
+        # Les cartes animees ont leur propre budget : six secondes de teaser ne
+        # doivent pas consommer les deux creneaux du sujet et empecher la video
+        # longue ou un Short de sortir.
+        base = f"{self.topic_id}:{self.lang}"
+        return f"{base}:cards" if self.kind == "card" else base
 
 
 @dataclass
@@ -116,6 +126,7 @@ class Slot:
             "video": str(self.item.video),
             "meta": str(self.item.meta),
             "short": self.item.short_index,
+            "card": self.item.card_index,
         }
 
 
@@ -147,6 +158,25 @@ def discover(topics: Dict[str, str]) -> List[Item]:
             if path.exists():
                 items.append(Item(topic_id, lang, "short", index, path, meta_file,
                                   category, data["title"]))
+
+    # Cartes animees : les metadonnees par carte sont ecrites par card_pack.py,
+    # a cote du mp4. Une carte sans mp4 (rendu image seule) n'est pas un
+    # candidat : l'onglet Communaute la prendra, pas le fil des Shorts.
+    for meta_file in sorted(CARDS_ROOT.glob("*/*.json")):
+        try:
+            data = json.loads(meta_file.read_text(encoding="utf-8"))
+        except (OSError, json.JSONDecodeError) as exc:
+            logger.error("Metadonnees de carte illisibles (%s) : %s", meta_file, exc)
+            continue
+        if "card_index" not in data:
+            continue
+        motion = Path(data["video"]) if data.get("video") else None
+        if not motion or not motion.exists():
+            continue
+        topic_id, lang = data["topic_id"], data["lang"]
+        items.append(Item(topic_id, lang, "card", None, motion, meta_file,
+                          topics.get(topic_id, "decouverte"), data["title"],
+                          card_index=data["card_index"]))
     return items
 
 
@@ -166,7 +196,13 @@ def _score(
     # longs tant que la cible du jour n'est pas atteinte, des Shorts ensuite.
     wants_long = day_longs < LONGS_PER_DAY
     wrong_format = (item.kind == "long") != wants_long
-    return (same_topic_today, same_lang, same_category, wrong_format, item.key)
+    # A creneau non-long, une carte animee passe avant un Short. Sans ce
+    # composant, le depart se faisait a la CLE alphabetique et les cartes ne
+    # sortaient jamais — un accident de nommage, pas un choix editorial. Le
+    # stock de cartes est petit et deja plafonne par MAX_PER_UNIT : le coup de
+    # pouce ne peut pas transformer le fil en diaporama.
+    not_card = item.kind != "card"
+    return (same_topic_today, same_lang, same_category, wrong_format, not_card, item.key)
 
 
 def build_plan(
@@ -277,7 +313,12 @@ def main(argv=None) -> int:
         if slot.when.date() != current_day:
             current_day = slot.when.date()
             print(f"\n{current_day:%A %d %B}".upper())
-        kind = "video " if slot.item.kind == "long" else f"short{slot.item.short_index}"
+        if slot.item.kind == "long":
+            kind = "video "
+        elif slot.item.kind == "card":
+            kind = f"carte{slot.item.card_index}"
+        else:
+            kind = f"short{slot.item.short_index}"
         print(f"  {slot.when:%H:%M}  {slot.item.lang}  {kind}  {slot.item.title[:56]}")
 
     wanted = args.days * len(slots)

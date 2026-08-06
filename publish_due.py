@@ -127,7 +127,10 @@ def main(argv=None) -> int:
 
     from publish import publish
 
-    return publish(Path(slot["video"]), Path(slot["meta"]), short=slot.get("short"))
+    return publish(
+        Path(slot["video"]), Path(slot["meta"]),
+        short=slot.get("short"), card=slot.get("card"),
+    )
 
 
 if __name__ == "__main__":

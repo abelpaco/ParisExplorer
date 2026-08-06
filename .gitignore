@@ -69,3 +69,10 @@ content/audio/*
 !content/audio/.gitkeep
 content/cards/*
 !content/cards/.gitkeep
+
+# Packs de posts Communaute : reproductibles via card_pack.py, comme les cartes.
+content/posts/*
+!content/posts/.gitkeep
+
+# Sauvegardes ponctuelles du plan
+content/metadata/*.bak*
