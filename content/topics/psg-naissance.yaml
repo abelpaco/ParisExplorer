@@ -10,12 +10,15 @@ anchor_date: "08-12"
 # - Le Parc des Princes actuel (Taillibert, 1972, architecte mort en 2019) est
 #   une architecture PROTEGEE en France : pas de vue d'ensemble moderne en
 #   exterieur. L'ancien Parc-velodrome (avant 1950) est sur.
+# Requetes resserrees apres un premier rendu : « supporters tribune » ramenait
+# un tifo... du Stade Rennais, et « Camp des Loges » des panneaux de tramway.
+# Nommer le club ET le lieu dans chaque requete de match evite les intrus.
 image_queries:
   - "Parc des Princes velodrome 1932"
-  - "Paris Saint-Germain supporters tribune"
-  - "Paris Saint-Germain match football action"
-  - "Camp des Loges Saint-Germain-en-Laye"
-  - "football France 1970s stadium crowd"
+  - "Paris Saint-Germain match Parc des Princes"
+  - "Paris Saint-Germain football players"
+  - "Parc des Princes football crowd"
+  - "football Division 1 France 1970s"
 
 fr:
   title: "Le PSG est né d'une collecte : vingt mille Parisiens ont payé"
