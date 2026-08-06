@@ -97,15 +97,15 @@
   },
   {
     "when": "2026-08-09T19:00+02:00",
-    "key": "catacombes:en:short-1",
-    "kind": "short",
+    "key": "montmartre:en:card-1",
+    "kind": "card",
     "lang": "en",
     "category": "decouverte",
-    "title": "Paris Was Built From the Stone Beneath It",
-    "video": "content/videos/catacombes/shorts/catacombes-en-short-1.mp4",
-    "meta": "content/videos/catacombes/catacombes-en.json",
-    "short": 1,
-    "card": null
+    "title": "There is a hill in Paris where people still bring in a grape harvest.",
+    "video": "content/cards/montmartre/montmartre-en-story-01.mp4",
+    "meta": "content/cards/montmartre/montmartre-en-story-01.json",
+    "short": null,
+    "card": 1
   },
   {
     "when": "2026-08-10T09:00+02:00",
@@ -169,15 +169,15 @@
   },
   {
     "when": "2026-08-11T19:00+02:00",
-    "key": "catacombes:en:short-2",
-    "kind": "short",
+    "key": "montmartre:en:card-2",
+    "kind": "card",
     "lang": "en",
     "category": "decouverte",
-    "title": "Paris Was Built From the Stone Beneath It",
-    "video": "content/videos/catacombes/shorts/catacombes-en-short-2.mp4",
-    "meta": "content/videos/catacombes/catacombes-en.json",
-    "short": 2,
-    "card": null
+    "title": "Rain makes the Sacré-Cœur's stone whiter — the basilica washes itself.",
+    "video": "content/cards/montmartre/montmartre-en-story-02.mp4",
+    "meta": "content/cards/montmartre/montmartre-en-story-02.json",
+    "short": null,
+    "card": 2
   },
   {
     "when": "2026-08-12T09:00+02:00",
