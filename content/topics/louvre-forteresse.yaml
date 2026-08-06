@@ -1,0 +1,117 @@
+id: louvre-forteresse
+category: histoire
+status: ready
+
+# ⚠️ PIÈGE IMAGES : la Pyramide de Pei est une architecture PROTÉGÉE en France
+# (architecte mort en 2019, pas de liberté de panorama). AUCUNE requête d'image
+# de la pyramide — ni "Louvre pyramid", ni plan large de la cour Napoléon où
+# elle serait le sujet. S'en tenir aux façades anciennes et aux fondations.
+image_queries:
+  - "Louvre medieval foundations moat"
+  - "Cour Carree Louvre"
+  - "Louvre Lescot wing facade"
+  - "Louvre palace 19th century"
+  - "Louvre Sully wing architecture"
+
+fr:
+  title: "Sous le Louvre, un donjon dort depuis huit siècles"
+  subtitle: "Du château fort de Philippe Auguste aux sous-sols du musée"
+  narration: |
+    Sous le Louvre, il y a un donjon. Ce n'est pas une image. C'est un vrai
+    donjon médiéval, avec ses fondations, ses fossés, ses pierres. Pour le
+    trouver, il faut descendre en sous-sol du musée. Et pour comprendre ce
+    qu'il fait là, il faut remonter huit siècles.
+
+    Vers 1190, Philippe Auguste s'apprête à partir en croisade. Le roi va
+    s'absenter longtemps, et Paris reste derrière lui, exposée. Il fait donc
+    bâtir une forteresse pour protéger la ville. En son cœur, un donjon
+    massif : la Grosse Tour. Le Louvre naît comme ça. Pas comme un palais.
+    Comme une machine de guerre.
+
+    Au quatorzième siècle, Charles V change la donne. La forteresse devient
+    résidence royale. On habite le château, on ne s'y retranche plus. Mais le
+    vrai basculement vient de François Premier. En 1528, il fait raser le
+    donjon. La Grosse Tour, cœur militaire du vieux Louvre, disparaît. En
+    1546, le roi lance un chantier d'un tout autre esprit : un palais
+    Renaissance, confié à l'architecte Pierre Lescot. Le château fort
+    s'efface derrière les façades sculptées.
+
+    Puis vient l'humiliation. En 1682, la cour abandonne le Louvre pour
+    Versailles. Le palais des rois se retrouve sans roi. Il faudra une
+    Révolution pour lui écrire un nouveau destin : en 1793, le musée ouvre
+    ses portes. L'ancienne forteresse royale devient le bien de tous.
+
+    On pouvait croire l'histoire du donjon terminée. Rasé, oublié, dissous
+    dans quatre siècles de chantiers. C'est le contraire qui se produit. Dans
+    les années 1980, les fouilles du Grand Louvre exhument les fondations
+    médiévales. Les pierres de Philippe Auguste sont toujours là, sous les
+    cours et les galeries. Enfouies. Patientes.
+
+    Aujourd'hui, elles se visitent. Dans la salle du Louvre médiéval, en
+    sous-sol du musée, on marche dans les fossés mêmes du donjon. On longe la
+    base de cette Grosse Tour que François Premier croyait avoir effacée.
+    Au-dessus de votre tête, les salles du musée. Sous vos pieds, le douzième
+    siècle.
+
+    C'est peut-être le plus beau retournement du lieu. Le Louvre a tout été :
+    forteresse, résidence, palais, musée. Chaque époque a voulu effacer la
+    précédente. Aucune n'y est vraiment parvenue. Le donjon rasé en 1528 est
+    précisément celui que les visiteurs viennent voir aujourd'hui. Pour
+    trouver le plus vieux Louvre, inutile de lever les yeux vers les façades.
+    Il faut descendre.
+  tags: [Louvre, Philippe Auguste, donjon, château fort, musée, histoire de Paris]
+  cards:
+    - "Sous le musée du Louvre dort un donjon. Vers 1190, Philippe Auguste bâtit une forteresse pour protéger Paris pendant qu'il part en croisade."
+    - "François Ier rase le donjon du Louvre en 1528 et lance le palais Renaissance en 1546. La cour l'abandonnera pour Versailles en 1682."
+    - "Dans les années 1980, les fouilles du Grand Louvre exhument la forteresse médiévale : on marche aujourd'hui dans les fossés du donjon, sous le musée."
+
+en:
+  title: "Beneath the Louvre, a Fortress Has Slept for 800 Years"
+  subtitle: "From Philippe Auguste's stronghold to the museum's basement"
+  narration: |
+    Beneath the Louvre, there is a castle keep. Not a metaphor. A real
+    medieval keep, with its foundations, its moats, its stones. To find it,
+    you go down into the basement of the museum. To understand what it's
+    doing there, you go back eight centuries.
+
+    Around 1190, Philippe Auguste is preparing to leave on crusade. The king
+    will be gone a long time, and Paris will be left behind, exposed. So he
+    builds a fortress to protect the city. At its heart stands a massive
+    keep: the Grosse Tour, the Great Tower. This is how the Louvre is born.
+    Not as a palace. As a war machine.
+
+    In the fourteenth century, Charles V changes the story. The fortress
+    becomes a royal residence. A place to live in, no longer a place to hide
+    behind. But the real break comes with François the First. In 1528, he has
+    the keep demolished. The Great Tower, the military heart of the old
+    Louvre, vanishes. In 1546, the king launches a project of an entirely
+    different spirit: a Renaissance palace, entrusted to the architect Pierre
+    Lescot. The fortress disappears behind sculpted facades.
+
+    Then comes the humiliation. In 1682, the court abandons the Louvre for
+    Versailles. The palace of the kings of France finds itself without a
+    king. It takes a Revolution to write it a new destiny: in 1793, the
+    museum opens its doors. The old royal fortress now belongs to everyone.
+
+    You might think the keep's story was over. Demolished, forgotten,
+    dissolved into four centuries of construction. The opposite happens. In
+    the 1980s, the excavations of the Grand Louvre project unearth the
+    medieval foundations. Philippe Auguste's stones are still there, beneath
+    the courtyards and the galleries. Buried. Patient.
+
+    Today, you can visit them. In the medieval Louvre room, in the basement
+    of the museum, you walk through the very moats of the keep. You follow
+    the base of the Great Tower that François the First thought he had
+    erased. Above your head, the galleries of the museum. Beneath your feet,
+    the twelfth century.
+
+    It may be the finest reversal in the building's history. The Louvre has
+    been everything: fortress, residence, palace, museum. Each era tried to
+    erase the one before. None of them quite succeeded. The keep that was
+    razed in 1528 is precisely what visitors come down to see today. To find
+    the oldest Louvre, don't look up at the facades. Go underground.
+  tags: [Louvre, Philippe Auguste, medieval fortress, castle keep, museum, Paris history]
+  cards:
+    - "Beneath the Louvre museum sleeps a castle keep. Around 1190, Philippe Auguste built a fortress to protect Paris while he left on crusade."
+    - "François I razed the Louvre's keep in 1528 and launched a Renaissance palace in 1546. The court abandoned it all for Versailles in 1682."
+    - "In the 1980s, the Grand Louvre excavations unearthed the medieval fortress: today you can walk through the keep's moats beneath the museum."

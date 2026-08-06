@@ -1,0 +1,49 @@
+id: halles-ventre
+category: histoire
+status: ready
+
+# ⚠️ La Canopée actuelle (2016) est l'œuvre d'architectes vivants : architecture protégée.
+# AUCUNE requête d'image du site moderne — viser exclusivement les pavillons Baltard,
+# les photos anciennes du marché et le pavillon remonté à Nogent-sur-Marne.
+image_queries:
+  - "Les Halles Baltard pavilions"
+  - "Les Halles Paris market 1900"
+  - "forts des Halles Paris"
+  - "pavillon Baltard Nogent"
+  - "Les Halles Paris demolition"
+
+fr:
+  title: "La nuit où Paris s'est arraché le ventre"
+  subtitle: "Huit siècles de marché, douze pavillons de légende, un trou béant"
+  narration: |
+    Paris a un ventre. Il l'a porté pendant huit siècles. Puis, en une nuit, il se l'est arraché.
+    Tout commence au XIIe siècle. Louis VI installe un marché au cœur de sa capitale. Il ne le sait pas encore, mais il vient de fixer le centre de gravité de Paris pour huit cents ans. Génération après génération, la ville entière vient manger ici.
+    Au XIXe siècle, l'architecte Victor Baltard donne enfin un corps à ce ventre : douze pavillons de fer et de verre. À l'époque, c'est révolutionnaire. On copie ces structures dans le monde entier. En 1873, Émile Zola publie un roman qui offre au lieu son surnom définitif : « le Ventre de Paris ». Le nom restera.
+    Car les Halles sont un monde à part. Un monde qui vit la nuit, quand le reste de la ville dort. Des milliers de forts des Halles déchargent, portent, empilent. On y parle un argot que personne d'autre ne comprend tout à fait. Et à l'aube, quand le travail s'achève, tout le monde se retrouve autour d'une soupe à l'oignon. Noctambules en habit de soirée, porteurs en tablier : même table, même soupe.
+    Puis vient 1969. Le marché déménage à Rungis. Une nuit logistique restée légendaire : des milliers de camions, et huit siècles d'habitudes transférés avant le lever du jour. Rungis deviendra le plus grand marché de produits frais du monde. L'opération est un triomphe.
+    La suite l'est beaucoup moins. Les pavillons de Baltard sont vides. On pourrait les garder. On décide de les démolir. Entre 1971 et 1973, malgré les protestations, les douze pavillons tombent. Un seul est sauvé, démonté pièce par pièce, puis remonté à Nogent-sur-Marne. C'est tout ce qui reste du chef-d'œuvre.
+    À la place, un chantier. Béant. Il reste ouvert pendant des années. Les Parisiens finissent par lui donner un nom : « le trou des Halles ». Le trou devient célèbre. Pas pour les bonnes raisons. Il s'installe dans la mémoire collective comme le symbole même de l'urbanisme raté.
+    Aujourd'hui, le quartier a été rebâti, puis rebâti encore. Mais quelque chose s'est perdu en 1971, que rien n'a remplacé. Paris avait un ventre. Il lui reste un souvenir, un pavillon en exil, et une leçon : on n'arrache pas impunément huit cents ans d'histoire.
+  tags: [Les Halles, Baltard, Rungis, Zola, Paris, histoire]
+  cards:
+    - "Pendant 800 ans, Paris a mangé au même endroit : les Halles, marché central de la ville depuis Louis VI au XIIe siècle."
+    - "En 1969, le marché des Halles déménage à Rungis en une nuit : des milliers de camions, et huit siècles d'habitudes transférés avant l'aube."
+    - "Les douze pavillons de Baltard, copiés dans le monde entier, ont été démolis en 1971-1973. Un seul a survécu, remonté à Nogent-sur-Marne."
+
+en:
+  title: "The Night Paris Tore Out Its Own Belly"
+  subtitle: "Eight centuries of market, twelve iron pavilions, one gaping hole"
+  narration: |
+    Paris had a belly. It carried it for eight centuries. Then, in a single night, it tore it out.
+    The story begins in the twelfth century, when King Louis VI plants a market in the heart of his capital. He does not know it yet, but he has just fixed the city's center of gravity for the next eight hundred years. Generation after generation, all of Paris comes here to eat.
+    In the nineteenth century, the architect Victor Baltard finally gives the belly a body: twelve pavilions of iron and glass. At the time, they are revolutionary. The design is copied around the world. In 1873, Émile Zola publishes a novel that hands the place its definitive nickname: "The Belly of Paris." The name sticks.
+    Because Les Halles is a world of its own. A world that lives at night, while the rest of the city sleeps. Thousands of porters — the famous "forts des Halles" — unload, carry, stack. The market speaks a slang nobody else quite understands. And at dawn, when the work is done, everyone gathers over onion soup. Night owls in evening dress and porters in aprons, at the same tables, over the same soup.
+    Then comes 1969. The market moves to Rungis. The move is a legendary feat of logistics: thousands of trucks, one night, eight centuries of habit transferred before sunrise. Rungis will grow into the largest fresh-produce market in the world. The operation is a triumph.
+    What follows is anything but. Baltard's pavilions stand empty. They could be kept. The decision is made to demolish them. Between 1971 and 1973, despite protests, the twelve pavilions come down. Exactly one is saved, taken apart piece by piece and rebuilt in Nogent-sur-Marne. It is all that remains of the masterpiece.
+    In their place: a construction site. A gaping one. It stays open for years. Parisians end up giving it a name — "the hole of Les Halles." The hole becomes famous, and not for good reasons. It settles into the city's collective memory as the very symbol of urban planning gone wrong.
+    Today the neighborhood has been rebuilt, then rebuilt again. But something was lost in 1971 that nothing has replaced. Paris had a belly. What it has left is a memory, one pavilion in exile, and a lesson: you do not tear out eight hundred years of history and walk away unharmed.
+  tags: [Les Halles, Baltard, Rungis, Zola, Paris history, market]
+  cards:
+    - "For 800 years Paris ate in the same place: Les Halles, the city's central market since King Louis VI in the twelfth century."
+    - "In 1969, Paris moved its entire central market to Rungis in one night — thousands of trucks. Rungis is now the world's largest fresh-produce market."
+    - "Baltard's twelve iron-and-glass pavilions were demolished in 1971-1973 despite protests. Exactly one survived, rebuilt in Nogent-sur-Marne."

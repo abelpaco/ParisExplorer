@@ -1,0 +1,109 @@
+id: petite-ceinture
+category: decouverte
+status: ready
+
+# ⚠️ Piège d'images : les fresques de street-art le long de la ligne sont des œuvres
+# protégées — aucune requête ne doit cibler un mur peint. Viser rails, tunnels,
+# végétation et anciennes gares uniquement.
+image_queries:
+  - "Petite Ceinture railway Paris"
+  - "Petite Ceinture abandoned tracks vegetation"
+  - "Petite Ceinture tunnel"
+  - "gare Petite Ceinture ancienne"
+  - "Petite Ceinture Paris promenade"
+
+fr:
+  title: "La voie ferrée fantôme qui fait le tour de Paris"
+  subtitle: "La Petite Ceinture, 32 kilomètres rendus aux renards"
+  narration: |
+    Il existe une voie ferrée qui fait le tour de Paris, et où aucun train ne
+    passe. Environ trente-deux kilomètres de rails en boucle, à l'intérieur de la
+    ville. Des tunnels, des tranchées, des gares. Et pour tout trafic : des
+    renards. Bienvenue sur la Petite Ceinture.
+
+    Au départ, c'est un projet très sérieux. La ligne est construite entre 1852 et
+    1869, à l'intérieur des fortifications. Sa mission : relier les grandes gares
+    entre elles et approvisionner l'enceinte de Thiers, le mur qui protège alors
+    la capitale. Puis on l'ouvre aux voyageurs. Paris possède sa rocade
+    ferroviaire, une boucle complète autour de la ville.
+
+    Elle a un seul défaut. Elle arrive juste avant le métro. En 1900, le
+    métropolitain entre en scène, et la concurrence tourne court. La Petite
+    Ceinture perd ses voyageurs. En 1934, elle leur ferme ses portes. Le fret
+    continue un temps, puis décline. Puis plus rien. La boucle se tait.
+
+    C'est là que l'histoire devient intéressante. Personne ne démolit la ligne.
+    On la laisse. Et la nature, elle, ne demande jamais la permission. Les
+    friches gagnent du terrain. La végétation avale les rails. Des renards
+    s'installent. Des chauves-souris colonisent les tunnels. On y recense des
+    centaines d'espèces végétales. Sans le vouloir, Paris a fabriqué un corridor
+    écologique en pleine ville. Un ruban sauvage qui serpente entre les
+    immeubles, invisible depuis la rue.
+
+    Aujourd'hui, la Petite Ceinture mène une double vie. Certains tronçons sont
+    aménagés en promenades ouvertes au public, dans le 15e, le 12e, le 13e et
+    ailleurs. On y marche entre les rails, au calme, à quelques mètres sous le
+    vacarme de la rue. D'autres segments restent officiellement fermés. Les
+    anciennes gares, elles, survivent autrement : reconverties en cafés, en lieux
+    culturels. On boit un verre là où l'on attendait le train.
+
+    Reste le plus beau détail de l'histoire. Le train ne passe plus. La nature a
+    gagné. Les promeneurs sont arrivés. Mais la ligne, elle, n'a jamais été
+    déclassée en totalité. Sur le papier, la Petite Ceinture existe toujours.
+    Paris garde sa rocade fantôme en réserve, comme on garde une clé dont on a
+    oublié la porte. Une ville qui a un métro, des tramways, des gares immenses,
+    et qui conserve précieusement, en silence, une boucle de rails rendue aux
+    renards. On ne sait jamais.
+  tags: [Paris, Petite Ceinture, chemin de fer, nature en ville, Paris insolite, patrimoine]
+  cards:
+    - "Une voie ferrée d'environ 32 kilomètres fait le tour de Paris. Aucun train n'y passe depuis des décennies : la nature l'a reprise."
+    - "Fermée aux voyageurs en 1934, la Petite Ceinture de Paris abrite aujourd'hui renards, chauves-souris et des centaines d'espèces végétales."
+    - "La Petite Ceinture n'a jamais été déclassée en totalité : sur le papier, Paris garde sa rocade ferroviaire fantôme en réserve."
+
+en:
+  title: "The Ghost Railway That Circles All of Paris"
+  subtitle: "The Petite Ceinture, 32 kilometers handed back to the foxes"
+  narration: |
+    There is a railway that runs all the way around Paris, and no train ever
+    comes. Roughly thirty-two kilometers of track, looping inside the city.
+    Tunnels, cuttings, stations. And for traffic: foxes. Welcome to the Petite
+    Ceinture, the "little belt".
+
+    It began as a very serious project. The line was built between 1852 and
+    1869, inside the fortifications. Its mission: to link the great train
+    stations together and to supply the Thiers wall, the rampart that protected
+    the capital at the time. Then it opened to passengers. Paris had its own
+    railway ring, a complete loop around the city.
+
+    It had one flaw. It arrived just before the metro. In 1900, the
+    metropolitain entered the scene, and the contest was short. The Petite
+    Ceinture lost its passengers. In 1934, it closed its doors to them. Freight
+    carried on for a while, then declined. Then nothing. The loop fell silent.
+
+    This is where the story gets interesting. Nobody demolished the line. It was
+    simply left alone. And nature never asks for permission. Wasteland spread
+    along the embankments. Vegetation swallowed the rails. Foxes moved in. Bats
+    colonized the tunnels. Hundreds of plant species have been recorded along
+    the route. Without meaning to, Paris had built an ecological corridor in the
+    middle of the city. A wild ribbon winding between apartment blocks,
+    invisible from the street.
+
+    Today, the Petite Ceinture leads a double life. Some sections have been
+    turned into walkways open to the public, in the 15th, 12th and 13th
+    arrondissements, among others. You stroll between the rails, in the quiet, a
+    few meters below the noise of the street. Other stretches remain officially
+    closed. The old stations survive in their own way: converted into cafés and
+    cultural venues. People order drinks where passengers once waited for
+    trains.
+
+    And here is the best detail of all. The trains are gone. Nature has won. The
+    walkers have arrived. But the line itself has never been fully
+    decommissioned. On paper, the Petite Ceinture still exists. Paris keeps its
+    ghost ring in reserve, the way you keep a key long after forgetting which
+    door it opens. A city with a metro, tramways and enormous stations, quietly
+    holding on to a loop of rails handed back to the foxes. Just in case.
+  tags: [Paris, Petite Ceinture, railway, urban nature, hidden Paris, heritage]
+  cards:
+    - "A railway of about 32 kilometers circles Paris entirely. No train has carried passengers on it since 1934 — nature took it back."
+    - "Foxes, bats and hundreds of plant species now live on the Petite Ceinture, the abandoned railway loop hidden inside Paris."
+    - "The Petite Ceinture was never fully decommissioned: on paper, Paris still keeps a ghost railway ring in reserve around the city."

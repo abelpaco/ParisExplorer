@@ -1,0 +1,46 @@
+id: statue-liberte-paris
+category: decouverte
+status: ready
+
+image_queries:
+  - "Statue of Liberty Ile aux Cygnes Paris"
+  - "Statue of Liberty construction Paris workshop 1884"
+  - "Bartholdi statue liberte Luxembourg"
+  - "statue of liberty Paris Seine Grenelle"
+  - "Gaget Gauthier workshop Statue of Liberty"
+
+fr:
+  title: "La plus célèbre New-Yorkaise est une Parisienne"
+  subtitle: "La géante de cuivre a d'abord dépassé les toits du 17e arrondissement"
+  narration: |
+    La plus célèbre silhouette de New York est née à Paris.
+    Dans les années 1880, une géante de cuivre dépasse des toits du 17e arrondissement. Ce n'est pas un mirage. C'est un chantier. Auguste Bartholdi a conçu une statue colossale, et elle prend forme en plein Paris, dans les ateliers Gaget-Gauthier. Sa structure interne porte la signature d'un ingénieur nommé Eiffel. Oui, celui-là.
+    Pendant des mois, les Parisiens vivent avec elle. On lève les yeux dans la rue, et la Liberté dépasse des immeubles. On visite même le chantier, comme on irait voir une attraction. La statue la plus américaine du monde est alors une curiosité parisienne. Une voisine encombrante que tout un quartier regarde grandir, semaine après semaine.
+    Puis vient le départ. En 1885, la géante est démontée et rangée dans 214 caisses. Direction New York. Paris a construit la Liberté. L'Amérique va la dresser face à l'océan.
+    Mais Paris n'a pas tout rendu.
+    Sur l'île aux Cygnes, une étroite bande de terre posée sur la Seine, se dresse une statue de la Liberté de 11,5 mètres. Elle a été offerte en 1889 par la communauté américaine de Paris. Un cadeau en retour, en somme : vous nous avez donné la grande, voici la petite. Depuis l'Exposition de 1937, elle est tournée vers l'ouest. Vers sa grande sœur. Les deux statues se font face, séparées par un océan, alignées par le regard.
+    Et ce n'est pas la seule. Au jardin du Luxembourg, un modèle de la statue veille sur les promeneurs. Au musée d'Orsay, un autre encore. Paris est semé de Libertés, comme autant d'épreuves d'artiste conservées près de l'atelier d'origine. La ville qui a fabriqué la statue en a gardé des exemplaires, discrets, presque confidentiels. La plupart des passants ne les remarquent même plus.
+    Alors, la prochaine fois que la statue de la Liberté apparaîtra sur une photo de New York, souvenez-vous de ceci. Avant de dominer une baie américaine, cette géante a dominé des toits parisiens. Des passants l'ont vue naître, grandir, puis partir, caisse après caisse. La plus célèbre New-Yorkaise du monde est une expatriée. Et sur la Seine, une petite sœur de 11,5 mètres la salue, tournée vers l'ouest, fidèle au poste depuis 1937.
+  tags: [statue de la Liberté, Bartholdi, île aux Cygnes, Eiffel, Paris, découverte]
+  cards:
+    - "Avant New York, la statue de la Liberté dépassait des toits de Paris : elle a été construite dans les ateliers Gaget-Gauthier, au 17e arrondissement."
+    - "En 1885, la statue de la Liberté quitte Paris pour New York, démontée et expédiée à travers l'Atlantique dans 214 caisses."
+    - "Paris garde sa statue de la Liberté sur l'île aux Cygnes : 11,5 mètres, offerte en 1889, tournée vers sa grande sœur new-yorkaise depuis 1937."
+
+en:
+  title: "The Statue of Liberty Was Born in Paris"
+  subtitle: "For months, a copper giant loomed over the rooftops of the 17th arrondissement"
+  narration: |
+    New York's most famous silhouette was born in Paris.
+    In the 1880s, a copper giant rises above the rooftops of the 17th arrondissement. It is not a mirage. It is a construction site. Auguste Bartholdi has designed a colossal statue, and it is taking shape in the middle of Paris, in the Gaget-Gauthier workshops. Its internal framework bears the signature of an engineer named Eiffel. Yes, that one.
+    For months, Parisians live alongside her. You look up from the street, and Liberty towers over the buildings. People even visit the workshop, the way you would visit an attraction. The most American statue in the world is, for now, a Parisian curiosity — an oversized neighbor that an entire district watches grow, week after week.
+    Then comes the departure. In 1885, the giant is taken apart and packed into 214 crates. Destination: New York. Paris built Liberty. America will raise her to face the ocean.
+    But Paris did not give everything back.
+    On the Île aux Cygnes, a narrow strip of land in the middle of the Seine, stands a Statue of Liberty of her own — 11.5 meters tall, offered in 1889 by the American community of Paris. A return gift, in a way: you gave us the big one, here is the little one. Since the 1937 Exposition, she has faced west. Toward her big sister. The two statues look at each other across an entire ocean, aligned by a single gaze.
+    And she is not alone. In the Luxembourg Gardens, a model of the statue watches over the strollers. At the Musée d'Orsay, yet another. Paris is scattered with Liberties, like artist's proofs kept close to the original studio. The city that built the statue kept copies for itself — discreet, almost confidential. Most passersby no longer even notice them.
+    So the next time the Statue of Liberty appears in a photo of New York, remember this. Before towering over an American bay, this giant towered over Parisian rooftops. Passersby watched her being born, watched her grow, then watched her leave, crate after crate. The most famous New Yorker in the world is an expatriate. And on the Seine, an 11.5-meter little sister salutes her, facing west, faithfully at her post since 1937.
+  tags: [Statue of Liberty, Bartholdi, Île aux Cygnes, Eiffel, Paris, hidden Paris]
+  cards:
+    - "Before New York, the Statue of Liberty rose above the rooftops of Paris — built in the Gaget-Gauthier workshops of the 17th arrondissement."
+    - "In 1885, the Statue of Liberty left Paris for New York, dismantled and shipped across the Atlantic in 214 crates."
+    - "Paris keeps its own Statue of Liberty on the Île aux Cygnes: 11.5 meters tall, given in 1889, and facing west toward her big sister since 1937."

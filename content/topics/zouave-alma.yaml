@@ -1,0 +1,106 @@
+id: zouave-alma
+category: decouverte
+status: ready
+
+# Statue sur un pont public : pas de piège particulier. Privilégier les vues de la
+# statue elle-même et les photos de crue (2016) où l'eau monte sur le socle.
+image_queries:
+  - "Zouave pont de l'Alma"
+  - "Zouave Alma flood Seine"
+  - "Pont de l'Alma statue"
+  - "Seine flood Paris Zouave 2016"
+  - "Pont de l'Alma Paris Seine"
+
+fr:
+  title: "Le soldat de pierre qui mesure les colères de la Seine"
+  subtitle: "Le zouave du pont de l'Alma, jauge de crue préférée des Parisiens"
+  narration: |
+    À Paris, la station de mesure la plus consultée n'a ni capteur, ni écran, ni
+    bulletin. C'est une statue. Un soldat de pierre, adossé au pont de l'Alma, qui
+    regarde couler la Seine depuis 1856. On l'appelle le zouave. Et quand le fleuve
+    monte, c'est lui que tout Paris vient voir.
+
+    Rien ne le destinait à ce rôle. Le zouave est l'œuvre du sculpteur Georges
+    Diebolt. Il est posé sur le pont en 1856 pour commémorer la bataille de l'Alma,
+    remportée en 1854 pendant la guerre de Crimée. Les zouaves ? Un corps
+    d'infanterie d'Afrique du Nord. Et à l'origine, il n'est pas seul : quatre
+    statues de soldats montent la garde sur le pont de l'Alma.
+
+    Puis le pont fatigue. Dans les années 1970, on le reconstruit. Des quatre
+    soldats, un seul garde son poste : le zouave. Les trois autres sont dispersés
+    en province. Lui reste, planté au bord de l'eau. Et c'est précisément ce détail
+    qui va faire sa gloire.
+
+    Car les Parisiens ont établi leur propre échelle. Le zouave a les pieds dans
+    l'eau ? Les voies sur berges ferment. En 1910, pendant la crue du siècle, l'eau
+    lui montait aux épaules. En 2016, elle atteignait ses hanches. En 2018,
+    nouvelle crue, nouveau pèlerinage. À chaque montée des eaux, les Parisiens et
+    les journaux viennent « voir le zouave » avant même de lire les bulletins
+    officiels. La photo du soldat les jambes dans la Seine vaut tous les
+    communiqués.
+
+    Soyons honnêtes une seconde. Comme instrument scientifique, le zouave est
+    discutable. La reconstruction du pont a modifié son socle. Sa mesure n'est
+    donc pas comparable au centimètre d'une époque à l'autre : les hanches de 2016
+    et les épaules de 1910 ne se lisent pas sur la même règle. Les hydrologues,
+    eux, s'appuient sur l'échelle du pont d'Austerlitz, la référence sérieuse.
+
+    Et Paris s'en moque complètement. Parce qu'on ne vient pas voir le zouave pour
+    un chiffre. On vient voir un soldat de pierre faire face au fleuve, comme il le
+    fait depuis plus d'un siècle et demi. Une échelle donne un niveau. Le zouave,
+    lui, raconte une histoire : celle d'une ville qui vérifie d'un coup d'œil où
+    elle en est avec sa Seine. Les capteurs mesurent la crue. Le zouave la rend
+    visible. C'est pour cela qu'il a gagné : contre une colonne de chiffres, une
+    statue qui se mouille l'emporte à chaque fois.
+  tags: [paris, zouave, alma, seine, crue, statue]
+  cards:
+    - "Le zouave du pont de l'Alma est la jauge de crue préférée des Parisiens : ses pieds dans l'eau, et les voies sur berges ferment."
+    - "En 1910, la Seine montait aux épaules du zouave de l'Alma. En 2016, jusqu'à ses hanches. Paris lit ses crues sur un soldat de pierre."
+    - "Quatre statues de soldats ornaient le pont de l'Alma en 1856. Après la reconstruction des années 1970, seul le zouave est resté."
+
+en:
+  title: "The Stone Soldier Who Measures the Moods of the Seine"
+  subtitle: "The Zouave of the Alma bridge, Paris's favorite flood gauge"
+  narration: |
+    The most consulted measuring station in Paris has no sensor, no screen, no
+    bulletin. It's a statue. A stone soldier, set against the Alma bridge,
+    watching the Seine flow past since 1856. Parisians call him the Zouave. And
+    when the river rises, he is the one the whole city comes to see.
+
+    Nothing prepared him for the job. The Zouave is the work of sculptor Georges
+    Diebolt. He was placed on the bridge in 1856 to commemorate the Battle of the
+    Alma, won in 1854 during the Crimean War. Zouaves? An infantry corps from
+    North Africa. And originally, he wasn't alone: four soldier statues stood
+    guard on the Alma bridge.
+
+    Then the bridge grew old. In the 1970s, it was rebuilt. Of the four soldiers,
+    only one kept his post: the Zouave. The other three were scattered across
+    provincial France. He stayed, planted at the water's edge. And that detail is
+    exactly what made him famous.
+
+    Because Parisians invented their own scale. The Zouave has his feet in the
+    water? The riverside roads close. In 1910, during the flood of the century,
+    the water reached his shoulders. In 2016, it came up to his hips. In 2018,
+    another flood, another pilgrimage. Every time the river rises, Parisians and
+    newspapers come to "check on the Zouave" before they even read the official
+    bulletins. One photo of a soldier standing in the Seine beats any press
+    release.
+
+    Let's be honest for a second. As a scientific instrument, the Zouave is
+    questionable. Rebuilding the bridge changed his pedestal. His readings are
+    not comparable to the centimeter from one era to the next: the hips of 2016
+    and the shoulders of 1910 are not on the same ruler. Hydrologists rely on
+    the gauge at the Austerlitz bridge, the serious reference.
+
+    And Paris could not care less. Because nobody comes to the Zouave for a
+    number. They come to watch a stone soldier face the river, as he has done
+    for more than a century and a half. A gauge gives you a level. The Zouave
+    tells you a story: that of a city checking, at a glance, where it stands
+    with its Seine. Sensors measure the flood. The Zouave makes it visible.
+    That is why he won: against a column of figures, a statue getting its feet
+    wet wins every single time.
+  tags: [paris, zouave, alma, seine, flood, statue]
+  cards:
+    - "The Zouave statue on Paris's Alma bridge is the city's favorite flood gauge: feet in the water, and the riverside roads shut down."
+    - "In 1910, the Seine reached the shoulders of the Alma bridge Zouave. In 2016, his hips. Paris reads its floods on a stone soldier."
+    - "Four soldier statues stood on the Alma bridge in 1856. After the 1970s rebuild, only the Zouave remained — the rest were sent away."

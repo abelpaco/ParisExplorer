@@ -1,0 +1,46 @@
+id: moulin-rouge-1889
+category: histoire
+status: ready
+
+# ⚠️ PAS de requête sur la façade au néon moderne : l'éclairage récent est une œuvre protégée.
+# Viser les affiches de Toulouse-Lautrec (domaine public, parfaites) et les photos anciennes.
+image_queries:
+  - "Moulin Rouge 1900 photograph"
+  - "Toulouse-Lautrec Moulin Rouge poster"
+  - "La Goulue"
+  - "elephant Moulin Rouge 1900"
+  - "Montmartre windmills historical"
+
+fr:
+  title: "1889 : Paris inaugure une tour… et un faux moulin"
+  subtitle: "Le moulin rouge n'a jamais rien moulu — et c'est tout le génie"
+  narration: |
+    En 1889, Paris inaugure deux monuments. Le premier est une tour de fer que le monde entier vient admirer. Le second est un faux moulin.
+    Le 6 octobre 1889, la même année que la tour Eiffel, le Moulin Rouge ouvre ses portes au pied de Montmartre. Ses fondateurs s'appellent Joseph Oller et Charles Zidler. Leur idée est simple, et parfaitement assumée : construire un moulin qui ne moudra jamais rien.
+    Car le moulin rouge posé sur le toit est un pur décor. Pas de meule, pas de grain, pas de farine. Juste des ailes qui tournent pour attirer l'œil. Un clin d'œil, aussi, aux vrais moulins de Montmartre, ceux de la butte, juste au-dessus. Eux ont travaillé pour de vrai. Celui-ci ne travaillera jamais. Il fera mieux : il deviendra plus célèbre que tous les autres réunis.
+    Le décor ne s'arrête pas au toit. Dans le jardin trône un éléphant géant en stuc, récupéré de l'Exposition de 1889. Et cet éléphant se visite. On monte dans son ventre, et dans ce ventre, on donne des spectacles. Voilà le Paris de 1889 : une ville où l'on entre dans un éléphant pour aller voir un show.
+    Sur scène, une danse de bal indisciplinée, le « chahut », est codifiée en véritable spectacle. Le monde entier le connaîtra sous un autre nom : le cancan. Deux artistes en deviennent les premières vedettes : La Goulue et Valentin le Désossé. Dans la salle, un petit homme observe tout. Il s'appelle Henri de Toulouse-Lautrec. À partir de 1891, ses affiches immortalisent le Moulin Rouge, ses danseurs et ses nuits. Ces images feront le tour du monde. Elles le font encore.
+    En 1915, l'établissement brûle. L'histoire pourrait s'arrêter là. Elle ne s'arrête pas : le Moulin Rouge est reconstruit. Et il danse toujours, plus d'un siècle plus tard.
+    Voilà peut-être la vraie morale de 1889. Cette année-là, Paris a inauguré une tour de fer devenue l'emblème de la ville, et un moulin de décor qui n'a jamais moulu un seul grain. Les deux sont toujours debout. La tour avait un ingénieur de génie. Le moulin, lui, n'avait qu'une promesse : faire tourner ses ailes pour faire tourner les têtes. Plus de cent trente ans après, elles tournent encore.
+  tags: [Moulin Rouge, Montmartre, cancan, Toulouse-Lautrec, 1889, Paris]
+  cards:
+    - "Le Moulin Rouge ouvre le 6 octobre 1889, la même année que la tour Eiffel. Son moulin n'a jamais moulu un seul grain : pur décor."
+    - "Dans le jardin du Moulin Rouge trônait un éléphant géant en stuc, récupéré de l'Exposition de 1889 : on montait dans son ventre voir des spectacles."
+    - "La Goulue et Valentin le Désossé furent les premières vedettes du Moulin Rouge, immortalisées par les affiches de Toulouse-Lautrec dès 1891."
+
+en:
+  title: "1889: Paris Built a Tower — and a Fake Windmill"
+  subtitle: "The red mill never ground a thing — and that was the whole point"
+  narration: |
+    In 1889, Paris unveils two landmarks. The first is an iron tower the whole world comes to admire. The second is a fake windmill.
+    On October 6, 1889 — the same year as the Eiffel Tower — the Moulin Rouge opens its doors at the foot of Montmartre. Its founders are Joseph Oller and Charles Zidler. Their idea is simple, and entirely unapologetic: build a windmill that will never mill anything.
+    Because the red mill on the roof is pure stage set. No millstone, no grain, no flour. Just sails, turning to catch the eye. It is also a wink at the real windmills of Montmartre, up on the hill just above. Those worked for a living. This one never will. It will do better: it will become more famous than all of them combined.
+    The set design does not stop at the roof. In the garden stands a giant stucco elephant, salvaged from the 1889 World's Fair. And the elephant can be visited. You climb into its belly — and inside that belly, there are shows. That is Paris in 1889: a city where you step inside an elephant to watch a performance.
+    On stage, a rowdy ballroom dance known as the "chahut" is codified into a true stage act. The world will come to know it by another name: the cancan. Two performers become the venue's first stars: La Goulue and Valentin le Désossé — "the Boneless." In the audience, a small man watches everything. His name is Henri de Toulouse-Lautrec. From 1891 onward, his posters immortalize the Moulin Rouge, its dancers and its nights. Those images will travel the world. They still do.
+    In 1915, the building burns. The story could end there. It does not: the Moulin Rouge is rebuilt. And it is still dancing, more than a century later.
+    Perhaps that is the real moral of 1889. That year, Paris unveiled an iron tower that became the city's emblem, and a decorative windmill that never milled a single grain. Both are still standing. The tower had a genius engineer. The mill had only a promise: keep the sails turning, and heads will turn too. More than a hundred and thirty years later, they are still turning.
+  tags: [Moulin Rouge, Montmartre, cancan, Toulouse-Lautrec, 1889, Paris history]
+  cards:
+    - "The Moulin Rouge opened on October 6, 1889 — the same year as the Eiffel Tower. Its red windmill never ground a single grain: pure decoration."
+    - "The Moulin Rouge garden once held a giant stucco elephant from the 1889 World's Fair — visitors climbed into its belly to watch shows."
+    - "La Goulue and Valentin le Désossé were the Moulin Rouge's first stars, immortalized in Toulouse-Lautrec's posters from 1891 onward."

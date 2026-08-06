@@ -1,0 +1,110 @@
+id: pont-neuf
+category: monument
+status: ready
+
+# ⚠️ PIÈGE IMAGES : l'emballage du pont par Christo (1985) peut être MENTIONNÉ dans la
+# narration, mais AUCUNE requête d'image de l'œuvre de Christo (œuvre protégée par le
+# droit d'auteur). Ne pas ajouter de requête type "Christo Pont Neuf wrapped".
+image_queries:
+  - "Pont Neuf Paris"
+  - "Pont Neuf Henri IV equestrian statue"
+  - "Pont Neuf 1900 photograph"
+  - "Seine bridges Paris historical"
+  - "Pont Neuf Ile de la Cite aerial"
+
+fr:
+  title: "Le plus vieux pont de Paris s'appelle le Neuf"
+  subtitle: "Quatre siècles de paradoxe au-dessus de la Seine"
+  narration: |
+    Le plus vieux pont de Paris s'appelle le Pont Neuf. Ce n'est pas une blague
+    de Parisien. C'est une question de date. Quand on pose sa première pierre,
+    en 1578, sous Henri III, le nom est honnête. Tout, dans ce pont, est neuf.
+    Les autres ponts de la ville sont couverts de maisons. On les traverse sans
+    jamais voir le fleuve. Le Pont Neuf, achevé en 1607 sous Henri IV, rompt
+    avec des siècles d'habitude. Pas une seule maison sur son tablier. Pour la
+    première fois, un pont offre la Seine en spectacle.
+
+    Autre révolution, plus discrète : des trottoirs. Les premiers d'un pont
+    parisien. Le piéton n'est plus jeté au milieu des voitures. Il a son
+    territoire. Ces deux idées changent la fonction du lieu. Le Pont Neuf ne
+    sert plus seulement à traverser. On y reste. Bateleurs, arracheurs de
+    dents, libraires : le pont devient le grand théâtre permanent de Paris.
+    Le lieu de vie de la capitale.
+
+    Au milieu, un roi de bronze. La statue équestre d'Henri IV, installée en
+    1614. Elle traverse presque deux siècles, puis la Révolution la rattrape.
+    En 1792, on la fond pour en faire des canons. Le roi devient artillerie.
+    En 1818, on recoule une statue. Avec quel métal ? Celui de statues de
+    Napoléon, fondues à leur tour. L'Empereur déchu fournit le bronze du roi
+    restauré. L'Histoire a de ces ironies.
+
+    Elle en garde même une en réserve. Le fondeur chargé du travail est
+    bonapartiste. Et la légende est vérifiée : il a glissé dans le ventre du
+    cheval des documents et des statuettes de Napoléon. On les a retrouvés
+    lors d'une restauration. Depuis deux siècles, le cheval d'Henri IV porte
+    l'Empereur en contrebande.
+
+    Le pont, lui, garde son goût de l'événement. En 1985, l'artiste Christo
+    l'emballe entièrement de toile. Quelques jours durant, le plus vieux pont
+    de Paris devient le plus étrange.
+
+    Reste ce paradoxe qui amuse les guides et déroute les visiteurs. Le Pont
+    Neuf a plus de quatre siècles. Il a vu passer Henri IV, la Révolution,
+    l'Empire. Et pourtant son nom lui va toujours. En 1607, être un pont sans
+    maisons, avec des trottoirs, c'était être moderne. Il l'est resté. Le
+    Neuf n'a jamais si bien mérité son nom qu'en devenant vieux.
+  tags: [Pont Neuf, Paris, Henri IV, Seine, histoire de Paris, monument]
+  cards:
+    - "Le plus vieux pont de Paris s'appelle le Pont Neuf. En 1607, c'était vrai : premier pont sans maisons, premier avec des trottoirs."
+    - "En 1792, la statue d'Henri IV du Pont Neuf est fondue en canons. On la recoule en 1818… avec le bronze de statues de Napoléon."
+    - "Légende vérifiée : un fondeur bonapartiste a caché des statuettes de Napoléon dans le ventre du cheval d'Henri IV, sur le Pont Neuf."
+
+en:
+  title: "The Oldest Bridge in Paris Is Called the New One"
+  subtitle: "Four centuries of paradox over the Seine"
+  narration: |
+    The oldest bridge in Paris is called the Pont Neuf. The New Bridge.
+    Parisians enjoy the joke, but it isn't one. It's a matter of timing. When
+    the first stone is laid in 1578, under Henri III, the name is honest.
+    Everything about this bridge is new. Every other bridge in the city
+    carries houses on its back. You cross the Seine without ever seeing it.
+    The Pont Neuf, completed in 1607 under Henri IV, breaks with centuries of
+    habit. Not a single house on its deck. For the first time, a bridge turns
+    the river into a view.
+
+    There is a second revolution, a quieter one: sidewalks. The first on any
+    Paris bridge. Pedestrians are no longer thrown in among the traffic. They
+    get territory of their own. Those two ideas change what the bridge is for.
+    The Pont Neuf is no longer just a way across. It becomes a place to stay.
+    Street performers, tooth-pullers, booksellers: the bridge becomes the
+    permanent open-air theater of Paris. The liveliest spot in the capital.
+
+    At its center stands a bronze king. The equestrian statue of Henri IV,
+    installed in 1614. It survives nearly two centuries, and then the
+    Revolution catches up with it. In 1792, the statue is melted down to make
+    cannons. The king becomes artillery. In 1818, a new statue is cast. With
+    what metal? The bronze of statues of Napoleon, melted down in their turn.
+    The fallen Emperor supplies the metal for the restored king. History has
+    a taste for this kind of irony.
+
+    And it kept one more in reserve. The founder in charge of the casting was
+    a Bonapartist. The legend has been verified: he slipped documents and
+    small statuettes of Napoleon inside the horse's belly. They were found
+    during a restoration. For two centuries, Henri IV's horse has been
+    smuggling the Emperor in plain sight.
+
+    The bridge itself never lost its appetite for spectacle. In 1985, the
+    artist Christo wrapped it entirely in fabric. For a few days, the oldest
+    bridge in Paris became the strangest one.
+
+    Which leaves the paradox that delights the guides and confuses the
+    visitors. The Pont Neuf is more than four centuries old. It has watched
+    Henri IV, the Revolution, the Empire go by. And yet the name still fits.
+    In 1607, to be a bridge without houses, a bridge with sidewalks, was to
+    be modern. It still is. The New Bridge never earned its name so well as
+    by growing old.
+  tags: [Pont Neuf, Paris, Henri IV, Seine, Paris history, landmark]
+  cards:
+    - "The oldest bridge in Paris is called the New Bridge. In 1607, it was true: first bridge without houses, first with sidewalks."
+    - "In 1792, the Pont Neuf's statue of Henri IV was melted into cannons. It was recast in 1818 — using bronze from melted statues of Napoleon."
+    - "Verified legend: a Bonapartist founder hid statuettes of Napoleon inside the belly of Henri IV's bronze horse on the Pont Neuf."

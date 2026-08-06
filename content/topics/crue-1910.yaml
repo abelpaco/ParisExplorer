@@ -1,0 +1,104 @@
+id: crue-1910
+category: histoire
+status: ready
+
+# Bonne nouvelle côté images : les photos d'époque de la crue de 1910 sont dans le
+# domaine public — viser les clichés d'archives (barques, passerelles, métro inondé).
+image_queries:
+  - "Paris flood 1910"
+  - "Paris inondation 1910 barque"
+  - "Paris flood 1910 metro station"
+  - "great flood of Paris 1910 walkways"
+  - "Seine flood 1910 Austerlitz"
+
+fr:
+  title: "1910 : l'hiver où Paris est devenue Venise"
+  subtitle: "La crue qui a envahi la capitale par en dessous"
+  narration: |
+    En janvier 1910, les députés français vont à l'Assemblée nationale en barque.
+    Ce n'est pas une image. C'est un fait. Depuis des semaines, la pluie tombe sur
+    le bassin de la Seine. Le fleuve monte. Lentement, puis très vite. Le 28 janvier,
+    l'échelle du pont d'Austerlitz affiche 8,62 mètres. Le niveau normal tourne
+    autour de 2 mètres. Paris vient d'entrer dans l'histoire des catastrophes.
+
+    Ce qui frappe, ce n'est pas seulement la hauteur. C'est la méthode. On imagine
+    un fleuve qui déborde, qui passe par-dessus les quais. La Seine de 1910 est plus
+    retorse. Elle ne passe pas partout par-dessus. Elle passe par-dessous. L'eau
+    remonte par les égouts. Elle s'infiltre par le métro. Elle envahit les caves.
+    Des quartiers situés loin du fleuve se réveillent inondés, sans avoir vu la
+    Seine arriver. La ville est prise de l'intérieur.
+
+    Le métro est envahi. L'électricité est coupée. Dans les rues, on circule en
+    barque ou sur des passerelles de bois montées à la hâte. Paris ne s'arrête pas.
+    Paris s'adapte. Les députés rejoignent l'Assemblée à la rame. Les photographes,
+    eux, mitraillent. Leurs clichés font le tour du monde : une capitale moderne,
+    transformée en Venise du Nord, en plein hiver.
+
+    Puis vient la partie la plus longue. Attendre. L'eau met environ deux mois à se
+    retirer. Il faut patienter jusqu'à la mi-mars pour retrouver une ville à peu
+    près normale. Deux mois de décrue, de nettoyage, de caves à vider.
+
+    Et pourtant, dans ce désastre, un chiffre étonne. Les victimes directes à
+    Paris : aucune, ou presque. La ville s'est organisée. Passerelles, barques,
+    entraide. La crue de 1910 est une catastrophe sans hécatombe. C'est peut-être
+    pour cela que les photos, aujourd'hui dans le domaine public, ont quelque chose
+    d'étrangement paisible. Des Parisiens en chapeau, debout dans des barques,
+    posant devant leur rue devenue canal.
+
+    Plus d'un siècle a passé. La Seine a connu d'autres crues, d'autres alertes,
+    d'autres frayeurs. Mais 1910 reste la référence. La mesure de toutes choses.
+    Chaque projet d'urbanisme au bord de la Seine doit aujourd'hui prouver une
+    chose précise : qu'il survivrait à une crue centennale équivalente à celle de
+    1910. L'eau s'est retirée en mars. Le chiffre, lui, n'est jamais reparti.
+    8,62 mètres. Paris construit encore à l'ombre de cette ligne.
+  tags: [paris, crue, 1910, seine, histoire, inondation]
+  cards:
+    - "En janvier 1910, les députés français allaient à l'Assemblée nationale en barque : la Seine avait atteint 8,62 mètres, contre 2 en temps normal."
+    - "La crue de 1910 n'a pas envahi Paris par-dessus les quais : l'eau est remontée par les égouts, le métro et les caves, loin du fleuve."
+    - "Plus d'un siècle après, tout projet construit au bord de la Seine doit prouver qu'il survivrait à une crue égale à celle de 1910."
+
+en:
+  title: "1910: The Winter Paris Turned Into Venice"
+  subtitle: "The flood that invaded the capital from below"
+  narration: |
+    In January 1910, French lawmakers arrived at the National Assembly by boat.
+    Not as a stunt. As the only way in. For weeks, rain had been falling on the
+    Seine basin. The river rose. Slowly at first, then very fast. On January 28,
+    the gauge at the Austerlitz bridge read 8.62 meters. Normal is around 2.
+    Paris had just entered the history of disasters.
+
+    The striking part isn't only the height. It's the method. You picture a river
+    overflowing, spilling over the embankments. The Seine of 1910 was sneakier.
+    In many places, it didn't come over the quays at all. It came from below.
+    Water pushed back up through the sewers. It seeped in through the metro. It
+    filled the cellars. Neighborhoods far from the river woke up flooded without
+    ever seeing the Seine arrive. The city was taken from the inside.
+
+    The metro was swamped. The electricity was cut. In the streets, people moved
+    by rowboat or on wooden walkways thrown together in a hurry. Paris did not
+    stop. Paris adapted. Deputies rowed to the Assembly. Photographers went to
+    work. Their pictures traveled around the world: a modern capital turned into
+    a northern Venice, in the middle of winter.
+
+    Then came the longest part. Waiting. The water took about two months to
+    withdraw. Not until mid-March did the city return to something like normal.
+    Two months of receding water, of cleanup, of cellars to empty.
+
+    And yet, inside the disaster, one number stands out. Direct victims in Paris:
+    none, or very close to it. The city organized itself. Walkways, boats,
+    neighbors helping neighbors. The great flood of 1910 was a catastrophe
+    without a death toll. Maybe that's why the photographs, all in the public
+    domain today, feel strangely calm. Parisians in hats, standing upright in
+    rowboats, posing in front of streets that had become canals.
+
+    More than a century has passed. The Seine has risen again, brought new
+    alerts, new scares. But 1910 remains the reference. The measure of all
+    things. Every building project along the Seine must now prove one precise
+    thing: that it would survive a hundred-year flood equal to 1910. The water
+    left in March. The number never did. 8.62 meters. Paris still builds in the
+    shadow of that line.
+  tags: [paris, flood, 1910, seine, history, disaster]
+  cards:
+    - "In January 1910, French lawmakers rowed to the National Assembly: the Seine had reached 8.62 meters, against about 2 in normal times."
+    - "The 1910 flood didn't pour over the quays of Paris — it rose from below, through sewers, the metro and cellars, far from the river itself."
+    - "Over a century later, every project built along the Seine must prove it would survive a flood equal to the one of 1910."

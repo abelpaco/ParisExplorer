@@ -1,0 +1,44 @@
+id: arc-triomphe-inconnu
+category: histoire
+status: ready
+
+image_queries:
+  - "Arc de Triomphe Paris"
+  - "Tomb Unknown Soldier Arc de Triomphe flame"
+  - "Arc de Triomphe 1920 ceremony"
+  - "Arc de Triomphe historical photograph"
+  - "Verdun citadel"
+
+fr:
+  title: "Sous l'Arc de Triomphe, un soldat sans nom"
+  subtitle: "Comment un monument aux victoires est devenu le gardien d'un inconnu"
+  narration: |
+    Sous le monument le plus triomphal de Paris repose un homme dont personne ne connaît le nom. Et c'est précisément le but.
+    1806. Napoléon vient de vaincre à Austerlitz. Il commande un arc de triomphe à la hauteur de sa gloire. Le chantier s'éternise : l'Arc n'est achevé qu'en 1836. Napoléon ne l'a jamais vu debout. Il ne passera dessous qu'une seule fois, en 1840 — dans son cortège funèbre. Le monument aux victoires accueille d'abord un cercueil. Et ce n'est encore que le début de l'histoire.
+    10 novembre 1920. Citadelle de Verdun. Dans une salle, huit cercueils identiques. Huit soldats français que personne n'a pu identifier. L'un d'eux reposera sous l'Arc de Triomphe, au nom de tous les morts sans nom. Mais lequel ? Le choix revient à un jeune soldat, Auguste Thin. On imagine le silence. Il tient un bouquet. Il passe devant les cercueils. Et il dépose le bouquet sur le sixième.
+    Personne ne sait qui est l'homme du sixième cercueil. Personne ne le saura jamais. C'est exactement pour cela qu'il peut être tous les autres à la fois.
+    Le 28 janvier 1921, le Soldat inconnu est inhumé sous l'Arc de Triomphe. Le monument commandé par un empereur devient la tombe d'un anonyme.
+    Puis vient la flamme. Le 11 novembre 1923, André Maginot allume la Flamme éternelle sur la tombe. Et depuis ce soir-là, chaque soir, à 18h30, elle est ravivée. Chaque soir. Sans une seule interruption. Pesez ce que cela signifie : plus d'un siècle de soirs, et pas un seul manqué. Pas même le 14 juin 1940, le jour où les troupes allemandes entrent dans Paris. Ce soir-là aussi, à 18h30, la Flamme est ravivée.
+    Alors regardez l'Arc de Triomphe une dernière fois. Napoléon l'avait commandé pour célébrer des victoires et éblouir les siècles. L'histoire a fait un autre choix. Aujourd'hui, ce que l'Arc garde de plus précieux, ce n'est pas une victoire. C'est un soldat sans nom, choisi par un bouquet, veillé par une flamme qui ne s'éteint jamais. Le monument à la gloire est devenu un monument au silence. Et chaque soir, à 18h30, Paris se souvient.
+  tags: [Arc de Triomphe, Soldat inconnu, Napoléon, Verdun, Flamme éternelle, Paris]
+  cards:
+    - "Napoléon a commandé l'Arc de Triomphe en 1806 après Austerlitz. Achevé en 1836, l'Arc ne l'a vu passer qu'une fois : dans son cortège funèbre, en 1840."
+    - "Le 10 novembre 1920, à Verdun, le soldat Auguste Thin choisit le Soldat inconnu en déposant un bouquet sur le sixième de huit cercueils identiques."
+    - "La Flamme sous l'Arc de Triomphe est ravivée chaque soir à 18h30 depuis 1923, sans interruption — même le 14 juin 1940, à l'entrée des Allemands dans Paris."
+
+en:
+  title: "A Nameless Tomb Beneath the Arc de Triomphe"
+  subtitle: "How a monument to victory became the keeper of an unknown soldier"
+  narration: |
+    Beneath the most triumphant monument in Paris lies a man whose name nobody knows. And that is precisely the point.
+    1806. Napoleon has just won at Austerlitz. He orders a triumphal arch worthy of his glory. The construction drags on: the Arc is only completed in 1836. Napoleon never saw it standing. He would pass beneath it only once, in 1840 — in his funeral procession. The monument to victories welcomes a coffin first. It is only the beginning.
+    November 10, 1920. The citadel of Verdun. In a room, eight identical coffins. Eight French soldiers nobody was able to identify. One of them will rest beneath the Arc de Triomphe, in the name of all the nameless dead. But which one? The choice falls to a young soldier, Auguste Thin. Picture the silence. He holds a bouquet of flowers. He walks past the coffins. And he lays the bouquet on the sixth.
+    Nobody knows who the man in the sixth coffin is. Nobody ever will. And that is exactly why he can stand for all the others at once.
+    On January 28, 1921, the Unknown Soldier is buried beneath the Arc de Triomphe. The monument commissioned by an emperor becomes the tomb of an anonymous man.
+    Then comes the flame. On November 11, 1923, André Maginot lights the eternal Flame above the tomb. And since that evening, every single evening at 6:30 pm, it has been rekindled. Every evening. Without one interruption. Weigh what that means: more than a century of evenings, and not one of them missed. Not even June 14, 1940, the day German troops marched into Paris. That evening too, at 6:30 pm, the Flame was rekindled.
+    So look at the Arc de Triomphe one last time. Napoleon ordered it to celebrate victories and dazzle the centuries. History made a different choice. Today, the most precious thing the Arc guards is not a victory. It is a soldier without a name, chosen with a bouquet, watched over by a flame that never goes out. The monument to glory has become a monument to silence. And every evening, at 6:30, Paris remembers.
+  tags: [Arc de Triomphe, Unknown Soldier, Napoleon, Verdun, eternal flame, Paris]
+  cards:
+    - "Napoleon ordered the Arc de Triomphe in 1806 but never saw it finished: completed in 1836, it first saw him pass beneath in his 1840 funeral procession."
+    - "On November 10, 1920, in Verdun, soldier Auguste Thin chose France's Unknown Soldier by laying a bouquet on the sixth of eight identical coffins."
+    - "The flame beneath the Arc de Triomphe has been rekindled every evening at 6:30 pm since 1923 — even on June 14, 1940, as German troops entered Paris."

@@ -1,0 +1,119 @@
+id: obelisque-concorde
+category: monument
+status: ready
+
+# Pas de piège de droit d'auteur particulier : monument antique, place publique.
+# Privilégier les gravures XIXe pour l'érection de 1836 et le socle gravé.
+image_queries:
+  - "Luxor Obelisk Place de la Concorde"
+  - "obelisk Concorde hieroglyphs pedestal"
+  - "Place de la Concorde 19th century"
+  - "erection obelisk Paris 1836 engraving"
+  - "Luxor Temple obelisk Egypt"
+  - "Luxor Obelisk gilded pyramidion"
+
+fr:
+  title: "Le plus vieux monument de Paris n'est pas parisien"
+  subtitle: "3 300 ans d'histoire plantés place de la Concorde"
+  narration: |
+    Le plus vieux monument de Paris a trois mille trois cents ans. Et il
+    n'est pas parisien. Il est né sur les rives du Nil, érigé par Ramsès II
+    devant le temple de Louxor. Pendant des millénaires, il monte la garde en
+    Égypte. Puis, un jour, Paris vient le chercher.
+
+    En 1830, Méhémet Ali, vice-roi d'Égypte, fait un cadeau à la France. Et
+    le cadeau est double : deux obélisques, les deux gardiens du temple de
+    Louxor. Le second, pourtant, ne bougera jamais. Il reste devant son
+    temple, en attendant que quelqu'un tranche son sort. On tranchera un
+    siècle et demi plus tard : en 1981, la France y renonce officiellement.
+    L'Égypte garde sa moitié du cadeau.
+
+    Le premier, lui, part à l'aventure. Pour le déplacer, on construit un
+    navire spécialement conçu, baptisé le Louxor, comme le temple qu'il
+    dépouille. Le voyage dure des années. Des années pour convoyer une
+    seule pierre.
+
+    Puis vient le grand jour. Le 25 octobre 1836, place de la Concorde, deux
+    cent mille Parisiens retiennent leur souffle. L'ingénieur Apollinaire
+    Lebas dirige la manœuvre avec ses machines de levage. Lentement, le
+    monolithe de Ramsès II se dresse dans le ciel de Paris. La manœuvre
+    réussit. Et elle est si remarquable qu'on la grave dans la pierre : les
+    schémas de l'érection figurent sur le socle. Le monument raconte lui-même
+    comment on l'a mis debout.
+
+    Mais pourquoi cette place ? C'est là que l'histoire devient parisienne.
+    L'obélisque est planté à l'endroit exact où la guillotine trancha pendant
+    la Révolution. Ce sol-là avait trop de mémoire. On voulait pour la
+    Concorde un monument sans mémoire politique. Ni roi, ni empereur, ni
+    faction. On a donc choisi une pierre égyptienne, étrangère à toutes les
+    querelles françaises. Trois millénaires d'ancienneté comme certificat de
+    neutralité.
+
+    Restait un détail. Le pyramidion d'origine, la pointe qui coiffait
+    l'obélisque, avait disparu. Volé dès l'Antiquité. Le monument le plus
+    ancien de Paris était aussi un monument inachevé. Il a fallu attendre
+    1998 pour qu'on lui pose enfin un sommet doré. Trois mille ans après sa
+    naissance, l'obélisque a retrouvé sa pointe.
+
+    C'est peut-être ça, le génie de la Concorde. À l'endroit le plus sanglant
+    de la Révolution, Paris a dressé un monument qui ne prend parti pour
+    personne. Une pierre venue d'ailleurs, plus vieille que toutes les
+    disputes. Le plus vieux monument de Paris ne parle pas de Paris. C'est
+    exactement pour cela qu'on l'a choisi.
+  tags: [obélisque, Concorde, Ramsès II, Louxor, Égypte, monument]
+  cards:
+    - "Le plus vieux monument de Paris a 3 300 ans et n'est pas parisien : l'obélisque de la Concorde fut érigé par Ramsès II devant le temple de Louxor."
+    - "Le 25 octobre 1836, 200 000 Parisiens regardent l'ingénieur Apollinaire Lebas dresser l'obélisque de la Concorde. Les schémas sont gravés sur le socle."
+    - "L'Égypte avait offert DEUX obélisques à la France en 1830. Le second n'a jamais quitté Louxor — la France y a officiellement renoncé en 1981."
+
+en:
+  title: "The Oldest Monument in Paris Isn't Parisian"
+  subtitle: "3,300 years of history planted on Place de la Concorde"
+  narration: |
+    The oldest monument in Paris is three thousand three hundred years old.
+    And it isn't Parisian at all. It was born on the banks of the Nile,
+    erected by Ramses II in front of the temple of Luxor. For millennia, it
+    stood guard in Egypt. Then, one day, Paris came to collect it.
+
+    In 1830, Muhammad Ali, viceroy of Egypt, made France a gift. A double
+    gift, in fact: two obelisks, the twin guardians of the Luxor temple. The
+    second one, however, never moved. It stayed in front of its temple,
+    waiting for someone to decide its fate. Someone finally did, a century
+    and a half later: in 1981, France officially renounced it. Egypt kept its
+    half of the present.
+
+    The first obelisk set off on an adventure. To move it, a ship was built
+    for the purpose, christened the Louxor, after the very temple it was
+    leaving behind. The journey took years. Years of travel for a single
+    stone.
+
+    Then came the big day. On October 25, 1836, on Place de la Concorde, two
+    hundred thousand Parisians held their breath. The engineer Apollinaire
+    Lebas directed the operation with his lifting machines. Slowly, the
+    monolith of Ramses II rose into the Paris sky. The maneuver succeeded.
+    And it was remarkable enough to be carved in stone: the diagrams of the
+    erection are engraved on the pedestal. The monument tells its own story
+    of how it was raised.
+
+    But why this square? This is where the story becomes Parisian. The
+    obelisk stands on the exact spot where the guillotine did its work during
+    the Revolution. That ground carried too much memory. The Concorde needed
+    a monument with no political memory at all. No king, no emperor, no
+    faction. So Paris chose an Egyptian stone, a stranger to every French
+    quarrel. Three millennia of age as a certificate of neutrality.
+
+    One detail remained. The original pyramidion, the point that once capped
+    the obelisk, was missing. Stolen back in antiquity. The oldest monument
+    in Paris was also an unfinished one. It took until 1998 for a gilded tip
+    to finally be placed on its summit. Three thousand years after its birth,
+    the obelisk got its point back.
+
+    Perhaps that is the genius of the Concorde. On the bloodiest spot of the
+    Revolution, Paris raised a monument that takes nobody's side. A stone
+    from elsewhere, older than every argument. The oldest monument in Paris
+    says nothing about Paris. Which is exactly why it was chosen.
+  tags: [obelisk, Concorde, Ramses II, Luxor, Egypt, landmark]
+  cards:
+    - "The oldest monument in Paris is 3,300 years old and isn't Parisian: the Concorde obelisk was erected by Ramses II at the temple of Luxor."
+    - "On October 25, 1836, 200,000 Parisians watched engineer Apollinaire Lebas raise the Luxor Obelisk. The diagrams are engraved on its pedestal."
+    - "Egypt gave France TWO obelisks in 1830. The second never left Luxor — France officially renounced it in 1981."
