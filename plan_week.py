@@ -182,7 +182,7 @@ def discover(topics: Dict[str, str]) -> List[Item]:
 
 def _score(
     item: Item, previous: Optional[Item], day_topics: set, day_longs: int,
-    anchored_today: bool = False,
+    anchored_today: bool = False, prefer_kind: Optional[str] = None,
 ) -> tuple:
     """Cle de tri : plus c'est petit, plus le candidat convient a ce creneau.
 
@@ -198,14 +198,16 @@ def _score(
     # longs tant que la cible du jour n'est pas atteinte, des Shorts ensuite.
     wants_long = day_longs < LONGS_PER_DAY
     wrong_format = (item.kind == "long") != wants_long
-    # A creneau non-long, une carte animee passe avant un Short. Sans ce
-    # composant, le depart se faisait a la CLE alphabetique et les cartes ne
-    # sortaient jamais — un accident de nommage, pas un choix editorial. Le
-    # stock de cartes est petit et deja plafonne par MAX_PER_UNIT : le coup de
-    # pouce ne peut pas transformer le fil en diaporama.
-    not_card = item.kind != "card"
+    # A creneau non-long, cartes et Shorts se RELAIENT : le planificateur
+    # prefere le format le moins servi jusqu'ici. Une premiere version donnait
+    # une preference fixe aux cartes (sans elle, le depart a la CLE
+    # alphabetique les ecartait toujours) ; des que le stock de cartes a
+    # grossi, elles ont monopolise tous les soirs et les Shorts ont disparu —
+    # l'inverse exact des « formats meles » voulus.
+    off_kind = (prefer_kind is not None and item.kind != "long"
+                and item.kind != prefer_kind)
     return (not anchored_today, same_topic_today, same_lang, same_category,
-            wrong_format, not_card, item.key)
+            wrong_format, off_kind, item.key)
 
 
 def build_plan(
@@ -235,6 +237,8 @@ def build_plan(
     per_unit: Dict[str, int] = {}
     plan: List[Slot] = []
     previous: Optional[Item] = None
+    # Compteurs d'alternance des formats courts sur l'ensemble du plan.
+    kind_counts = {"short": 0, "card": 0}
 
     for offset in range(days):
         day = start + timedelta(days=offset)
@@ -255,17 +259,21 @@ def build_plan(
                 )
                 return plan
 
+            prefer_kind = "card" if kind_counts["card"] <= kind_counts["short"] else "short"
             chosen = min(
                 candidates,
                 key=lambda i: _score(
                     i, previous, day_topics, day_longs,
                     anchored_today=anchors.get(i.topic_id) == day_key,
+                    prefer_kind=prefer_kind,
                 ),
             )
             available.remove(chosen)
             per_unit[chosen.unit] = per_unit.get(chosen.unit, 0) + 1
             day_topics.add(chosen.topic_id)
             day_longs += 1 if chosen.kind == "long" else 0
+            if chosen.kind in kind_counts:
+                kind_counts[chosen.kind] += 1
             previous = chosen
             plan.append(
                 Slot(datetime.combine(day, time(hour, minute), tzinfo=zone), chosen)
