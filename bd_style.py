@@ -573,11 +573,17 @@ def _balance_two_lines(lines: List[str]) -> List[str]:
 
 
 def _bottom_band(text: str, accent: str) -> str:
-    """Bandeau d'anecdote en pied de carte, replie sur deux lignes maximum."""
+    """Bandeau d'anecdote en pied de carte : trois lignes maximum, JAMAIS coupe.
+
+    Une premiere version plafonnait a deux lignes et TRONQUAIT le reste : une
+    accroche de 130 caracteres perdait son dernier mot en production — vu sur
+    la couverture de la Joconde, « avant le » sans « lendemain ». La hauteur
+    du bandeau permet trois lignes a 26 px : on replie, on ne coupe pas.
+    """
     if not text:
         return ""
-    size, lines = fit_text(text, (960, 130), start=40, floor=28)
-    lines = _balance_two_lines(lines[:2])
+    size, lines = fit_text(text, (960, 165), start=40, floor=26, line_height=1.4)
+    lines = _balance_two_lines(lines[:3])
     line_h = int(size * 1.45)
     top = 1826 - (len(lines) - 1) * line_h // 2
     rows = "".join(
