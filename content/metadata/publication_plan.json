@@ -516,6 +516,18 @@
     "card": null
   },
   {
+    "when": "2026-08-21T11:00+02:00",
+    "key": "joconde-vol-1911:fr:short-1",
+    "kind": "short",
+    "lang": "fr",
+    "category": "histoire",
+    "title": "Le jour où la Joconde a disparu",
+    "video": "content/bd/joconde-vol-1911/joconde-vol-1911-fr.mp4",
+    "meta": "content/videos/joconde-vol-1911/joconde-vol-1911-fr.json",
+    "short": 1,
+    "card": null
+  },
+  {
     "when": "2026-08-21T14:00+02:00",
     "key": "pont-neuf:fr",
     "kind": "long",
@@ -525,6 +537,18 @@
     "video": "content/videos/pont-neuf/pont-neuf-fr.mp4",
     "meta": "content/videos/pont-neuf/pont-neuf-fr.json",
     "short": null,
+    "card": null
+  },
+  {
+    "when": "2026-08-21T16:30+02:00",
+    "key": "joconde-vol-1911:en:short-1",
+    "kind": "short",
+    "lang": "en",
+    "category": "histoire",
+    "title": "The day the Mona Lisa vanished",
+    "video": "content/bd/joconde-vol-1911/joconde-vol-1911-en.mp4",
+    "meta": "content/videos/joconde-vol-1911/joconde-vol-1911-en.json",
+    "short": 1,
     "card": null
   },
   {
@@ -696,6 +720,18 @@
     "card": null
   },
   {
+    "when": "2026-08-26T11:00+02:00",
+    "key": "lavoisier-naissance:en:short-1",
+    "kind": "short",
+    "lang": "en",
+    "category": "histoire",
+    "title": "Lavoisier was born in Paris",
+    "video": "content/bd/lavoisier-naissance/lavoisier-naissance-en.mp4",
+    "meta": "content/videos/lavoisier-naissance/lavoisier-naissance-en.json",
+    "short": 1,
+    "card": null
+  },
+  {
     "when": "2026-08-26T14:00+02:00",
     "key": "statue-liberte-paris:en",
     "kind": "long",
@@ -705,6 +741,18 @@
     "video": "content/videos/statue-liberte-paris/statue-liberte-paris-en.mp4",
     "meta": "content/videos/statue-liberte-paris/statue-liberte-paris-en.json",
     "short": null,
+    "card": null
+  },
+  {
+    "when": "2026-08-26T16:30+02:00",
+    "key": "lavoisier-naissance:fr:short-1",
+    "kind": "short",
+    "lang": "fr",
+    "category": "histoire",
+    "title": "Lavoisier est né à Paris",
+    "video": "content/bd/lavoisier-naissance/lavoisier-naissance-fr.mp4",
+    "meta": "content/videos/lavoisier-naissance/lavoisier-naissance-fr.json",
+    "short": 1,
     "card": null
   },
   {
