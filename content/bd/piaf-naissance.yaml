@@ -1,0 +1,86 @@
+id: piaf-naissance
+kind: naissance
+genre: f
+category: histoire
+status: ready
+anchor_date: "12-19"
+year: 1915
+icon: musique
+
+portrait:
+  cheveux: courts
+  couleur_cheveux: "#4a2e20"
+  pilosite: []
+  costume: robe
+  couleur_costume: "#1c1c28"
+  accessoires: [boucles-oreilles]
+
+fr:
+  title: "Édith Piaf est née à Paris"
+  name: "ÉDITH PIAF"
+  real_name: "Édith Giovanna Gassion"
+  date_line: "Née le 19 décembre 1915"
+  place_line: "Belleville — 20e arrondissement"
+  hook: >-
+    19 décembre 1915. À Belleville naît Édith Giovanna Gassion. Paris
+    l'appellera bientôt la Môme Piaf.
+  scenes:
+    - icon: coeur
+      text: >-
+        Enfance ballottée entre un père acrobate et les rues de Paris : très
+        tôt, elle chante sur les trottoirs pour vivre.
+    - icon: etoile
+      text: >-
+        1935 : Louis Leplée l'entend chanter à Pigalle. Il la fait monter sur
+        scène et lui donne son nom de môme.
+    - icon: musique
+      text: >-
+        La Vie en rose, l'Hymne à l'amour, Milord : ses chansons font le tour
+        du monde, et le monde fredonne Paris.
+    - icon: eclair
+      text: >-
+        Les deuils et la maladie la brisent, la scène la ressuscite. Elle
+        chante Non, je ne regrette rien comme un défi.
+    - icon: tour-eiffel
+      text: >-
+        De Belleville à l'Olympia, de New York à Carnegie Hall, elle reste la
+        voix de Paris.
+  fact: >-
+    En 1963, une foule immense suit son cercueil jusqu'au Père-Lachaise. Ce
+    jour-là, la rue de Paris a perdu sa voix.
+  tags: ["Édith Piaf", "Paris", "Histoire", "Chanson", "Belleville"]
+
+en:
+  title: "Édith Piaf was born in Paris"
+  name: "ÉDITH PIAF"
+  real_name: "Édith Giovanna Gassion"
+  date_line: "Born on 19 December 1915"
+  place_line: "Belleville — 20th arrondissement"
+  hook: >-
+    December 19th, 1915. In Belleville, Édith Giovanna Gassion is born.
+    Paris would soon call her la Môme Piaf.
+  scenes:
+    - icon: coeur
+      text: >-
+        A childhood tossed between an acrobat father and the streets of
+        Paris: very early, she sings on the pavement to live.
+    - icon: etoile
+      text: >-
+        1935: Louis Leplée hears her singing in Pigalle. He puts her on
+        stage and gives her the name of the little sparrow.
+    - icon: musique
+      text: >-
+        La Vie en rose, Hymne à l'amour, Milord: her songs travel the world,
+        and the world hums Paris.
+    - icon: eclair
+      text: >-
+        Grief and illness break her; the stage brings her back. She sings
+        Non, je ne regrette rien like a challenge.
+    - icon: tour-eiffel
+      text: >-
+        From Belleville to the Olympia, from New York to Carnegie Hall, she
+        remains the voice of Paris.
+  fact: >-
+    In 1963, an immense crowd followed her coffin to Père-Lachaise. That
+    day, the streets of Paris lost their voice.
+  tags: ["Édith Piaf", "Paris", "History", "Song", "Belleville"]

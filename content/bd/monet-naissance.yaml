@@ -1,0 +1,86 @@
+id: monet-naissance
+kind: naissance
+genre: m
+category: histoire
+status: ready
+anchor_date: "11-14"
+year: 1840
+icon: tableau
+
+portrait:
+  cheveux: courts
+  couleur_cheveux: "#8a8378"
+  pilosite: [barbe]
+  costume: redingote
+  couleur_costume: "#3d4a3a"
+  accessoires: [beret]
+
+fr:
+  title: "Monet est né à Paris"
+  name: "CLAUDE MONET"
+  real_name: "Oscar-Claude Monet"
+  date_line: "Né le 14 novembre 1840"
+  place_line: "45 rue Laffitte — 9e arrondissement"
+  hook: >-
+    14 novembre 1840. Au 45 rue Laffitte, à Paris, naît Claude Monet — celui
+    qui apprendra aux yeux à voir la lumière.
+  scenes:
+    - icon: livre
+      text: >-
+        Enfance au Havre. Caricaturiste doué, il rencontre Eugène Boudin, qui
+        l'emmène peindre dehors, face à la mer.
+    - icon: tableau
+      text: >-
+        1874, boulevard des Capucines : il expose Impression, soleil levant.
+        Un critique moqueur invente le mot impressionnisme.
+    - icon: eclair
+      text: >-
+        On se moque, il persiste : des meules, des cathédrales, le même motif
+        peint à toutes les heures du jour.
+    - icon: coeur
+      text: >-
+        À Giverny, il plante son jardin comme on compose un tableau : le pont
+        japonais, les saules, le bassin aux nymphéas.
+    - icon: etoile
+      text: >-
+        Ses Nymphéas, offerts à la France au lendemain de la Grande Guerre,
+        font aujourd'hui le tour du monde.
+  fact: >-
+    Les Nymphéas ont leur écrin à Paris : l'Orangerie, deux salles ovales
+    dessinées pour eux, ouvertes en 1927.
+  tags: ["Monet", "Paris", "Histoire", "Peinture", "Impressionnisme"]
+
+en:
+  title: "Monet was born in Paris"
+  name: "CLAUDE MONET"
+  real_name: "Oscar-Claude Monet"
+  date_line: "Born on 14 November 1840"
+  place_line: "45 rue Laffitte — 9th arrondissement"
+  hook: >-
+    November 14th, 1840. At 45 rue Laffitte, in Paris, Claude Monet is born
+    — the man who would teach our eyes to see light.
+  scenes:
+    - icon: livre
+      text: >-
+        A childhood in Le Havre. A gifted caricaturist, he meets Eugene
+        Boudin, who takes him outside to paint, facing the sea.
+    - icon: tableau
+      text: >-
+        1874, boulevard des Capucines: he shows Impression, Sunrise. A
+        mocking critic coins the word impressionism.
+    - icon: eclair
+      text: >-
+        They laugh, he persists: haystacks, cathedrals, the same subject
+        painted at every hour of the day.
+    - icon: coeur
+      text: >-
+        At Giverny, he plants his garden the way one composes a painting:
+        the Japanese bridge, the willows, the water lily pond.
+    - icon: etoile
+      text: >-
+        His Water Lilies, given to France after the Great War, now travel
+        the world.
+  fact: >-
+    The Water Lilies have their own home in Paris: the Orangerie, two oval
+    rooms designed for them, opened in 1927.
+  tags: ["Monet", "Paris", "History", "Painting", "Impressionism"]

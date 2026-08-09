@@ -1,0 +1,85 @@
+id: voltaire-naissance
+kind: naissance
+genre: m
+category: histoire
+status: ready
+anchor_date: "11-21"
+year: 1694
+icon: plume
+
+portrait:
+  cheveux: perruque
+  couleur_cheveux: "#e6ddcd"
+  pilosite: []
+  costume: habit-ancien
+  couleur_costume: "#7a2a2a"
+
+fr:
+  title: "Voltaire est né à Paris"
+  name: "VOLTAIRE"
+  real_name: "François-Marie Arouet"
+  date_line: "Né le 21 novembre 1694"
+  place_line: "Paroisse Saint-André-des-Arts"
+  hook: >-
+    21 novembre 1694. À Paris naît François-Marie Arouet. Le monde entier le
+    connaîtra sous un autre nom : Voltaire.
+  scenes:
+    - icon: plume
+      text: >-
+        Son père le veut notaire. Lui choisit la plume, et Paris découvre un
+        jeune homme à l'esprit redoutable.
+    - icon: eclair
+      text: >-
+        Ses vers moquent les puissants : la Bastille, deux fois. Puis l'exil
+        à Londres, d'où il revient chargé d'idées neuves.
+    - icon: livre
+      text: >-
+        Candide, les contes, le Dictionnaire philosophique : il écrit tout,
+        partout, contre le fanatisme et pour la tolérance.
+    - icon: etoile
+      text: >-
+        Il défend Calas, réhabilite les innocents. L'Europe entière lit
+        Voltaire, les rois le courtisent et le craignent.
+    - icon: coeur
+      text: >-
+        En 1778, Paris lui fait un retour triomphal. Il y meurt quelques mois
+        plus tard, comblé d'honneurs.
+  fact: >-
+    En 1791, la Révolution transfère ses cendres au Panthéon, escortées par
+    une foule immense à travers Paris.
+  tags: ["Voltaire", "Paris", "Histoire", "Philosophie", "Lumières"]
+
+en:
+  title: "Voltaire was born in Paris"
+  name: "VOLTAIRE"
+  real_name: "François-Marie Arouet"
+  date_line: "Born on 21 November 1694"
+  place_line: "Saint-André-des-Arts parish"
+  hook: >-
+    November 21st, 1694. François-Marie Arouet is born in Paris. The world
+    would come to know him by another name: Voltaire.
+  scenes:
+    - icon: plume
+      text: >-
+        His father wants him a notary. He chooses the pen, and Paris
+        discovers a young man with a fearsome wit.
+    - icon: eclair
+      text: >-
+        His verses mock the powerful: the Bastille, twice. Then exile in
+        London, from which he returns loaded with new ideas.
+    - icon: livre
+      text: >-
+        Candide, the tales, the Philosophical Dictionary: he writes
+        everything, everywhere, against fanaticism and for tolerance.
+    - icon: etoile
+      text: >-
+        He defends Calas and clears the innocent. All of Europe reads
+        Voltaire; kings court him and fear him.
+    - icon: coeur
+      text: >-
+        In 1778, Paris gives him a triumphant return. He dies there a few
+        months later, covered in honours.
+  fact: >-
+    In 1791, the Revolution moved his remains to the Pantheon, escorted
+    through Paris by an immense crowd.
+  tags: ["Voltaire", "Paris", "History", "Philosophy", "Enlightenment"]

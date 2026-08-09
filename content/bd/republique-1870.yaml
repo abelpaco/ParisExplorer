@@ -1,0 +1,75 @@
+id: republique-1870
+kind: anniversaire
+category: histoire
+status: ready
+anchor_date: "09-04"
+year: 1870
+icon: drapeau
+
+fr:
+  title: "Le jour où Paris a proclamé la République"
+  name: "LA RÉPUBLIQUE"
+  date_line: "Proclamée le 4 septembre 1870"
+  place_line: "Hôtel de Ville de Paris"
+  hook: >-
+    4 septembre 1870. L'Empire vient de tomber à Sedan. À Paris, la foule
+    marche sur l'Hôtel de Ville.
+  scenes:
+    - icon: eclair
+      text: >-
+        Deux jours plus tôt, Napoléon III a capitulé à Sedan, fait prisonnier
+        avec toute son armée.
+    - icon: drapeau
+      text: >-
+        Le 4 au matin, la foule envahit le Palais-Bourbon, puis l'Hôtel de
+        Ville. Gambetta y proclame la République.
+    - icon: couronne
+      text: >-
+        L'Empire s'efface sans un coup de feu dans Paris. L'impératrice
+        quitte les Tuileries par une porte discrète.
+    - icon: tour-eiffel
+      text: >-
+        Cette République fera l'école gratuite et obligatoire, la liberté de
+        la presse — et une certaine tour de fer.
+    - icon: horloge
+      text: >-
+        Elle tiendra soixante-dix ans, à travers une guerre mondiale, des
+        crises et des scandales.
+  fact: >-
+    La Troisième République, née à l'Hôtel de Ville un 4 septembre, reste à
+    ce jour le plus long régime republicain de l'histoire française.
+  tags: ["République", "Paris", "Histoire", "1870", "Hôtel de Ville"]
+
+en:
+  title: "The day Paris proclaimed the Republic"
+  name: "LA RÉPUBLIQUE"
+  date_line: "Proclaimed on 4 September 1870"
+  place_line: "Paris City Hall"
+  hook: >-
+    September 4th, 1870. The Empire has just fallen at Sedan. In Paris, the
+    crowd marches on City Hall.
+  scenes:
+    - icon: eclair
+      text: >-
+        Two days earlier, Napoleon the Third surrendered at Sedan, taken
+        prisoner with his entire army.
+    - icon: drapeau
+      text: >-
+        On the morning of the 4th, the crowd floods into parliament, then
+        City Hall. Gambetta proclaims the Republic.
+    - icon: couronne
+      text: >-
+        The Empire fades without a shot fired in Paris. The empress slips
+        out of the Tuileries through a side door.
+    - icon: tour-eiffel
+      text: >-
+        This Republic would build free compulsory schooling, press freedom —
+        and a certain iron tower.
+    - icon: horloge
+      text: >-
+        It would last seventy years, through a world war, crises and
+        scandals.
+  fact: >-
+    The Third Republic, born at City Hall on a September 4th, remains the
+    longest republican regime in French history.
+  tags: ["Republic", "Paris", "History", "1870", "City Hall"]

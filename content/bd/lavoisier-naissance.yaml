@@ -1,0 +1,85 @@
+id: lavoisier-naissance
+kind: naissance
+genre: m
+category: histoire
+status: ready
+anchor_date: "08-26"
+year: 1743
+icon: eclair
+
+portrait:
+  cheveux: perruque
+  couleur_cheveux: "#cfc6bd"
+  pilosite: []
+  costume: habit-ancien
+  couleur_costume: "#46557a"
+
+fr:
+  title: "Lavoisier est né à Paris"
+  name: "LAVOISIER"
+  real_name: "Antoine Laurent de Lavoisier"
+  date_line: "Né le 26 août 1743"
+  place_line: "Fils d'un avocat au Parlement de Paris"
+  hook: >-
+    26 août 1743. Naissance à Paris d'Antoine Laurent de Lavoisier, l'homme
+    qui allait réinventer la chimie.
+  scenes:
+    - icon: livre
+      text: >-
+        Élève brillant du collège Mazarin, il étudie le droit pour son père,
+        et les sciences pour lui-même.
+    - icon: eclair
+      text: >-
+        Rien ne se perd, rien ne se crée : il pèse tout, avant et après
+        chaque réaction, et prouve que la matière se conserve.
+    - icon: etoile
+      text: >-
+        Il nomme l'oxygène et l'hydrogène, et donne à la chimie son premier
+        langage commun, encore utilisé aujourd'hui.
+    - icon: couronne
+      text: >-
+        Mais Lavoisier est aussi fermier général : il collecte l'impôt du
+        roi. La Révolution ne le lui pardonnera pas.
+    - icon: horloge
+      text: >-
+        En 1794, la Terreur l'envoie à la guillotine. Il a cinquante ans, et
+        des expériences encore en cours.
+  fact: >-
+    Le mathématicien Lagrange dira : un instant a suffi pour faire tomber
+    cette tête, et cent ans ne suffiront pas pour en produire une semblable.
+  tags: ["Lavoisier", "Paris", "Histoire", "Science", "Chimie"]
+
+en:
+  title: "Lavoisier was born in Paris"
+  name: "LAVOISIER"
+  real_name: "Antoine Laurent de Lavoisier"
+  date_line: "Born on 26 August 1743"
+  place_line: "Son of a Paris Parliament lawyer"
+  hook: >-
+    August 26th, 1743. Antoine Laurent de Lavoisier is born in Paris — the
+    man who would reinvent chemistry.
+  scenes:
+    - icon: livre
+      text: >-
+        A brilliant student at the college Mazarin, he studies law for his
+        father, and science for himself.
+    - icon: eclair
+      text: >-
+        Nothing is lost, nothing is created: he weighs everything, before and
+        after each reaction, and proves that matter is conserved.
+    - icon: etoile
+      text: >-
+        He names oxygen and hydrogen, and gives chemistry its first common
+        language, still in use today.
+    - icon: couronne
+      text: >-
+        But Lavoisier is also a tax farmer, collecting the king's taxes. The
+        Revolution will not forgive him for it.
+    - icon: horloge
+      text: >-
+        In 1794, the Terror sends him to the guillotine. He is fifty years
+        old, with experiments still running.
+  fact: >-
+    The mathematician Lagrange said it took but an instant to cut off that
+    head, and a hundred years may not produce another like it.
+  tags: ["Lavoisier", "Paris", "History", "Science", "Chemistry"]

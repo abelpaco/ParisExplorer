@@ -506,6 +506,21 @@ ICONS: Dict[str, str] = {
     <path d="M-38,-96 L84,-120 L84,-76 L-38,-52 Z" fill="{INK}"/>
     <ellipse cx="-70" cy="86" rx="34" ry="26" fill="{INK}"/>
     <ellipse cx="52" cy="62" rx="34" ry="26" fill="{INK}"/>''',
+    "tableau": f'''
+    <rect x="-124" y="-150" width="248" height="300" rx="8" fill="{GOLD}" stroke="{INK}" stroke-width="10"/>
+    <rect x="-92" y="-118" width="184" height="236" fill="#f5efdf" stroke="{INK}" stroke-width="8"/>
+    <ellipse cx="0" cy="-30" rx="46" ry="56" fill="{SKIN_DEFAULT}" stroke="{INK}" stroke-width="7"/>
+    <path d="M-46,118 C-40,40 40,40 46,118" fill="#6b4a2f" stroke="{INK}" stroke-width="7"/>
+    <circle cx="-16" cy="-38" r="5" fill="{INK}"/>
+    <circle cx="16" cy="-38" r="5" fill="{INK}"/>
+    <path d="M-14,-6 Q0,4 14,-6" stroke="{INK}" stroke-width="5" fill="none"/>''',
+    "drapeau": f'''
+    <path d="M-96,-160 L-96,160" stroke="{INK}" stroke-width="12" stroke-linecap="round"/>
+    <circle cx="-96" cy="-160" r="12" fill="{GOLD}" stroke="{INK}" stroke-width="6"/>
+    <path d="M-96,-140 C-20,-170 30,-110 116,-140 L116,-20 C30,10 -20,-50 -96,-20 Z"
+          fill="#ffffff" stroke="{INK}" stroke-width="10" stroke-linejoin="round"/>
+    <path d="M-96,-140 C-70,-150 -50,-152 -25,-148 L-25,-28 C-50,-32 -70,-30 -96,-20 Z" fill="#2f4b6b" stroke="{INK}" stroke-width="6"/>
+    <path d="M45,-146 C70,-146 90,-143 116,-140 L116,-20 C90,-23 70,-26 45,-26 Z" fill="{RED}" stroke="{INK}" stroke-width="6"/>''',
     "horloge": f'''
     <circle cx="0" cy="0" r="140" fill="#ffffff" stroke="{INK}" stroke-width="12"/>
     <path d="M0,-118 L0,-96 M0,118 L0,96 M-118,0 L-96,0 M118,0 L96,0" stroke="{INK}" stroke-width="9" stroke-linecap="round"/>

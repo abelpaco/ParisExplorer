@@ -1,0 +1,75 @@
+id: joconde-vol-1911
+kind: anniversaire
+category: histoire
+status: ready
+anchor_date: "08-21"
+year: 1911
+icon: tableau
+
+fr:
+  title: "Le jour où la Joconde a disparu"
+  name: "LA JOCONDE"
+  date_line: "Volée le 21 août 1911"
+  place_line: "Musée du Louvre — salon Carré"
+  hook: >-
+    21 août 1911. Ce matin-là, au Louvre, la Joconde disparaît. Et personne
+    ne s'en aperçoit avant le lendemain.
+  scenes:
+    - icon: horloge
+      text: >-
+        Un lundi, jour de fermeture. Le musée est presque vide, seuls les
+        ouvriers et les gardiens circulent.
+    - icon: tableau
+      text: >-
+        Un vitrier italien, Vincenzo Peruggia, décroche le tableau, le glisse
+        sous sa blouse blanche, et sort tranquillement.
+    - icon: eclair
+      text: >-
+        Pendant vingt-quatre heures, personne ne remarque rien. C'est un
+        peintre venu copier l'œuvre qui donne l'alerte.
+    - icon: etoile
+      text: >-
+        Le scandale est mondial. Des foules viennent contempler le mur vide,
+        et le portrait devient le plus célèbre de la planète.
+    - icon: livre
+      text: >-
+        Deux ans plus tard, Peruggia tente de vendre la Joconde à Florence.
+        Il est arrêté, le tableau rentre au Louvre.
+  fact: >-
+    C'est ce vol qui a fait de la Joconde la star que l'on connaît : avant
+    1911, elle n'était qu'un tableau parmi d'autres.
+  tags: ["Joconde", "Louvre", "Paris", "Histoire", "Mona Lisa"]
+
+en:
+  title: "The day the Mona Lisa vanished"
+  name: "LA JOCONDE"
+  date_line: "Stolen on 21 August 1911"
+  place_line: "The Louvre — Salon Carré"
+  hook: >-
+    August 21st, 1911. That morning, at the Louvre, the Mona Lisa vanishes.
+    And nobody notices until the next day.
+  scenes:
+    - icon: horloge
+      text: >-
+        A Monday, closing day. The museum is nearly empty; only workmen and
+        guards walk the halls.
+    - icon: tableau
+      text: >-
+        An Italian glazier, Vincenzo Peruggia, lifts the painting off the
+        wall, slips it under his white smock, and calmly walks out.
+    - icon: eclair
+      text: >-
+        For twenty-four hours, nobody notices anything. A painter who came to
+        copy the work finally raises the alarm.
+    - icon: etoile
+      text: >-
+        The scandal is worldwide. Crowds come to stare at the empty wall, and
+        the portrait becomes the most famous on the planet.
+    - icon: livre
+      text: >-
+        Two years later, Peruggia tries to sell it in Florence. He is
+        arrested, and the painting returns to the Louvre.
+  fact: >-
+    That theft made the Mona Lisa the star we know: before 1911, she was
+    just one painting among many.
+  tags: ["Mona Lisa", "Louvre", "Paris", "History"]
