@@ -1,0 +1,88 @@
+id: moliere-naissance
+kind: naissance
+genre: m
+category: histoire
+status: ready
+anchor_date: "01-15"
+year: 1622
+icon: masque
+
+portrait:
+  cheveux: perruque
+  couleur_cheveux: "#6d4a2f"
+  pilosite: [moustache-fine, mouche]
+  costume: habit-ancien
+  couleur_costume: "#2f6b5a"
+
+fr:
+  title: "Molière est né à Paris"
+  name: "MOLIÈRE"
+  real_name: "Jean-Baptiste Poquelin"
+  date_line: "Baptisé le 15 janvier 1622"
+  place_line: "Église Saint-Eustache — quartier des Halles"
+  hook: >-
+    15 janvier 1622. Aux Halles, on baptise le fils du tapissier du roi.
+    Il s'appelle Jean-Baptiste Poquelin.
+  scenes:
+    - icon: couronne
+      text: >-
+        Son père fournit les meubles du roi. Jean-Baptiste grandit entre les
+        étoffes, promis à la boutique familiale.
+    - icon: livre
+      text: >-
+        Le garçon étudie chez les Jésuites, au collège de Clermont. Le théâtre
+        l'attrape et ne le lâchera plus.
+    - icon: masque
+      text: >-
+        À vingt-et-un ans, il renonce à la charge de son père et fonde
+        l'Illustre Théâtre. La troupe fait faillite, et il connaît la prison
+        pour dettes.
+    - icon: etoile
+      text: >-
+        Treize ans de tournées en province. Puis, en 1658, il joue devant
+        Louis XIV. Le roi rit — la cour est conquise.
+    - icon: plume
+      text: >-
+        Le Tartuffe, L'Avare, Le Misanthrope. Molière invente une comédie qui
+        dit la vérité sur son temps.
+  fact: >-
+    Il meurt presque en scène, pris de convulsions en jouant Le Malade
+    imaginaire, en 1673. Son fauteuil est toujours à la Comédie-Française.
+  tags: ["Molière", "Paris", "Histoire", "Théâtre", "Comédie-Française"]
+
+en:
+  title: "Molière was born in Paris"
+  name: "MOLIÈRE"
+  real_name: "Jean-Baptiste Poquelin"
+  date_line: "Baptized on 15 January 1622"
+  place_line: "Saint-Eustache church — Les Halles"
+  hook: >-
+    January 15th, 1622. In Les Halles, the son of the king's upholsterer is
+    baptized. His name is Jean-Baptiste Poquelin.
+  scenes:
+    - icon: couronne
+      text: >-
+        His father furnishes the king's apartments. Jean-Baptiste grows up
+        among fabrics, destined for the family shop.
+    - icon: livre
+      text: >-
+        The boy studies with the Jesuits at the college de Clermont. The
+        theatre catches him and never lets go.
+    - icon: masque
+      text: >-
+        At twenty-one, he gives up his father's office and founds the
+        Illustre Theatre. The troupe goes bankrupt, and he is jailed for
+        debt.
+    - icon: etoile
+      text: >-
+        Thirteen years touring the provinces. Then, in 1658, he performs
+        before Louis the Fourteenth. The king laughs — the court is won.
+    - icon: plume
+      text: >-
+        Tartuffe, The Miser, The Misanthrope. Molière invents a comedy that
+        tells the truth about his time.
+  fact: >-
+    He nearly died on stage, seized by convulsions while playing The
+    Imaginary Invalid, in 1673. His armchair is still at the
+    Comédie-Française.
+  tags: ["Molière", "Paris", "History", "Theatre", "Comédie-Française"]

@@ -74,5 +74,9 @@ content/cards/*
 content/posts/*
 !content/posts/.gitkeep
 
+# Rendus BD (SVG, PNG, voix, MP4) : reproductibles via bd_cards.py. Les sujets
+# eux-memes (content/bd/*.yaml) restent versionnes.
+content/bd/*/
+
 # Sauvegardes ponctuelles du plan
 content/metadata/*.bak*

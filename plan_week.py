@@ -312,6 +312,16 @@ def main(argv=None) -> int:
     all_topics = topic_loader.load_topics(only_ready=False)
     topics = {t.id: t.category for t in all_topics}
     anchors = {t.id: t.anchor_date for t in all_topics if t.anchor_date}
+
+    # Les sujets BD (content/bd) publient leurs Shorts par les memes
+    # metadonnees que les videos, mais leurs categories et leurs dates
+    # anniversaire vivent dans leur propre schema. Sans cette fusion, une
+    # naissance ancree au 15 janvier sortirait n'importe quand.
+    import bd_topics
+    for subject in bd_topics.load_subjects(only_ready=False):
+        topics.setdefault(subject.id, subject.category)
+        if subject.anchor_date:
+            anchors.setdefault(subject.id, subject.anchor_date)
     items = discover(topics)
     registry = TopicRegistry()
     published = {name.lower() for name in registry.published_names()}
