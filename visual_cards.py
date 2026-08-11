@@ -79,10 +79,18 @@ CARD_TEXT_MIN = 45
 CARD_TEXT_MAX = 165
 
 # Cartes animees : duree, debordement horizontal du fond, cadence.
-# Six secondes suffisent a lire une phrase et a laisser le mouvement s'installer.
+# Six secondes est la duree PLANCHER : avec une voix off, la carte dure le
+# temps de sa phrase. Une carte muette de six secondes dans le fil des Shorts
+# se lit comme une video cassee — constate en production le 11/08 sur
+# arc-triomphe-inconnu:en:card-2, signale par Paco.
 ANIM_SECONDS = 6.0
 ANIM_PAN_SCALE = 1.14
 ANIM_FPS = 30
+
+# Respirations autour de la phrase dite : la voix ne demarre pas sur la coupe
+# et ne finit pas dessus.
+ANIM_AUDIO_LEAD = 0.35
+ANIM_AUDIO_TAIL = 0.60
 
 # Le texte apparait apres le debut : on laisse d'abord VOIR la photo, puis la
 # phrase se pose. Tout afficher d'emblee gache la seule seconde ou l'image seule
@@ -682,6 +690,8 @@ def animate_card(
     index: Optional[int] = None,
     total: Optional[int] = None,
     seconds: float = ANIM_SECONDS,
+    audio: Optional[Path] = None,
+    audio_seconds: float = 0.0,
 ) -> AnimatedCard:
     """Fabrique la version animee d'une carte : la photo glisse, le texte reste.
 
@@ -700,12 +710,18 @@ def animate_card(
     image.
 
     Args:
-        seconds: duree de l'animation.
+        seconds: duree PLANCHER de l'animation.
+        audio: piste de voix off a poser sur la carte. Avec elle, la duree
+            devient « le temps de la phrase » (plus les respirations), jamais
+            moins que ``seconds`` — et le mp4 embarque une piste audio.
+        audio_seconds: duree REELLE de la piste, mesuree par l'appelant.
 
     Raises:
         CardError: format ou style inconnu, fond illisible, ou echec ffmpeg.
     """
     width, height = _checked_format(fmt)
+    if audio is not None:
+        seconds = max(seconds, ANIM_AUDIO_LEAD + audio_seconds + ANIM_AUDIO_TAIL)
     veiled, overlay, _layout_used, strength, luminance = _motion_layers(
         background, text, fmt=fmt, style=style,
         eyebrow=eyebrow, index=index, total=total,
@@ -720,8 +736,7 @@ def animate_card(
         veiled.save(canvas_file, "PNG")
         overlay.save(overlay_file, "PNG")
 
-        graph = workdir / "graphe.txt"
-        graph.write_text(
+        graph_text = (
             f"[0:v]crop={width}:{height}:x='(iw-ow)*min(1,t/{seconds:.3f})':y=0,"
             # Meme piege que dans le montage video : `setpts` doit passer AVANT
             # `fps`, sinon la cadence devient indeterminee.
@@ -730,16 +745,31 @@ def animate_card(
             f"fade=t=in:st={TEXT_FADE_START:.2f}:d={TEXT_FADE_SECONDS:.2f}:alpha=1[txt];\n"
             f"[bg][txt]overlay=0:0:format=auto,"
             f"fade=t=in:st=0:d=0.4,fade=t=out:st={max(0.0, seconds - 0.5):.3f}:d=0.5,"
-            f"format=yuv420p[v]",
-            encoding="utf-8",
+            f"format=yuv420p[v]"
         )
+        if audio is not None:
+            delay_ms = int(ANIM_AUDIO_LEAD * 1000)
+            graph_text += (
+                f";\n[2:a]adelay={delay_ms}|{delay_ms},apad,"
+                f"aformat=sample_rates=44100:channel_layouts=stereo[a]"
+            )
+        graph = workdir / "graphe.txt"
+        graph.write_text(graph_text, encoding="utf-8")
 
         command = [
             video_assembly.ffmpeg_exe(), "-hide_banner", "-loglevel", "error", "-y",
             "-loop", "1", "-framerate", str(ANIM_FPS), "-t", f"{seconds:.3f}", "-i", str(canvas_file),
             "-loop", "1", "-framerate", str(ANIM_FPS), "-t", f"{seconds:.3f}", "-i", str(overlay_file),
+        ]
+        if audio is not None:
+            command += ["-i", str(audio)]
+        command += [
             "-filter_complex_script", str(graph),
             "-map", "[v]",
+        ]
+        if audio is not None:
+            command += ["-map", "[a]", "-c:a", "aac", "-b:a", "128k"]
+        command += [
             "-c:v", "libx264", "-preset", "veryfast", "-crf", "20",
             "-pix_fmt", "yuv420p", "-threads", str(video_assembly.FFMPEG_THREADS),
             "-t", f"{seconds:.3f}", "-movflags", "+faststart",
@@ -856,11 +886,27 @@ def build_series(
             )
         motion = None
         if animate:
+            # La carte animee PARLE : sa phrase, dite par la voix du sujet, et
+            # sa duree qui s'adapte. Une version precedente sortait des clips
+            # muets de six secondes — publies en Short, ils se lisaient comme
+            # des videos cassees. Un echec de synthese est BLOQUANT, pas
+            # contournable : on ne refabrique pas de carte muette.
+            import narration
+            try:
+                voice = narration.synthesize(
+                    text, lang, out_dir / "audio" / f"{target.stem}.mp3",
+                )
+            except narration.NarrationError as exc:
+                raise CardError(
+                    f"Voix de la carte {position}/{total} de « {topic.id} » "
+                    f"[{lang}] impossible : {exc}"
+                ) from exc
             motion = animate_card(
                 background, text, out_dir / f"{target.stem}.mp4",
                 fmt=fmt, style=style,
                 eyebrow=category_label(topic.category, lang),
                 index=position, total=total,
+                audio=voice.path, audio_seconds=voice.duration,
             ).path
 
         series.cards.append(
