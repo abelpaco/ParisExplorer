@@ -11,6 +11,14 @@ A single user: the owner of the Paris Explorer YouTube channel. It is an
 internal tool. It is not distributed as a service, has no other users, no
 accounts, and no audience-facing interface.
 
+## YouTube API Services
+
+This tool uses **YouTube API Services** to interact with the channel. By
+using it, its user (the channel owner) agrees to be bound by the
+[YouTube Terms of Service](https://www.youtube.com/t/terms). Google's
+handling of data is described in the
+[Google Privacy Policy](http://www.google.com/policies/privacy).
+
 ## What data it accesses
 
 Through the YouTube Data API, with the channel owner's explicit OAuth consent,
@@ -39,8 +47,12 @@ transmitted to YouTube is the content of the channel's own publications.
 
 API responses (video identifiers, view counts) are kept as local log and
 registry files on the private server, and can be deleted at any time by the
-owner. Revoking the OAuth grant at <https://myaccount.google.com/permissions>
-immediately cuts all API access.
+owner by deleting those files. No other API data is retained.
+
+Authorization can be revoked at any time from the Google security settings
+page: <https://myaccount.google.com/permissions>. Revoking the OAuth grant
+immediately cuts all API access; stored tokens then become inert and are
+deleted.
 
 ## Contact
 

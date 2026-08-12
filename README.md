@@ -1,11 +1,25 @@
 # ParisExplorer
 
-ParisExplorer est un prototype Python explorant et présentant des données, services ou points d’intérêt propres à la région parisienne.
+ParisExplorer est l'outil interne de la chaîne YouTube **Paris Explorer** :
+il produit de courtes vidéos documentaires sur l'histoire de Paris (narration
+originale, illustrations « ligne claire » originales ou photos sous licence
+créditées) et les publie sur la chaîne selon un calendrier fixe, en français
+et en anglais. Un seul utilisateur : le propriétaire de la chaîne.
+
+## Confidentialité et services API YouTube
+
+Cet outil utilise les **services API YouTube** (YouTube API Services) pour
+publier sur notre propre chaîne et lire ses statistiques.
+
+- **Politique de confidentialité : [PRIVACY.md](PRIVACY.md)**
+- Conditions d'utilisation de YouTube : <https://www.youtube.com/t/terms>
+- Règles de confidentialité de Google : <http://www.google.com/policies/privacy>
 
 ## Objectifs
 
-- Preuve de Concept (PoC) ou MVP pour la collecte, l’analyse et la présentation de données sur Paris.
-- Projet modulaire, évolutif et documenté permettant de tester de nouvelles sources ou services sans dette technique excessive.
+- Production automatisée : narration, voix off, montage, cartes visuelles et Shorts BD.
+- Publication planifiée et registre anti-republication.
+- Projet modulaire, évolutif et documenté.
 
 ## Installation
 
