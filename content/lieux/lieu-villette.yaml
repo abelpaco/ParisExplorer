@@ -1,0 +1,26 @@
+# Carte de lieu — reference validee le 14/08/2026 (villette-aquarelle).
+# L'anecdote est en 2 lignes EXACTES : la cesure est un choix editorial.
+# L'espace insecable avant « : » est voulue.
+id: lieu-villette
+type: urbain            # urbain => style aquarelle (charte)
+scene: villette
+
+fr:
+  anecdote:
+    - "Avant la musique, La Villette nourrissait Paris :"
+    - "un siècle d’abattoirs et de marché aux bestiaux."
+  sous_titre: LA VILLETTE
+  titre: "La Villette, des bestiaux à la musique"
+  legende: >-
+    Avant la Cité des sciences et la Philharmonie, La Villette nourrissait
+    Paris : un siècle d’abattoirs et de marché aux bestiaux, de 1867 à 1974.
+
+en:
+  anecdote:
+    - "Before the music, La Villette fed Paris:"
+    - "a century of slaughterhouses and cattle markets."
+  sous_titre: LA VILLETTE
+  titre: "La Villette, from cattle markets to concert halls"
+  legende: >-
+    Before the science museum and the Philharmonie, La Villette fed Paris:
+    a century of slaughterhouses and cattle markets, from 1867 to 1974.

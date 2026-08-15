@@ -438,6 +438,64 @@ def test_card_labels():
         return False
 
 
+def test_lieux_are_loadable():
+    """Chaque lieu de content/lieux/ est valide : type, scene, 2 langues."""
+    print("\nTesting lieu subjects...")
+    try:
+        import lieu_topics
+
+        lieux = lieu_topics.load_lieux()
+        assert lieux, "aucun lieu charge depuis content/lieux/"
+        ok = True
+        for lieu in lieux:
+            for lang in ("fr", "en"):
+                if lang not in lieu.langs:
+                    print(f"✗ {lieu.id}: pas de textes '{lang}'")
+                    ok = False
+                    continue
+                textes = lieu.textes(lang)
+                assert len(textes.anecdote) == 2, \
+                    f"{lieu.id}[{lang}]: anecdote != 2 lignes"
+            print(f"✓ {lieu.id} ({lieu.type} -> {lieu.style}, scene {lieu.scene})")
+        return ok
+    except Exception as e:
+        print(f"✗ lieux: {e}")
+        return False
+
+
+def test_lieu_scenes_render_valid_svg():
+    """Chaque scene enregistree compose un SVG autonome et bien forme."""
+    print("\nTesting lieu scenes...")
+    try:
+        import xml.etree.ElementTree as ET
+
+        import lieu_style
+
+        assert lieu_style.SCENES, "aucune scene enregistree"
+        for nom, scene in sorted(lieu_style.SCENES.items()):
+            svg = lieu_style.composer(
+                nom, ["Ligne de test un", "et ligne de test deux."],
+                "TEST", "fr",
+            )
+            ET.fromstring(svg)  # bien forme, sinon ParseError
+            assert svg.startswith("<svg"), f"{nom}: racine inattendue"
+            assert "<style" not in svg and "<script" not in svg, \
+                f"{nom}: le SVG doit rester autonome (presentation inline)"
+            assert "Ligne de test un" in svg, f"{nom}: anecdote absente"
+            print(f"✓ scene {nom} [{scene.style}] : SVG bien forme")
+        # L'anecdote est une cesure editoriale : 2 lignes, ni plus ni moins.
+        try:
+            lieu_style.composer("villette", ["une seule ligne"], "T", "fr")
+            print("✗ une anecdote d'une ligne aurait du etre refusee")
+            return False
+        except lieu_style.LieuStyleError:
+            pass
+        return True
+    except Exception as e:
+        print(f"✗ scenes de lieux: {e}")
+        return False
+
+
 def main():
     """Run all tests"""
     print("=" * 50)
@@ -460,6 +518,8 @@ def main():
         test_card_still_and_motion_agree,
         test_card_labels,
         test_video_creator_config,
+        test_lieux_are_loadable,
+        test_lieu_scenes_render_valid_svg,
     ]
     
     results = []

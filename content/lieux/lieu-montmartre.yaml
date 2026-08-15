@@ -1,0 +1,25 @@
+# Carte de lieu — reference validee le 14/08/2026 (montmartre-impressionniste).
+# L'anecdote est en 2 lignes EXACTES : la cesure est un choix editorial.
+id: lieu-montmartre
+type: quartier          # quartier => style impressionniste (charte)
+scene: montmartre
+
+fr:
+  anecdote:
+    - "À Paris, il existe une colline"
+    - "où l’on fait encore les vendanges."
+  sous_titre: MONTMARTRE
+  titre: "Montmartre, la butte aux vendanges"
+  legende: >-
+    À Paris, il existe une colline où l’on fait encore les vendanges :
+    le Clos Montmartre, une vraie vigne cachée derrière le Sacré-Cœur.
+
+en:
+  anecdote:
+    - "There is a hill in Paris"
+    - "where people still bring in a grape harvest."
+  sous_titre: MONTMARTRE
+  titre: "Montmartre, the hill of the grape harvest"
+  legende: >-
+    There is a hill in Paris where people still bring in a grape harvest:
+    the Clos Montmartre, a real vineyard hidden behind the Sacré-Cœur.

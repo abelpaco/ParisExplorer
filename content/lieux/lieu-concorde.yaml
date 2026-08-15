@@ -1,0 +1,26 @@
+# Carte de lieu — reference validee le 14/08/2026 (concorde-bd).
+# L'anecdote est en 2 lignes EXACTES : la cesure est un choix editorial.
+# Les espaces insecables avant « : » et dans « 3 300 » sont voulues.
+id: lieu-concorde
+type: place             # place => style BD encrage (charte)
+scene: concorde
+
+fr:
+  anecdote:
+    - "Le plus vieux monument de Paris"
+    - "n’est pas parisien : l’obélisque a 3 300 ans."
+  sous_titre: PLACE DE LA CONCORDE
+  titre: "La Concorde et son obélisque de 3 300 ans"
+  legende: >-
+    Le plus vieux monument de Paris n’est pas parisien : l’obélisque de la
+    Concorde a 3 300 ans, offert par l’Égypte en 1830.
+
+en:
+  anecdote:
+    - "The oldest monument in Paris"
+    - "isn’t Parisian: the obelisk is 3,300 years old."
+  sous_titre: PLACE DE LA CONCORDE
+  titre: "La Concorde and its 3,300-year-old obelisk"
+  legende: >-
+    The oldest monument in Paris isn’t Parisian: the Concorde obelisk is
+    3,300 years old, a gift from Egypt in 1830.
