@@ -1,0 +1,285 @@
+<!doctype html><meta charset="utf-8"><style>html,body{margin:0}svg{display:block}</style>
+<svg width="1080" height="1920" viewBox="0 0 1080 1920" xmlns="http://www.w3.org/2000/svg">
+<defs>
+  <filter id="wash" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="7" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="18"/>
+  </filter>
+  <filter id="wash2" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.02" numOctaves="3" seed="23" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="26"/>
+  </filter>
+  <filter id="wash3" x="-25%" y="-25%" width="150%" height="150%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.008" numOctaves="2" seed="41" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="34"/>
+  </filter>
+  <filter id="ink" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.025" numOctaves="2" seed="11" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="4"/>
+  </filter>
+  <filter id="ink2" x="-10%" y="-10%" width="120%" height="120%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.03" numOctaves="2" seed="55" result="n"/>
+    <feDisplacementMap in="SourceGraphic" in2="n" scale="5"/>
+  </filter>
+  <filter id="grain">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="3" result="n"/>
+    <feColorMatrix in="n" type="matrix" values="0 0 0 0 0.45  0 0 0 0 0.42  0 0 0 0 0.36  0 0 0 0.06 0"/>
+  </filter>
+</defs>
+
+<!-- ============ PAPER ============ -->
+<rect width="1080" height="1920" fill="#f4efe4"/>
+<rect width="1080" height="1920" filter="url(#grain)"/>
+
+<!-- ============ SKY : pale blooms + brush strokes ============ -->
+<g filter="url(#wash3)">
+  <ellipse cx="300" cy="180" rx="250" ry="90" fill="#a9bcc2" opacity="0.13"/>
+  <ellipse cx="740" cy="130" rx="210" ry="75" fill="#c9b99b" opacity="0.10"/>
+  <path d="M120,330 q220,-50 440,-16 q90,14 150,44 q-160,36 -360,22 q-160,-10 -230,-50 Z" fill="#b3c2c0" opacity="0.11"/>
+  <ellipse cx="880" cy="360" rx="170" ry="60" fill="#c8bda4" opacity="0.11"/>
+  <path d="M60,470 q140,-36 300,-10 q60,10 90,30 q-130,28 -260,16 q-100,-8 -130,-36 Z" fill="#a9bcc2" opacity="0.12"/>
+</g>
+
+<!-- ============ GEODE (au fond, posee sur la berge) ============ -->
+<!-- washes, offset from the ink on purpose -->
+<g transform="translate(9,-7)" filter="url(#wash)">
+  <circle cx="760" cy="646" r="178" fill="#8fa3ae" opacity="0.40"/>
+  <path d="M592,700 a178,178 0 0,0 336,20 q-86,40 -176,26 q-102,-12 -160,-46 Z" fill="#71858f" opacity="0.40"/>
+  <path d="M660,505 q58,-46 130,-32 q36,8 56,26 q-66,-10 -114,8 q-48,16 -72,-2 Z" fill="#f4efe4" opacity="0.6"/>
+</g>
+<g filter="url(#wash2)">
+  <ellipse cx="700" cy="560" rx="70" ry="36" fill="#c6d2d6" opacity="0.35"/>
+  <path d="M690,780 a178,178 0 0,0 160,-40 q-30,44 -80,52 q-50,8 -80,-12 Z" fill="#5d707a" opacity="0.30"/>
+</g>
+<!-- plaza + shadow anchoring the sphere -->
+<g filter="url(#wash2)">
+  <ellipse cx="756" cy="836" rx="190" ry="26" fill="#8d968f" opacity="0.30"/>
+  <ellipse cx="756" cy="842" rx="120" ry="14" fill="#5d707a" opacity="0.25"/>
+</g>
+<!-- ink : sphere + geodesic facets (two diagonal families + arcs) -->
+<g filter="url(#ink)" stroke="#3a332c" fill="none" stroke-linecap="round">
+  <circle cx="754" cy="650" r="176" stroke-width="3.4" stroke-dasharray="230 4 310 3 390 5"/>
+  <!-- horizontal arcs -->
+  <path d="M582,608 q172,52 344,10" stroke-width="2.2" stroke-dasharray="110 4 90 3"/>
+  <path d="M592,712 q162,46 324,4" stroke-width="2.2" stroke-dasharray="90 5 120 3"/>
+  <path d="M622,520 q132,40 276,14" stroke-width="2" stroke-dasharray="90 4 70 4"/>
+  <!-- diagonal family 1 -->
+  <path d="M636,514 q100,140 88,300" stroke-width="2" stroke-dasharray="80 4 60 3"/>
+  <path d="M712,482 q90,150 62,330" stroke-width="2" stroke-dasharray="70 4 90 3"/>
+  <path d="M806,486 q66,140 22,320" stroke-width="2" stroke-dasharray="90 3 60 4"/>
+  <!-- diagonal family 2 -->
+  <path d="M876,530 q-110,130 -104,290" stroke-width="2" stroke-dasharray="70 4 80 3"/>
+  <path d="M694,488 q-80,120 -96,250" stroke-width="2" stroke-dasharray="80 3 60 4"/>
+  <!-- short facet chords, top right -->
+  <path d="M846,556 l38,34" stroke-width="1.8"/>
+  <path d="M872,610 l30,-20" stroke-width="1.8"/>
+  <!-- base -->
+  <path d="M636,812 q120,24 240,-8" stroke-width="2.6"/>
+</g>
+
+<!-- ============ DISTANT TREES (far bank, in front of geode base) ============ -->
+<g filter="url(#wash2)">
+  <ellipse cx="90" cy="852" rx="120" ry="52" fill="#93a486" opacity="0.42"/>
+  <ellipse cx="480" cy="848" rx="140" ry="46" fill="#9aab8c" opacity="0.36"/>
+  <ellipse cx="545" cy="818" rx="85" ry="40" fill="#88997c" opacity="0.36"/>
+  <ellipse cx="990" cy="842" rx="125" ry="48" fill="#93a486" opacity="0.40"/>
+  <ellipse cx="925" cy="812" rx="65" ry="36" fill="#88997c" opacity="0.30"/>
+  <ellipse cx="640" cy="850" rx="70" ry="34" fill="#93a486" opacity="0.32"/>
+</g>
+<g filter="url(#ink)" stroke="#3a332c" fill="none" stroke-linecap="round">
+  <path d="M20,850 q30,-30 64,-18 q22,-20 56,-8 q28,-16 52,4 q14,10 18,22" stroke-width="2.6"/>
+  <path d="M408,850 q26,-26 58,-16 q20,-18 54,-6 q26,-14 60,4 q22,-10 42,8" stroke-width="2.6"/>
+  <path d="M888,842 q28,-28 60,-14 q22,-18 56,-4 q26,-12 58,10" stroke-width="2.6"/>
+  <path d="M584,852 q22,-22 50,-12 q18,-14 46,-2 q20,-8 36,8" stroke-width="2.4"/>
+</g>
+
+<!-- ============ FOLIE ROUGE (Tschumi) ============ -->
+<!-- washes offset -->
+<g transform="translate(10,-8)" filter="url(#wash)">
+  <rect x="168" y="612" width="200" height="200" fill="#b5443a" opacity="0.48"/>
+  <rect x="168" y="712" width="200" height="100" fill="#a03a32" opacity="0.30"/>
+  <polygon points="368,712 452,796 452,868 368,792" fill="#b5443a" opacity="0.40"/>
+  <rect x="238" y="556" width="66" height="56" fill="#b5443a" opacity="0.42"/>
+</g>
+<!-- ink -->
+<g filter="url(#ink2)" stroke="#3a332c" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- main cube + 3x3 grid -->
+  <rect x="172" y="616" width="196" height="196" stroke-width="3.4" stroke-dasharray="150 4 200 3 170 5"/>
+  <path d="M172,681 h196 M172,746 h196" stroke-width="2.4" stroke-dasharray="70 4 90 3"/>
+  <path d="M237,616 v196 M302,616 v196" stroke-width="2.4" stroke-dasharray="80 3 70 4"/>
+  <!-- small top volume -->
+  <rect x="240" y="558" width="62" height="58" stroke-width="2.8"/>
+  <path d="M240,588 h62" stroke-width="2"/>
+  <!-- external staircase descending to the ground (steps zigzag + railing) -->
+  <path d="M368,716 L392,740 L392,756 L414,778 L414,794 L436,816 L436,832 L458,854 L458,868" stroke-width="2.8"/>
+  <path d="M368,700 L462,794" stroke-width="2.4"/>
+  <path d="M368,700 L368,716 M416,748 v14 M462,794 v18" stroke-width="2.2"/>
+  <!-- stilts + ground -->
+  <path d="M188,812 v58 M352,812 v56" stroke-width="2.8"/>
+  <path d="M156,872 q140,10 320,-4" stroke-width="2.6"/>
+</g>
+
+<!-- ============ CANAL : wash bands with paper gaps ============ -->
+<g filter="url(#wash3)">
+  <path d="M-30,892 h1140 v52 h-1140 Z" fill="#9db2ba" opacity="0.34"/>
+  <path d="M-30,956 h1140 v70 h-1140 Z" fill="#8aa0aa" opacity="0.30"/>
+  <path d="M-30,1042 h660 v56 h-660 Z" fill="#9db2ba" opacity="0.28"/>
+  <path d="M700,1048 h410 v50 h-410 Z" fill="#8aa0aa" opacity="0.26"/>
+  <path d="M-30,1112 h1140 v66 h-1140 Z" fill="#7d939e" opacity="0.30"/>
+  <path d="M-30,1192 h1140 v58 h-1140 Z" fill="#9db2ba" opacity="0.28"/>
+</g>
+<!-- reflections : broken vertical patches -->
+<g filter="url(#wash2)">
+  <path d="M212,896 q16,4 30,0 l-4,52 q-12,4 -24,0 Z" fill="#b5443a" opacity="0.24"/>
+  <path d="M218,972 q14,4 26,0 l-6,66 q-10,4 -18,0 Z" fill="#b5443a" opacity="0.20"/>
+  <path d="M226,1064 q12,4 22,0 l-6,54 q-8,4 -14,0 Z" fill="#b5443a" opacity="0.16"/>
+  <path d="M714,896 q34,6 62,0 l-8,58 q-24,6 -46,0 Z" fill="#71858f" opacity="0.22"/>
+  <path d="M726,978 q28,6 50,0 l-10,60 q-18,6 -32,0 Z" fill="#71858f" opacity="0.18"/>
+</g>
+<!-- water ink ripples -->
+<g filter="url(#ink)" stroke="#3a332c" fill="none" stroke-linecap="round">
+  <path d="M40,912 q60,8 120,0 q70,-8 130,2" stroke-width="2.2" opacity="0.75"/>
+  <path d="M600,924 q70,8 140,-2 q60,-6 120,4" stroke-width="2.2" opacity="0.7"/>
+  <path d="M110,992 q80,10 150,0 q60,-8 110,4" stroke-width="2.4" opacity="0.8"/>
+  <path d="M60,1128 q90,10 170,0 q70,-8 120,4" stroke-width="2.4" opacity="0.75"/>
+  <path d="M700,1160 q80,8 160,-2 q60,-6 120,4" stroke-width="2.4" opacity="0.8"/>
+  <path d="M300,1218 q90,10 180,0 q80,-8 150,4" stroke-width="2.6" opacity="0.8"/>
+  <path d="M180,1064 q60,8 120,0" stroke-width="2.2" opacity="0.6"/>
+  <path d="M850,1056 q60,8 120,0" stroke-width="2.2" opacity="0.6"/>
+  <path d="M420,1120 q50,7 100,0" stroke-width="2.2" opacity="0.55"/>
+  <!-- far bank edge -->
+  <path d="M-10,886 q260,14 540,6 q300,-10 560,2" stroke-width="3" stroke-dasharray="300 4 260 3 340 5"/>
+</g>
+
+<!-- ============ PENICHE (dans l'eau) ============ -->
+<g transform="translate(8,-6)" filter="url(#wash)">
+  <path d="M520,1010 L950,1002 L940,1092 Q740,1108 560,1096 L522,1078 Z" fill="#6b6258" opacity="0.5"/>
+  <rect x="800" y="944" width="126" height="62" fill="#8a7f70" opacity="0.45"/>
+  <rect x="530" y="1012" width="406" height="16" fill="#b5443a" opacity="0.42"/>
+</g>
+<g filter="url(#ink2)" stroke="#3a332c" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path d="M514,1006 L956,998 L944,1088 Q742,1106 562,1094 L516,1072 Z" stroke-width="3.2" stroke-dasharray="260 4 200 3 240 5"/>
+  <path d="M522,1030 L948,1022" stroke-width="2.2"/>
+  <rect x="804" y="940" width="122" height="60" stroke-width="2.8"/>
+  <path d="M812,960 h26 M850,960 h26 M888,960 h26" stroke-width="2.4"/>
+  <path d="M862,978 v20" stroke="#b5443a" stroke-width="4" opacity="0.7"/>
+  <circle cx="600" cy="1054" r="7" stroke-width="2.2"/>
+  <circle cx="660" cy="1054" r="7" stroke-width="2.2"/>
+  <circle cx="720" cy="1054" r="7" stroke-width="2.2"/>
+  <path d="M948,1010 q26,-16 30,-40" stroke-width="2.4"/>
+</g>
+<!-- waterline cutting the hull -->
+<g filter="url(#wash2)">
+  <path d="M490,1076 h500 v34 h-500 Z" fill="#8aa0aa" opacity="0.34"/>
+</g>
+<g filter="url(#ink)" stroke="#3a332c" fill="none" stroke-linecap="round">
+  <path d="M480,1082 q80,10 170,4 q120,-8 210,0 q80,6 150,-4" stroke-width="2.6" opacity="0.85"/>
+  <path d="M540,1116 q80,8 160,0 M760,1122 q80,8 160,-2" stroke-width="2.2" opacity="0.7"/>
+</g>
+<!-- dark reflection under the barge -->
+<g filter="url(#wash2)">
+  <path d="M560,1120 q180,16 360,-4 l-14,44 q-160,16 -320,0 Z" fill="#4f5a55" opacity="0.18"/>
+</g>
+
+<!-- ============ NEAR BANK : patches, not a slab ============ -->
+<g filter="url(#wash3)">
+  <path d="M-20,1272 Q240,1252 520,1268 Q560,1330 540,1420 Q300,1440 -20,1410 Z" fill="#a5a88c" opacity="0.34"/>
+  <path d="M560,1276 Q820,1288 1100,1268 L1100,1400 Q860,1424 600,1404 Q570,1340 560,1276 Z" fill="#9aa080" opacity="0.30"/>
+  <path d="M-20,1450 Q280,1428 560,1450 Q820,1470 1100,1444 L1100,1560 L-20,1560 Z" fill="#8f9478" opacity="0.26"/>
+  <path d="M200,1300 Q420,1290 560,1304 Q580,1350 566,1396 Q380,1408 220,1394 Q198,1346 200,1300 Z" fill="#c2b691" opacity="0.24"/>
+</g>
+<g filter="url(#ink)" stroke="#3a332c" fill="none" stroke-linecap="round">
+  <path d="M-10,1268 Q300,1246 620,1266 Q890,1282 1090,1260" stroke-width="3" stroke-dasharray="280 4 220 3 300 5"/>
+  <path d="M70,1348 q80,-8 150,-2 M780,1356 q90,-8 170,0" stroke-width="2.2" opacity="0.65"/>
+  <path d="M240,1306 q160,-10 320,2" stroke-width="2.2" opacity="0.55"/>
+  <path d="M620,1470 q40,4 80,0 M150,1490 q30,4 60,0" stroke-width="2.2" opacity="0.6"/>
+</g>
+
+<!-- ============ WALKER + DOG ============ -->
+<g transform="translate(7,-5)" filter="url(#wash)">
+  <path d="M316,1336 q28,-8 44,8 q12,20 12,58 l-4,58 -64,2 -6,-64 q-4,-44 18,-62 Z" fill="#5f7078" opacity="0.48"/>
+  <circle cx="338" cy="1312" r="17" fill="#c09a7c" opacity="0.35"/>
+  <path d="M462,1466 q28,-18 60,-8 q18,8 16,28 l-8,20 -52,2 -18,-22 Z" fill="#7a6f60" opacity="0.42"/>
+</g>
+<g filter="url(#ink2)" stroke="#3a332c" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <!-- head + cap -->
+  <circle cx="338" cy="1310" r="16" stroke-width="3"/>
+  <path d="M322,1304 q14,-10 30,-2" stroke-width="2.4"/>
+  <!-- coat : clear silhouette, flaring -->
+  <path d="M330,1326 q-22,10 -26,44 l-6,72 q22,10 76,4 l-2,-74 q-2,-36 -22,-46" stroke-width="3.2"/>
+  <path d="M338,1340 v96" stroke-width="2" stroke-dasharray="30 4 40 3"/>
+  <!-- legs : stride -->
+  <path d="M320,1446 l-14,62 M356,1446 l14,60" stroke-width="3.2"/>
+  <path d="M304,1508 l20,6 M370,1506 l20,4" stroke-width="2.8"/>
+  <!-- arm + leash -->
+  <path d="M356,1352 q24,26 42,44" stroke-width="2.8"/>
+  <path d="M398,1396 Q444,1444 478,1468" stroke-width="2" stroke-dasharray="22 3 28 2 24 3"/>
+  <!-- dog : head, ears, legs, tail -->
+  <path d="M470,1470 q4,-10 16,-12 l26,-2 q14,0 22,10 q6,10 2,20 l-8,12 -48,2 -12,-14 Z" stroke-width="2.8"/>
+  <circle cx="516" cy="1462" r="11" stroke-width="2.6"/>
+  <path d="M508,1454 q-4,8 -2,14 M524,1456 q4,8 2,13" stroke-width="2.4"/>
+  <path d="M526,1466 l8,2" stroke-width="2.2"/>
+  <path d="M478,1500 l-2,18 M494,1502 l0,18 M510,1500 l2,18" stroke-width="2.6"/>
+  <path d="M472,1478 q-14,-4 -16,-20" stroke-width="2.8"/>
+</g>
+
+<!-- ============ GULLS ============ -->
+<g filter="url(#ink)" stroke="#3a332c" fill="none" stroke-linecap="round">
+  <path d="M440,280 q16,-14 30,0 q14,-14 30,0" stroke-width="2.6"/>
+  <path d="M540,344 q12,-11 24,0 q12,-11 24,0" stroke-width="2.4"/>
+  <path d="M390,386 q10,-9 20,0 q10,-9 20,0" stroke-width="2.2"/>
+</g>
+
+<!-- ============ FOREGROUND GRASSES : dense clusters ============ -->
+<g filter="url(#wash2)">
+  <path d="M20,1430 q70,-44 160,-20 q34,64 12,150 l-180,0 Z" fill="#7f8a68" opacity="0.30"/>
+  <path d="M900,1410 q80,-40 168,-10 q22,74 0,160 l-176,0 Z" fill="#7f8a68" opacity="0.28"/>
+  <path d="M600,1490 q40,-24 90,-10 q14,36 4,80 l-96,0 Z" fill="#8a9370" opacity="0.22"/>
+</g>
+<g filter="url(#ink2)" stroke="#3a332c" fill="none" stroke-linecap="round">
+  <!-- left cluster -->
+  <path d="M56,1560 q-10,-90 8,-152" stroke-width="3"/>
+  <path d="M88,1560 q6,-112 -14,-172" stroke-width="2.6"/>
+  <path d="M118,1560 q10,-84 32,-142" stroke-width="2.8"/>
+  <path d="M148,1560 q-8,-102 8,-162" stroke-width="2.4"/>
+  <path d="M34,1560 q-2,-72 -18,-112" stroke-width="2.4"/>
+  <path d="M176,1560 q6,-70 24,-108" stroke-width="2.4"/>
+  <path d="M204,1560 q-4,-56 6,-92" stroke-width="2.2"/>
+  <path d="M154,1398 q8,-14 22,-16 M62,1408 q-8,-14 -22,-14 M148,1418 q10,-8 22,-6" stroke-width="2.2"/>
+  <ellipse cx="152" cy="1394" rx="5" ry="11" transform="rotate(18 152 1394)" stroke-width="2" fill="#3a332c" fill-opacity="0.45"/>
+  <ellipse cx="76" cy="1392" rx="4.5" ry="10" transform="rotate(-14 76 1392)" stroke-width="2" fill="#3a332c" fill-opacity="0.45"/>
+  <!-- right cluster -->
+  <path d="M954,1560 q12,-102 -6,-168" stroke-width="3"/>
+  <path d="M988,1560 q-6,-92 20,-152" stroke-width="2.8"/>
+  <path d="M1020,1560 q10,-112 -8,-178" stroke-width="2.6"/>
+  <path d="M928,1560 q-6,-74 14,-124" stroke-width="2.4"/>
+  <path d="M1048,1560 q4,-82 -12,-132" stroke-width="2.4"/>
+  <path d="M900,1560 q-2,-58 10,-96" stroke-width="2.2"/>
+  <path d="M1010,1408 q12,-12 26,-12 M950,1390 q-10,-14 -26,-12" stroke-width="2.2"/>
+  <ellipse cx="1014" cy="1384" rx="5" ry="11" transform="rotate(14 1014 1384)" stroke-width="2" fill="#3a332c" fill-opacity="0.45"/>
+  <ellipse cx="944" cy="1388" rx="4.5" ry="10" transform="rotate(-16 944 1388)" stroke-width="2" fill="#3a332c" fill-opacity="0.45"/>
+  <!-- mid tufts -->
+  <path d="M636,1560 q4,-42 -8,-72 M658,1560 q2,-52 14,-78 M616,1560 q-2,-36 -12,-54 M680,1560 q0,-40 10,-60" stroke-width="2.4"/>
+  <!-- pebbles -->
+  <path d="M770,1520 q8,-6 16,0 q4,6 -4,10 q-10,2 -12,-10 M820,1540 q6,-5 13,0 q3,5 -3,8 q-8,2 -10,-8" stroke-width="2"/>
+</g>
+
+<!-- ============ LEGEND ============ -->
+<g filter="url(#ink)" stroke="#3a332c" fill="none" stroke-linecap="round">
+  <path d="M70,1570 q240,8 480,2 q260,-6 460,2" stroke-width="2.8" stroke-dasharray="220 4 180 3 260 5"/>
+</g>
+<text x="540" y="1672" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="44" fill="#4a4038">Avant la musique, La Villette nourrissait Paris&#160;:</text>
+<text x="540" y="1736" text-anchor="middle" font-family="Georgia, serif" font-style="italic" font-size="44" fill="#4a4038">un siècle d&#8217;abattoirs et de marché aux bestiaux.</text>
+
+<!-- stamp -->
+<g transform="rotate(-7 540 1838)" opacity="0.75">
+  <g filter="url(#ink2)" stroke="#b5443a" fill="none">
+    <circle cx="540" cy="1838" r="70" stroke-width="3.2" stroke-dasharray="100 4 140 3 90 4"/>
+    <circle cx="540" cy="1838" r="58" stroke-width="1.8" stroke-dasharray="80 3 100 4"/>
+  </g>
+  <text x="540" y="1833" text-anchor="middle" font-family="Georgia, serif" font-size="23" letter-spacing="3" fill="#b5443a">PARIS</text>
+  <text x="540" y="1861" text-anchor="middle" font-family="Georgia, serif" font-size="15" letter-spacing="1" fill="#b5443a">EXPLORER</text>
+  <circle cx="540" cy="1806" r="2.6" fill="#b5443a"/>
+  <circle cx="540" cy="1872" r="2.6" fill="#b5443a"/>
+</g>
+</svg>
