@@ -99,6 +99,24 @@ def publish(
         )
         return 1
 
+    description = data["description"]
+    if card:
+        # Une carte animee dure le temps d'une phrase : c'est un teaser, pas
+        # une destination. Si la video longue du meme sujet est deja publiee,
+        # son lien ouvre la description — la ou YouTube n'expose pas par l'API
+        # le bouton « Video associee » des Shorts, qui reste un geste Studio.
+        long_id = registry.video_id_of(f"{topic_id}:{lang}")
+        if long_id:
+            libelle = ("▶ La vidéo complète : " if lang == "fr"
+                       else "▶ Watch the full video: ")
+            description = f"{libelle}https://youtu.be/{long_id}\n\n{description}"
+            logger.info("Lien vers la longue ajoute : %s", long_id)
+        else:
+            logger.info(
+                "Longue %s:%s pas encore publiee — carte envoyee sans lien.",
+                topic_id, lang,
+            )
+
     title = data["title"]
     if short or card:
         # Le suffixe #Shorts n'est pas cosmetique : c'est ce qui range la video
@@ -117,7 +135,7 @@ def publish(
     video_id = uploader.upload_video(
         video_file=str(video),
         title=title,
-        description=data["description"],
+        description=description,
         tags=tags,
         category=str(youtube_cfg.get("default_category", "19")),
         privacy_status=privacy,

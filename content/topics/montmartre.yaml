@@ -66,9 +66,9 @@ fr:
   # Phrases des cartes visuelles : chacune doit se suffire hors contexte —
   # une phrase echantillonnee dans la narration peut etre orpheline.
   cards:
-    - "À Paris, il existe une colline où l'on fait encore les vendanges."
-    - "La pierre du Sacré-Cœur blanchit sous la pluie : le monument se relave tout seul."
-    - "Jusqu'en 1860, Montmartre n'était pas Paris : hors du mur des taxes, on y buvait moins cher qu'en bas."
+    - "À Paris, il existe une colline où l'on fait encore les vendanges : le Clos Montmartre, une vraie vigne cachée derrière le Sacré-Cœur."
+    - "La pierre du Sacré-Cœur blanchit sous la pluie : son calcin de Château-Landon se dépose à chaque averse, et le monument se relave tout seul."
+    - "Jusqu'en 1860, Montmartre n'était pas Paris : la colline vivait hors du mur des taxes, et tout Paris montait y boire un vin moins cher."
 
 en:
   title: "Montmartre: The Hill That Never Quite Joined Paris"
@@ -124,6 +124,6 @@ en:
     - "Bateau-Lavoir"
     - "Paris walk"
   cards:
-    - "There is a hill in Paris where people still bring in a grape harvest."
-    - "Rain makes the Sacré-Cœur's stone whiter — the basilica washes itself."
-    - "Until 1860, Montmartre was not Paris: outside the customs wall, wine was simply cheaper up here."
+    - "There is a hill in Paris where people still bring in a grape harvest: the Clos Montmartre, a real vineyard hidden behind the Sacré-Cœur."
+    - "Rain makes the Sacré-Cœur whiter: its Château-Landon stone releases lime with every shower, so the basilica quietly washes itself."
+    - "Until 1860, Montmartre was not Paris. The hill sat outside the customs wall, so its wine was cheaper — and the whole city climbed up to drink."

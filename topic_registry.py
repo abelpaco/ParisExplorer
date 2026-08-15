@@ -97,6 +97,18 @@ class TopicRegistry:
         """Sujets de ``topics`` encore jamais publiés, ordre d'origine conservé."""
         return [t for t in topics if not self.is_published(t.get("name", ""))]
 
+    def video_id_of(self, name: str) -> Optional[str]:
+        """Identifiant YouTube d'une publication, si elle existe au registre.
+
+        Sert aux Shorts-teasers : une carte animée veut pointer vers la vidéo
+        longue de son sujet, dont l'identifiant ne vit qu'ici.
+        """
+        key = _normalize(name)
+        for e in self._entries:
+            if _normalize(e["name"]) == key:
+                return e.get("video_id")
+        return None
+
     # ------------------------------------------------------------------
     # Écriture
     # ------------------------------------------------------------------
