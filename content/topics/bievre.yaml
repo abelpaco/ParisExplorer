@@ -1,0 +1,57 @@
+id: bievre
+category: decouverte
+status: ready
+
+image_queries:
+  - "Bievre river Paris old photograph"
+  - "Bievre tanneries Paris 19th century"
+  - "Manufacture des Gobelins Paris"
+  - "Paris sewer underground gallery"
+  - "Butte aux Cailles Paris street"
+  - "river covered urban construction old photo"
+
+fr:
+  title: "Paris a enterré une rivière — elle coule sous vos pieds"
+  subtitle: "La Bièvre : empoisonnée, condamnée, recouverte en 1912"
+  narration: |
+    Paris avait deux rivières. Il n'en reste qu'une en surface. L'autre coule
+    toujours — sous vos pieds.
+
+    La Bièvre naît près de Versailles et entrait dans Paris par le sud-est,
+    du côté de la poterne des Peupliers. Elle serpentait dans les actuels
+    treizième et cinquième arrondissements avant de rejoindre la Seine près
+    de la gare d'Austerlitz. Pendant des siècles, c'est une rivière de
+    campagne : moulins, lavoirs, castors peut-être — c'est une origine
+    possible de son nom.
+
+    Puis Paris la met au travail, et c'est sa perte. Tanneurs, mégissiers,
+    mais surtout teinturiers s'installent sur ses berges dès le Moyen Âge :
+    une famille de teinturiers en écarlate, les Gobelin, y bâtit sa fortune —
+    la manufacture royale des Gobelins, toujours debout, porte leur nom. Peaux
+    qui trempent, teintures qui dégorgent, déchets qu'on jette : la Bièvre
+    devient un égout à ciel ouvert. Au dix-neuvième siècle, sa puanteur est
+    célèbre. Les hygiénistes la condamnent.
+
+    Alors Paris fait ce qu'elle sait faire avec ce qui la dérange : elle le
+    fait disparaître. Tronçon par tronçon, la rivière est voûtée, recouverte,
+    intégrée au réseau d'égouts. En 1912, la Bièvre parisienne disparaît
+    entièrement de la surface. Aucun pont, aucun quai : une rivière effacée.
+
+    Mais effacée ne veut pas dire morte. La Bièvre coule toujours sous le
+    treizième arrondissement, canalisée dans l'ombre. En banlieue, en amont,
+    elle a été rouverte par endroits, et des berges ont retrouvé l'air libre.
+    Régulièrement, Paris étudie sa « renaturation » : faire rejaillir la
+    rivière perdue dans un square, une rue, un parc.
+
+    En attendant, il reste des indices : une rue du Moulin-des-Prés, une
+    poterne des Peupliers, des plaques au sol qui suivent son ancien lit. Une
+    ville peut enterrer une rivière. L'oublier, c'est plus difficile.
+  tags:
+    - "Bièvre"
+    - "Paris"
+    - "Paris secret"
+    - "histoire de Paris"
+  cards:
+    - "Paris avait DEUX rivières : la Bièvre, empoisonnée par les tanneries et les teinturiers, a été entièrement recouverte en 1912."
+    - "Les Gobelins étaient des teinturiers en écarlate installés sur la Bièvre : leur rivière a disparu, leur manufacture est toujours là."
+    - "La Bièvre coule encore sous le 13e arrondissement — et Paris étudie régulièrement comment la faire rejaillir à l'air libre."

@@ -1,0 +1,64 @@
+id: jeanne-darc-paris
+category: histoire
+status: ready
+anchor_date: "09-08"
+
+image_queries:
+  - "Joan of Arc statue Paris Pyramides"
+  - "Joan of Arc painting medieval"
+  - "Paris medieval city wall Charles V"
+  - "Porte Saint-Honore Paris engraving"
+  - "Joan of Arc siege illustration manuscript"
+  - "Saint-Roch church Paris"
+
+fr:
+  title: "Le jour où Jeanne d'Arc a perdu — c'était à Paris"
+  subtitle: "8 septembre 1429 : l'assaut manqué de la porte Saint-Honoré"
+  narration: |
+    Jeanne d'Arc a perdu une bataille. Une seule. C'était ici, à Paris.
+
+    Le 8 septembre 1429, elle se présente devant les murailles avec l'armée
+    royale. Paris n'est pas aux mains du roi de France : la ville est tenue par
+    les Bourguignons, alliés des Anglais. Quatre mois plus tôt, Jeanne a délivré
+    Orléans. Deux mois plus tôt, elle a fait sacrer Charles VII à Reims. Tout
+    semble possible.
+
+    L'assaut vise la porte Saint-Honoré. Aujourd'hui, l'endroit est en plein
+    premier arrondissement, à deux pas du Louvre. À l'époque, c'est la limite de
+    la ville : un mur, un fossé large, et derrière, des défenseurs décidés.
+
+    Jeanne descend dans le fossé, sonde l'eau de sa lance, appelle à combler le
+    passage sous les tirs. C'est là qu'un carreau d'arbalète lui traverse la
+    cuisse. Elle refuse de quitter le terrain. Elle veut poursuivre l'assaut à
+    la nuit tombée. On l'évacue presque de force.
+
+    Le lendemain, elle veut reprendre l'attaque. Mais l'ordre tombe : la retraite.
+    Charles VII, qui négocie en secret avec la Bourgogne, préfère lever le camp.
+    L'armée s'éloigne. Paris ne sera pas prise. Jeanne n'y remettra jamais les
+    pieds en armes.
+
+    La suite est plus sombre. Huit mois plus tard, elle est capturée à Compiègne.
+    Puis vendue, jugée, brûlée à Rouen en 1431. Paris, elle, ne redeviendra
+    française qu'en 1436, sans elle.
+
+    La ville a gardé la mémoire de cette journée, à sa manière. Place des
+    Pyramides, à quelques mètres du lieu de l'assaut, une Jeanne d'Arc dorée
+    lève son étendard depuis 1874. C'est l'une des statues les plus
+    photographiées de Paris. Peu de ceux qui la photographient savent qu'elle
+    marque l'emplacement d'une défaite.
+
+    Et le 8 septembre n'était pas une date comme les autres : c'est la fête de
+    la Nativité de la Vierge. Attaquer ce jour-là fut ensuite reproché à Jeanne,
+    jusque dans son procès.
+
+    Une ville imprenable, une blessure, un ordre de retraite. La seule fois où
+    la légende a plié — c'était devant Paris.
+  tags:
+    - "Jeanne d'Arc"
+    - "Paris"
+    - "histoire de France"
+    - "Moyen Âge"
+  cards:
+    - "Jeanne d'Arc n'a perdu qu'une seule bataille : c'était à Paris, le 8 septembre 1429, devant la porte Saint-Honoré."
+    - "Blessée d'un carreau d'arbalète à la cuisse dans le fossé, elle refuse d'être évacuée : elle veut reprendre l'assaut de nuit."
+    - "La Jeanne d'Arc dorée de la place des Pyramides marque l'endroit exact de l'assaut — l'emplacement d'une défaite, pas d'une victoire."

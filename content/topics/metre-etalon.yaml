@@ -1,0 +1,57 @@
+id: metre-etalon
+category: histoire
+status: ready
+
+image_queries:
+  - "metre etalon rue de Vaugirard Paris"
+  - "meter standard marble Paris 18th century"
+  - "Delambre Mechain meridian survey"
+  - "French Revolution measurement engraving"
+  - "Paris Observatory 18th century"
+  - "old measuring instruments 18th century"
+
+fr:
+  title: "Le mètre a été inventé ici — et il est toujours au mur"
+  subtitle: "Les derniers mètres étalons de marbre scellés dans Paris"
+  narration: |
+    Le mètre est né à Paris. Et il est toujours accroché au mur, en pleine rue.
+
+    Avant la Révolution, mesurer était un chaos. Chaque province, parfois
+    chaque ville, avait ses unités : pieds, toises, aunes, lieues — et la même
+    aune ne faisait pas la même longueur à Paris et à Rouen. On estime qu'il
+    circulait des centaines de mesures différentes dans le royaume. Pour le
+    commerce, un casse-tête. Pour la fraude, un paradis.
+
+    La Révolution décide de tout remettre à plat avec une idée folle : une
+    mesure qui ne devrait rien à personne — ni au pied d'un roi, ni à la
+    coutume d'une province. Une mesure prise sur la Terre elle-même. Le mètre
+    sera la dix-millionième partie du quart du méridien terrestre.
+
+    Encore faut-il mesurer le méridien. Deux astronomes, Delambre et Méchain,
+    passent sept ans sur les routes, de Dunkerque à Barcelone, à trianguler
+    clochers et sommets, en pleine tourmente révolutionnaire — arrêtés parfois
+    comme espions, leurs instruments étranges braqués vers l'horizon.
+
+    Le mètre légal naît en 1795. Mais comment l'apprendre au peuple ? L'État a
+    une idée très concrète : graver la nouvelle mesure dans la pierre, à
+    hauteur d'yeux, dans les endroits les plus passants de Paris. Seize mètres
+    étalons de marbre sont scellés dans les murs de la ville vers 1796-1797.
+    N'importe qui peut venir y poser sa ficelle, son bâton, sa planche, et
+    repartir avec le mètre exact.
+
+    De ces seize étalons, il en reste deux. Le plus authentique est au 36 de la
+    rue de Vaugirard, face au Sénat : il n'a jamais quitté sa place depuis plus
+    de deux siècles. L'autre veille place Vendôme.
+
+    Aujourd'hui, le mètre se définit par la vitesse de la lumière. Mais son
+    premier visage public est toujours là : un rectangle de marbre dans un mur
+    parisien, devant lequel tout le monde passe sans le voir.
+  tags:
+    - "mètre"
+    - "Paris"
+    - "Révolution française"
+    - "sciences"
+  cards:
+    - "Il reste deux mètres étalons de marbre scellés dans Paris depuis 1796 — celui de la rue de Vaugirard n'a jamais bougé de son mur."
+    - "Le mètre a été défini en mesurant la Terre : Delambre et Méchain ont passé sept ans à trianguler le méridien de Dunkerque à Barcelone."
+    - "Pour apprendre le mètre au peuple, la Révolution en a gravé seize dans les murs de Paris : chacun venait y régler sa ficelle ou sa planche."

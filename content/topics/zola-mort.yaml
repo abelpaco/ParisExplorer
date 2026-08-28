@@ -1,0 +1,61 @@
+id: zola-mort
+category: histoire
+status: ready
+anchor_date: "09-29"
+
+image_queries:
+  - "Emile Zola portrait photograph"
+  - "Emile Zola funeral 1902"
+  - "Paris rue de Bruxelles building"
+  - "J'accuse Aurore newspaper 1898"
+  - "Pantheon Paris interior"
+  - "Paris rooftops chimneys 1900"
+
+fr:
+  title: "La cheminée qui a peut-être assassiné Zola"
+  subtitle: "29 septembre 1902 : accident domestique — ou vengeance ?"
+  narration: |
+    Émile Zola est peut-être le seul écrivain français dont l'assassin présumé
+    serait… une cheminée.
+
+    Dans la nuit du 28 au 29 septembre 1902, Zola et sa femme Alexandrine
+    rentrent de vacances dans leur appartement de la rue de Bruxelles, près de
+    la place Clichy. Il fait frais, on allume le feu. Au matin, Alexandrine est
+    trouvée inconsciente. Zola, lui, est mort. Asphyxié par le monoxyde de
+    carbone : la cheminée ne tirait plus.
+
+    L'enquête conclut à l'accident. Le conduit était obstrué. Une mort bête,
+    pour l'écrivain le plus lu de France.
+
+    Sauf que Zola, à ce moment-là, est l'homme le plus haï du pays par toute
+    une partie de l'opinion. Quatre ans plus tôt, il a publié « J'accuse »,
+    défendant le capitaine Dreyfus contre l'état-major. Condamné, exilé un an à
+    Londres, insulté quotidiennement, il vit sous les menaces.
+
+    Et voilà l'étrange suite. Un demi-siècle plus tard, en 1953, un journal
+    publie une confidence troublante : un entrepreneur de couverture aurait
+    avoué, avant de mourir, avoir volontairement bouché la cheminée de Zola
+    lors de travaux sur le toit voisin — puis l'avoir débouchée au petit matin.
+    Par haine du défenseur de Dreyfus.
+
+    Vrai ? Faux ? L'aveu est de seconde main, invérifiable. Aucune preuve
+    matérielle n'a survécu. Les historiens restent partagés : accident probable,
+    assassinat possible. Le dossier ne sera jamais tranché.
+
+    Ce qui est certain, c'est la suite. Des dizaines de milliers de Parisiens
+    suivent le cortège funèbre. Anatole France salue « un moment de la
+    conscience humaine ». Et en 1908, la République transfère Zola au Panthéon —
+    où Dreyfus, présent à la cérémonie, échappe de peu à un attentat : un
+    journaliste nationaliste tire sur lui et le blesse au bras.
+
+    Une cheminée bouchée, un aveu tardif, un doute qui ne se refermera jamais.
+    À Paris, même les faits divers ont une mémoire politique.
+  tags:
+    - "Émile Zola"
+    - "Paris"
+    - "affaire Dreyfus"
+    - "histoire de France"
+  cards:
+    - "Zola est mort asphyxié en 1902 : sa cheminée était bouchée. En 1953, un couvreur aurait avoué l'avoir obstruée volontairement — par haine du défenseur de Dreyfus."
+    - "Quand Zola meurt rue de Bruxelles, il est l'homme le plus haï d'une partie de la France : « J'accuse » n'a que quatre ans."
+    - "Au Panthéon, en 1908, pendant le transfert des cendres de Zola, un journaliste nationaliste tire sur Dreyfus et le blesse au bras."

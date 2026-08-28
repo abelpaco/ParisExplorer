@@ -49,9 +49,9 @@ youtube:
   # premier lot de videos produites par le pipeline.
   #
   # A savoir : tant que le projet Google Cloud n'a pas passe l'audit YouTube API,
-  # tout upload par l'API est de toute facon verrouille en "private", quelle que
-  # soit la valeur envoyee ici.
-  default_privacy: "private"  # Options: public, private, unlisted
+  # Audit YouTube API approuve le 28/08/2026 (quota 26 000 u/j) : les envois
+  # partent desormais directement en public.
+  default_privacy: "public"  # Options: public, private, unlisted
   default_category: "19"  # Travel & Events
   
   # Default tags for Paris content

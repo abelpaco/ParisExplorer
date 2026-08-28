@@ -1,0 +1,61 @@
+id: siege-de-paris
+category: histoire
+status: ready
+anchor_date: "09-19"
+
+image_queries:
+  - "Siege of Paris 1870 painting"
+  - "Paris siege 1870 balloon Gambetta"
+  - "Paris 1870 rationing butcher engraving"
+  - "Jardin d'Acclimatation elephant 19th century"
+  - "Paris fortifications 1870 photograph"
+  - "Franco-Prussian war Paris illustration"
+
+fr:
+  title: "1870 : l'hiver où Paris a mangé les éléphants du zoo"
+  subtitle: "19 septembre 1870 : le siège commence — quatre mois d'encerclement"
+  narration: |
+    Un hiver, les Parisiens ont mangé les éléphants du zoo. Ce n'est pas une
+    légende. C'était il y a un siècle et demi.
+
+    Le 19 septembre 1870, les armées prussiennes achèvent d'encercler Paris. La
+    guerre a été déclarée en juillet, l'Empire s'est effondré à Sedan, la
+    République vient d'être proclamée. Reste la capitale : deux millions
+    d'habitants, des remparts, et plus aucune route ouverte.
+
+    Le siège durera plus de quatre mois.
+
+    Pour communiquer avec l'extérieur, Paris invente. Des ballons montés
+    s'élèvent au-dessus des lignes ennemies : une soixantaine partiront, emportant
+    le courrier et même le ministre Gambetta, envolé début octobre pour organiser
+    la résistance depuis la province. Dans l'autre sens, des pigeons voyageurs
+    rapportent des messages photographiés en tout petit — des milliers de
+    dépêches sur une seule pellicule.
+
+    Puis vient la faim. On mange les chevaux d'abord. Puis les chats, les
+    chiens, et les rats, vendus à la pièce sur des étals. Les restaurants
+    affichent des cartes surréalistes. Et en décembre, le Jardin
+    d'Acclimatation se résout à vendre ses pensionnaires : antilopes, chameaux,
+    et ses deux éléphants, Castor et Pollux, abattus et débités. Au réveillon,
+    une grande table parisienne propose du consommé d'éléphant.
+
+    Le froid s'en mêle : cet hiver-là est l'un des plus rudes du siècle. La
+    Seine charrie des glaçons, on brûle les meubles. En janvier, les obus
+    prussiens tombent sur la rive gauche.
+
+    Le 28 janvier 1871, Paris capitule. L'armistice est signé. Mais l'histoire
+    ne s'arrête pas là : deux mois plus tard, la ville affamée et humiliée se
+    soulève. Ce sera la Commune — mais c'est une autre histoire.
+
+    Il reste de ce siège des menus de restaurant qu'on s'échange aujourd'hui
+    comme des curiosités, des photographies de remparts, et une certitude : on
+    peut couper Paris du monde, on ne peut pas l'empêcher d'inventer.
+  tags:
+    - "siège de Paris"
+    - "1870"
+    - "Paris"
+    - "histoire de France"
+  cards:
+    - "En décembre 1870, Paris assiégée a mangé les deux éléphants de son zoo, Castor et Pollux — il y eut du consommé d'éléphant au réveillon."
+    - "Pendant le siège de 1870, Paris communiquait par ballons montés et pigeons voyageurs : une soixantaine de ballons ont franchi les lignes prussiennes."
+    - "Le 19 septembre 1870, les Prussiens achevaient d'encercler Paris : quatre mois de siège, un des hivers les plus rudes du siècle, et des rats vendus à l'étal."

@@ -1,0 +1,59 @@
+id: bras-henri4
+category: histoire
+status: ready
+
+image_queries:
+  - "Henri IV statue Pont Neuf Paris"
+  - "Pont Neuf Paris"
+  - "Napoleon statuette bronze"
+  - "Vendome column Napoleon statue"
+  - "bronze casting foundry 19th century"
+  - "Henri IV portrait painting"
+
+fr:
+  title: "Il y a un Napoléon caché dans la statue d'Henri IV"
+  subtitle: "1818 : la vengeance secrète d'un fondeur bonapartiste, sur le Pont-Neuf"
+  narration: |
+    Sur le Pont-Neuf, la statue du bon roi Henri IV cache un passager
+    clandestin : Napoléon.
+
+    Il faut remonter à 1818. Napoléon vient de tomber, les Bourbons sont de
+    retour. La Restauration veut effacer l'Empire et rétablir les symboles
+    royaux. Premier chantier : remettre Henri IV à cheval sur le Pont-Neuf, là
+    où sa statue trônait depuis 1614 — avant que la Révolution ne l'envoie à
+    la fonte.
+
+    Pour couler le nouveau bronze, on fait feu de tout métal. Et l'ironie
+    commence : on y sacrifie notamment des statues de Napoléon déboulonnées,
+    dont celle de la colonne Vendôme. Le vaincu fond, le roi renaît — la
+    boucle politique semble bouclée.
+
+    Sauf que le fondeur chargé de l'ouvrage, un certain Mesnel, est resté
+    fidèle à l'Empereur. Et selon le récit rapporté depuis le dix-neuvième
+    siècle, il glisse en secret, dans le bras droit de la statue, une petite
+    statuette de Napoléon — et des écrits cachés dans le cheval. Une vengeance
+    silencieuse : le roi restauré brandirait à jamais l'Empereur déchu, au
+    cœur de Paris, sans que personne ne le sache.
+
+    Légende de fondeur ? Pas seulement. Lors d'une restauration de la statue
+    en 2004, des experts ont sondé le bronze et retrouvé des boîtes et
+    documents d'époque dissimulés dans la structure — confirmant qu'on avait
+    bien caché des choses dans le cheval et son cavalier. Le détail exact du
+    contenu reste discuté, mais le principe, lui, est avéré : la statue a un
+    secret dans le ventre.
+
+    Depuis deux siècles, les passants saluent Henri IV, son panache et son
+    cheval. Peu savent qu'ils saluent peut-être aussi, sans le voir, un petit
+    Napoléon embusqué — dernière garnison de l'Empire, en plein cœur de la
+    monarchie retrouvée.
+
+    À Paris, même les statues ont une doublure.
+  tags:
+    - "Henri IV"
+    - "Napoléon"
+    - "Pont-Neuf"
+    - "Paris secret"
+  cards:
+    - "La statue d'Henri IV du Pont-Neuf a été coulée en 1818 avec le bronze de statues de Napoléon déboulonnées — le vaincu fondu dans le vainqueur."
+    - "Le fondeur Mesnel, resté bonapartiste, aurait caché une statuette de Napoléon dans le bras de la statue : une vengeance silencieuse au cœur de Paris."
+    - "Lors de la restauration de 2004, des documents d'époque ont bien été retrouvés dissimulés dans la statue : le secret du fondeur n'était pas une légende."

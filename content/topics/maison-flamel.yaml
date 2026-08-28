@@ -1,0 +1,60 @@
+id: maison-flamel
+category: decouverte
+status: ready
+
+image_queries:
+  - "Nicolas Flamel house rue Montmorency Paris"
+  - "Nicolas Flamel portrait engraving"
+  - "medieval Paris street houses"
+  - "alchemist laboratory old illustration"
+  - "Nicolas Flamel tombstone Paris"
+  - "Tour Saint-Jacques Paris"
+
+fr:
+  title: "La maison d'un « immortel », debout depuis 1407"
+  subtitle: "51 rue de Montmorency : la plus vieille maison de Paris et la légende de Flamel"
+  narration: |
+    La plus vieille maison de Paris a été bâtie par un homme dont la légende
+    dit qu'il n'est jamais mort.
+
+    Au 51 de la rue de Montmorency, dans le troisième arrondissement, une
+    façade de pierre porte une date : 1407. C'est la doyenne des maisons de la
+    capitale. Son bâtisseur s'appelle Nicolas Flamel.
+
+    Si le nom vous dit quelque chose, c'est normal : dans Harry Potter, c'est
+    lui, l'alchimiste ami de Dumbledore, détenteur de la pierre philosophale.
+    Mais Flamel n'est pas un personnage de roman. C'est un Parisien bien réel
+    du quatorzième siècle : écrivain public et libraire, installé près de
+    l'église Saint-Jacques-la-Boucherie, dont il ne reste aujourd'hui que la
+    tour — la tour Saint-Jacques.
+
+    Flamel est surtout étonnamment riche. Avec sa femme Pernelle, il finance
+    des chapelles, des hôpitaux, des portails d'église. Et cette maison de la
+    rue de Montmorency, il ne la construit pas pour lui : c'est un logis
+    d'accueil pour les pauvres. Sur la façade, une inscription gravée demande
+    aux occupants, en échange du toit, de dire chaque jour une prière pour les
+    morts.
+
+    D'où venait tout cet argent ? Sans doute d'un solide commerce et d'un beau
+    mariage. Mais dès le siècle suivant, une autre explication court : Flamel
+    aurait percé le secret de la pierre philosophale, celle qui change le plomb
+    en or et donne la vie éternelle. Des grimoires d'alchimie paraissent sous
+    son nom, longtemps après sa mort. Des curieux fouillent ses maisons à la
+    recherche d'or caché. Certains jurent l'avoir croisé, bien vivant, des
+    siècles plus tard.
+
+    Flamel est officiellement mort en 1418. Sa pierre tombale, qu'il avait
+    fait graver lui-même, est aujourd'hui au musée de Cluny.
+
+    Sa maison, elle, n'a jamais fermé : six siècles plus tard, on y sert
+    encore à manger. L'adresse la plus ancienne de Paris est toujours une
+    table ouverte — l'immortalité, peut-être, c'était ça.
+  tags:
+    - "Nicolas Flamel"
+    - "Paris"
+    - "Paris secret"
+    - "Moyen Âge"
+  cards:
+    - "La plus vieille maison de Paris, au 51 rue de Montmorency, date de 1407 — et son bâtisseur est Nicolas Flamel, l'alchimiste de la légende."
+    - "Flamel n'a pas construit sa maison pour lui : c'était un refuge pour les pauvres, contre une prière par jour, gravée dans la pierre de la façade."
+    - "Le Flamel de Harry Potter a vraiment existé : écrivain public parisien, si riche que la légende en a fait le détenteur de la pierre philosophale."

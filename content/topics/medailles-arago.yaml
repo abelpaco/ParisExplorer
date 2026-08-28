@@ -1,0 +1,60 @@
+id: medailles-arago
+category: decouverte
+status: ready
+
+image_queries:
+  - "Arago medallion Paris meridian bronze"
+  - "Paris Observatory building"
+  - "Francois Arago portrait"
+  - "Paris meridian line map"
+  - "Louvre courtyard pavement"
+  - "Greenwich observatory meridian line"
+
+fr:
+  title: "Une ligne invisible coupe Paris en deux"
+  subtitle: "Les 135 médailles Arago : le méridien vaincu par Greenwich"
+  narration: |
+    Une ligne invisible traverse Paris du nord au sud. Pour la voir, il faut
+    baisser les yeux.
+
+    Cent trente-cinq médaillons de bronze, gros comme la paume, sont scellés
+    dans les trottoirs, les cours et les pavés de la ville. Chacun porte un
+    seul mot : ARAGO, encadré d'un N et d'un S. Nord, Sud. Mis bout à bout,
+    ils dessinent une droite parfaite de plus de neuf kilomètres, de la porte
+    de Montmartre à la Cité universitaire, en passant par le Louvre et le
+    jardin du Luxembourg.
+
+    Cette droite, c'est le méridien de Paris. Tracé à partir de 1667, l'année
+    où naît l'Observatoire royal, il a servi de référence au monde savant
+    pendant deux siècles : c'est sur lui qu'on a mesuré la Terre, sur lui
+    qu'on a défini le mètre, sur lui que les cartes de France s'alignaient.
+
+    Puis vint le duel. À la fin du dix-neuvième siècle, chaque grande nation
+    veut que le méridien zéro du monde passe chez elle. En 1884, une
+    conférence internationale tranche à Washington : ce sera Greenwich, porté
+    par la puissance maritime britannique. La France, vexée, s'abstient — et
+    gardera l'heure de Paris encore des décennies, par fierté, avant de se
+    rallier discrètement.
+
+    Le méridien de Paris aurait pu disparaître des mémoires. En 1994, un
+    artiste néerlandais, Jan Dibbets, lui offre un monument à l'envers :
+    plutôt qu'une statue, une constellation de médaillons au sol, en hommage à
+    François Arago, l'astronome qui avait prolongé la mesure du méridien
+    jusqu'aux Baléares.
+
+    Depuis, la ligne vit une seconde vie. Un célèbre roman à énigmes en a fait
+    une fausse « Rose Ligne » menant à un secret enfoui sous le Louvre — et
+    des touristes du monde entier traquent les médaillons, quand des
+    collectionneurs indélicats en descellent certains.
+
+    Cherchez le mot ARAGO sous vos semelles : vous marchez sur l'ancien centre
+    du monde.
+  tags:
+    - "méridien de Paris"
+    - "Arago"
+    - "Paris secret"
+    - "sciences"
+  cards:
+    - "135 médaillons de bronze gravés ARAGO traversent Paris en ligne droite : c'est le méridien de Paris, l'ancien rival de Greenwich."
+    - "En 1884, le monde a choisi Greenwich comme méridien zéro : la France, vexée, s'est abstenue — et a gardé l'heure de Paris des décennies par fierté."
+    - "La « Rose Ligne » du Da Vinci Code existe presque : suivez les médailles Arago, du Louvre au jardin du Luxembourg."

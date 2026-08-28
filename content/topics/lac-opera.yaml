@@ -1,0 +1,55 @@
+id: lac-opera
+category: decouverte
+status: ready
+
+image_queries:
+  - "Palais Garnier Paris Opera facade"
+  - "Palais Garnier grand staircase"
+  - "Opera Garnier chandelier auditorium"
+  - "Paris firefighters diving training"
+  - "Phantom of the Opera illustration 1910"
+  - "Palais Garnier construction 19th century"
+
+fr:
+  title: "Il y a un lac sous l'Opéra de Paris"
+  subtitle: "La cuve secrète du palais Garnier — et le vrai décor du Fantôme"
+  narration: |
+    Il y a un lac sous l'Opéra de Paris. Un vrai. Avec de l'eau noire, une
+    voûte, et des plongeurs qui s'y entraînent.
+
+    Quand Charles Garnier commence son opéra, en 1861, le chantier tourne vite
+    au cauchemar : le sous-sol est gorgé d'eau. La nappe remonte sans cesse,
+    les pompes tournent jour et nuit, rien n'y fait.
+
+    Garnier retourne alors le problème : puisque l'eau ne veut pas partir,
+    il va l'enfermer. Sous les fondations, il fait construire une immense cuve
+    étanche, un double caisson de béton et de bitume. L'eau emprisonnée cesse
+    de pousser n'importe où : son poids stabilise l'édifice, et la nappe est
+    contenue. Le monstre de pierre — 11 000 mètres carrés, le plus grand
+    théâtre de son temps — peut s'élever au-dessus.
+
+    Cette cuve est toujours là, toujours en eau. On y descend par les
+    sous-sols, à plusieurs niveaux sous la scène. L'eau est froide, sombre,
+    étrangement claire quand on l'éclaire. Et elle sert encore : c'est une
+    réserve d'eau en cas d'incendie, et les plongeurs des pompiers de Paris
+    viennent s'y entraîner, dans le noir, sous l'un des monuments les plus
+    dorés de la capitale.
+
+    En 1910, un romancier s'empare du lieu. Gaston Leroux, ancien reporter,
+    publie « Le Fantôme de l'Opéra » : un être masqué hante les sous-sols du
+    palais Garnier et traverse un lac souterrain en barque. Le roman deviendra
+    l'une des comédies musicales les plus jouées au monde. Des millions de
+    spectateurs croient à une pure invention — le lac, lui, existe bel et bien.
+
+    Il y a donc deux opéras à Paris : celui des ors, des loges et du grand
+    escalier. Et, dix mètres plus bas, une nappe d'eau silencieuse qui porte
+    tout le reste sur son dos.
+  tags:
+    - "Opéra Garnier"
+    - "Paris"
+    - "Paris secret"
+    - "Fantôme de l'Opéra"
+  cards:
+    - "Il y a un vrai lac sous l'Opéra Garnier : une cuve d'eau construite pour dompter la nappe phréatique — les plongeurs des pompiers s'y entraînent encore."
+    - "Le chantier de l'Opéra était inondé en permanence : Garnier a enfermé l'eau dans un caisson étanche, et son poids stabilise le monument depuis 160 ans."
+    - "Le lac du Fantôme de l'Opéra n'est pas une invention de Gaston Leroux : il existe, dans le noir, sous la scène du palais Garnier."
