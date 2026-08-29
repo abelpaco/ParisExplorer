@@ -1,5 +1,41 @@
 [
   {
+    "when": "2026-08-29T15:25+02:00",
+    "key": "louvre-forteresse:en:card-3",
+    "kind": "card",
+    "lang": "en",
+    "category": "histoire",
+    "title": "In the 1980s, the Grand Louvre excavations unearthed the medieval fortress: today you can…",
+    "video": "content/cards/louvre-forteresse/louvre-forteresse-en-story-03.mp4",
+    "meta": "content/cards/louvre-forteresse/louvre-forteresse-en-story-03.json",
+    "short": null,
+    "card": 3
+  },
+  {
+    "when": "2026-08-29T17:10+02:00",
+    "key": "crue-1910:fr:card-3",
+    "kind": "card",
+    "lang": "fr",
+    "category": "histoire",
+    "title": "Plus d'un siècle après, tout projet construit au bord de la Seine doit prouver qu'il…",
+    "video": "content/cards/crue-1910/crue-1910-fr-story-03.mp4",
+    "meta": "content/cards/crue-1910/crue-1910-fr-story-03.json",
+    "short": null,
+    "card": 3
+  },
+  {
+    "when": "2026-08-29T18:55+02:00",
+    "key": "halles-ventre:fr:card-3",
+    "kind": "card",
+    "lang": "fr",
+    "category": "histoire",
+    "title": "Les douze pavillons de Baltard, copiés dans le monde entier, ont été démolis en 1971-1973…",
+    "video": "content/cards/halles-ventre/halles-ventre-fr-story-03.mp4",
+    "meta": "content/cards/halles-ventre/halles-ventre-fr-story-03.json",
+    "short": null,
+    "card": 3
+  },
+  {
     "when": "2026-08-30T09:00+02:00",
     "key": "bievre:fr",
     "kind": "long",

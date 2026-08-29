@@ -61,10 +61,22 @@ def main() -> int:
         )
 
     maintenant = datetime.now(timezone.utc)
+    # Trou de couverture immediate : une reserve confortable au bout du plan
+    # ne sert a rien si les prochaines 24 h sont vides — vecu DEUX fois (28 et
+    # 29/08) : une regeneration lancee apres minuit UTC demarre au lendemain
+    # et efface le jour courant.
+    prochain = None
+    if dernier is not None:
+        futurs = [datetime.fromisoformat(s["when"]) for s in plan
+                  if datetime.fromisoformat(s["when"]) > maintenant]
+        prochain = min(futurs, default=None)
+    trou_24h = prochain is None or (prochain - maintenant).total_seconds() > 24 * 3600
+
     if dernier is not None:
         reste = (dernier - maintenant).total_seconds() / 3600
-        if reste >= RESERVE_HEURES:
-            logger.info("Plan couvert jusqu'au %s (%.0f h de reserve).", dernier, reste)
+        if reste >= RESERVE_HEURES and not trou_24h:
+            logger.info("Plan couvert jusqu'au %s (%.0f h de reserve), prochain creneau %s.",
+                        dernier, reste, prochain)
             return 0
     else:
         reste = 0.0
@@ -75,9 +87,18 @@ def main() -> int:
         logger.info("Reserve basse (%.0f h) mais deja alerte aujourd'hui.", reste)
         return 0
 
+    if dernier is None:
+        detail = "est VIDE"
+    elif trou_24h:
+        detail = (
+            f"a un TROU : aucun creneau dans les prochaines 24 h "
+            f"(prochain : {prochain:%d/%m %H:%M} UTC)" if prochain else
+            "n'a plus aucun creneau futur"
+        )
+    else:
+        detail = f"se termine le {dernier:%d/%m a %H:%M} ({reste:.0f} h de reserve)"
     texte = (
-        "⚠️ Paris Explorer : le calendrier de publication "
-        + ("est VIDE" if dernier is None else f"se termine le {dernier:%d/%m a %H:%M} ({reste:.0f} h de reserve)")
+        "⚠️ Paris Explorer : le calendrier de publication " + detail
         + ".\nRegenerer : cd ~/parisexplorer && .venv/bin/python plan_week.py"
     )
     if _alerter(texte):
