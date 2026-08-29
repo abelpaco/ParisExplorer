@@ -83,3 +83,4 @@ content/metadata/*.bak*
 
 # Jeton du bot Telegram du canal
 telegram_annonce.secret
+anthropic.secret

@@ -361,6 +361,15 @@ def main(argv=None) -> int:
         if subject.anchor_date:
             anchors.setdefault(subject.id, subject.anchor_date)
     items = discover(topics)
+    # Droit de retrait de Paco (bot_ecoute.py) : un sujet retire ne doit
+    # jamais etre replanifie, meme si ses fichiers existent sur le disque.
+    retires_file = Path("content/metadata/sujets_retires.json")
+    if retires_file.exists():
+        retires = set(json.loads(retires_file.read_text(encoding="utf-8"))["retires"])
+        avant = len(items)
+        items = [i for i in items if i.topic_id not in retires]
+        if len(items) != avant:
+            logger.info("%d publication(s) ecartees (sujets retires).", avant - len(items))
     registry = TopicRegistry()
     published = {name.lower() for name in registry.published_names()}
 
