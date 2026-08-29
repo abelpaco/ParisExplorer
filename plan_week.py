@@ -58,11 +58,13 @@ DEFAULT_SLOTS = ["08:00", "10:30", "13:00", "16:30", "19:30"]
 # en ete, d'une en hiver — sans jamais lever la moindre erreur.
 DEFAULT_TIMEZONE = "Europe/Paris"
 
-# Un quota d'API standard (10 000 unites par jour) et un envoi a ~1600 unites
-# donnent six envois quotidiens au maximum. On refuse d'en planifier plus :
-# depasser ne produit pas une erreur claire, ca produit des echecs en fin de
-# journee, quand personne ne regarde.
-MAX_UPLOADS_PER_DAY = 6
+# Quota etendu le 28/08/2026 (audit API approuve) : 26 000 unites/jour pendant
+# six mois, soit seize envois theoriques a ~1600 unites piece. On en autorise
+# quinze — la marge paie les videos.list du suivi et un rattrapage manuel.
+# Depasser ne produit pas une erreur claire, ca produit des echecs en fin de
+# journee, quand personne ne regarde. A l'echeance du grant (~fevrier 2027),
+# si le quota retombe a 10 000, ramener cette constante a 6.
+MAX_UPLOADS_PER_DAY = 15
 
 # Nombre maximal de publications tirees d'une meme unite sujet+langue. Les
 # Shorts sont decoupes dans la narration de la video longue : au-dela de deux,
@@ -74,6 +76,19 @@ MAX_PER_UNIT = 2
 # moitie de semaine devient lourde, la seconde n'offre plus que du format court
 # a qui decouvre la chaine ce jour-la. Chaque journee doit se tenir seule.
 LONGS_PER_DAY = 2
+
+# Les jours ou l'audience est la et ou le quota le permet, on publie plus
+# (directive Paco du 28/08/2026) : jour anniversaire d'un sujet ancre, ou
+# jour ferie francais. Creneaux de ces jours charges — surchargeables par
+# `schedule.post_times_charge` dans config.yaml.
+SLOTS_CHARGE = ["08:00", "09:30", "11:00", "12:30", "14:00",
+                "15:30", "17:00", "18:30", "20:00"]
+
+# Feries francais a date fixe. Les fetes mobiles (Paques, Ascension,
+# Pentecote) demanderaient un comput — hors de proportion ici : les ajouter
+# l'annee venue via `schedule.jours_charges` dans config.yaml si on y tient.
+FERIES_FRANCE = {"01-01", "05-01", "05-08", "07-14", "08-15",
+                 "11-01", "11-11", "12-25"}
 
 
 @dataclass
@@ -218,20 +233,28 @@ def build_plan(
     slots: List[str],
     zone: ZoneInfo,
     anchors: Optional[Dict[str, str]] = None,
+    slots_charge: Optional[List[str]] = None,
+    jours_charges_extra: Optional[set] = None,
 ) -> List[Slot]:
     """Repartit les publications sur ``days`` jours.
 
     ``anchors`` associe un sujet a sa date anniversaire (MM-JJ). Un sujet ancre
     n'est candidat QUE le jour anniversaire — « ce jour-la a Paris » publie un
     autre jour perdrait tout son sens — et ce jour-la, il passe en tete.
+
+    ``slots_charge`` remplace ``slots`` les jours charges : anniversaire d'un
+    sujet ancre encore en stock, ferie francais, ou date de
+    ``jours_charges_extra`` (MM-JJ). Le quota etendu ne sert a rien s'il dort.
     """
     anchors = anchors or {}
-    if len(slots) > MAX_UPLOADS_PER_DAY:
-        raise ValueError(
-            f"{len(slots)} creneaux par jour, mais le quota d'API n'en autorise "
-            f"que {MAX_UPLOADS_PER_DAY}. Reduis la cadence ou demande une "
-            f"extension de quota."
-        )
+    jours_charges_extra = jours_charges_extra or set()
+    for liste in (slots, slots_charge or []):
+        if len(liste) > MAX_UPLOADS_PER_DAY:
+            raise ValueError(
+                f"{len(liste)} creneaux par jour, mais le quota d'API n'en "
+                f"autorise que {MAX_UPLOADS_PER_DAY}. Reduis la cadence ou "
+                f"demande une extension de quota."
+            )
 
     available = [i for i in items if i.key not in published]
     per_unit: Dict[str, int] = {}
@@ -245,7 +268,20 @@ def build_plan(
         day_key = day.strftime("%m-%d")
         day_topics: set = set()
         day_longs = 0
-        for slot_text in slots:
+        # Jour charge : un sujet ancre tombe ce jour-la ET a encore du stock
+        # (un anniversaire sans contenu ne merite pas neuf creneaux), ou ferie.
+        jour_charge = bool(slots_charge) and (
+            day_key in FERIES_FRANCE
+            or day_key in jours_charges_extra
+            or any(anchors.get(i.topic_id) == day_key for i in available)
+        )
+        day_slots = slots_charge if jour_charge else slots
+        if jour_charge:
+            logger.info(
+                "Jour charge %s : %d creneaux au lieu de %d.",
+                day, len(day_slots), len(slots),
+            )
+        for slot_text in day_slots:
             hour, minute = (int(p) for p in slot_text.split(":"))
             candidates = [
                 i for i in available
@@ -301,6 +337,8 @@ def main(argv=None) -> int:
     config = yaml.safe_load(Path("config.yaml").read_text(encoding="utf-8")) or {}
     schedule_cfg = config.get("schedule", {})
     slots = args.slots or schedule_cfg.get("post_times") or DEFAULT_SLOTS
+    slots_charge = schedule_cfg.get("post_times_charge") or SLOTS_CHARGE
+    jours_charges_extra = set(schedule_cfg.get("jours_charges") or [])
     zone_name = schedule_cfg.get("timezone") or DEFAULT_TIMEZONE
     try:
         zone = ZoneInfo(zone_name)
@@ -334,7 +372,8 @@ def main(argv=None) -> int:
 
     try:
         plan = build_plan(items, published, start, args.days, list(slots), zone,
-                          anchors=anchors)
+                          anchors=anchors, slots_charge=list(slots_charge),
+                          jours_charges_extra=jours_charges_extra)
     except ValueError as exc:
         logger.error("%s", exc)
         return 1
