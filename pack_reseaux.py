@@ -78,10 +78,23 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Ecrit les legendes reseaux des publications.")
     parser.add_argument("--init", action="store_true",
                         help="marque tout l'existant comme traite, sans rien ecrire")
+    parser.add_argument("--regenerer", action="store_true",
+                        help="reecrit TOUS les packs avec les textes actuels")
     args = parser.parse_args(argv)
 
     publications = json.load(open(REGISTRY_FILE, encoding="utf-8"))["published"]
     etat = set(json.loads(STATE_FILE.read_text(encoding="utf-8"))["traites"]) if STATE_FILE.exists() else set()
+
+    if args.regenerer:
+        # Les packs ecrits avant `texte_social` portent les titres — donc les
+        # doublons. Les corriger en place est impossible (le fichier est un
+        # journal en ajout) : on efface et on reecrit tout.
+        efface = 0
+        for ancien in POSTS_ROOT.glob("*/*-reseaux.md"):
+            ancien.unlink()
+            efface += 1
+        etat = set()
+        logger.info("Regeneration : %d pack(s) efface(s), reecriture complete.", efface)
 
     if args.init:
         etat |= {p["name"] for p in publications}

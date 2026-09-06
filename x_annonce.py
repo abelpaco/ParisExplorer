@@ -27,6 +27,15 @@ LES CINQ LIGNES QU'IL NE FRANCHIT PAS
 5. **Il s'arrete tout seul.** Deux echecs consecutifs et la boucle se
    desarme en prevenant Paco ; un 429 fait reculer, jamais insister.
 
+ETAT AU 06/09/2026 : EN SOMMEIL
+------------------------------
+Le compte @parisexplorer75 n'est pas encore eligible a l'acces API, donc
+RIEN ne part d'ici pour l'instant : X est entierement manuel, servi par les
+legendes de pack_reseaux et le depot du jour. Ce module attend son
+fichier de cles sans rien casser — et le detour a du bon : quelques
+semaines de publications faites main donnent au compte l'anciennete et
+l'activite humaine qui manquaient au compte personnel suspendu.
+
     python x_annonce.py --sonde    verifie les cles et l'acces, ne publie rien
     python x_annonce.py --init     marque l'existant comme traite
     python x_annonce.py            publie ce qui est du (cron)

@@ -78,10 +78,26 @@ def main(argv=None) -> int:
     parser = argparse.ArgumentParser(description="Depose mp4 + legendes pour la diffusion manuelle.")
     parser.add_argument("--init", action="store_true",
                         help="marque tout l'existant comme depose, sans rien copier")
+    parser.add_argument("--relegender", action="store_true",
+                        help="reecrit les legendes deja deposees, sans retoucher aux mp4")
     args = parser.parse_args(argv)
 
     publications = json.load(open(REGISTRY_FILE, encoding="utf-8"))["published"]
     etat = set(json.loads(STATE_FILE.read_text(encoding="utf-8"))["deposes"]) if STATE_FILE.exists() else set()
+
+    if args.relegender:
+        # Les legendes deposees avant `texte_social` portent les titres, donc
+        # les doublons. Seuls les .txt sont reecrits : recopier les mp4 ferait
+        # retransferer des centaines de megaoctets pour rien.
+        par_nom = {e["name"]: e for e in publications}
+        refaits = 0
+        for txt in sorted(DEPOT_ROOT.glob("*/*.txt")):
+            entree = par_nom.get(txt.stem.replace("_", ":"))
+            if entree:
+                txt.write_text(_legendes(entree), encoding="utf-8")
+                refaits += 1
+        logger.info("%d legende(s) reecrite(s) avec les textes actuels.", refaits)
+        return 0
 
     if args.init:
         etat |= {p["name"] for p in publications}
