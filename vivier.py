@@ -53,6 +53,9 @@ SECRET_ANTHROPIC = Path("anthropic.secret")
 RESERVE_DECLENCHEMENT_H = 168   # 7 jours : la boucle a le temps de tout faire
 COOLDOWN_JOURS = 3
 N_SUJETS = 10
+# Autant que de phrases dans le bloc ``cards`` d'un sujet : elles sont
+# ecrites a la main, une par carte.
+CARTES_PAR_SUJET = 3
 MODELE = "claude-sonnet-5"      # l'ecriture est le produit : pas d'economie ici
 MAX_TOKENS = 16000
 
@@ -292,14 +295,38 @@ def main(argv=None) -> int:
             )
         logger.info("%d sujet(s) ecrits dans %s.", len(sujets), TOPICS_DIR)
 
-        produits, echecs = [], []
+        produits, echecs, sans_cartes = [], [], []
         for tid, _, _ in sujets:
             r = subprocess.run(
                 [".venv/bin/python", "produce_topic.py", tid, "--lang", "fr"],
                 capture_output=True, text=True,
             )
-            (produits if r.returncode == 0 else echecs).append(tid)
-            logger.info("Production %s : %s", tid, "ok" if r.returncode == 0 else "ECHEC")
+            if r.returncode != 0:
+                echecs.append(tid)
+                # Sans cette trace, un echec restait muet : il a fallu rejouer
+                # la production a la main pour savoir ce qui avait lache.
+                logger.error("Production %s : ECHEC\n%s", tid, r.stderr[-800:])
+                continue
+            produits.append(tid)
+            logger.info("Production %s : ok", tid)
+
+            # Les cartes, dans la foulee. Sans elles un sujet n'a ni carte
+            # animee ni pack Communaute — et le stock de cartes ne se
+            # renouvelle JAMAIS, alors que le calendrier en reclame une par
+            # jour. Vingt-huit sujets sur quarante et un s'etaient ainsi
+            # retrouves sans la moindre carte avant qu'on s'en apercoive.
+            rc = subprocess.run(
+                [".venv/bin/python", "visual_cards.py", tid, "--lang", "fr",
+                 "--format", "story", "--animate", "--count", str(CARTES_PAR_SUJET)],
+                capture_output=True, text=True,
+            )
+            if rc.returncode == 0:
+                logger.info("Cartes %s : ok", tid)
+            else:
+                # Une video sans ses cartes reste publiable : on note et on
+                # continue, plutot que de perdre le sujet entier.
+                sans_cartes.append(tid)
+                logger.error("Cartes %s : ECHEC\n%s", tid, rc.stderr[-800:])
 
         sauvegarde = json.loads(PLAN_FILE.read_text(encoding="utf-8"))
         r = subprocess.run([".venv/bin/python", "plan_week.py", "--days", "21"],
@@ -316,6 +343,8 @@ def main(argv=None) -> int:
         _dm(
             f"✅ Vivier régénéré : {len(produits)} sujet(s) produits"
             + (f", {len(echecs)} échec(s) ({', '.join(echecs)})" if echecs else "")
+            + (f", {len(sans_cartes)} sans cartes ({', '.join(sans_cartes)})"
+               if sans_cartes else "")
             + f". Plan : {len(plan)} créneaux jusqu'au {fin[:10]}."
         )
         return 0
