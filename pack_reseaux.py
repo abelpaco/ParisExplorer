@@ -26,6 +26,8 @@ import logging
 import sys
 from pathlib import Path
 
+import texte_social
+
 logger = logging.getLogger("reseaux")
 
 REGISTRY_FILE = Path("content/metadata/published_topics.json")
@@ -54,7 +56,9 @@ def _lang_de(name: str) -> str:
 def _bloc(entree: dict) -> str:
     lang = _lang_de(entree["name"])
     tags = HASHTAGS.get(lang, HASHTAGS["fr"])
-    titre = entree["title"].replace(" #Shorts", "").strip()
+    # L'accroche, jamais le titre : plusieurs Shorts d'une meme video portent
+    # le MEME titre, et les reseaux sanctionnent le contenu duplique.
+    titre = texte_social.texte_attribue(entree["name"], entree["title"])
     lien = f"https://youtu.be/{entree['video_id']}"
     quand = entree.get("published_at", "")[:10]
     return (

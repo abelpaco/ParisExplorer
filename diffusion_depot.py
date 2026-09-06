@@ -35,6 +35,7 @@ STATE_FILE = Path("content/metadata/diffusion_depot.json")
 DEPOT_ROOT = Path("content/diffusion-manuelle")
 PURGE_JOURS = 7
 
+import texte_social
 from telegram_annonce import _fichier_local  # meme logique de resolution
 from pack_reseaux import HASHTAGS, _lang_de
 
@@ -42,7 +43,9 @@ from pack_reseaux import HASHTAGS, _lang_de
 def _legendes(entree: dict) -> str:
     lang = _lang_de(entree["name"])
     tags = HASHTAGS.get(lang, HASHTAGS["fr"])
-    titre = entree["title"].replace(" #Shorts", "").strip()
+    # Meme accroche que le pack reseaux : l'attribution est journalisee, donc
+    # un Short porte le meme texte partout — et ce texte n'appartient qu'a lui.
+    titre = texte_social.texte_attribue(entree["name"], entree["title"])
     lien = f"https://youtu.be/{entree['video_id']}"
     return (
         f"{entree['name']} — publie le {entree.get('published_at', '')[:16]}\n"
