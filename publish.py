@@ -118,6 +118,25 @@ def publish(
             )
 
     title = data["title"]
+    if short:
+        # Les Shorts d'une meme video heritaient tous de SON titre : trois
+        # publications rigoureusement identiques dans le fil vertical, ce qui
+        # dessert le referencement autant que le spectateur, persuade d'avoir
+        # deja vu celle-la. On leur donne la phrase que `texte_social` leur a
+        # attribuee — la meme qui sert de legende sur les autres reseaux. Les
+        # cartes, elles, portent deja leur propre phrase pour titre.
+        #
+        # Chemin critique : la publication tourne toutes les quinze minutes.
+        # Un titre moins bon vaut mieux qu'une publication qui n'part pas, donc
+        # l'echec retombe sur l'ancien comportement au lieu d'interrompre.
+        try:
+            import texte_social
+            title = texte_social.titre_court(key, data["title"])
+        except Exception as exc:
+            logger.warning(
+                "Titre distinct indisponible pour %s (%s) : titre de la video "
+                "longue conserve.", key, exc,
+            )
     if short or card:
         # Le suffixe #Shorts n'est pas cosmetique : c'est ce qui range la video
         # dans le fil vertical de YouTube plutot que dans le catalogue normal.

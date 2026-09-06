@@ -229,3 +229,37 @@ def texte_attribue(name: str, titre_de_repli: str = "") -> str:
 def deja_publie(texte: str) -> bool:
     """Ce texte a-t-il deja ete attribue a une autre publication ?"""
     return texte in set(_charger_journal().values())
+
+
+def titre_court(name: str, titre_de_repli: str = "", limite: int = 90) -> str:
+    """Le texte de ``name``, ramene a la longueur d'un titre YouTube.
+
+    Les cartes procedent ainsi depuis toujours — leur titre est leur phrase,
+    tronquee au mot. Les Shorts heritaient au contraire du titre de leur
+    video longue : trois Shorts d'un meme sujet portaient donc le MEME titre
+    dans le fil vertical, ce qui dessert autant le referencement que le
+    spectateur, qui croit avoir deja vu la video.
+    """
+    texte = texte_attribue(name, titre_de_repli)
+    if len(texte) <= limite:
+        return texte
+
+    # Couper au compteur donne des titres estropies (« ... la ville est tenue
+    # par les »). On cherche d'abord une frontiere de sens : une ponctuation
+    # forte, sinon une virgule, a condition qu'elle laisse un titre d'une
+    # longueur decente. La proposition ainsi obtenue se suffit a elle-meme et
+    # ne porte pas de points de suspension — ce n'est pas un texte coupe,
+    # c'est une accroche.
+    plancher = max(30, int(limite * 0.4))
+    for signes in (":.!?;", ","):
+        coupure = max(
+            (texte.rfind(s, 0, limite) for s in signes),
+            default=-1,
+        )
+        if coupure >= plancher:
+            return texte[:coupure].rstrip(" ,;:.")
+
+    coupe = texte[:limite - 1]
+    if " " in coupe:
+        coupe = coupe[:coupe.rfind(" ")]
+    return coupe.rstrip(" ,;:.") + "…"
