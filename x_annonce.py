@@ -65,10 +65,24 @@ API_UPLOAD = "https://upload.x.com/1.1/media/upload.json"
 
 # X compte un lien pour 23 caracteres quelle que soit sa longueur.
 LIMITE_TEXTE = 280
+LONGUEUR_LIEN = 23
 # Une video native porte bien mieux qu'un lien sortant, que l'algorithme
 # etrangle. Le lien vers la chaine vit dans la bio, pas dans chaque post.
 TAILLE_MAX_VIDEO = 500 * 1024 * 1024
+# Duree maximale d'une video pour un compte standard. Nos Shorts (30-60 s)
+# passent ; nos videos longues (2-3 min) non — elles partent donc en texte
+# accompagne du lien YouTube, ce qui a du sens : on veut justement que le
+# spectateur aille les voir en entier sur la chaine. A confirmer au premier
+# essai reel, la valeur pouvant differer selon le palier du compte.
+DUREE_MAX_VIDEO_S = 140
 MORCEAU = 4 * 1024 * 1024
+
+# Les CARTES ne partent jamais d'ici : Paco les publie a la main, avec son
+# propre texte (decision du 06/09/2026). Ce n'est pas une lubie — un compte
+# dont toute l'activite est robotique attire l'oeil des filtres, et c'est
+# exactement ce qui a coute le compte personnel. Une publication humaine par
+# jour au milieu de deux publications automatiques, c'est un compte vivant.
+KINDS_MANUELS = ("card",)
 
 # Montee en puissance : un compte neuf qui publie trois fois par jour des le
 # premier jour ressemble a ce que les filtres cherchent. Trois semaines pour
@@ -183,16 +197,40 @@ def _peut_publier(etat: dict, rampe: bool) -> tuple[bool, str]:
     return True, ""
 
 
-def _composer(accroche: str, lang: str) -> str:
-    """Accroche + mots-cles, sous la limite, coupe au mot."""
+def _kind(name: str) -> str:
+    """« card », « short » ou « long », d'apres la cle du registre."""
+    parts = name.split(":")
+    if len(parts) < 3:
+        return "long"
+    return "card" if parts[2].startswith("card-") else "short"
+
+
+def _duree(video: Path) -> Optional[float]:
+    import subprocess
+    try:
+        r = subprocess.run(
+            ["ffprobe", "-v", "error", "-show_entries", "format=duration",
+             "-of", "csv=p=0", str(video)],
+            capture_output=True, text=True, timeout=60,
+        )
+        return float(r.stdout.strip())
+    except Exception:
+        return None
+
+
+def _composer(accroche: str, lang: str, lien: Optional[str] = None) -> str:
+    """Accroche, lien eventuel et mots-cles, sous la limite, coupe au mot."""
     tags = MOTS_CLES.get(lang, MOTS_CLES["fr"])
     place = LIMITE_TEXTE - len(tags) - 2
+    if lien:
+        place -= LONGUEUR_LIEN + 1
     if len(accroche) > place:
         coupe = accroche[:place - 1]
         if " " in coupe:
             coupe = coupe[:coupe.rfind(" ")]
         accroche = coupe.rstrip(" ,;:.") + "…"
-    return f"{accroche}\n\n{tags}"
+    corps = f"{accroche}\n{lien}" if lien else accroche
+    return f"{corps}\n\n{tags}"
 
 
 # ---------------------------------------------------------------------------
@@ -311,9 +349,11 @@ def main(argv=None) -> int:
         logger.info("Rien ne part maintenant : %s.", motif)
         return 0
 
-    attente = [e for e in publications if e["name"] not in etat["publies"]]
+    attente = [e for e in publications
+               if e["name"] not in etat["publies"]
+               and _kind(e["name"]) not in KINDS_MANUELS]
     if not attente:
-        logger.info("Rien a publier.")
+        logger.info("Rien a publier automatiquement (les cartes sont manuelles).")
         return 0
     entree = attente[0]
 
@@ -325,8 +365,17 @@ def main(argv=None) -> int:
             f"(règle anti-duplication). Rien n'a été publié.")
         return 1
 
-    texte = _composer(accroche, entree["name"].split(":")[1] if ":" in entree["name"] else "fr")
+    lang = entree["name"].split(":")[1] if ":" in entree["name"] else "fr"
+    # Video native quand elle tient dans la limite, sinon le lien : une video
+    # tronquee par X vaut moins qu'un lien assume vers la version entiere.
     video = _fichier_local(entree["name"])
+    duree = _duree(video) if video else None
+    if video and duree and duree > DUREE_MAX_VIDEO_S:
+        logger.info("%s dure %.0f s (> %d) : envoi en texte + lien.",
+                    entree["name"], duree, DUREE_MAX_VIDEO_S)
+        video = None
+    lien = None if video else f"https://youtu.be/{entree['video_id']}"
+    texte = _composer(accroche, lang, lien)
     try:
         tweet_id = _publier(_auth(secret), texte, video)
     except Exception as exc:

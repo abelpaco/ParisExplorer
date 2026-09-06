@@ -71,11 +71,22 @@ MAX_UPLOADS_PER_DAY = 15
 # on sert le meme contenu.
 MAX_PER_UNIT = 2
 
-# Videos longues visees par jour, le reste en Shorts. Sans cette cible, le
-# planificateur ecoule d'abord TOUS les longs puis tous les Shorts : la premiere
-# moitie de semaine devient lourde, la seconde n'offre plus que du format court
-# a qui decouvre la chaine ce jour-la. Chaque journee doit se tenir seule.
-LONGS_PER_DAY = 2
+# Composition d'une journee, creneau par creneau (decision Paco du 06/09/2026,
+# le catalogue ayant desormais du fond) : une video longue, un Short, une
+# carte. La sequence se repete telle quelle les jours charges — neuf creneaux
+# donnent trois de chaque.
+#
+# C'est une CIBLE, pas un filtre : si le stock ne contient rien du format
+# attendu, le planificateur sert autre chose plutot que de laisser un trou.
+#
+# Deux versions ont precede celle-ci, et leurs defauts expliquent sa forme.
+# Une cible chiffree de longs par jour ecoulait d'abord tous les longs, puis
+# tous les Shorts : la premiere moitie de semaine devenait lourde et la
+# seconde n'offrait plus que du format court. Une preference fixe aux cartes
+# a ensuite fait monopoliser les soirees des que leur stock a grossi, faisant
+# disparaitre les Shorts. Une sequence explicite ne peut deriver ni dans un
+# sens ni dans l'autre.
+COMPOSITION_JOUR = ("long", "short", "card")
 
 # Les jours ou l'audience est la et ou le quota le permet, on publie plus
 # (directive Paco du 28/08/2026) : jour anniversaire d'un sujet ancre, ou
@@ -196,33 +207,24 @@ def discover(topics: Dict[str, str]) -> List[Item]:
 
 
 def _score(
-    item: Item, previous: Optional[Item], day_topics: set, day_longs: int,
-    anchored_today: bool = False, prefer_kind: Optional[str] = None,
+    item: Item, previous: Optional[Item], day_topics: set,
+    kind_voulu: Optional[str] = None, anchored_today: bool = False,
 ) -> tuple:
     """Cle de tri : plus c'est petit, plus le candidat convient a ce creneau.
 
     L'ordre des composantes EST la priorite des regles. Un sujet dont c'est le
     jour anniversaire passe devant tout : c'est sa seule fenetre de l'annee.
-    Ensuite, le sujet deja vu dans la journee pese plus lourd que la langue,
-    qui pese plus lourd que la categorie, qui pese plus lourd que le format.
+    Vient ensuite le FORMAT attendu a ce creneau — la composition d'une
+    journee est une promesse faite au spectateur qui decouvre la chaine ce
+    jour-la, elle prime sur la variete de langue ou de categorie. Le reste
+    departage : sujet deja vu aujourd'hui, puis langue, puis categorie.
     """
+    wrong_kind = kind_voulu is not None and item.kind != kind_voulu
     same_topic_today = item.topic_id in day_topics
     same_lang = previous is not None and item.lang == previous.lang
     same_category = previous is not None and item.category == previous.category
-    # Le format voulu depend de ce que la journee contient DEJA : on prend des
-    # longs tant que la cible du jour n'est pas atteinte, des Shorts ensuite.
-    wants_long = day_longs < LONGS_PER_DAY
-    wrong_format = (item.kind == "long") != wants_long
-    # A creneau non-long, cartes et Shorts se RELAIENT : le planificateur
-    # prefere le format le moins servi jusqu'ici. Une premiere version donnait
-    # une preference fixe aux cartes (sans elle, le depart a la CLE
-    # alphabetique les ecartait toujours) ; des que le stock de cartes a
-    # grossi, elles ont monopolise tous les soirs et les Shorts ont disparu —
-    # l'inverse exact des « formats meles » voulus.
-    off_kind = (prefer_kind is not None and item.kind != "long"
-                and item.kind != prefer_kind)
-    return (not anchored_today, same_topic_today, same_lang, same_category,
-            wrong_format, off_kind, item.key)
+    return (not anchored_today, wrong_kind, same_topic_today, same_lang,
+            same_category, item.key)
 
 
 def build_plan(
@@ -260,8 +262,6 @@ def build_plan(
     per_unit: Dict[str, int] = {}
     plan: List[Slot] = []
     previous: Optional[Item] = None
-    # Compteurs d'alternance des formats courts sur l'ensemble du plan.
-    kind_counts = {"short": 0, "card": 0}
 
     for offset in range(days):
         day = start + timedelta(days=offset)
@@ -281,8 +281,9 @@ def build_plan(
                 "Jour charge %s : %d creneaux au lieu de %d.",
                 day, len(day_slots), len(slots),
             )
-        for slot_text in day_slots:
+        for rang, slot_text in enumerate(day_slots):
             hour, minute = (int(p) for p in slot_text.split(":"))
+            kind_voulu = COMPOSITION_JOUR[rang % len(COMPOSITION_JOUR)]
             candidates = [
                 i for i in available
                 if per_unit.get(i.unit, 0) < MAX_PER_UNIT
@@ -295,21 +296,22 @@ def build_plan(
                 )
                 return plan
 
-            prefer_kind = "card" if kind_counts["card"] <= kind_counts["short"] else "short"
             chosen = min(
                 candidates,
                 key=lambda i: _score(
-                    i, previous, day_topics, day_longs,
+                    i, previous, day_topics, kind_voulu,
                     anchored_today=anchors.get(i.topic_id) == day_key,
-                    prefer_kind=prefer_kind,
                 ),
             )
+            if chosen.kind != kind_voulu:
+                logger.info(
+                    "%s %s : pas de %s disponible, %s servi a la place.",
+                    day, slot_text, kind_voulu, chosen.kind,
+                )
             available.remove(chosen)
             per_unit[chosen.unit] = per_unit.get(chosen.unit, 0) + 1
             day_topics.add(chosen.topic_id)
             day_longs += 1 if chosen.kind == "long" else 0
-            if chosen.kind in kind_counts:
-                kind_counts[chosen.kind] += 1
             previous = chosen
             plan.append(
                 Slot(datetime.combine(day, time(hour, minute), tzinfo=zone), chosen)
