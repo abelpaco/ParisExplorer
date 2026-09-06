@@ -84,7 +84,7 @@ MAX_PER_UNIT = 2
 JOURS_LONGUE = (0, 2, 4)
 
 
-def composition(jour: date, creneaux: int) -> tuple:
+def composition(jour: date, creneaux: int, longue_imposee: bool = False) -> tuple:
     """La sequence de formats attendue ce jour-la, creneau par creneau.
 
     C'est une CIBLE, pas un filtre : si le stock ne contient rien du format
@@ -98,7 +98,11 @@ def composition(jour: date, creneaux: int) -> tuple:
     faisant disparaitre les Shorts. Une sequence explicite ne peut deriver ni
     dans un sens ni dans l'autre.
     """
-    avec_longue = jour.weekday() in JOURS_LONGUE
+    # ``longue_imposee`` : un jour anniversaire porte SA video longue, meme
+    # s'il tombe un jour sans longue. Sans cela, l'anniversaire de Jeanne
+    # d'Arc, un mardi, n'ouvrait plus que sur un Short — la video de fond,
+    # ecrite pour ce jour-la, aurait attendu un an de plus.
+    avec_longue = longue_imposee or jour.weekday() in JOURS_LONGUE
     formats = ["long"] if avec_longue else []
     decalage = 1 if avec_longue else 0
     while len(formats) < creneaux:
@@ -227,6 +231,39 @@ def discover(topics: Dict[str, str]) -> List[Item]:
     return items
 
 
+def _ancre_ouverte(ancre: Optional[str], jour: date, day_key: str,
+                   kind: str) -> bool:
+    """Ce candidat peut-il sortir ce jour-la, vu la date anniversaire du sujet ?
+
+    Un sujet ancre passe evidemment son jour anniversaire. Le reste de
+    l'annee, la regle distingue les formats :
+
+    - la **video longue** reste liee a sa date. « Ce jour-la a Paris » n'a de
+      sens qu'a la date dite, et la sortir un mardi de septembre la gacherait
+      pour l'anniversaire suivant ;
+    - les **formats courts** sont liberes une fois l'anniversaire PASSE. Leur
+      anecdote se lit toute l'annee, et les garder sous cle immobilisait
+      soixante-deux publications — onze pour la seule Liberation de Paris,
+      bloquees jusqu'en aout 2027 (releve par Paco le 06/09/2026).
+
+    Avant l'anniversaire, tout reste gele : publier les Shorts de Jeanne
+    d'Arc l'avant-veille viderait la journee du 8 septembre de sa substance.
+
+    Cas marginal assume : un plan qui chevauche le 1er janvier considerera
+    une ancre de decembre comme « a venir ». Il attendra donc un an de plus,
+    ce qui est le comportement d'avant cette regle.
+    """
+    if ancre is None or ancre == day_key:
+        return True
+    if kind == "long":
+        return False
+    try:
+        mois, numero = (int(part) for part in ancre.split("-"))
+    except ValueError:
+        return False
+    return (mois, numero) < (jour.month, jour.day)
+
+
 def _score(
     item: Item, previous: Optional[Item], day_topics: set,
     kind_voulu: Optional[str] = None, anchored_today: bool = False,
@@ -291,10 +328,11 @@ def build_plan(
         day_longs = 0
         # Jour charge : un sujet ancre tombe ce jour-la ET a encore du stock
         # (un anniversaire sans contenu ne merite pas neuf creneaux), ou ferie.
+        ancre_aujourdhui = any(anchors.get(i.topic_id) == day_key for i in available)
         jour_charge = bool(slots_charge) and (
             day_key in FERIES_FRANCE
             or day_key in jours_charges_extra
-            or any(anchors.get(i.topic_id) == day_key for i in available)
+            or ancre_aujourdhui
         )
         day_slots = slots_charge if jour_charge else slots
         if jour_charge:
@@ -302,14 +340,15 @@ def build_plan(
                 "Jour charge %s : %d creneaux au lieu de %d.",
                 day, len(day_slots), len(slots),
             )
-        formats_du_jour = composition(day, len(day_slots))
+        formats_du_jour = composition(day, len(day_slots),
+                                      longue_imposee=ancre_aujourdhui)
         for rang, slot_text in enumerate(day_slots):
             hour, minute = (int(p) for p in slot_text.split(":"))
             kind_voulu = formats_du_jour[rang]
             candidates = [
                 i for i in available
                 if per_unit.get(i.unit, 0) < MAX_PER_UNIT
-                and anchors.get(i.topic_id) in (None, day_key)
+                and _ancre_ouverte(anchors.get(i.topic_id), day, day_key, i.kind)
             ]
             if not candidates:
                 logger.warning(
