@@ -71,22 +71,43 @@ MAX_UPLOADS_PER_DAY = 15
 # on sert le meme contenu.
 MAX_PER_UNIT = 2
 
-# Composition d'une journee, creneau par creneau (decision Paco du 06/09/2026,
-# le catalogue ayant desormais du fond) : une video longue, un Short, une
-# carte. La sequence se repete telle quelle les jours charges — neuf creneaux
-# donnent trois de chaque.
+# Jours de la semaine qui portent une video longue — lundi, mercredi,
+# vendredi (decision Paco du 06/09/2026 : TROIS longues par semaine, pas une
+# par jour). La mesure qui a motive l'espacement : le stock ne comptait plus
+# que onze videos longues non publiees contre cent cinquante-six Shorts, et
+# une longue par jour l'epuisait en onze jours. Trois par semaine tiennent
+# pres d'un mois, le temps que le vivier en fabrique d'autres.
 #
-# C'est une CIBLE, pas un filtre : si le stock ne contient rien du format
-# attendu, le planificateur sert autre chose plutot que de laisser un trou.
-#
-# Deux versions ont precede celle-ci, et leurs defauts expliquent sa forme.
-# Une cible chiffree de longs par jour ecoulait d'abord tous les longs, puis
-# tous les Shorts : la premiere moitie de semaine devenait lourde et la
-# seconde n'offrait plus que du format court. Une preference fixe aux cartes
-# a ensuite fait monopoliser les soirees des que leur stock a grossi, faisant
-# disparaitre les Shorts. Une sequence explicite ne peut deriver ni dans un
-# sens ni dans l'autre.
-COMPOSITION_JOUR = ("long", "short", "card")
+# Les autres jours alternent Short et carte. Un jour charge (anniversaire,
+# ferie) ne porte qu'UNE longue lui aussi : neuf longues d'affilee videraient
+# la reserve en une journee.
+JOURS_LONGUE = (0, 2, 4)
+
+
+def composition(jour: date, creneaux: int) -> tuple:
+    """La sequence de formats attendue ce jour-la, creneau par creneau.
+
+    C'est une CIBLE, pas un filtre : si le stock ne contient rien du format
+    attendu, le planificateur sert autre chose plutot que de laisser un trou.
+
+    Deux versions ont precede celle-ci, et leurs defauts expliquent sa forme.
+    Une cible chiffree de longs par jour ecoulait d'abord tous les longs, puis
+    tous les Shorts : la premiere moitie de semaine devenait lourde et la
+    seconde n'offrait plus que du format court. Une preference fixe aux cartes
+    a ensuite fait monopoliser les soirees des que leur stock a grossi,
+    faisant disparaitre les Shorts. Une sequence explicite ne peut deriver ni
+    dans un sens ni dans l'autre.
+    """
+    avec_longue = jour.weekday() in JOURS_LONGUE
+    formats = ["long"] if avec_longue else []
+    decalage = 1 if avec_longue else 0
+    while len(formats) < creneaux:
+        # Apres l'eventuelle longue, Short et carte alternent, le Short en
+        # premier : c'est le format qui porte le plus (mesure du 28/08,
+        # mediane de 73 vues/jour contre 41 pour les cartes).
+        rang = len(formats) - decalage
+        formats.append("short" if rang % 2 == 0 else "card")
+    return tuple(formats[:creneaux])
 
 # Les jours ou l'audience est la et ou le quota le permet, on publie plus
 # (directive Paco du 28/08/2026) : jour anniversaire d'un sujet ancre, ou
@@ -281,9 +302,10 @@ def build_plan(
                 "Jour charge %s : %d creneaux au lieu de %d.",
                 day, len(day_slots), len(slots),
             )
+        formats_du_jour = composition(day, len(day_slots))
         for rang, slot_text in enumerate(day_slots):
             hour, minute = (int(p) for p in slot_text.split(":"))
-            kind_voulu = COMPOSITION_JOUR[rang % len(COMPOSITION_JOUR)]
+            kind_voulu = formats_du_jour[rang]
             candidates = [
                 i for i in available
                 if per_unit.get(i.unit, 0) < MAX_PER_UNIT
@@ -304,10 +326,14 @@ def build_plan(
                 ),
             )
             if chosen.kind != kind_voulu:
-                logger.info(
-                    "%s %s : pas de %s disponible, %s servi a la place.",
-                    day, slot_text, kind_voulu, chosen.kind,
-                )
+                # Deux raisons possibles, et il ne faut pas les confondre :
+                # le stock est vide de ce format (a signaler), ou un sujet
+                # ancre est passe devant, ce qui est le comportement voulu.
+                if not any(i.kind == kind_voulu for i in candidates):
+                    logger.info(
+                        "%s %s : plus de %s en stock, %s servi a la place.",
+                        day, slot_text, kind_voulu, chosen.kind,
+                    )
             available.remove(chosen)
             per_unit[chosen.unit] = per_unit.get(chosen.unit, 0) + 1
             day_topics.add(chosen.topic_id)
