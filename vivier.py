@@ -219,6 +219,42 @@ def _valider(texte: str, existants: set) -> list:
     return valides
 
 
+def _produire(tid: str, langue: str, sans_cartes: list) -> bool:
+    """Produit la video d'un sujet dans une langue, puis ses cartes.
+
+    Renvoie False si la VIDEO a echoue — le sujet n'a alors rien de
+    publiable dans cette langue. Un echec des seules cartes est note et
+    n'empeche pas de continuer : une video sans ses cartes se publie tres
+    bien, la perdre en entier serait disproportionne.
+    """
+    r = subprocess.run(
+        [".venv/bin/python", "produce_topic.py", tid, "--lang", langue],
+        capture_output=True, text=True,
+    )
+    if r.returncode != 0:
+        # Sans cette trace, un echec restait muet : il a fallu rejouer la
+        # production a la main pour savoir ce qui avait lache.
+        logger.error("Production %s [%s] : ECHEC\n%s", tid, langue, r.stderr[-800:])
+        return False
+    logger.info("Production %s [%s] : ok", tid, langue)
+
+    # Les cartes. Sans elles un sujet n'a ni carte animee ni pack
+    # Communaute — et le stock de cartes ne se renouvelle JAMAIS, alors que
+    # le calendrier en reclame une par jour. Vingt-huit sujets sur quarante
+    # et un s'etaient ainsi retrouves sans la moindre carte.
+    rc = subprocess.run(
+        [".venv/bin/python", "visual_cards.py", tid, "--lang", langue,
+         "--format", "story", "--animate", "--count", str(CARTES_PAR_SUJET)],
+        capture_output=True, text=True,
+    )
+    if rc.returncode == 0:
+        logger.info("Cartes %s [%s] : ok", tid, langue)
+    else:
+        sans_cartes.append(f"{tid}:{langue}")
+        logger.error("Cartes %s [%s] : ECHEC\n%s", tid, langue, rc.stderr[-800:])
+    return True
+
+
 def _preserver_aujourdhui(sauvegarde: list) -> None:
     """plan_week demarre demain : re-greffe les creneaux restants du jour."""
     maintenant = datetime.now(timezone.utc)
@@ -295,38 +331,27 @@ def main(argv=None) -> int:
             )
         logger.info("%d sujet(s) ecrits dans %s.", len(sujets), TOPICS_DIR)
 
-        produits, echecs, sans_cartes = [], [], []
+        produits, echecs, sans_cartes, sans_anglais = [], [], [], []
         for tid, _, _ in sujets:
-            r = subprocess.run(
-                [".venv/bin/python", "produce_topic.py", tid, "--lang", "fr"],
-                capture_output=True, text=True,
-            )
-            if r.returncode != 0:
+            if not _produire(tid, "fr", sans_cartes):
                 echecs.append(tid)
-                # Sans cette trace, un echec restait muet : il a fallu rejouer
-                # la production a la main pour savoir ce qui avait lache.
-                logger.error("Production %s : ECHEC\n%s", tid, r.stderr[-800:])
                 continue
             produits.append(tid)
-            logger.info("Production %s : ok", tid)
 
-            # Les cartes, dans la foulee. Sans elles un sujet n'a ni carte
-            # animee ni pack Communaute — et le stock de cartes ne se
-            # renouvelle JAMAIS, alors que le calendrier en reclame une par
-            # jour. Vingt-huit sujets sur quarante et un s'etaient ainsi
-            # retrouves sans la moindre carte avant qu'on s'en apercoive.
-            rc = subprocess.run(
-                [".venv/bin/python", "visual_cards.py", tid, "--lang", "fr",
-                 "--format", "story", "--animate", "--count", str(CARTES_PAR_SUJET)],
+            # L'anglais, dans la foulee. Le vivier n'ecrivait qu'en francais :
+            # dix-huit sujets se sont retrouves sans la moindre version
+            # anglaise, et le desequilibre repartait a chaque cycle alors que
+            # le calendrier alterne les deux langues. Un echec ici ne coute
+            # que la version anglaise — le sujet francais reste publiable.
+            ra = subprocess.run(
+                [".venv/bin/python", "version_anglaise.py", "--sujet", tid],
                 capture_output=True, text=True,
             )
-            if rc.returncode == 0:
-                logger.info("Cartes %s : ok", tid)
-            else:
-                # Une video sans ses cartes reste publiable : on note et on
-                # continue, plutot que de perdre le sujet entier.
-                sans_cartes.append(tid)
-                logger.error("Cartes %s : ECHEC\n%s", tid, rc.stderr[-800:])
+            if ra.returncode != 0:
+                sans_anglais.append(tid)
+                logger.error("Version anglaise %s : ECHEC\n%s", tid, ra.stderr[-800:])
+            elif not _produire(tid, "en", sans_cartes):
+                sans_anglais.append(tid)
 
         sauvegarde = json.loads(PLAN_FILE.read_text(encoding="utf-8"))
         r = subprocess.run([".venv/bin/python", "plan_week.py", "--days", "21"],
@@ -343,6 +368,8 @@ def main(argv=None) -> int:
         _dm(
             f"✅ Vivier régénéré : {len(produits)} sujet(s) produits"
             + (f", {len(echecs)} échec(s) ({', '.join(echecs)})" if echecs else "")
+            + (f", {len(sans_anglais)} sans version anglaise "
+               f"({', '.join(sans_anglais)})" if sans_anglais else "")
             + (f", {len(sans_cartes)} sans cartes ({', '.join(sans_cartes)})"
                if sans_cartes else "")
             + f". Plan : {len(plan)} créneaux jusqu'au {fin[:10]}."
