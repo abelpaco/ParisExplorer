@@ -64,6 +64,10 @@ fr:
     - "Monument"
     - "Histoire de Paris"
     - "Exposition universelle 1889"
+  cards:
+    - "La Tour Eiffel devait être démontée en 1909 : ce qui l'a sauvée, ce n'est pas l'amour des Parisiens, c'est une antenne que l'armée voulait garder."
+    - "En 1887, Maupassant et l'architecte de l'Opéra signaient une pétition contre la Tour Eiffel : ils la traitaient d'odieuse colonne de tôle boulonnée."
+    - "Dix-huit mille pièces de fer dessinées une à une, deux millions et demi de rivets : sur le chantier de la Tour Eiffel, il n'y avait presque rien à corriger."
 
 en:
   title: "The Eiffel Tower Was Built to Be Taken Down. Here's Why It Survived"
@@ -117,3 +121,7 @@ en:
     - "Landmark"
     - "History of Paris"
     - "1889 World's Fair"
+  cards:
+    - "The Eiffel Tower was meant to come down in 1909. What saved it was not affection but an antenna: the army wanted its wireless telegraph."
+    - "In 1887 Maupassant and the architect of the Paris Opera signed a petition against the Eiffel Tower, calling it an odious column of bolted sheet metal."
+    - "Eighteen thousand iron pieces, each drawn individually, held by two and a half million rivets: on the Eiffel Tower site, almost nothing needed correcting."

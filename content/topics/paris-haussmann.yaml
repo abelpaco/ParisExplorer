@@ -64,6 +64,10 @@ fr:
     - "Histoire de Paris"
     - "Urbanisme"
     - "XIXe siècle"
+  cards:
+    - "Avant Haussmann, Paris buvait l'eau de la Seine à l'endroit même où elle jetait ses déchets, et le choléra tuait par milliers : percer les rues n'était pas une question de goût."
+    - "L'immeuble haussmannien n'est le style d'aucun architecte : c'est un règlement devenu paysage, où la hauteur des façades dépend de la largeur de la rue."
+    - "En dix-sept ans, Haussmann a fait passer les égouts de Paris d'une centaine de kilomètres à près de six cents — et Jules Ferry a moqué ses comptes fantastiques."
 
 en:
   title: "How Paris Was Redrawn in Seventeen Years"
@@ -119,3 +123,7 @@ en:
     - "History of Paris"
     - "Urban planning"
     - "19th century"
+  cards:
+    - "Before Haussmann, Paris drank Seine water from the very place it dumped its waste, and cholera killed by the thousand: cutting new streets was not a matter of taste."
+    - "The Haussmann building is no architect's style: it is a regulation turned into landscape, where façade height depends on the width of the street."
+    - "In seventeen years Haussmann took the Paris sewers from about a hundred kilometres to nearly six hundred — and Jules Ferry mocked his fantastical accounts."
