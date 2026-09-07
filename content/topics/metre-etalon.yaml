@@ -55,3 +55,30 @@ fr:
     - "Il reste deux mètres étalons de marbre scellés dans Paris depuis 1796 — celui de la rue de Vaugirard n'a jamais bougé de son mur."
     - "Le mètre a été défini en mesurant la Terre : Delambre et Méchain ont passé sept ans à trianguler le méridien de Dunkerque à Barcelone."
     - "Pour apprendre le mètre au peuple, la Révolution en a gravé seize dans les murs de Paris : chacun venait y régler sa ficelle ou sa planche."
+
+en:
+  title: "The Metre Was Invented Here — And It's Still on the Wall"
+  subtitle: "The last marble metre standards still sealed into Paris walls"
+  narration: |
+    The metre was born in Paris. And it's still hanging on a wall, right out in the street.
+
+    Before the Revolution, measuring anything was chaos. Every province, sometimes every town, had its own units: feet, toises, aunes, leagues — and an aune wasn't the same length in Paris as in Rouen. Historians reckon hundreds of different measures were in use across the kingdom. For trade, it was a nightmare. For fraud, a paradise.
+
+    The Revolution decides to wipe the slate clean with a wild idea: a measure that owes nothing to anyone — not to a king's foot, not to a province's custom. A measure taken from the Earth itself. The metre will be one ten-millionth of a quarter of the Earth's meridian.
+
+    Which means someone has to measure the meridian. Two astronomers, Delambre and Méchain, spend seven years on the road, from Dunkerque to Barcelona, triangulating church towers and mountaintops, right in the middle of revolutionary chaos — sometimes arrested as spies, their strange instruments pointed at the horizon.
+
+    The legal metre is born in 1795. But how do you teach it to an entire nation? The state comes up with something very concrete: carve the new measure into stone, at eye level, in the busiest spots in Paris. Sixteen marble metre standards get set into the city's walls around 1796-1797. Anyone can walk up, lay down their string, their stick, their plank, and leave with the exact metre.
+
+    Of those sixteen standards, two survive. The most authentic one sits at 36 rue de Vaugirard, facing the Senate: it hasn't moved from that spot in over two centuries. The other one stands watch on place Vendôme.
+
+    Today, the metre is defined by the speed of light. But its first public face is still there: a rectangle of marble in a Paris wall, that everyone walks past without ever seeing.
+  tags:
+    - "metre"
+    - "Paris"
+    - "French Revolution"
+    - "science history"
+  cards:
+    - "Two marble metre standards have stayed sealed in Paris walls since 1796 — the one on rue de Vaugirard has never left its spot."
+    - "The metre was defined by measuring the Earth: Delambre and Méchain spent seven years triangulating the meridian from Dunkerque to Barcelona."
+    - "To teach the metre to the public, the Revolution carved sixteen of them into Paris walls, so anyone could come check their own stick or string."

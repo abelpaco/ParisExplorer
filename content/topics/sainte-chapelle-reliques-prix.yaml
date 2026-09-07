@@ -1,0 +1,80 @@
+id: sainte-chapelle-reliques-prix
+category: histoire
+image_queries:
+- Sainte-Chapelle stained glass interior
+- Sainte-Chapelle exterior Paris
+- Crown of Thorns relic medieval
+- Louis IX Saint Louis portrait
+- Sainte-Chapelle upper chapel
+- medieval Byzantine relic reliquary
+fr:
+  title: Le roi Louis IX a paye plus cher pour une couronne d'epines que pour la construire
+    cette chapelle
+  subtitle: L'incroyable prix des reliques au treizieme siecle
+  narration: 'Un edifice entier est construit pour abriter un objet qui a coute plus
+    cher que le batiment lui-meme. En 1239, le roi Louis IX, futur Saint Louis, achete
+    a l''empereur latin de Constantinople une relique consideree comme inestimable
+    : la couronne d''epines qui aurait ete portee par le Christ.
+
+
+    Le prix est stupefiant pour l''epoque : environ cent trente-cinq mille livres
+    tournois. Pour comparer, la construction de la Sainte-Chapelle elle-meme, batie
+    entre 1242 et 1248 pour abriter cette relique et d''autres fragments de la Passion,
+    coute environ quarante mille livres, soit trois fois moins que la relique seule.
+
+
+    L''empereur latin de Constantinople, Baudouin II, criblé de dettes et en manque
+    chronique de moyens pour defendre son empire affaibli, avait deja mis en gage
+    la couronne aupres de marchands venitiens. Louis IX rembourse cette dette et recupere
+    la relique, qui voyage ensuite depuis Constantinople jusqu''a Paris, portee sur
+    les dernieres etapes par le roi lui-meme, pieds nus, en signe d''humilite.
+
+
+    La Sainte-Chapelle est concue specifiquement pour cet ecrin. Sa chapelle haute,
+    reservee au roi et a sa cour, est percee de quinze verrieres immenses qui transforment
+    l''interieur en une boite de lumiere coloree, une prouesse architecturale pour
+    l''epoque gothique. La relique elle-meme etait exposee dans une tribune surelevee,
+    visible mais hors de portee.
+
+
+    La couronne d''epines a traverse la Revolution francaise, echappant de justesse
+    a la destruction des reliques religieuses. Elle est aujourd''hui conservee a la
+    cathedrale Notre-Dame de Paris, presentee au public lors d''occasions rares. La
+    Sainte-Chapelle, elle, se visite toute l''annee, vidée de l''objet pour lequel
+    elle avait ete concue au depart.
+
+    '
+  tags:
+  - sainte-chapelle
+  - louis ix
+  - moyen age
+  cards:
+  - En 1239, Louis IX achete la couronne d'epines pour environ cent trente-cinq mille
+    livres tournois.
+  - La Sainte-Chapelle, construite entre 1242 et 1248 pour l'abriter, a coute trois
+    fois moins cher que la relique elle-meme.
+  - La couronne est aujourd'hui conservee a Notre-Dame, tandis que la Sainte-Chapelle
+    se visite sans son tresor d'origine.
+status: ready
+
+en:
+  title: "King Louis IX Paid More for a Crown of Thorns Than for the Chapel That Housed It"
+  subtitle: "The staggering price of relics in the thirteenth century"
+  narration: |
+    A whole building goes up just to house an object that cost more than the building itself. In 1239, King Louis IX, later known as Saint Louis, buys from the Latin emperor of Constantinople a relic considered priceless: the crown of thorns said to have been worn by Christ.
+
+    The price is staggering for the time: around one hundred thirty-five thousand livres tournois. For comparison, building the Sainte-Chapelle itself, constructed between 1242 and 1248 to hold this relic and other fragments of the Passion, costs about forty thousand livres. That's a third of what the relic alone cost.
+
+    The Latin emperor of Constantinople, Baudouin II, was drowning in debt and chronically short of funds to defend his crumbling empire. He'd already pawned the crown to Venetian merchants. Louis IX pays off that debt and recovers the relic, which then travels from Constantinople to Paris, carried on its final stretch by the king himself, barefoot, as a gesture of humility.
+
+    The Sainte-Chapelle is designed specifically as a setting for this object. Its upper chapel, reserved for the king and his court, is pierced by fifteen enormous stained-glass windows that turn the interior into a box of colored light, a remarkable feat for Gothic architecture. The relic itself was displayed on a raised platform, visible but out of reach.
+
+    The crown of thorns survived the French Revolution, narrowly escaping the destruction of religious relics. Today it's kept at Notre-Dame cathedral in Paris, shown to the public on rare occasions. The Sainte-Chapelle, meanwhile, is open for visits all year round, emptied of the very object it was built to hold.
+  tags:
+    - "sainte-chapelle"
+    - "louis ix"
+    - "middle ages"
+  cards:
+    - "In 1239, Louis IX bought the crown of thorns for around one hundred thirty-five thousand livres tournois."
+    - "The Sainte-Chapelle, built between 1242 and 1248 to house it, cost three times less than the relic itself."
+    - "The crown is now kept at Notre-Dame, while the Sainte-Chapelle is visited without its original treasure."

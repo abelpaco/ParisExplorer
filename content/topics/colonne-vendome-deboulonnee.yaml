@@ -1,0 +1,81 @@
+id: colonne-vendome-deboulonnee
+category: histoire
+anchor_date: 05-16
+image_queries:
+- Colonne Vendome fallen 1871 photo
+- Gustave Courbet photograph
+- Place Vendome column 19th century
+- Napoleon statue column Vendome
+- Paris Commune 1871 photograph
+- Colonne Vendome reconstruction 1875
+fr:
+  title: Un peintre celebre a fait tomber une colonne monumentale, puis a paye pour
+    ca toute sa vie
+  subtitle: Gustave Courbet et la chute de la colonne Vendome
+  narration: 'Une colonne haute de quarante-quatre metres s''effondre en morceaux
+    sur une place parisienne, filmee par les photographes de l''epoque. Le 16 mai
+    1871, en pleine Commune de Paris, la colonne Vendome est abattue devant une foule
+    nombreuse. Erigee sous Napoleon Ier avec le bronze des canons pris a l''ennemi
+    a Austerlitz, elle est percue par les communards comme un symbole de guerre et
+    de despotisme militaire.
+
+
+    Gustave Courbet, le peintre celebre pour "L''Origine du monde" et "Un enterrement
+    a Ornans", preside a l''epoque la Federation des artistes sous la Commune. Il
+    avait propose des 1870, avant meme l''insurrection, de demonter la colonne pour
+    la remplacer par un monument dedie a la paix. Quand la Commune decide sa destruction
+    en 1871, Courbet est present, mais des historiens debattent encore de son role
+    exact dans la decision et l''execution.
+
+
+    La chute est spectaculaire. La colonne se brise en plusieurs tronçons sur des
+    fascines de fumier disposees pour amortir le choc. La statue de Napoleon au sommet
+    se detache separement.
+
+
+    Apres l''ecrasement de la Commune quelques semaines plus tard, la repression s''abat.
+    Courbet est arrete, emprisonne six mois. Puis, en 1873, l''Etat francais le tient
+    pour responsable financier de la destruction et le condamne a payer la reconstruction
+    integrale de la colonne, soit un montant considerable, environ trois cent mille
+    francs de l''epoque, a regler en versements annuels pendant des annees.
+
+
+    Courbet choisit l''exil plutot que la ruine. Il part en Suisse en 1873 et y meurt
+    en 1877, l''annee meme ou le premier versement etait du. La colonne, elle, est
+    reconstruite a l''identique des 1875 et se dresse toujours place Vendome aujourd''hui.
+
+    '
+  tags:
+  - commune de paris
+  - gustave courbet
+  - '1871'
+  cards:
+  - Le 16 mai 1871, la colonne Vendome, symbole napoleonien, est abattue par les communards
+    devant une foule nombreuse.
+  - Le peintre Gustave Courbet, president de la Federation des artistes, est associe
+    a cette destruction.
+  - Condamne a payer la reconstruction en 1873, Courbet s'exile en Suisse et meurt
+    en 1877 sans avoir paye.
+status: ready
+
+en:
+  title: "A Famous Painter Toppled a Monumental Column, Then Paid For It With His Life"
+  subtitle: "Gustave Courbet and the fall of the Colonne Vendome"
+  narration: |
+    A column forty-four meters tall collapses into pieces on a Parisian square, captured by photographers of the era. On May 16, 1871, in the middle of the Paris Commune, the Colonne Vendome comes crashing down in front of a huge crowd. Built under Napoleon I from bronze melted down from cannons captured at Austerlitz, the column stands to the communards as a symbol of war and military despotism.
+
+    Gustave Courbet, the painter behind "L'Origine du monde" and "A Burial at Ornans," heads the Federation of Artists during the Commune. Back in 1870, before the uprising even began, he had proposed dismantling the column and replacing it with a monument to peace. When the Commune votes for its destruction in 1871, Courbet is there. Historians still argue over how much he actually drove the decision, and how much he simply carried it out.
+
+    The fall itself is spectacular. The column snaps into several pieces, landing on bundles of manure laid out to cushion the impact. The statue of Napoleon at the top breaks off on its own.
+
+    Weeks later, the Commune is crushed, and the crackdown begins. Courbet is arrested and spends six months in prison. Then, in 1873, the French state names him financially responsible for the destruction and orders him to pay for the column's complete reconstruction. The bill is staggering: roughly three hundred thousand francs, to be paid in yearly installments stretched over years.
+
+    Courbet chooses exile over ruin. He leaves for Switzerland in 1873 and dies there in 1877, the very year his first payment is due. The column, meanwhile, rises again in exact replica by 1875, and it still stands on Place Vendome today.
+  tags:
+    - "paris commune"
+    - "gustave courbet"
+    - "1871"
+  cards:
+    - "On May 16, 1871, the Colonne Vendome, a Napoleonic symbol, is torn down by the communards in front of a huge crowd."
+    - "The painter Gustave Courbet, head of the Federation of Artists, is tied to this act of destruction."
+    - "Ordered to pay for the reconstruction in 1873, Courbet flees to Switzerland and dies in 1877 without ever paying."

@@ -1,0 +1,102 @@
+id: obelisque-luxor-transport
+category: histoire
+image_queries:
+- Luxor Obelisk transport ship 1833
+- Place de la Concorde obelisk engraving
+- Nile barge obelisk illustration
+- obelisk raising Concorde 1836
+- Mehemet Ali Egypt gift obelisk
+- Champollion hieroglyphs drawing
+fr:
+  title: Deux ans de voyage pour faire venir un obelisque de trois mille ans a Paris
+  subtitle: Le calvaire logistique du cadeau de Mehemet Ali
+  narration: 'Un bateau special est construit rien que pour transporter une pierre.
+    En 1830, le vice-roi d''Egypte Mehemet Ali offre a la France un des deux obelisques
+    du temple de Louxor. Le cadeau pese deux cent trente tonnes. Aucun navire existant
+    ne peut le charger.
+
+
+    L''ingenieur Apollinaire Lebas concoit un bateau a fond plat baptise le Luxor.
+    Il est construit specialement au Havre, avec une proue capable de s''ouvrir pour
+    laisser entrer l''obelisque couche.
+
+
+    Le voyage commence en 1831. Le Luxor remonte le Nil, attend la crue pour se degager
+    du sable, traverse la Mediterranee, remonte la Seine. L''operation prend plus
+    de deux ans. Des equipes locales aident a degager le monument de son socle a Louxor,
+    ou il est reste debout depuis plus de trois mille ans.
+
+
+    L''obelisque arrive a Paris en 1833, mais il faut encore trois ans avant de trouver
+    comment le dresser sans le briser. Le chantier se deroule place de la Concorde,
+    sous les yeux du roi Louis-Philippe. Le 25 octobre 1836, plus de cent mille Parisiens
+    assistent au levage. Des cordages, des poulies geantes et des centaines d''ouvriers
+    hissent la pierre en a peine plus d''une heure, dans un silence tendu : personne
+    ne sait si le monument va tenir.
+
+
+    Il tient. Depuis, l''obelisque de Louxor trone place de la Concorde, exactement
+    a l''endroit ou la guillotine a fonctionne pendant la Revolution. Ses hieroglyphes
+    racontent le regne de Ramses II, mais presque aucun Parisien ne les lit.
+
+
+    Le second obelisque du temple, lui, n''a jamais quitte l''Egypte. La France y
+    a renonce en 1981, le rendant officiellement au pays qui l''avait offert un siecle
+    et demi plus tot.
+
+    '
+  tags:
+  - concorde
+  - egypte
+  - monument
+  cards:
+  - Un bateau special, le Luxor, est construit rien que pour transporter cet obelisque
+    de deux cent trente tonnes.
+  - Le voyage depuis l'Egypte dure plus de deux ans, entre Nil, Mediterranee et Seine.
+  - Le 25 octobre 1836, cent mille Parisiens regardent la pierre se dresser place
+    de la Concorde en une heure.
+status: ready
+
+en:
+  title: "It Took Two Years to Bring a 3,000-Year-Old Obelisk to Paris"
+  subtitle: "The logistical ordeal behind Mehemet Ali's royal gift"
+  narration: |
+    A ship gets built for one job only: hauling a single piece of stone.
+    In 1830, Egypt's viceroy Mehemet Ali offers France one of the two obelisks
+    standing at the Luxor temple. The gift weighs two hundred and thirty tons.
+    No existing ship can carry it.
+
+    Engineer Apollinaire Lebas designs a flat-bottomed vessel named the Luxor.
+    It gets built specially at Le Havre, with a bow that opens to let the
+    obelisk slide in lying down.
+
+    The journey starts in 1831. The Luxor sails up the Nile, waits for the
+    flood season to break free of the sandbanks, crosses the Mediterranean,
+    then sails up the Seine. The whole operation takes more than two years.
+    Local workers help free the monument from its base at Luxor, where it
+    had stood upright for over three thousand years.
+
+    The obelisk reaches Paris in 1833, but it takes three more years to
+    figure out how to raise it without cracking it. The work happens at
+    place de la Concorde, right under the eyes of King Louis-Philippe. On
+    October 25th, 1836, more than one hundred thousand Parisians watch the
+    lift. Ropes, giant pulleys, and hundreds of workers hoist the stone
+    upright in barely over an hour, in tense silence: nobody knows if the
+    monument will hold.
+
+    It holds. Ever since, the Luxor obelisk has stood at place de la
+    Concorde, on the exact spot where the guillotine once operated during
+    the Revolution. Its hieroglyphs tell the story of Ramses II's reign,
+    but almost no Parisian ever reads them.
+
+    The temple's second obelisk never left Egypt. France gave up its claim
+    to it in 1981, officially returning it to the country that had offered
+    it a century and a half earlier.
+  tags:
+    - "concorde"
+    - "egypt"
+    - "monument"
+  cards:
+    - "A special ship, the Luxor, was built for one purpose: transporting this 230-ton obelisk."
+    - "The journey from Egypt took more than two years, crossing the Nile, the Mediterranean, and the Seine."
+    - "On October 25th, 1836, one hundred thousand Parisians watched the stone rise at place de la Concorde in just one hour."

@@ -1,0 +1,79 @@
+id: fontaine-innocents-cimetiere
+category: decouverte
+image_queries:
+- Fontaine des Innocents Paris
+- Cimetiere des Innocents engraving
+- Les Halles Paris 18th century map
+- Catacombes de Paris bones transfer
+- Square des Innocents Paris
+- Jean Goujon Renaissance sculpture Paris
+fr:
+  title: Cette fontaine Renaissance repose sur les restes de deux millions de morts
+  subtitle: Le plus vieux cimetiere de Paris disparu sous une place
+  narration: 'Une fontaine du seizieme siecle trone aujourd''hui sur l''emplacement
+    du cimetiere le plus charge de l''histoire de Paris. Le cimetiere des Innocents
+    fonctionne pendant environ huit cents ans, depuis le haut Moyen Age jusqu''en
+    1780. Il dessert les paroisses du centre de Paris, dans le quartier des Halles.
+
+
+    Le probleme, c''est qu''un cimetiere concu pour un village medieval doit absorber
+    des siecles de morts d''une capitale en expansion. Les fosses communes s''empilent.
+    Au dix-huitieme siecle, le terrain est surelevè de plusieurs metres par l''accumulation
+    des corps. Les habitants du quartier se plaignent d''odeurs pestilentielles. En
+    1780, un mur du cimetiere s''effondre carrement dans la cave d''un immeuble voisin,
+    laissant s''echapper des cadavres en decomposition.
+
+
+    L''evenement declenche une decision radicale. Le roi Louis XVI ordonne la fermeture
+    definitive du cimetiere. Entre 1786 et 1788, des millions d''ossements sont exhumes
+    de nuit, transportes par charrette a travers Paris, et deposes dans d''anciennes
+    carrieres souterraines au sud de la ville. C''est la naissance des Catacombes.
+
+
+    Sur l''emplacement du cimetiere vide, la ville amenage une place. La fontaine
+    des Innocents, elle, existait deja avant la destruction du cimetiere : construite
+    en 1549 par l''architecte Pierre Lescot et le sculpteur Jean Goujon, elle ornait
+    a l''origine un angle de rue, adossee a un mur. Elle est deplacee au centre de
+    la nouvelle place en 1788, reconstituee sur ses quatre faces pour la premiere
+    fois.
+
+
+    Aujourd''hui, les touristes prennent des photos devant ses bas-reliefs de nymphes
+    sans savoir qu''ils se tiennent exactement au-dessus du sol qui, pendant huit
+    siecles, a absorbe les morts de tout un quartier de Paris.
+
+    '
+  tags:
+  - cimetiere
+  - renaissance
+  - les halles
+  cards:
+  - Le cimetiere des Innocents a fonctionne pendant environ huit cents ans, jusqu'a
+    l'effondrement d'un mur en 1780.
+  - Entre 1786 et 1788, des millions d'ossements sont transferes de nuit vers les
+    Catacombes.
+  - La fontaine Renaissance de 1549, deplacee en 1788, trone desormais au centre de
+    cette ancienne fosse commune geante.
+status: ready
+
+en:
+  title: "This Renaissance Fountain Sits on Two Million Dead Bodies"
+  subtitle: "Paris's oldest cemetery, buried under a public square"
+  narration: |
+    A sixteenth-century fountain now stands on the site of the most crowded cemetery in Paris history. The Cimetiere des Innocents operates for roughly eight hundred years, from the early Middle Ages until 1780. It serves the parishes of central Paris, in the Les Halles district.
+
+    The problem is simple. A cemetery built for a medieval village ends up absorbing centuries of dead from an ever-growing capital. Mass graves pile on top of each other. By the eighteenth century, the ground has risen several meters, pushed up by the sheer weight of bodies. Neighborhood residents complain of a constant stench. In 1780, a cemetery wall gives way entirely, collapsing straight into the cellar of a nearby building and spilling decomposing corpses inside.
+
+    That incident forces a drastic decision. King Louis XVI orders the cemetery shut for good. Between 1786 and 1788, millions of bones are dug up at night, hauled by cart across Paris, and dumped into old underground quarries south of the city. This is how the Catacombs are born.
+
+    Where the cemetery once stood, the city builds a public square. The Fontaine des Innocents already existed before the cemetery was cleared. Built in 1549 by architect Pierre Lescot and sculptor Jean Goujon, it originally sat on a street corner, set flat against a wall. In 1788, it gets moved to the center of the new square and rebuilt with all four sides visible for the first time.
+
+    Today, tourists snap photos in front of its carved nymphs, unaware they're standing exactly above ground that, for eight centuries, swallowed the dead of an entire Paris neighborhood.
+  tags:
+    - "cemetery"
+    - "renaissance"
+    - "les halles"
+  cards:
+    - "The Cimetiere des Innocents operated for roughly eight hundred years, until a wall collapsed in 1780."
+    - "Between 1786 and 1788, millions of bones were moved at night to the Catacombs."
+    - "The 1549 Renaissance fountain, relocated in 1788, now stands at the center of this former mass grave."

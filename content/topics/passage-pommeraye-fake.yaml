@@ -1,0 +1,80 @@
+id: passage-pommeraye-fake
+category: decouverte
+image_queries:
+- Galerie Vivienne Paris interior
+- Passage des Panoramas Paris
+- Paris covered passage 19th century
+- Galerie Colbert rotunda
+- Passage Jouffroy Paris
+- Paris arcades gas lighting engraving
+fr:
+  title: Avant les centres commerciaux, Paris avait deja invente le shopping sous
+    verre
+  subtitle: Les passages couverts, premiers temples de la consommation
+  narration: 'On peut faire ses courses a l''abri de la pluie a Paris depuis plus
+    de deux cents ans. Avant les grands boulevards d''Haussmann, avant les grands
+    magasins, les Parisiens inventent les passages couverts. Le premier, le Passage
+    des Panoramas, ouvre en 1799.
+
+
+    Le principe est simple et neuf : une rue etroite, fermee par une verriere, bordee
+    de boutiques des deux cotes. On y marche au sec, on y flane le soir grace au gaz,
+    on y regarde les vitrines sans se soucier des calèches et de la boue des vraies
+    rues.
+
+
+    Entre 1800 et 1850, Paris en compte plus de cent cinquante. La Galerie Vivienne
+    ouvre en 1823 avec ses mosaiques et ses colonnes ; le Passage Jouffroy suit en
+    1846, l''un des premiers a etre chauffe au sol. Ces galeries deviennent des lieux
+    de rendez-vous, de commerce, parfois de plaisirs plus discrets. Balzac y situe
+    des scenes entieres de ses romans, Walter Benjamin les etudiera plus tard comme
+    les premieres cathedrales de la marchandise.
+
+
+    Puis vient la chute. Haussmann perce de larges boulevards eclaires et arbores
+    dans les annees 1850 et 1860. Les larges trottoirs remplacent l''interet des passages
+    etroits. Beaucoup de galeries ferment, sont demolies, tombent en desuetude. Sur
+    les cent cinquante passages du debut du siecle, une vingtaine seulement survivent
+    aujourd''hui.
+
+
+    Ceux qui restent, la Galerie Vivienne, le Passage des Panoramas, le Passage Jouffroy,
+    sont desormais classes, restaures, frequentes par les touristes qui cherchent
+    l''ancien Paris. Ce que personne ne leur dit, c''est que ces galeries n''ont rien
+    de pittoresque a l''origine : elles etaient l''equivalent, en 1820, d''un centre
+    commercial ultramoderne.
+
+    '
+  tags:
+  - passages couverts
+  - commerce
+  - urbanisme
+  cards:
+  - Le premier passage couvert de Paris, le Passage des Panoramas, ouvre des 1799.
+  - Vers 1840, Paris compte plus de cent cinquante de ces galeries marchandes sous
+    verriere.
+  - Les larges boulevards d'Haussmann en condamnent la plupart ; une vingtaine seulement
+    subsiste aujourd'hui.
+status: ready
+
+en:
+  title: "Before Malls Existed, Paris Already Invented Shopping Under Glass"
+  subtitle: "Covered passages, the first temples of consumption"
+  narration: |
+    Parisians have been shopping rain-free for more than two hundred years. Before Haussmann's grand boulevards, before the department stores, Paris invents the covered passage. The first one, Passage des Panoramas, opens in 1799.
+
+    The idea is simple and new: a narrow street, capped by a glass roof, lined with shops on both sides. People walk there dry-shod, stroll in the evening thanks to gaslight, and window-shop without worrying about carriages or mud on the real streets outside.
+
+    Between 1800 and 1850, Paris builds more than a hundred and fifty of them. Galerie Vivienne opens in 1823 with its mosaics and columns. Passage Jouffroy follows in 1846, one of the first with underfloor heating. These galleries become meeting spots, trading grounds, sometimes venues for quieter pleasures. Balzac sets whole scenes of his novels there. Walter Benjamin will later study them as the first cathedrals of merchandise.
+
+    Then comes the fall. Haussmann cuts wide, tree-lined, well-lit boulevards through the city in the 1850s and 1860s. Broad sidewalks outshine the appeal of narrow passages. Many galleries close, get demolished, or simply fade into neglect. Of the hundred and fifty passages standing at the start of the century, only about twenty survive today.
+
+    The ones that remain, Galerie Vivienne, Passage des Panoramas, Passage Jouffroy, are now listed as historic monuments, restored, and filled with tourists chasing old Paris. What nobody tells them is that these galleries were never quaint to begin with. In 1820, they were the equivalent of an ultramodern shopping mall.
+  tags:
+    - "covered passages"
+    - "commerce"
+    - "urban planning"
+  cards:
+    - "Paris's first covered passage, Passage des Panoramas, opens as early as 1799."
+    - "By around 1840, Paris has more than one hundred fifty of these glass-roofed shopping galleries."
+    - "Haussmann's wide boulevards doom most of them; only about twenty survive today."

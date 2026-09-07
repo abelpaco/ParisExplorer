@@ -1,0 +1,79 @@
+id: pigalle-brasseries-a-femmes
+category: histoire
+image_queries:
+- Le Chat Noir cabaret Paris 1890s
+- Pigalle Paris 19th century photo
+- Montmartre cabaret poster Toulouse-Lautrec
+- brasserie a femmes Paris illustration
+- Paris nightlife 1880s engraving
+- Boulevard de Clichy old photo
+fr:
+  title: Le mot bistrot viendrait peut-etre de soldats russes pressés a Paris en 1814
+  subtitle: Une etymologie fascinante, mais jamais totalement prouvée
+  narration: 'Un mot du quotidien parisien aurait pour origine des soldats etrangers
+    qui occupent la capitale. En mars 1814, apres la defaite de Napoleon, les armees
+    russes entrent dans Paris. Des cosaques campent sur les Champs-Elysees, patrouillent
+    dans les rues. La legende raconte qu''ils entrent dans les cafes en criant "bystro,
+    bystro", qui signifie "vite" en russe, pressès qu''ils sont d''etre servis avant
+    de reprendre leur service.
+
+
+    L''histoire est seduisante. Elle circule depuis le debut du vingtieme siecle,
+    reprise dans des guides, des documentaires, des conversations de comptoir. Le
+    probleme, c''est que les linguistes serieux la considerent comme tres incertaine.
+    Le mot "bistrot" n''apparait par ecrit en francais qu''en 1884, soit soixante-dix
+    ans apres l''occupation russe. Un tel delai rend la transmission directe peu credible.
+
+
+    D''autres hypotheses existent. Le mot pourrait venir de "bistouille", un melange
+    d''alcool et de cafe consomme dans le nord de la France. Il pourrait aussi deriver
+    de "bistraud", un terme regional designant un domestique ou un petit marchand
+    de vin en Poitou. Aucune de ces pistes n''est definitivement prouvee non plus.
+
+
+    Ce qui est certain, en revanche, c''est que le mot s''installe durablement dans
+    le francais a la fin du dix-neuvieme siecle, pour designer ces petits cafes-restaurants
+    populaires qui fleurissent dans tout Paris, avec leur zinc, leurs tables serrees
+    et leur ardoise du jour.
+
+
+    L''origine cosaque restera sans doute a jamais une belle histoire plutot qu''un
+    fait etabli. Mais elle dit quelque chose de vrai sur Paris : la ville a toujours
+    aime se raconter des legendes sur elle-meme, surtout quand elles impliquent une
+    invasion transformee en anecdote de comptoir.
+
+    '
+  tags:
+  - etymologie
+  - bistrot
+  - '1814'
+  cards:
+  - Une legende attribue le mot bistrot aux soldats russes de 1814, pressès de se
+    faire servir vite a Paris.
+  - Le mot n'apparait pourtant par ecrit qu'en 1884, ce qui rend cette origine tres
+    incertaine pour les linguistes.
+  - D'autres pistes existent, comme le mot regional bistraud, sans qu'aucune ne soit
+    prouvee avec certitude.
+status: ready
+
+en:
+  title: "Did Russian Soldiers Give Paris the Word Bistrot Back in 1814?"
+  subtitle: "A charming word origin story that history can't quite confirm"
+  narration: |
+    One of the most everyday words in Paris may trace back to foreign soldiers occupying the city. In March 1814, after Napoleon's defeat, Russian troops march into Paris. Cossacks camp out on the Champs-Elysees, patrol the streets. Legend has it they burst into cafes shouting "bystro, bystro," Russian for "quick," desperate to get served before heading back to duty.
+
+    It's a great story. It's been circulating since the early twentieth century, repeated in guidebooks, documentaries, and bar-counter chats. The trouble is, serious linguists find it shaky at best. The word "bistrot" doesn't show up in written French until 1884, seventy years after the Russian occupation. That gap makes a direct link hard to believe.
+
+    Other theories exist too. The word might come from "bistouille," a mix of alcohol and coffee drunk in northern France. It could also derive from "bistraud," a regional term from Poitou for a servant or small wine merchant. None of these leads has been proven for certain either.
+
+    What's certain is that the word settles firmly into French by the late nineteenth century, naming those small, unpretentious cafe-restaurants popping up across Paris, with their zinc counters, tightly packed tables, and chalkboard menu of the day.
+
+    The Cossack origin will likely remain a good story rather than an established fact. But it says something true about Paris: the city has always loved telling itself legends, especially ones that turn an invasion into a bar-counter anecdote.
+  tags:
+    - "etymology"
+    - "bistrot"
+    - "1814"
+  cards:
+    - "One legend credits Russian soldiers in 1814 with coining the word bistrot, shouted while demanding fast service in Paris."
+    - "The word doesn't appear in writing until 1884, which makes linguists doubt this origin story."
+    - "Other theories exist, like the regional word bistraud, but none has ever been proven with certainty."

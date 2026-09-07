@@ -59,3 +59,32 @@ fr:
     - "Zola est mort asphyxié en 1902 : sa cheminée était bouchée. En 1953, un couvreur aurait avoué l'avoir obstruée volontairement — par haine du défenseur de Dreyfus."
     - "Quand Zola meurt rue de Bruxelles, il est l'homme le plus haï d'une partie de la France : « J'accuse » n'a que quatre ans."
     - "Au Panthéon, en 1908, pendant le transfert des cendres de Zola, un journaliste nationaliste tire sur Dreyfus et le blesse au bras."
+
+en:
+  title: "The Chimney That May Have Murdered Zola"
+  subtitle: "September 29, 1902: domestic accident — or revenge?"
+  narration: |
+    Émile Zola might be the only French writer whose presumed killer was a chimney.
+
+    On the night of September 28 to 29, 1902, Zola and his wife Alexandrine come home from a holiday to their apartment on rue de Bruxelles, near place Clichy. The air is cold, so they light a fire. By morning, Alexandrine is found unconscious. Zola is dead. Killed by carbon monoxide: the chimney had stopped drawing properly.
+
+    The investigation rules it an accident. The flue was blocked. A stupid way to die, for France's most widely read writer.
+
+    Except at that moment, Zola is also one of the most hated men in the country, at least among a large part of public opinion. Four years earlier, he had published "J'accuse," defending Captain Dreyfus against the army's top brass. He was convicted, spent a year in exile in London, faced daily insults, and lived under constant threats.
+
+    Then comes the strange twist. Half a century later, in 1953, a newspaper publishes a startling confession. A roofing contractor reportedly admitted, before he died, to deliberately blocking Zola's chimney while doing repair work on the neighboring roof — then unblocking it again at dawn. Out of hatred for Dreyfus's defender.
+
+    True? False? The confession comes secondhand, impossible to verify. No physical evidence survives. Historians remain divided: probably an accident, possibly a murder. The case will never be settled.
+
+    What's certain is what happened next. Tens of thousands of Parisians follow the funeral procession. Anatole France calls it "a moment of the human conscience." And in 1908, the Republic moves Zola's remains to the Panthéon — where Dreyfus, attending the ceremony, narrowly escapes an assassination attempt: a nationalist journalist shoots him and wounds him in the arm.
+
+    A blocked chimney, a late confession, a doubt that will never close. In Paris, even accidents carry a political memory.
+  tags:
+    - "Émile Zola"
+    - "Paris"
+    - "Dreyfus affair"
+    - "French history"
+  cards:
+    - "Zola died of asphyxiation in 1902: his chimney was blocked. In 1953, a roofer reportedly confessed to blocking it deliberately, out of hatred for Dreyfus's defender."
+    - "When Zola died on rue de Bruxelles, he was one of the most hated men among part of France: 'J'accuse' was only four years old."
+    - "At the Panthéon in 1908, during the transfer of Zola's remains, a nationalist journalist shot Dreyfus and wounded him in the arm."

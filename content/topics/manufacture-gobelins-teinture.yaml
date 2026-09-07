@@ -1,0 +1,81 @@
+id: manufacture-gobelins-teinture
+category: decouverte
+image_queries:
+- Manufacture des Gobelins facade Paris
+- Gobelins tapestry weaving workshop
+- Bievre river dyeing historic
+- Jean Gobelin dye workshop illustration
+- Louis XIV tapestry Gobelins
+- Gobelins tapestry loom detail
+fr:
+  title: Une famille de teinturiers a donne son nom a un quartier entier de Paris
+  subtitle: Les Gobelins, du rouge ecarlate aux tapisseries royales
+  narration: 'Un quartier parisien porte le nom d''une famille de teinturiers depuis
+    plus de cinq cents ans. Au quinzieme siecle, Jean Gobelin s''installe au bord
+    de la Bievre, cette petite riviere aujourd''hui enterree sous Paris. Il y decouvre
+    une teinture ecarlate d''une qualite exceptionnelle, obtenue grace aux eaux particulieres
+    de la riviere, chargees de certains mineraux.
+
+
+    L''affaire familiale prospere pendant plus d''un siecle. Les Gobelins deviennent
+    celebres dans tout Paris pour leurs etoffes rouges. Le nom de famille finit par
+    designer directement le quartier ou ils travaillent, le long de la Bievre, dans
+    le treizieme arrondissement actuel.
+
+
+    Le tournant survient en 1662. Colbert, ministre de Louis XIV, rachete les ateliers
+    pour le compte du roi. L''objectif est politique autant qu''economique : creer
+    une manufacture royale capable de produire meubles, tapisseries et objets de luxe
+    pour equiper Versailles et les autres residences royales, sans dependre des importations
+    etrangeres. Charles Le Brun, premier peintre du roi, en prend la direction artistique.
+
+
+    La Manufacture des Gobelins devient alors un lieu unique : plusieurs centaines
+    d''artisans, peintres, tisserands, doreurs, travaillent ensemble sous un meme
+    toit pour produire les tapisseries les plus prestigieuses d''Europe. Certaines
+    pieces demandent plusieurs annees de travail a plusieurs tisserands pour une seule
+    tapisserie monumentale.
+
+
+    La manufacture traverse la Revolution, l''Empire, les Republiques successives,
+    en continuant de produire pour l''Etat francais. Elle existe encore aujourd''hui,
+    rue Berbier-du-Mets, toujours geree par le ministere de la Culture, toujours fidele
+    aux techniques de tissage a la main du dix-septieme siecle. Le quartier des Gobelins,
+    lui, a garde le nom d''une famille de teinturiers dont personne, ou presque, ne
+    connait plus l''histoire.
+
+    '
+  tags:
+  - gobelins
+  - artisanat
+  - louis xiv
+  cards:
+  - Au quinzieme siecle, la famille Gobelin decouvre une teinture rouge exceptionnelle
+    grace aux eaux de la Bievre.
+  - En 1662, Colbert rachete les ateliers pour Louis XIV et cree la Manufacture royale
+    des Gobelins.
+  - La manufacture existe encore aujourd'hui, produisant des tapisseries a la main
+    selon des techniques du dix-septieme siecle.
+status: ready
+
+en:
+  title: "A Family of Dyers Gave Its Name to an Entire Paris Neighborhood"
+  subtitle: "The Gobelins, from scarlet red to royal tapestries"
+  narration: |
+    A Paris neighborhood has carried the name of a family of dyers for over five hundred years. In the fifteenth century, Jean Gobelin settles on the banks of the Bievre, a small river now buried beneath Paris. There, he discovers a scarlet dye of exceptional quality, made possible by the river's unusual waters, rich in certain minerals.
+
+    The family business thrives for more than a century. The Gobelins become famous across Paris for their red fabrics. Eventually, the family name comes to designate the neighborhood itself, stretched along the Bievre, in what is now the thirteenth arrondissement.
+
+    The turning point comes in 1662. Colbert, minister to Louis the Fourteenth, buys the workshops on the king's behalf. The goal is as much political as economic: build a royal manufactory able to produce furniture, tapestries, and luxury goods to furnish Versailles and the other royal residences, without relying on foreign imports. Charles Le Brun, the king's first painter, takes over as artistic director.
+
+    The Manufacture des Gobelins becomes something unlike anywhere else: several hundred craftsmen, painters, weavers, and gilders, working together under one roof to produce the most prestigious tapestries in Europe. Some pieces take several weavers multiple years to finish a single monumental tapestry.
+
+    The manufactory survives the Revolution, the Empire, and the successive Republics, all the while continuing to produce work for the French state. It still exists today, on rue Berbier-du-Mets, still run by the Ministry of Culture, still faithful to the seventeenth-century hand-weaving techniques. The Gobelins neighborhood, meanwhile, has kept the name of a family of dyers whose story almost no one remembers anymore.
+  tags:
+    - "gobelins"
+    - "craftsmanship"
+    - "louis xiv"
+  cards:
+    - "In the fifteenth century, the Gobelin family discovered an exceptional red dye thanks to the waters of the Bievre river."
+    - "In 1662, Colbert bought the workshops for Louis the Fourteenth and created the royal Manufacture des Gobelins."
+    - "The manufactory still exists today, producing hand-woven tapestries using seventeenth-century techniques."

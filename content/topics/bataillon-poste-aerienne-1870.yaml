@@ -1,0 +1,81 @@
+id: bataillon-poste-aerienne-1870
+category: histoire
+anchor_date: 09-23
+image_queries:
+- siege of Paris balloon post 1870
+- Gambetta balloon departure 1870
+- Paris balloon mail 1870 illustration
+- Ballon monte letter 1870
+- carrier pigeon microfilm Paris siege
+- Place Saint-Pierre Montmartre balloon
+fr:
+  title: Pendant le siege de 1870, Paris envoie son courrier par montgolfiere
+  subtitle: Soixante-six ballons pour rompre l'encerclement prussien
+  narration: 'Un homme politique quitte Paris assiege en montgolfiere, au-dessus des
+    lignes ennemies. Le 7 octobre 1870, Leon Gambetta s''envole depuis la Place Saint-Pierre
+    a Montmartre pour rejoindre Tours et organiser la resistance ailleurs en France.
+    Paris est encercle par les troupes prussiennes depuis septembre, coupe de tout
+    contact terrestre.
+
+
+    Le probleme est simple : comment communiquer avec le reste du pays quand toutes
+    les routes, tous les telegraphes sont controles par l''ennemi ? La reponse parisienne
+    est aussi elegante que risquee : le ciel. Entre septembre 1870 et janvier 1871,
+    soixante-six ballons a hydrogene decollent de Paris, transportant courrier, journaux,
+    et parfois des passagers comme Gambetta.
+
+
+    Les ballons sont fabriques dans les gares desaffectees, notamment la gare d''Orleans
+    et la gare du Nord, transformees en ateliers de couture geants. Chaque vol est
+    une loterie : sans moteur, les aeronautes sont a la merci du vent. Certains ballons
+    atterrissent en Belgique, en Hollande, en Norvege, un finit meme sa course apres
+    quinze heures de vol au-dessus de la mer.
+
+
+    Pour le retour du courrier vers Paris, aucun ballon ne peut remonter le vent.
+    La solution vient des pigeons voyageurs. Les messages sont photographies en tres
+    petit format sur pellicule, roules dans une plume, attaches a la patte d''un pigeon
+    qui repart vers la capitale assiegee. Un seul pigeon peut ainsi transporter des
+    milliers de messages miniaturises.
+
+
+    Le siege dure cent trente-deux jours. Il se termine par la capitulation de Paris
+    fin janvier 1871. Mais l''episode reste unique dans l''histoire des communications
+    : jamais avant, et jamais depuis dans les memes conditions, une ville n''a maintenu
+    un lien aerien aussi systematique avec l''exterieur pendant un siege.
+
+    '
+  tags:
+  - siege de paris
+  - '1870'
+  - ballon
+  cards:
+  - Le 7 octobre 1870, Leon Gambetta quitte Paris assiege a bord d'une montgolfiere
+    pour organiser la resistance depuis Tours.
+  - Soixante-six ballons decollent de Paris entre septembre 1870 et janvier 1871,
+    fabriques dans des gares transformees en ateliers.
+  - Pour le courrier retour, des pigeons voyageurs transportent des messages photographies
+    en tres petit format.
+status: ready
+
+en:
+  title: "During the 1870 Siege, Paris Sent Its Mail by Hot-Air Balloon"
+  subtitle: "Sixty-six balloons to break through the Prussian blockade"
+  narration: |
+    A politician escapes besieged Paris by balloon, floating right over enemy lines. On October 7, 1870, Leon Gambetta lifts off from the Place Saint-Pierre in Montmartre, bound for Tours to organize French resistance elsewhere in the country. Paris has been surrounded by Prussian troops since September, cut off from all contact by land.
+
+    The problem is straightforward: how do you communicate with the rest of the country when every road and every telegraph line is under enemy control? The Parisian answer is as elegant as it is risky: the sky. Between September 1870 and January 1871, sixty-six hydrogen balloons lift off from Paris, carrying mail, newspapers, and sometimes passengers like Gambetta.
+
+    The balloons are built inside disused train stations, including the Gare d'Orleans and the Gare du Nord, turned into giant sewing workshops. Every flight is a gamble. Without engines, the balloonists are entirely at the mercy of the wind. Some balloons land in Belgium, others in Holland, others in Norway. One even ends its journey after fifteen hours flying over open sea.
+
+    Getting mail back into Paris is a different problem. No balloon can fly against the wind. The solution comes from homing pigeons. Messages are photographed at an extremely tiny scale onto film, rolled up inside a feather, and strapped to a pigeon's leg before it flies back toward the besieged capital. A single pigeon can carry thousands of miniaturized messages this way.
+
+    The siege lasts one hundred and thirty-two days. It ends with the surrender of Paris in late January 1871. But the episode stays unique in the history of communications. Never before, and never since under the same conditions, has a city kept up such a systematic aerial link with the outside world during a siege.
+  tags:
+    - "siege of paris"
+    - "1870"
+    - "balloon"
+  cards:
+    - "On October 7, 1870, Leon Gambetta left besieged Paris aboard a hot-air balloon to organize resistance from Tours."
+    - "Sixty-six balloons launched from Paris between September 1870 and January 1871, built inside train stations turned into workshops."
+    - "For return mail, homing pigeons carried messages photographed at an extremely tiny scale."
